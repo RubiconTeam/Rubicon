@@ -23,7 +23,7 @@ public partial class SettingsMenu : BaseMenu
 		_sidebar.MouseEntered += () => _sidebarAnimationPlayer.Play("Enter");
 		_sidebar.MouseExited += () => _sidebarAnimationPlayer.Play("Leave");
 
-		foreach (var prop in typeof(SettingsStorage).GetProperties())
+		foreach (var prop in typeof(UserSettingsData).GetProperties())
 		{
 			var attribute = prop.PropertyType.GetCustomAttribute<RubiconSettingsSectionAttribute>();
 			if (attribute != null && attribute.GenerateInMenu) CreateSectionButton(attribute.Name, attribute.Icon);

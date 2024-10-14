@@ -107,9 +107,7 @@ public static class SourceGeneratorUtil
     /// </summary>
     /// <param name="symbol">The symbol</param>
     /// <returns>Whether the type is matching or not</returns>
-    public static bool IsStaticAutoloadAttribute(this INamedTypeSymbol symbol)
-        => symbol.FullQualifiedNameOmitGlobal() == GenerationConstants.StaticAutoloadAttr;
+    public static bool IsStaticAutoloadAttribute(this INamedTypeSymbol symbol) => symbol.FullQualifiedNameOmitGlobal() == GenerationConstants.StaticAutoloadAttr;
 
-    public static bool IsGodotSignalAttribute(this INamedTypeSymbol symbol)
-        => symbol.FullQualifiedNameOmitGlobal() == GenerationConstants.SignalAttr;
+    public static bool IsGodotSignalAttribute(this INamedTypeSymbol symbol) => symbol.FullQualifiedNameOmitGlobal() == GenerationConstants.SignalAttr;
 }

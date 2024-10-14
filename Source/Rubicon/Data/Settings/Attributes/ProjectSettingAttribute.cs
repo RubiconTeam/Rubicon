@@ -1,6 +1,6 @@
 namespace Rubicon.Data.Settings.Attributes;
 
-[AttributeUsage(AttributeTargets.Property, Inherited = false, AllowMultiple = false)]
+[AttributeUsage(AttributeTargets.Property | AttributeTargets.Field, Inherited = false, AllowMultiple = false)]
 public class ProjectSettingAttribute : Attribute
 {
 	public string SettingName { get; set; }

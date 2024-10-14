@@ -311,9 +311,7 @@ public class UserSettingsGenerator : ISourceGenerator
         foreach (IFieldSymbol field in fields)
         {
             string typeFullName = field.Type.ToDisplayString();
-            if (field.Type.TypeKind is TypeKind.Class
-                && !typeFullName.Contains("Godot.Collections.Array")
-                && !typeFullName.Contains("Godot.Collections.Dictionary"))
+            if (field.Type.TypeKind is TypeKind.Class && !typeFullName.Contains("Godot.Collections.Array") && !typeFullName.Contains("Godot.Collections.Dictionary"))
             {
                 var fieldResults =
                     RecursiveSearchForValidOptions(field.Type.GetMembers().ToArray());

@@ -6,12 +6,10 @@ namespace Rubicon.Data.Settings;
 
 public partial class UserSettingsData
 {
-    public VideoSection Video = new();
-
     public GameplaySection Gameplay = new();
-
+    public VideoSection Video = new();
     public AudioSection Audio = new();
-
+    public MiscSection Misc = new();
     public InputMapSection Bindings = new();
 
     /// <summary>
@@ -41,44 +39,50 @@ public partial class UserSettingsData
     public partial void SetSetting(string key, Variant val);
 }
 
-public class VideoSection
-{
-    public Window.ModeEnum Fullscreen = (Window.ModeEnum)ProjectSettings.GetSetting("display/window/size/mode").AsInt64();
-    
-    public Vector2I Resolution = new(ProjectSettings.GetSetting("display/window/size/window_width_override").AsInt32(), ProjectSettings.GetSetting("display/window/size/window_height_override").AsInt32());
-    
-    public DisplayServer.VSyncMode VSync = (DisplayServer.VSyncMode)ProjectSettings.GetSetting("display/window/vsync/vsync_mode").AsInt64();
-    
-    public int MaxFps = ProjectSettings.GetSetting("application/run/max_fps").AsInt32();
 
-    public Settings3DSection Settings3D = new();
-    
-    public class Settings3DSection
-    {
-        public Viewport.Scaling3DModeEnum Scaling3DMode = (Viewport.Scaling3DModeEnum)ProjectSettings.GetSetting("rendering/scaling_3d/scale").AsInt64();
-        
-        public float RenderScale = ProjectSettings.GetSetting("rendering/scaling_3d/scale").AsSingle();
-        
-        public float FsrSharpness = ProjectSettings.GetSetting("rendering/scaling_3d/fsr_sharpness").AsSingle();
-    }
-}
-
+[RubiconSettingsSection("Gameplay", true, "res://Assets/UI/Menus/Settings/Gameplay.png")]
 public class GameplaySection
 {
     public double Offset = 0.0d;
     public double VisualOffset = 0.0d;
-    
     public bool DownScroll = false;
     public bool CenterBarLine = false;
     public bool GhostTapping = false;
     public bool FlashingLights = true;
     public bool Autoplay = false;
-
     public float NoteAmplitude = 0f; // 0 means set to the default chart note amplitude (scroll speed)
 
-    // I'll do modifiers later LOL
+    [RubiconSettingsGroup("Gameplay Modifiers")]
+    public class GameplayModifiers
+    {
+        [StepValue(0.01f, 1f, 1f)] public double PlaybackRate = 1d;
+        [StepValue(0.1f, 1f, 1f)] public double HealthGain = 1d;
+        [StepValue(0.1f, 1f, 1f)] public double HealthLoss = 1d;
+        [StepValue(0.1f, 1f, 1f)] public double HealthDrain = 0.5d;
+        public bool OpponentDrainsHealth { get; set; } = false;
+    }
 }
 
+[RubiconSettingsSection("Video", true, "res://Assets/UI/Menus/Settings/Video.png")]
+public class VideoSection
+{
+    [ProjectSetting("display/window/size/mode")] public Window.ModeEnum Fullscreen;
+    [ProjectSetting("display/window/size/window_width_override")] public Vector2I Resolution;
+    [ProjectSetting("display/window/vsync/vsync_mode")] public DisplayServer.VSyncMode VSync;
+    [ProjectSetting("application/run/max_fps")] public int MaxFps;
+    
+    public Settings3DSection Settings3D = new();
+    
+    [RubiconSettingsGroup("3D Settings")]
+    public class Settings3DSection
+    {
+        [ProjectSetting("rendering/scaling_3d/scale")] public Viewport.Scaling3DModeEnum Scaling3DMode;
+        [ProjectSetting("rendering/scaling_3d/scale")] public float RenderScale;
+        [ProjectSetting("rendering/scaling_3d/fsr_sharpness")] public float FsrSharpness;
+    }
+}
+
+[RubiconSettingsSection("Audio", true, "res://Assets/UI/Menus/Settings/Audio.png")]
 public class AudioSection
 {
     public float MasterVolume = 1.0f;
@@ -87,6 +91,19 @@ public class AudioSection
     public float SfxVolume = 1.0f;
 }
 
+[RubiconSettingsSection("Misc", true, "res://Assets/UI/Menus/Settings/Misc.png")]
+public class MiscSection
+{
+    public DebugMiscSettings Debug = new();
+	
+    [RubiconSettingsGroup("Debug Settings")]
+    public class DebugMiscSettings
+    {
+        public bool PrintSettingsOnConsole;
+    }
+}
+
+[RubiconSettingsSection("Keybinds", true, "res://Assets/UI/Menus/Settings/Keybinds.png")]
 public class InputMapSection
 {
     public Dictionary<string, Array<InputEvent>> Map = RubiconEngine.DefaultInputMap.Duplicate();

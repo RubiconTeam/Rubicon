@@ -1,4 +1,4 @@
-using Godot.Collections;
+/*using Godot.Collections;
 using Rubicon.Data.Settings;
 using Rubicon.Data.Settings.Attributes;
 using Array = Godot.Collections.Array;
@@ -165,4 +165,4 @@ public partial class SettingsManager : Node
 	}
 	
 	private void EmitSettingsLoaded() => EmitSignal(SignalName.SettingsLoaded, SettingsFilePath);
-}
+}*/
