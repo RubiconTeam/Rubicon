@@ -1,4 +1,4 @@
-<Project Sdk="Godot.NET.Sdk/4.4.0-dev.3">
+<Project Sdk="Godot.NET.Sdk/4.3.0">
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
     <EnableDynamicLoading>true</EnableDynamicLoading>
@@ -30,7 +30,9 @@
     <PackageReference Include="GodotSharpExtras" Version="0.5.0" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="Source\Rubicon.SourceGenerators\Rubicon.SourceGenerators.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
+    <ProjectReference Include="Source\Rubicon.SourceGenerators\Rubicon.SourceGenerators.csproj"
+                      OutputItemType="Analyzer"
+                      ReferenceOutputAssembly="false" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\Characters\bf.tscn" />
