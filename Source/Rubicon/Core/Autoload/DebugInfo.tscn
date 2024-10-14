@@ -29,9 +29,21 @@ corner_radius_bottom_left = 1
 expand_margin_left = 5.0
 expand_margin_right = 5.0
 
-[node name="DebugInfo2" type="CanvasLayer"]
+[node name="DebugInfo" type="CanvasLayer" node_paths=PackedStringArray("FPS", "RAM", "VRAM", "AllObjects", "NodeObjects", "ResourceObjects", "GameVersion", "RubiconVersion", "GodotVersion", "CurrentScene", "ConductorInfo", "DebugInformation")]
 layer = 128
 script = ExtResource("1_nl6fn")
+FPS = NodePath("InfoContainer/MainInformation/FPS")
+RAM = NodePath("InfoContainer/MainInformation/RAM")
+VRAM = NodePath("InfoContainer/MainInformation/VRAM")
+AllObjects = NodePath("InfoContainer/DebugInformation/Objects/AllObjects")
+NodeObjects = NodePath("InfoContainer/DebugInformation/Objects/NodeObjects")
+ResourceObjects = NodePath("InfoContainer/DebugInformation/Objects/ResourceObjects")
+GameVersion = NodePath("InfoContainer/DebugInformation/Versions/Game")
+RubiconVersion = NodePath("InfoContainer/DebugInformation/Versions/Rubicon")
+GodotVersion = NodePath("InfoContainer/DebugInformation/Versions/Godot")
+CurrentScene = NodePath("InfoContainer/DebugInformation/Scene")
+ConductorInfo = NodePath("InfoContainer/DebugInformation/Conductor")
+DebugInformation = NodePath("InfoContainer/DebugInformation")
 
 [node name="InfoContainer" type="VBoxContainer" parent="."]
 anchors_preset = -1

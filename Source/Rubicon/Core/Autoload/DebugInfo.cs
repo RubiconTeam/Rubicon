@@ -9,27 +9,27 @@ public partial class DebugInfo : CanvasLayer
 {
 	/*Main Info (Always Visible)*/
 	//Performance
-	[NodePath("InfoContainer/MainInformation/FPS")] private Label FPS;
-	[NodePath("InfoContainer/MainInformation/RAM")] private Label RAM;
-	[NodePath("InfoContainer/MainInformation/VRAM")] private Label VRAM;
+	[Export] private Label FPS;
+	[Export] private Label RAM;
+	[Export] private Label VRAM;
 	
 	/*Debug Info (Keybind Based)*/
 	//Scene Tree
-	[NodePath("InfoContainer/DebugInformation/Objects/AllObjects")] private Label AllObjects;
-	[NodePath("InfoContainer/DebugInformation/Objects/NodeObjects")] private Label NodeObjects;
-	[NodePath("InfoContainer/DebugInformation/Objects/ResourceObjects")] private Label ResourceObjects;
+	[Export] private Label AllObjects;
+	[Export] private Label NodeObjects;
+	[Export] private Label ResourceObjects;
 	
 	//Versions
-	[NodePath("InfoContainer/DebugInformation/Versions/Game")] private Label GameVersion;
-	[NodePath("InfoContainer/DebugInformation/Versions/Rubicon")] private Label RubiconVersion;
-	[NodePath("InfoContainer/DebugInformation/Versions/Godot")] private Label GodotVersion;
+	[Export] private Label GameVersion;
+	[Export] private Label RubiconVersion;
+	[Export] private Label GodotVersion;
 	
 	//Misc
-	[NodePath("InfoContainer/DebugInformation/Scene")] private Label CurrentScene;
-	[NodePath("InfoContainer/DebugInformation/Conductor")] private Label ConductorInfo;
+	[Export] private Label CurrentScene;
+	[Export] private Label ConductorInfo;
 
 	/*Visibility Shit*/
-	[NodePath("InfoContainer/DebugInformation")] private VBoxContainer DebugInformation; 
+	[Export] private VBoxContainer DebugInformation; 
 	
 	private float RAMUpdateTime;
 	private float ObjectUpdateTime;
