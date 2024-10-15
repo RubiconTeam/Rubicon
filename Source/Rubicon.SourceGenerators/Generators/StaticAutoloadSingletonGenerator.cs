@@ -1,11 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.Immutable;
-using System.IO;
 using System.Linq;
 using System.Text;
 using Microsoft.CodeAnalysis;
-using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using IFieldSymbol = Microsoft.CodeAnalysis.IFieldSymbol;
 using IPropertySymbol = Microsoft.CodeAnalysis.IPropertySymbol;
@@ -43,8 +41,8 @@ public class StaticAutoloadSingletonGenerator : ISourceGenerator
         if (attribute == null)
             return;
 
-        string nameSpace = attribute.ConstructorArguments[0].Value?.ToString();
-        string className = attribute.ConstructorArguments[1].Value?.ToString();
+        string nameSpace = attribute.ConstructorArguments[0].Value?.ToString()!;
+        string className = attribute.ConstructorArguments[1].Value?.ToString()!;
 
         List<string> allUsings = [ symbol.ContainingNamespace.FullQualifiedNameOmitGlobal(), "Godot" ];
         StringBuilder finalClass = new();
@@ -156,7 +154,7 @@ public class StaticAutoloadSingletonGenerator : ISourceGenerator
 
         foreach (INamedTypeSymbol signal in signals)
         {
-            string signalName = signal.Name.Remove(signal.Name.IndexOf("EventHandler"));
+            string signalName = signal.Name.Remove(signal.Name.IndexOf("EventHandler", StringComparison.Ordinal));
             finalClass.Append($"\t/// <inheritdoc cref=\"{symbol.Name}.{signalName}\"/>\n" +
                               $"\tpublic static event {signal.ToDisplayString()} {signalName}\n" +
                               "\t{\n" +
@@ -231,6 +229,6 @@ public class StaticAutoloadSingletonGenerator : ISourceGenerator
 
         //throw new Exception((usingsText.ToString() + finalClass.ToString()).Replace("\n", "").Replace("\t", ""));
 
-        context.AddSource($"{className}.g.cs", usingsText.ToString() + finalClass.ToString());
+        context.AddSource($"{className}.g.cs", usingsText + finalClass.ToString());
     }
 }

@@ -1,5 +1,3 @@
-using Rubicon.Core;
-
 namespace Rubicon.Rulesets.Mania;
 
 /*

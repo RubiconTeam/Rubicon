@@ -1,5 +1,3 @@
-using Godot;
-using System;
 using System.Reflection;
 using Rubicon.Menus;
 using Rubicon.Data.Settings;

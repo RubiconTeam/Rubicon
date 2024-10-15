@@ -1,6 +1,5 @@
 using Godot.Collections;
 using Rubicon.Data.Settings.Attributes;
-using Array = Godot.Collections.Array;
 
 namespace Rubicon.Data.Settings;
 

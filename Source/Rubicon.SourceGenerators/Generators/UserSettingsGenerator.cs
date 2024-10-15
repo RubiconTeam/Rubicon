@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Collections.Immutable;
 using System.Linq;
 using System.Text;
 using Microsoft.CodeAnalysis;
@@ -53,8 +52,7 @@ public class UserSettingsGenerator : ISourceGenerator
         }
         
         // Make GetSetting
-        dataClass.Append("\t\treturn file;\n" +
-                         "\t}\n" +
+        dataClass.Append("\t}\n" +
                          "\n" +
                          "\tpublic partial Variant GetSetting(string key)\n" +
                          "\t{\n" +
@@ -113,8 +111,8 @@ public class UserSettingsGenerator : ISourceGenerator
         if (staticAutoload is null)
             throw new Exception("Could not find static autoload attribute (GenerationConstants.StaticAutoloadAttr) in class \"GenerationConstants.UserSettingsInstance\")");
         
-        string staticNameSpace = staticAutoload.ConstructorArguments[0].Value?.ToString();
-        string staticClassName = staticAutoload.ConstructorArguments[1].Value?.ToString();
+        string staticNameSpace = staticAutoload.ConstructorArguments[0].Value?.ToString()!;
+        string staticClassName = staticAutoload.ConstructorArguments[1].Value?.ToString()!;
 
         IPropertySymbol[] dataProperties = settingsData.GetMembers()
             .Where(x => x.Kind is SymbolKind.Property && x is { IsStatic: false, DeclaredAccessibility: Accessibility.Public })
@@ -242,13 +240,13 @@ public class UserSettingsGenerator : ISourceGenerator
             usingsText.Append($"using {usingDirective};\n");
         usingsText.Append("\n");
 
-        context.AddSource($"{settingsInstance.Name}.g.cs", usingsText.ToString() + instanceClass.ToString());
+        context.AddSource($"{settingsInstance.Name}.g.cs", usingsText + instanceClass.ToString());
 
         usingsText.Remove(usingsText.Length - 1, 1);
         usingsText.Append($"using {instanceNameSpace};");
         usingsText.Append("\n");
         
-        context.AddSource($"{staticClassName}Ex.g.cs", usingsText.ToString() + staticClass.ToString());
+        context.AddSource($"{staticClassName}Ex.g.cs", usingsText + staticClass.ToString());
 
         #endregion
     }

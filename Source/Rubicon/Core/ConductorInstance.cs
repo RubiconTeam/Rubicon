@@ -1,4 +1,3 @@
-using Godot;
 using Rubicon.Core.Chart;
 using Rubicon.Data.Generation;
 

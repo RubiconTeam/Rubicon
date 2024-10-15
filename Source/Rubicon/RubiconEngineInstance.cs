@@ -19,7 +19,6 @@ global using Godot.Sharp.Extras;
 global using System;
 using Godot.Collections;
 using Rubicon.Data.Generation;
-using Array = Godot.Collections.Array;
 
 namespace Rubicon;
 

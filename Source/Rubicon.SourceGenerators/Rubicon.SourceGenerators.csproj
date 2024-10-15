@@ -11,4 +11,14 @@
       <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="4.9.0-3.final" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Content Include="bin\Debug\netstandard2.0\Rubicon.SourceGenerators.deps.json" />
+      <Content Include="bin\Debug\netstandard2.0\Rubicon.SourceGenerators.dll" />
+      <Content Include="bin\Debug\netstandard2.0\Rubicon.SourceGenerators.pdb" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Generators\" />
+    </ItemGroup>
+
 </Project>
