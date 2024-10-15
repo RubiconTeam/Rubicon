@@ -1,8 +1,51 @@
-[gd_scene load_steps=2 format=3 uid="uid://djunjp53banbr"]
+[gd_scene load_steps=8 format=3 uid="uid://djunjp53banbr"]
 
 [ext_resource type="Script" path="res://Source/Rubicon/Menus/Title/TitleMenu.cs" id="1_kvdrp"]
+[ext_resource type="Texture2D" uid="uid://c8orlamkpjw3m" path="res://Source/Rubicon/Menus/Title/Assets/Particle.png" id="3_jfuxy"]
+[ext_resource type="Texture2D" uid="uid://dqeyh2blc4vhc" path="res://Source/Rubicon/Menus/Title/Assets/Rubicon.png" id="3_v08up"]
 
-[node name="Debug Menu" type="Control"]
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_cs7ts"]
+load_path = "res://.godot/imported/Vignette.png-715c0eca9a2b697d913739fc71a83360.ctex"
+
+[sub_resource type="Animation" id="Animation_o0mwm"]
+resource_name = "Flicker"
+length = 5.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Vignette:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.16667, 3.13333, 5.23333),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.517647), Color(1, 1, 1, 0.2), Color(1, 1, 1, 0.2), Color(1, 1, 1, 0.517647)]
+}
+
+[sub_resource type="Animation" id="Animation_uekto"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Vignette:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_sajsn"]
+_data = {
+&"Flicker": SubResource("Animation_o0mwm"),
+&"RESET": SubResource("Animation_uekto")
+}
+
+[node name="oh god why" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -10,3 +53,71 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_kvdrp")
+
+[node name="BG" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0941176, 0.133333, 0.101961, 1)
+
+[node name="Vignette" type="TextureRect" parent="BG"]
+self_modulate = Color(0.0156863, 0.0627451, 0.0509804, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("CompressedTexture2D_cs7ts")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="BG"]
+libraries = {
+&"": SubResource("AnimationLibrary_sajsn")
+}
+autoplay = "Flicker"
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="BG"]
+modulate = Color(1, 1, 1, 0.027451)
+position = Vector2(960, 1134)
+amount = 100
+lifetime = 7.7
+speed_scale = 0.2
+texture = ExtResource("3_jfuxy")
+emission_shape = 3
+emission_rect_extents = Vector2(1000, 1)
+direction = Vector2(1, 10)
+spread = 163.78
+gravity = Vector2(0, 0)
+initial_velocity_min = 387.39
+initial_velocity_max = 387.39
+scale_amount_min = 0.07
+scale_amount_max = 0.12
+anim_speed_min = 128.0
+anim_speed_max = 128.0
+
+[node name="Title" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -292.0
+offset_top = -63.0
+offset_right = 293.0
+offset_bottom = 79.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="Title"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_v08up")
+expand_mode = 1

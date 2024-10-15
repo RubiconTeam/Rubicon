@@ -12,10 +12,9 @@ config_version=5
 
 config/name="Rubicon"
 config/version="1"
-run/main_scene="res://TestScene.tscn"
+run/main_scene="res://Source/Rubicon/Menus/Title/TitleMenu.tscn"
 config/use_custom_user_dir=true
 config/features=PackedStringArray("4.4", "C#", "Forward Plus")
-run/max_fps=165
 run/delta_smoothing=false
 config/icon="res://Assets/UI/Misc/fnf.png"
 

@@ -26,7 +26,7 @@ public partial class UserSettingsInstance : Node
         
         // Video
         mainWindow.Mode = Video.Fullscreen;
-        mainWindow.Size = Video.Resolution;
+        //mainWindow.Size = Video.Resolution;
         DisplayServer.WindowSetVsyncMode(Video.VSync);
         Engine.MaxFps = Video.MaxFps;
         mainWindow.Scaling3DMode = Video.Settings3D.Scaling3DMode;
