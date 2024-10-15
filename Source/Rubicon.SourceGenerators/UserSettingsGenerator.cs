@@ -52,27 +52,6 @@ public class UserSettingsGenerator : ISourceGenerator
                 dataClass.Append($"\t\t{result.pathTo} = ({result.type.ToDisplayString()})config.GetValue(\"{section}\", \"{key}\");\n");
         }
         
-        // Make CreateConfigFileInstance()
-        dataClass.Append("\t}\n" +
-                         "\n" +
-                         "\tpublic partial ConfigFile CreateConfigFileInstance()\n" +
-                         "\t{\n" +
-                         "\t\tConfigFile file = new ConfigFile();\n\n");
-        
-        foreach (var result in results)
-        {
-            if (!result.pathTo.Contains('.'))
-                continue;
-            
-            string section = result.pathTo.Substring(0, result.pathTo.IndexOf('.'));
-            string key = result.pathTo.Substring(result.pathTo.IndexOf('.') + 1).Replace('.', '/');
-            
-            if (result.type.TypeKind == TypeKind.Enum)
-                dataClass.Append($"\t\tfile.SetValue(\"{section}\", \"{key}\", (long){result.pathTo});\n");
-            else
-                dataClass.Append($"\t\tfile.SetValue(\"{section}\", \"{key}\", {result.pathTo});\n");
-        }
-        
         // Make GetSetting
         dataClass.Append("\t\treturn file;\n" +
                          "\t}\n" +

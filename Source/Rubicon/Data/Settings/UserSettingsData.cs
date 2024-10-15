@@ -22,7 +22,10 @@ public partial class UserSettingsData
     /// Creates a new instance of <see cref="ConfigFile"/>, populated with the current settings.
     /// </summary>
     /// <returns></returns>
-    public partial ConfigFile CreateConfigFileInstance();
+    public ConfigFile CreateConfigFileInstance()
+    {
+        return null;
+    }
     
     /// <summary>
     /// Gets a setting by key. More useful in GDScript than it is in C#.
