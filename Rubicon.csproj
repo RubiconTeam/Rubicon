@@ -10,6 +10,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Remove="scenes\**" />
+    <Compile Include="Source\Rubicon\Data\Settings\UserSettingsData.cs" />
     <EmbeddedResource Remove="scenes\**" />
     <Compile Remove="Source\Rubicon.Data\Attributes\**" />
     <EmbeddedResource Remove="Source\Rubicon.Data\Attributes\**" />
@@ -21,6 +22,8 @@
     <EmbeddedResource Remove="Source\Rubicon.SourceGenerators\**" />
     <Compile Remove="Source\Rubicon\Menus\Main\**" />
     <EmbeddedResource Remove="Source\Rubicon\Menus\Main\**" />
+    <Compile Remove="Source\Rubicon\Data\Settings\**" />
+    <EmbeddedResource Remove="Source\Rubicon\Data\Settings\**" />
   </ItemGroup>
   <ItemGroup>
     <!-- Root the assemblies to avoid trimming. -->
@@ -44,5 +47,7 @@
     <Content Include="Songs\Test\Inst.ogg.import" />
     <Content Include="Songs\Test\Vocals.ogg" />
     <Content Include="Songs\Test\Vocals.ogg.import" />
+    <Content Include="Source\Rubicon\API\a pi.txt" />
+    <Content Include="Source\Rubicon\Core\Autoload\DebugInfo.tscn" />
   </ItemGroup>
 </Project>
