@@ -12,6 +12,10 @@ using Charter.Scripts;
     {
         ChartEditorInstance.GetNode<Window>("WelcomeWindow").Visible = false;
         ChartEditorInstance.preferenceManager = preferenceManager;
+        foreach (Window window in ChartEditorInstance.GetChildren<Window>())
+        {
+            window.Visible = false;
+        }
         EditorInterface.Singleton.GetEditorMainScreen().AddChild(ChartEditorInstance);
 
         //preferenceManager.Load();
@@ -29,7 +33,7 @@ using Charter.Scripts;
 
     public void _MainScreenChanged(string screenName)
     {
-        if (screenName == "Chart Editor" && preferenceManager.Preferences.ShowWelcomeWindow && !ShownWelcomeWindow)
+        if (screenName == _GetPluginName() && preferenceManager.Preferences.ShowWelcomeWindow && !ShownWelcomeWindow)
         {
             ChartEditorInstance.GetNode<Window>("WelcomeWindow").PopupCentered();
             ShownWelcomeWindow = true;
