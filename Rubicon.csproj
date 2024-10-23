@@ -9,21 +9,8 @@
     <Description>A Friday Night Funkin' engine based primarily on C# and Godot Engine!</Description>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Remove="scenes\**" />
-    <Compile Include="Source\Rubicon\Data\Settings\UserSettingsData.cs" />
-    <EmbeddedResource Remove="scenes\**" />
-    <Compile Remove="Source\Rubicon.Data\Attributes\**" />
-    <EmbeddedResource Remove="Source\Rubicon.Data\Attributes\**" />
-    <Compile Remove="Source\Rubicon.Data\Settings\Validators\**" />
-    <EmbeddedResource Remove="Source\Rubicon.Data\Settings\Validators\**" />
-    <Compile Remove="Source\Rubicon.Data\Settings\Analyzers\**" />
-    <EmbeddedResource Remove="Source\Rubicon.Data\Settings\Analyzers\**" />
     <Compile Remove="Source\Rubicon.SourceGenerators\**" />
     <EmbeddedResource Remove="Source\Rubicon.SourceGenerators\**" />
-    <Compile Remove="Source\Rubicon\Menus\Main\**" />
-    <EmbeddedResource Remove="Source\Rubicon\Menus\Main\**" />
-    <Compile Remove="Source\Rubicon\Data\Settings\**" />
-    <EmbeddedResource Remove="Source\Rubicon\Data\Settings\**" />
   </ItemGroup>
   <ItemGroup>
     <!-- Root the assemblies to avoid trimming. -->

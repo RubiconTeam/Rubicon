@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cdtaelq0wxprt"
-path="res://.godot/imported/Keybinds.png-ea526d0344bb3373e751e387b0389089.ctex"
+path="res://.godot/imported/keybinds.png-67a24ac3a0953b19ca0ecd70c6e09525.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/UI/Menus/Settings/Keybinds.png"
-dest_files=["res://.godot/imported/Keybinds.png-ea526d0344bb3373e751e387b0389089.ctex"]
+source_file="res://Assets/UI/Menus/Settings/keybinds.png"
+dest_files=["res://.godot/imported/keybinds.png-67a24ac3a0953b19ca0ecd70c6e09525.ctex"]
 
 [params]
 

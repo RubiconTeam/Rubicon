@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Collections.Immutable;
 using System.Linq;
 using System.Text;
 using Microsoft.CodeAnalysis;
@@ -11,7 +12,7 @@ public class UserSettingsGenerator : ISourceGenerator
 {
     public void Initialize(GeneratorInitializationContext context)
     {
-        
+
     }
 
     public void Execute(GeneratorExecutionContext context)
@@ -23,7 +24,7 @@ public class UserSettingsGenerator : ISourceGenerator
 
         var results = RecursiveSearchForValidOptions(settingsData.GetMembers().ToArray());
         string settingsNameSpace = settingsData.GetNamespaceName();
-        
+
         StringBuilder dataClass = new StringBuilder();
         dataClass.Append("using Godot;\n" +
                          "using Godot.Collections;\n" +
@@ -32,42 +33,64 @@ public class UserSettingsGenerator : ISourceGenerator
                          "\n" +
                          $"public partial class {settingsData.Name}\n" +
                          "{\n");
-        
+
         // Make load method
         dataClass.Append("\tpublic partial void Load(ConfigFile config)\n" +
                          "\t{\n");
-        
+
         foreach (var result in results)
         {
             if (!result.pathTo.Contains('.'))
                 continue;
-            
+
             string section = result.pathTo.Substring(0, result.pathTo.IndexOf('.'));
             string key = result.pathTo.Substring(result.pathTo.IndexOf('.') + 1).Replace('.', '/');
-            
+
             if (result.type.TypeKind == TypeKind.Enum)
-                dataClass.Append($"\t\t{result.pathTo} = ({result.type.ToDisplayString()})config.GetValue(\"{section}\", \"{key}\").AsInt64();\n");
+                dataClass.Append($"\t\t{result.pathTo} = ({result.type.ToDisplayString()})config.GetValue(\"{section}\", \"{key}\", (long){result.pathTo}).AsInt64();\n");
             else
-                dataClass.Append($"\t\t{result.pathTo} = ({result.type.ToDisplayString()})config.GetValue(\"{section}\", \"{key}\");\n");
+                dataClass.Append($"\t\t{result.pathTo} = ({result.type.ToDisplayString()})config.GetValue(\"{section}\", \"{key}\", {result.pathTo});\n");
         }
-        
-        // Make GetSetting
+
+        // Make CreateConfigFileInstance()
         dataClass.Append("\t}\n" +
+                         "\n" +
+                         "\tpublic partial ConfigFile CreateConfigFileInstance()\n" +
+                         "\t{\n" +
+                         "\t\tConfigFile file = new ConfigFile();\n\n");
+
+        foreach (var result in results)
+        {
+            if (!result.pathTo.Contains('.'))
+                continue;
+
+            string section = result.pathTo.Substring(0, result.pathTo.IndexOf('.'));
+            string key = result.pathTo.Substring(result.pathTo.IndexOf('.') + 1).Replace('.', '/');
+
+            if (result.type.TypeKind == TypeKind.Enum)
+                dataClass.Append($"\t\tfile.SetValue(\"{section}\", \"{key}\", (long){result.pathTo});\n");
+            else
+                dataClass.Append($"\t\tfile.SetValue(\"{section}\", \"{key}\", {result.pathTo});\n");
+        }
+
+        // Make GetSetting
+        dataClass.Append("\t\treturn file;\n" +
+                         "\t}\n" +
                          "\n" +
                          "\tpublic partial Variant GetSetting(string key)\n" +
                          "\t{\n" +
                          "\t\tswitch (key)\n" +
                          "\t\t{\n");
-        
+
         foreach (var result in results)
         {
             if (!result.pathTo.Contains('.'))
                 continue;
-            
+
             dataClass.Append($"\t\t\tcase \"{result.pathTo.Replace('.', '/')}\":\n");
             if (result.type.TypeKind == TypeKind.Enum)
                 dataClass.Append($"\t\t\t\treturn Variant.CreateFrom((long){result.pathTo});\n");
-            else 
+            else
                 dataClass.Append($"\t\t\t\treturn Variant.CreateFrom({result.pathTo});\n");
         }
 
@@ -85,32 +108,32 @@ public class UserSettingsGenerator : ISourceGenerator
         {
             if (!result.pathTo.Contains('.'))
                 continue;
-            
+
             dataClass.Append($"\t\t\tcase \"{result.pathTo.Replace('.', '/')}\":\n");
             if (result.type.TypeKind == TypeKind.Enum)
                 dataClass.Append($"\t\t\t\t{result.pathTo} = ({result.type.ToDisplayString()})val.AsInt64();");
             else
                 dataClass.Append($"\t\t\t\t{result.pathTo} = ({result.type.ToDisplayString()})val;");
-            
+
             dataClass.Append("\n\t\t\t\tbreak;\n");
         }
 
         dataClass.Append("\t\t}\n" +
                          "\t}\n" +
                          "}");
-        
+
         context.AddSource($"{settingsData.Name}.g.cs", dataClass.ToString());
         #endregion
-        
+
         #region User Settings Instance
         INamedTypeSymbol? settingsInstance = context.Compilation.GetTypeByMetadataName(GenerationConstants.UserSettingsInstance);
         if (settingsInstance is null)
             throw new Exception("Could not find UserSettingsInstance found in \"GenerationConstants.UserSettingsInstance\".");
-        
+
         AttributeData? staticAutoload = settingsInstance.GetAttributes().FirstOrDefault(x => x.AttributeClass?.IsStaticAutoloadAttribute() ?? false);
         if (staticAutoload is null)
             throw new Exception("Could not find static autoload attribute (GenerationConstants.StaticAutoloadAttr) in class \"GenerationConstants.UserSettingsInstance\")");
-        
+
         string staticNameSpace = staticAutoload.ConstructorArguments[0].Value?.ToString()!;
         string staticClassName = staticAutoload.ConstructorArguments[1].Value?.ToString()!;
 
@@ -134,14 +157,14 @@ public class UserSettingsGenerator : ISourceGenerator
                              "\n" +
                              $"public partial class {settingsInstance.Name}" +
                              "{\n");
-        
+
         StringBuilder staticClass = new StringBuilder();
         if (!string.IsNullOrEmpty(staticNameSpace))
             staticClass.Append($"namespace {staticNameSpace};\n\n");
 
         staticClass.Append($"public static partial class {staticClassName}\n" +
                            "{\n");
-            
+
         foreach (IPropertySymbol property in dataProperties)
         {
             string propertyNameSpace = property.Type.GetNamespaceName();
@@ -163,16 +186,16 @@ public class UserSettingsGenerator : ISourceGenerator
                                  "\t{\n");
             staticClass.Append($"\tpublic static {property.Type.ToDisplayString()} {property.Name}\n" +
                                "\t{\n");
-            
+
             if (property.Type.TypeKind != TypeKind.Delegate)
             {
                 instanceClass.Append($"\t\tget => _data.{property.Name};\n" +
                                      $"\t\tset\n" +
                                      "\t\t{\n" +
                                      $"\t\t\t_data.{property.Name} = value;\n" +
-                                     "\t\t\tUpdateSettings();\n"+
+                                     "\t\t\tUpdateSettings();\n" +
                                      "\t\t}\n");
-                
+
                 staticClass.Append($"\t\tget => Singleton.{property.Name};\n" +
                                    $"\t\tset => Singleton.{property.Name} = value;\n");
             }
@@ -180,11 +203,11 @@ public class UserSettingsGenerator : ISourceGenerator
             {
                 instanceClass.Append($"\t\tadd => _data.{property.Name} += value;\n" +
                                      $"\t\tremove => _data.{property.Name} -= value;\n");
-                
+
                 staticClass.Append($"\t\tadd => Singleton.{property.Name} += value;\n" +
                                    $"\t\tremove => Singleton.{property.Name} -= value;\n");
             }
-                              
+
             instanceClass.Append("\t}\n\n");
             staticClass.Append("\t}\n\n");
         }
@@ -193,17 +216,17 @@ public class UserSettingsGenerator : ISourceGenerator
         {
             string fieldNameSpace = field.Type.GetNamespaceName();
             if (!string.IsNullOrEmpty(fieldNameSpace) && fieldNameSpace != instanceNameSpace && !allInstanceUsings.Contains(fieldNameSpace))
-                allInstanceUsings.Add(fieldNameSpace);   
-            
+                allInstanceUsings.Add(fieldNameSpace);
+
             // Make documentation comment
             instanceClass.Append($"\t/// <inheritdoc cref=\"{settingsData.Name}.{field.Name}\"/>\n" +
                                 $"\tpublic {field.Type.ToDisplayString()} {field.Name}\n" +
                                 "\t{\n");
-            
+
             staticClass.Append($"\t/// <inheritdoc cref=\"{settingsData.Name}.{field.Name}\"/>\n" +
                                $"\tpublic static {field.Type.ToDisplayString()} {field.Name}\n" +
                                "\t{\n");
-            
+
             if (field.Type.TypeKind != TypeKind.Delegate)
             {
                 instanceClass.Append($"\t\tget => _data.{field.Name};\n" +
@@ -212,7 +235,7 @@ public class UserSettingsGenerator : ISourceGenerator
                                      $"\t\t\t_data.{field.Name} = value;\n" +
                                      "\t\t\tUpdateSettings();\n" +
                                      "\t\t}\n");
-                
+
                 staticClass.Append($"\t\tget => Singleton.{field.Name};\n" +
                                    $"\t\tset => Singleton.{field.Name} = value;\n");
             }
@@ -220,33 +243,33 @@ public class UserSettingsGenerator : ISourceGenerator
             {
                 instanceClass.Append($"\t\tadd => _data.{field.Name} += value;\n" +
                                      $"\t\tremove => _data.{field.Name} -= value;\n");
-                
+
                 staticClass.Append($"\t\tadd => Singleton.{field.Name} += value;\n" +
                                    $"\t\tremove => Singleton.{field.Name} -= value;\n");
             }
-                              
+
             instanceClass.Append("\t}\n\n");
             staticClass.Append("\t}\n\n");
         }
-        
+
         instanceClass.Remove(instanceClass.Length - 1, 1);
         instanceClass.Append("}");
-        
+
         staticClass.Remove(staticClass.Length - 1, 1);
         staticClass.Append("}");
-        
+
         StringBuilder usingsText = new();
         foreach (string usingDirective in allInstanceUsings)
             usingsText.Append($"using {usingDirective};\n");
         usingsText.Append("\n");
 
-        context.AddSource($"{settingsInstance.Name}.g.cs", usingsText + instanceClass.ToString());
+        context.AddSource($"{settingsInstance.Name}.g.cs", usingsText.ToString() + instanceClass.ToString());
 
         usingsText.Remove(usingsText.Length - 1, 1);
         usingsText.Append($"using {instanceNameSpace};");
         usingsText.Append("\n");
-        
-        context.AddSource($"{staticClassName}Ex.g.cs", usingsText + staticClass.ToString());
+
+        context.AddSource($"{staticClassName}Ex.g.cs", usingsText.ToString() + staticClass.ToString());
 
         #endregion
     }
@@ -258,7 +281,7 @@ public class UserSettingsGenerator : ISourceGenerator
             .Cast<IPropertySymbol>()
             .Where(x => !x.IsReadOnly && !x.IsWriteOnly && !x.IsImplicitlyDeclared)
             .ToArray();
-        
+
         IFieldSymbol[] fields = symbols
             .Where(x => x.Kind is SymbolKind.Field && x is { IsStatic: false, DeclaredAccessibility: Accessibility.Public })
             .Cast<IFieldSymbol>()
@@ -269,7 +292,7 @@ public class UserSettingsGenerator : ISourceGenerator
         foreach (IPropertySymbol property in properties)
         {
             string typeFullName = property.Type.ToDisplayString();
-            if (property.Type.TypeKind is TypeKind.Class 
+            if (property.Type.TypeKind is TypeKind.Class
                 && !typeFullName.Contains("Godot.Collections.Array")
                 && !typeFullName.Contains("Godot.Collections.Dictionary"))
             {
@@ -278,13 +301,13 @@ public class UserSettingsGenerator : ISourceGenerator
 
                 foreach (var result in propertyResults)
                     results.Add((property.Name + "." + result.pathTo, result.type));
-                
+
                 continue;
             }
-                
+
             results.Add((property.Name, property.Type));
         }
-        
+
         foreach (IFieldSymbol field in fields)
         {
             string typeFullName = field.Type.ToDisplayString();
@@ -295,10 +318,10 @@ public class UserSettingsGenerator : ISourceGenerator
 
                 foreach (var result in fieldResults)
                     results.Add((field.Name + "." + result.pathTo, result.type));
-                
+
                 continue;
             }
-                
+
             results.Add((field.Name, field.Type));
         }
 

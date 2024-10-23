@@ -1,4 +1,6 @@
-public static class Constants
+namespace Rubicon.Data.Settings;
+
+public static class UserSettingsConstants
 {
 	public static readonly string[] InputActions = new string[]
 	{

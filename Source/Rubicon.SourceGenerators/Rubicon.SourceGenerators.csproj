@@ -8,13 +8,13 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="4.9.0-3.final" />
+      <Compile Remove="bin\**" />
+      <EmbeddedResource Remove="bin\**" />
+      <None Remove="bin\**" />
     </ItemGroup>
 
     <ItemGroup>
-      <Content Include="bin\Debug\netstandard2.0\Rubicon.SourceGenerators.deps.json" />
-      <Content Include="bin\Debug\netstandard2.0\Rubicon.SourceGenerators.dll" />
-      <Content Include="bin\Debug\netstandard2.0\Rubicon.SourceGenerators.pdb" />
+      <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="4.9.0-3.final" />
     </ItemGroup>
 
     <ItemGroup>
