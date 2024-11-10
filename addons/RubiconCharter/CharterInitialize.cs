@@ -1,6 +1,4 @@
-
-using Charter;
-using Charter.Scripts;
+namespace Rubicon.Editor;
 
 [Tool] public partial class CharterInitialize : EditorPlugin
 {

@@ -1,4 +1,4 @@
-namespace Charter.Scripts;
+namespace Rubicon.Editor;
 
 /// <summary>
 /// This class holds chart editor preferences such as

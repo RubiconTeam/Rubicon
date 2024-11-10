@@ -1,7 +1,4 @@
-
-using Charter.Scripts;
-
-namespace Charter;
+namespace Rubicon.Editor;
 
 [Tool]
 public partial class ChartEditor : Control
