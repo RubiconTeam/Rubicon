@@ -1,5 +1,4 @@
-![i was never book smart im money smart](https://github.com/RubiconFramework/Rubicon/assets/98416575/4e741232-05f8-4cbe-8429-b057be0063dd)
-# Rubicon Engine (WIP)
+![i was never book smart im money smart](https://r2.e-z.host/f1ff83bd-5f1f-47f3-93bb-ad00e44cf263/egl14zgm.png)
 
 A Friday Night Funkin' engine built for easy use for developers, especially with the use of Godot Engine!
 
