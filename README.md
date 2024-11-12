@@ -1,6 +1,6 @@
 ![i was never book smart im money smart](https://r2.e-z.host/f1ff83bd-5f1f-47f3-93bb-ad00e44cf263/egl14zgm.png)
 
-A Friday Night Funkin' engine built for easy use for developers, especially with the use of Godot Engine!
+A Friday Night Funkin' engine built for easy use <sub><sup>(ahem, binpuki.)</sup></sub> for developers, especially with the use of Godot Engine!
 
 This engine is designed to be as robust as possible while still keeping it as non-complicated as possible towards developers looking forward to using this engine.
 
