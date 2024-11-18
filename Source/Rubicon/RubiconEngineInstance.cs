@@ -38,14 +38,8 @@ public partial class RubiconEngineInstance : Node
 	/// The scene that the game first starts with. Automatically set by <see cref="_Ready"/>.
 	/// Will always be the main scene when exported, but can vary in editor.
 	/// </summary>
-	public string StartingScene;
+	public Node StartingScene;
 	
-	/// <summary>
-	/// The type of node the starting scene is. Automatically set by <see cref="_Ready"/>.
-	/// Will always be the main scene's type when exported, but can vary in editor.
-	/// </summary>
-	public Type StartingSceneType;
-
 	public Dictionary<string, Array<InputEvent>> DefaultInputMap = new();
 	
 	public override void _Ready()
@@ -55,8 +49,7 @@ public partial class RubiconEngineInstance : Node
 		// the 4:3 support in-game typically.
 		GetWindow().ContentScaleSize = ProjectSettings.GetSetting("rubicon/general/content_minimum_size").AsVector2I();
 
-		StartingScene = GetTree().CurrentScene.Name;
-		StartingSceneType = GetTree().CurrentScene.GetType();
+		StartingScene = GetTree().CurrentScene;
 
 		Array<StringName> actionNames = InputMap.GetActions();
 		for (int i = 0; i < actionNames.Count; i++)

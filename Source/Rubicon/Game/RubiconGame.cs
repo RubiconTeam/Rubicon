@@ -40,7 +40,7 @@ public partial class RubiconGame : Node
 		string songName = ""; // Should probably change this tbh
 		string chartName = "";
 		#if TOOLS
-		if (RubiconEngine.StartingSceneType == typeof(RubiconGame))
+		if (RubiconEngine.StartingScene is RubiconGame)
 		{
 			songName = EditorSongName;
 			chartName = EditorChartName;
