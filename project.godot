@@ -149,3 +149,4 @@ general/settings_save_path="user://settings.cfg"
 bindings/customizable=PackedStringArray("MANIA_4K_0", "MANIA_4K_1", "MANIA_4K_2", "MANIA_4K_3", "GAME_PAUSE", "DEBUG_INFO", "VOL_UP", "VOL_DOWN", "VOL_MUTE")
 general/fallback/song="Sew"
 general/fallback/difficulty="Normal"
+general/fallback/character="Missing"
