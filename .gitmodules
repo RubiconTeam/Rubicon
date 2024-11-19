@@ -1,0 +1,3 @@
+[submodule "Source/Rubicon/Core"]
+	path = Source/Rubicon/Core
+	url = https://github.com/RubiconTeam/Rubicon.Core.git
