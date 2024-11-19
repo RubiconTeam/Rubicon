@@ -11,12 +11,9 @@ namespace Rubicon.Game;
 public partial class RubiconGame : Node
 {
 	public static RubiconGame Instance { get; private set; }
-	
-	#if TOOLS
-	[Export] public string EditorSongName = "Test";
 
-	[Export] public string EditorChartName = "Mania-Normal";
-	#endif
+    public static string SongName;
+    public static string SongDifficulty;
 
 	[ExportGroup("Status"), Export] public bool Paused = false;
 	
@@ -37,24 +34,34 @@ public partial class RubiconGame : Node
 		}
 		Instance = this;
 
-		string songName = ""; // Should probably change this tbh
-		string chartName = "";
-		#if TOOLS
-		if (RubiconEngine.StartingScene is RubiconGame)
-		{
-			songName = EditorSongName;
-			chartName = EditorChartName;
-		}
-		#endif
+        if (string.IsNullOrEmpty(SongName))
+            SongName = ProjectSettings.GetSetting("rubicon/general/song_fallback").AsString();
+        if (string.IsNullOrEmpty(SongDifficulty))
+            SongDifficulty = ProjectSettings.GetSetting("rubicon/general/difficulty_fallback").AsString();;
 		
-		SongMeta meta = GD.Load<SongMeta>($"res://Songs/{songName}/Data/Meta.tres");
-		RubiChart chart = GD.Load<RubiChart>($"res://Songs/{songName}/Data/{chartName}.tres");
-		chart.ConvertData().Format();
-		
-		//GetTree().Root.FsrSharpness
+        if (string.IsNullOrEmpty(SongName)) // You fucked up bro
+            throw new Exception("Song fallback is null. Please check your Project Settings at \"rubicon/general/song_fallback\"");
+        
+		SongMeta meta = GD.Load<SongMeta>($"res://Songs/{SongName}/Data/Meta.tres");
+        
+        // Set up rule set, and check paths too
+        string ruleSetName = meta.DefaultRuleset;
+        RuleSet = LoadRuleSet(ruleSetName);
+        if (RuleSet is null)
+        {
+            string fallbackName = ProjectSettings.GetSetting("rubicon/rulesets/default_ruleset").AsString();
+            GD.PrintErr($"Rule set \"{ruleSetName}\" was not able to be loaded. Falling back to \"{fallbackName}\".");
+            RuleSet = LoadRuleSet(fallbackName);
+        }
 
-		string instPath = $"res://Songs/{songName}/Inst.ogg";
-		string vocalsPath = $"res://Songs/{songName}/Vocals.ogg";
+        if (RuleSet is null) // You fucked up again bro
+            throw new Exception("RuleSet is still null. Please check your Project Settings at \"rubicon/rulesets\"");
+        
+		RubiChart chart = GD.Load<RubiChart>($"res://Songs/{SongName}/Data/{RuleSet.ShortName}-{SongDifficulty}.tres");
+		chart.ConvertData().Format();
+
+		string instPath = $"res://Songs/{SongName}/Inst.ogg";
+		string vocalsPath = $"res://Songs/{SongName}/Vocals.ogg";
 		if (ResourceLoader.Exists(instPath))
 			Instrumental.Stream = GD.Load<AudioStream>(instPath);
 		else
@@ -66,19 +73,6 @@ public partial class RubiconGame : Node
 		Conductor.Reset();
 		Conductor.ChartOffset = chart.Offset;
 		Conductor.BpmList = chart.BpmInfo;
-		
-		// Set up rule set, and check paths too
-		string ruleSetName = chart.DefaultRuleset;
-		RuleSet = LoadRuleSet(ruleSetName);
-		if (RuleSet is null)
-		{
-			string fallbackName = ProjectSettings.GetSetting("rubicon/rulesets/default_ruleset").AsString();
-			GD.PrintErr($"Rule set \"{ruleSetName}\" was not able to be loaded. Falling back to \"{fallbackName}\".");
-			RuleSet = LoadRuleSet(fallbackName);
-		}
-
-		if (RuleSet is null) // You fucked up bro
-			throw new Exception("RuleSet is still null. Please check your Project Settings at \"rubicon/rulesets\"");
 		
 		// Set up play field
 		PlayField = LoadPlayField(RuleSet);

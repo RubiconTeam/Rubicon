@@ -21,6 +21,11 @@ public partial class SongMeta : Resource
     /// The artist who made the song.
     /// </summary>
     [Export] public string Artist = "Hideo Kojima";
+    
+    /// <summary>
+    /// The default ruleset for this chart.
+    /// </summary>
+    [Export] public string DefaultRuleset = ProjectSettings.GetSetting("rubicon/rulesets/default_ruleset").AsString();
 
     /// <summary>
     /// The icon that's associated with this song.

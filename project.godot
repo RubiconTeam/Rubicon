@@ -133,6 +133,11 @@ volume_mute={
 
 buffering/agile_event_flushing=true
 
+[rendering]
+
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
+
 [rubicon]
 
 general/default_ui_style="Funkin"
@@ -146,3 +151,6 @@ judgments/bad_hit_window=180.0
 general/content_minimum_size=Vector2i(1440, 1080)
 general/settings_save_path="user://settings.cfg"
 bindings/customizable=PackedStringArray("MANIA_4K_0", "MANIA_4K_1", "MANIA_4K_2", "MANIA_4K_3", "GAME_PAUSE", "DEBUG_INFO", "VOL_UP", "VOL_DOWN", "VOL_MUTE")
+song_fallback=""
+general/song_fallback="Sew"
+general/difficulty_fallback="Normal"

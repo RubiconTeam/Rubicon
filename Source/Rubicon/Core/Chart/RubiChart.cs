@@ -24,11 +24,6 @@ public partial class RubiChart : Resource
     /// The Rubicon Engine version this chart was created on.
     /// </summary>
     [Export] public uint Version = RubiconEngineInstance.Version.Raw;
-
-    /// <summary>
-    /// The default ruleset for this chart.
-    /// </summary>
-    [Export] public string DefaultRuleset = ProjectSettings.GetSetting("rubicon/rulesets/default_ruleset").AsString();
     
     /// <summary>
     /// A list of BPM changes.

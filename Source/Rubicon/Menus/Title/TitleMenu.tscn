@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://djunjp53banbr"]
+[gd_scene load_steps=27 format=3 uid="uid://djunjp53banbr"]
 
 [ext_resource type="Script" path="res://Source/Rubicon/Menus/Title/TitleMenu.cs" id="1_kvdrp"]
 [ext_resource type="Texture2D" uid="uid://c8orlamkpjw3m" path="res://Source/Rubicon/Menus/Title/Assets/Particle.png" id="3_jfuxy"]
@@ -42,9 +42,23 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_sajsn"]
 _data = {
-&"RESET": SubResource("Animation_uekto"),
-&"Flicker": SubResource("Animation_o0mwm")
+&"Flicker": SubResource("Animation_o0mwm"),
+&"RESET": SubResource("Animation_uekto")
 }
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_m8uyy"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(1000, 1, 0)
+direction = Vector3(1, 10, 0)
+spread = 163.78
+initial_velocity_min = 387.39
+initial_velocity_max = 387.39
+gravity = Vector3(0, 0, 0)
+scale_min = 0.07
+scale_max = 0.12
+anim_speed_min = 128.0
+anim_speed_max = 128.0
 
 [sub_resource type="Animation" id="Animation_31qh5"]
 resource_name = "Pulse"
@@ -80,8 +94,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_oc0gv"]
 _data = {
-&"RESET": SubResource("Animation_1hms8"),
-&"Pulse": SubResource("Animation_31qh5")
+&"Pulse": SubResource("Animation_31qh5"),
+&"RESET": SubResource("Animation_1hms8")
 }
 
 [sub_resource type="Animation" id="Animation_sydvc"]
@@ -188,8 +202,8 @@ tracks/3/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_sd41i"]
 _data = {
-&"RESET": SubResource("Animation_0poje"),
-&"Intro": SubResource("Animation_sydvc")
+&"Intro": SubResource("Animation_sydvc"),
+&"RESET": SubResource("Animation_0poje")
 }
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hcb1u"]
@@ -224,6 +238,7 @@ grow_vertical = 2
 script = ExtResource("1_kvdrp")
 buttonsAnimationPlayer = NodePath("Buttons/AnimationPlayer")
 buttonsContainer = NodePath("Buttons/VBoxContainer")
+metadata/_edit_lock_ = true
 
 [node name="BG" type="ColorRect" parent="."]
 layout_mode = 1
@@ -233,6 +248,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.0941176, 0.133333, 0.101961, 1)
+metadata/_edit_lock_ = true
 
 [node name="Vignette" type="TextureRect" parent="BG"]
 self_modulate = Color(0.0156863, 0.0627451, 0.0509804, 1)
@@ -243,6 +259,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("CompressedTexture2D_cs7ts")
+metadata/_edit_lock_ = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="BG"]
 libraries = {
@@ -250,24 +267,16 @@ libraries = {
 }
 autoplay = "Flicker"
 
-[node name="CPUParticles2D" type="CPUParticles2D" parent="BG"]
+[node name="GPUParticles2D" type="GPUParticles2D" parent="BG"]
 modulate = Color(1, 1, 1, 0.027451)
 position = Vector2(960, 1134)
 amount = 100
 lifetime = 7.7
 speed_scale = 0.2
+fixed_fps = 0
+draw_order = 0
 texture = ExtResource("3_jfuxy")
-emission_shape = 3
-emission_rect_extents = Vector2(1000, 1)
-direction = Vector2(1, 10)
-spread = 163.78
-gravity = Vector2(0, 0)
-initial_velocity_min = 387.39
-initial_velocity_max = 387.39
-scale_amount_min = 0.07
-scale_amount_max = 0.12
-anim_speed_min = 128.0
-anim_speed_max = 128.0
+process_material = SubResource("ParticleProcessMaterial_m8uyy")
 
 [node name="Title" type="Control" parent="."]
 layout_mode = 1
