@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://nph3cjss7281"]
+
+[ext_resource type="Script" path="res://Source/Rubicon/Game/RubiconGame.cs" id="1_bikcc"]
+
+[node name="TestScene" type="Node" node_paths=PackedStringArray("Instrumental", "Vocals")]
+script = ExtResource("1_bikcc")
+Instrumental = NodePath("Instrumental")
+Vocals = NodePath("Vocals")
+
+[node name="Instrumental" type="AudioStreamPlayer" parent="."]
+
+[node name="Vocals" type="AudioStreamPlayer" parent="."]

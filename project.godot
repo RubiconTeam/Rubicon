@@ -24,6 +24,7 @@ RubiconEngine="*res://Source/Rubicon/RubiconEngineInstance.cs"
 Conductor="*res://Source/Rubicon/Core/ConductorInstance.cs"
 UserSettings="*res://Source/Rubicon/Data/UserSettingsInstance.cs"
 DebugInfo="*res://Source/Rubicon/Core/Autoload/DebugInfo.tscn"
+StoryMode="*res://Source/Rubicon/Game/StoryModeInstance.cs"
 
 [display]
 
@@ -132,11 +133,6 @@ volume_mute={
 [input_devices]
 
 buffering/agile_event_flushing=true
-
-[rendering]
-
-renderer/rendering_method="gl_compatibility"
-renderer/rendering_method.mobile="gl_compatibility"
 
 [rubicon]
 
