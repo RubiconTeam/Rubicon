@@ -61,8 +61,9 @@ public partial class ManiaNote : Note
 		if (!Active || parent == null || !Visible || Info == null)
 			return;
 
-		float defaultAlpha = Missed ? 0.5f : 1f;
-		Modulate = new Color(Modulate.R, Modulate.G, Modulate.B, defaultAlpha);
+		Color modulate = Modulate;
+		modulate.A = Missed ? 0.5f : 1f;
+		Modulate = modulate;
 		
 		// Updating position and all that, whatever the base class does.
 		base._Process(delta);
@@ -211,14 +212,18 @@ public partial class ManiaNote : Note
 		string direction = maniaNoteManager.Direction;
 		float initialHoldWidth = GetOnScreenHoldLength(Info.MsLength) * ParentManager.ScrollSpeed;
 		float holdWidth = GetOnScreenHoldLength(length) * ParentManager.ScrollSpeed;
+
+		Vector2 holdContainerScale = HoldContainer.Scale;
+		Vector2 holdContainerSize = HoldContainer.Size;
+		HoldContainer.Size = new Vector2(holdWidth / holdContainerScale.X, holdContainerSize.Y);
 		
-		HoldContainer.Size = new Vector2(holdWidth / HoldContainer.Scale.X, HoldContainer.Size.Y);
-		float holdPos = HoldContainer.Size.X - (initialHoldWidth / HoldContainer.Scale.X);
-		Hold.Position = new Vector2(holdPos, Hold.Position.Y);
+		Vector2 holdPos = Hold.Position;
+		holdPos.X = HoldContainer.Size.X - (initialHoldWidth / holdContainerScale.X);
+		Hold.Position = holdPos;
 		
 		Texture2D tailFrame = Tail.SpriteFrames.GetFrameTexture($"{direction}NoteTail", Tail.GetFrame());
 		Vector2 tailTexSize = tailFrame.GetSize();
-		Tail.Position = new Vector2((initialHoldWidth - tailTexSize.X) / HoldContainer.Scale.X + holdPos, Hold.Texture.GetHeight() - tailTexSize.Y);
+		Tail.Position = new Vector2((initialHoldWidth - tailTexSize.X) / holdContainerScale.X + holdPos.X, Hold.Texture.GetHeight() - tailTexSize.Y);
 	}
 
 	public ManiaNoteManager GetParentManiaNoteManager()
