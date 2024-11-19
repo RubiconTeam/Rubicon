@@ -17,9 +17,9 @@ public partial class RubiconGame : Node
 	public static LoadContext Context;
 
 	#if TOOLS
-	[Export] public string EditorSongName = ProjectSettings.GetSetting("rubicon/general/song_fallback").AsString();
+	[Export] public string EditorSongName = ProjectSettings.GetSetting("rubicon/general/fallback/song").AsString();
 	
-	[Export] public string EditorDifficulty = ProjectSettings.GetSetting("rubicon/general/difficulty_fallback").AsString();
+	[Export] public string EditorDifficulty = ProjectSettings.GetSetting("rubicon/general/fallback/difficulty").AsString();
 	
 	[Export] public string EditorRuleSet = ProjectSettings.GetSetting("rubicon/rulesets/default_ruleset").AsString();
 	#endif

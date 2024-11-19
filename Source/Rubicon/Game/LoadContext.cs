@@ -6,9 +6,9 @@ namespace Rubicon.Game;
 [GlobalClass]
 public partial class LoadContext : Resource
 {
-    [Export] public string Name = ProjectSettings.GetSetting("rubicon/general/song_fallback").AsString();
+    [Export] public string Name = ProjectSettings.GetSetting("rubicon/general/fallback/song").AsString();
     
-    [Export] public string Difficulty = ProjectSettings.GetSetting("rubicon/general/difficulty_fallback").AsString();
+    [Export] public string Difficulty = ProjectSettings.GetSetting("rubicon/general/fallback/difficulty").AsString();
 
     [Export] public string RuleSet = ProjectSettings.GetSetting("rubicon/rulesets/default_ruleset").AsString();
 
@@ -21,10 +21,10 @@ public partial class LoadContext : Resource
         if (!DirAccess.DirExistsAbsolute($"res://Songs/{Name}/"))
         {
             GD.Print($"Song {Name} does not exist. Falling back to default.");
-            string fallBackSong = ProjectSettings.GetSetting("rubicon/general/song_fallback").AsString();
+            string fallBackSong = ProjectSettings.GetSetting("rubicon/general/fallback/song").AsString();
             if (!DirAccess.DirExistsAbsolute($"res://Songs/{fallBackSong}/")) // You fucked up bro
             {
-                GD.PrintErr("Song fallback failed to load. Please check your Project Settings at \"rubicon/general/song_fallback\"");
+                GD.PrintErr("Song fallback failed to load. Please check your Project Settings at \"rubicon/general/fallback/song\"");
                 return false;
             }
 
@@ -42,11 +42,11 @@ public partial class LoadContext : Resource
             GD.Print($"Chart for difficulty {RuleSet}-{Difficulty} was not found for song {Name}. Falling back to default.");
             
             string fallBackSet = ProjectSettings.GetSetting("rubicon/rulesets/default_ruleset").AsString();
-            string fallBackDiff = ProjectSettings.GetSetting("rubicon/general/difficulty_fallback").AsString();
+            string fallBackDiff = ProjectSettings.GetSetting("rubicon/general/fallback/difficulty").AsString();
             string fallBackChart = $"{fallBackSet}-{fallBackDiff}";
             if (!ResourceLoader.Exists($"res://Songs/{Name}/Data/{fallBackChart}.tres")) // You fucked up again bro
             {
-                GD.PrintErr("Chart fallback failed to load. Please check your Project Settings at \"rubicon/general/difficulty_fallback\" and \"rubicon/rulesets/default_ruleset\"");
+                GD.PrintErr("Chart fallback failed to load. Please check your Project Settings at \"rubicon/general/fallback/difficulty\" and \"rubicon/rulesets/default_ruleset\"");
                 return false;
             }
 

@@ -13,7 +13,7 @@ public partial class StoryModeInstance : Node
 
     [Export] public StorySequence[] Playlist = [];
     
-    [Export] public string Difficulty = ProjectSettings.GetSetting("rubicon/general/difficulty_fallback").AsString();
+    [Export] public string Difficulty = ProjectSettings.GetSetting("rubicon/general/fallback/difficulty").AsString();
 
     public void Advance()
     {

@@ -3,7 +3,7 @@ namespace Rubicon.Game;
 [GlobalClass]
 public partial class SongStorySequence : StorySequence
 {
-    [Export] public string Name = ProjectSettings.GetSetting("rubicon/general/song_fallback").AsString();
+    [Export] public string Name = ProjectSettings.GetSetting("rubicon/general/fallback/song").AsString();
     
     [Export] public string RuleSet = ProjectSettings.GetSetting("rubicon/rulesets/default_ruleset").AsString();
 
