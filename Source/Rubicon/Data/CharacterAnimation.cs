@@ -1,5 +1,4 @@
-
-namespace Rubicon.Space;
+namespace Rubicon.Data;
 
 /// <summary>
 /// A class that is used by the <see cref="Character2D"/> or <see cref="Character3D"/> class to determine, which animation should be played and if it should be played or not

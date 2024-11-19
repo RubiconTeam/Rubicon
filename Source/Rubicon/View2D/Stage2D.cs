@@ -1,4 +1,4 @@
-namespace Rubicon.Space;
+namespace Rubicon.View2D;
 
 public partial class Stage2D : Node2D
 {

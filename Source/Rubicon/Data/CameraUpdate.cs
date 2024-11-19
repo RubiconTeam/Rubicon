@@ -1,4 +1,4 @@
-namespace Rubicon.Space;
+namespace Rubicon.Data;
 
 /// <summary>
 /// An enumerator specifying the type of update method on a certain part of the camera.

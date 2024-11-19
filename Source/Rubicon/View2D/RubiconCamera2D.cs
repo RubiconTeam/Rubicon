@@ -1,4 +1,6 @@
-namespace Rubicon.Space;
+using Rubicon.Data;
+
+namespace Rubicon.View2D;
 
 public partial class RubiconCamera2D : Camera2D
 {

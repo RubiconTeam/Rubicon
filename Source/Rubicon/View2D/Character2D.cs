@@ -1,6 +1,7 @@
 using Rubicon.Core;
+using Rubicon.Data;
 
-namespace Rubicon.Space;
+namespace Rubicon.View2D;
 
 /// <summary>
 /// This is the character class, which handles which animations the sprite should play

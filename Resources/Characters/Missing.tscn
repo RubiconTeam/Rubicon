@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://bkj36j8snchyq"]
 
 [ext_resource type="Texture2D" uid="uid://cy7tsup6gbx7t" path="res://Assets/UI/Misc/icon.svg" id="1_3kfjx"]
-[ext_resource type="Script" path="res://Source/Rubicon/Space/Character2D.cs" id="1_lj1lb"]
+[ext_resource type="Script" path="res://Source/Rubicon/View2D/Character2D.cs" id="1_lj1lb"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_lb378"]
 animations = [{

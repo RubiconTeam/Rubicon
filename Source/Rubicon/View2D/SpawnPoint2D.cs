@@ -1,4 +1,4 @@
-namespace Rubicon.Space;
+namespace Rubicon.View2D;
 
 public partial class SpawnPoint2D : Node
 {

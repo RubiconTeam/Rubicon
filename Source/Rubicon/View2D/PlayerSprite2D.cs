@@ -1,5 +1,4 @@
-
-namespace Rubicon.Space;
+namespace Rubicon.View2D;
 
 // TODO: Gotta find a way to make this better later... -Binpuki
 #if TOOLS
