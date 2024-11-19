@@ -2,6 +2,7 @@ using Rubicon.Data;
 
 namespace Rubicon.View2D;
 
+[GlobalClass]
 public partial class RubiconCamera2D : Camera2D
 {
     [Export] public Vector2 TargetPosition = Vector2.Zero;

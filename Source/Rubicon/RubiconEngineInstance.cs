@@ -19,6 +19,7 @@ global using Godot.Sharp.Extras;
 global using System;
 using Godot.Collections;
 using Rubicon.Data.Generation;
+using Rubicon.Game;
 
 namespace Rubicon;
 
@@ -61,4 +62,10 @@ public partial class RubiconEngineInstance : Node
 
 	/// <inheritdoc cref="Version"/>
 	public VersionInfo GetVersion() => Version;
+	
+	/// <summary>
+	/// Returns the current running instance of <see cref="RubiconGame"/>.
+	/// </summary>
+	/// <returns>An instance of <see cref="RubiconGame"/> if there is one, none if there isn't.</returns>
+	public RubiconGame GetGameInstance() => RubiconGame.Instance;
 }

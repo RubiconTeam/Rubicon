@@ -1,7 +1,9 @@
 using Rubicon.Core;
 using Rubicon.Core.Chart;
 using Rubicon.Core.Meta;
+using Rubicon.Core.Data;
 using Rubicon.Rulesets;
+using Rubicon.View2D;
 
 namespace Rubicon.Game;
 
@@ -23,12 +25,18 @@ public partial class RubiconGame : Node
 	#endif
 	
 	[ExportGroup("Status"), Export] public bool Paused = false;
+
+	[Export] public SongMeta Metadata;
+
+	[Export] public RubiChart Chart;
 	
-	[Export] public RuleSet RuleSet;
+	[ExportGroup("References"), Export] public RuleSet RuleSet;
 	
 	[Export] public PlayField PlayField;
 
-	[ExportGroup("Audio"), Export] public AudioStreamPlayer Instrumental;
+	[Export] public CanvasItemSpace CanvasItemSpace;
+
+	[ExportSubgroup("Audio"), Export] public AudioStreamPlayer Instrumental;
 	
 	[Export] public AudioStreamPlayer Vocals;
 	
@@ -49,7 +57,7 @@ public partial class RubiconGame : Node
 		if (!Context.IsValid())
 			return;
 		
-		SongMeta meta = GD.Load<SongMeta>($"res://Songs/{Context.Name}/Data/Meta.tres");
+		Metadata = GD.Load<SongMeta>($"res://Songs/{Context.Name}/Data/Meta.tres");
 		
 		// Set up rule set, and check paths too
 		string ruleSetName = Context.RuleSet;
@@ -64,8 +72,8 @@ public partial class RubiconGame : Node
 		if (RuleSet is null) // You fucked up again bro
 			throw new Exception("RuleSet is still null. Please check your Project Settings at \"rubicon/rulesets\"");
 		
-		RubiChart chart = GD.Load<RubiChart>($"res://Songs/{Context.Name}/Data/{Context.RuleSet}-{Context.Difficulty}.tres");
-		chart.ConvertData().Format();
+		Chart = GD.Load<RubiChart>($"res://Songs/{Context.Name}/Data/{Context.RuleSet}-{Context.Difficulty}.tres");
+		Chart.ConvertData().Format();
 
 		string instPath = $"res://Songs/{Context.Name}/Inst.ogg";
 		string vocalsPath = $"res://Songs/{Context.Name}/Vocals.ogg";
@@ -78,12 +86,14 @@ public partial class RubiconGame : Node
 			Vocals.Stream = GD.Load<AudioStream>(vocalsPath);
 
 		Conductor.Reset();
-		Conductor.ChartOffset = chart.Offset;
-		Conductor.BpmList = chart.BpmInfo;
+		Conductor.ChartOffset = Chart.Offset;
+		Conductor.BpmList = Chart.BpmInfo;
+		
+		LoadSpace();
 		
 		// Set up play field
 		PlayField = LoadPlayField(RuleSet);
-		PlayField.Setup(meta, chart);
+		PlayField.Setup(Metadata, Chart);
 		AddChild(PlayField);
 		
 		// TODO: Countdown
@@ -179,5 +189,20 @@ public partial class RubiconGame : Node
 		}
 
 		return playField;
+	}
+
+	private void LoadSpace()
+	{
+		switch (Metadata.Environment)
+		{
+			case GameEnvironment.CanvasItem: // 2D Space
+			{
+				CanvasItemSpace = new CanvasItemSpace();
+				CanvasItemSpace.Name = "Space";
+				CanvasItemSpace.Initialize(Metadata);
+				AddChild(CanvasItemSpace);
+				break;
+			}
+		}
 	}
 }
