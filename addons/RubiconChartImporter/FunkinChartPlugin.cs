@@ -194,19 +194,19 @@ public partial class FunkinChartPlugin : EditorImportPlugin
 		        {
 			        Character = swagSong.ContainsKey("player2") ? swagSong["player2"].AsString() : "Missing",
 			        BarLine = "Opponent",
-			        SpawnPoint = "Opponent"
+			        Nickname = "Opponent"
 		        },
 		        new CharacterMeta
 		        {
 			        Character = swagSong.ContainsKey("player1") ? swagSong["player1"].AsString() : "Missing",
 			        BarLine = "Player",
-			        SpawnPoint = "Player"
+			        Nickname = "Player"
 		        },
 		        new CharacterMeta
 		        {
 			        Character = swagSong.ContainsKey("gfVersion") ? swagSong["gfVersion"].AsString() : "Missing",
 			        BarLine = speakerHasNotes ? "Speaker" : "",
-			        SpawnPoint = "Speaker"
+			        Nickname = "Speaker"
 		        }
 	        ];
 

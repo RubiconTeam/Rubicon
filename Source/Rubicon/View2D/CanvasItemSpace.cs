@@ -50,11 +50,11 @@ public partial class CanvasItemSpace : Node2D
 		{
 			character = ResourceLoader.Load<PackedScene>(path).Instantiate<Character2D>();
 		}
-		
+
+		character.Name = meta.Nickname;
 		Characters.Add(character);
 		_namedCharacters[meta.Nickname] = character;
-		
-		Stage.SpawnPoints[meta.SpawnPoint].AddChild(character);
+		Stage.SpawnPoints[meta.Nickname].AddChild(character);
 		
 		if (!_barLineCharacters.ContainsKey(meta.BarLine))
 			_barLineCharacters.Add(meta.BarLine, new Array<Character2D>());
@@ -65,6 +65,4 @@ public partial class CanvasItemSpace : Node2D
 	public Character2D GetCharacter(StringName nickName) => _namedCharacters[nickName];
 	
 	public Array<Character2D> GetCharactersFromBarLine(StringName barLineName) => _barLineCharacters[barLineName];
-	
-	public Array<Character2D> GetCharactersFromSpawnPoint(StringName spawnPointName) => Stage.SpawnPoints[spawnPointName].Characters;
 }

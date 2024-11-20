@@ -17,8 +17,8 @@
 [node name="Stage" type="Node2D" node_paths=PackedStringArray("SpawnPoints")]
 script = ExtResource("1_q6g61")
 SpawnPoints = {
-&"Opponent": NodePath("Spawns/Opponent"),
-&"Player": NodePath("Spawns/Player")
+&"stitch": NodePath("Spawns/Opponent"),
+&"bf-stitch": NodePath("Spawns/Player")
 }
 
 [node name="Objects" type="Node2D" parent="."]
