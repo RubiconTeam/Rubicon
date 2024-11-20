@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://kckn385nmg0v"
-path.s3tc="res://.godot/imported/leavesbackground.webp-4a4bc3d2e28c9c68ac69880caba5d809.s3tc.ctex"
+uid="uid://xpou6jnvqig3"
+path.s3tc="res://.godot/imported/leavesandotherthing.webp-d879ae7b0015ff5fa4d5bb6b4daeab3a.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/Stages/Sew/leavesbackground.webp"
-dest_files=["res://.godot/imported/leavesbackground.webp-4a4bc3d2e28c9c68ac69880caba5d809.s3tc.ctex"]
+source_file="res://Assets/Stages/PetalForest/leavesandotherthing.webp"
+dest_files=["res://.godot/imported/leavesandotherthing.webp-d879ae7b0015ff5fa4d5bb6b4daeab3a.s3tc.ctex"]
 
 [params]
 

@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bdu5cnidnsvuc"
-path.s3tc="res://.godot/imported/bigtreebranch.webp-ff3460b6953478e5b453e76c687e4e2e.s3tc.ctex"
+path.s3tc="res://.godot/imported/bigtreebranch.webp-5188c9af42839cc3a1af69c63b35a94c.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/Stages/Sew/bigtreebranch.webp"
-dest_files=["res://.godot/imported/bigtreebranch.webp-ff3460b6953478e5b453e76c687e4e2e.s3tc.ctex"]
+source_file="res://Assets/Stages/PetalForest/bigtreebranch.webp"
+dest_files=["res://.godot/imported/bigtreebranch.webp-5188c9af42839cc3a1af69c63b35a94c.s3tc.ctex"]
 
 [params]
 

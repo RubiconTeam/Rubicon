@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dw3ce5760dt2v"
-path.s3tc="res://.godot/imported/cabin.webp-e7c38969ef432e1a6eb88cc11c28bfd1.s3tc.ctex"
+uid="uid://12estmgxu6u3"
+path.s3tc="res://.godot/imported/rope.webp-1c6bade5a37f419dbe9f4bf2a4a103ad.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/Stages/Sew/cabin.webp"
-dest_files=["res://.godot/imported/cabin.webp-e7c38969ef432e1a6eb88cc11c28bfd1.s3tc.ctex"]
+source_file="res://Assets/Stages/PetalForest/rope.webp"
+dest_files=["res://.godot/imported/rope.webp-1c6bade5a37f419dbe9f4bf2a4a103ad.s3tc.ctex"]
 
 [params]
 

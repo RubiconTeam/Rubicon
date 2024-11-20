@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://wgujoflvr6a4"
-path.s3tc="res://.godot/imported/sky.webp-baf583296884b001a265bfa41e631661.s3tc.ctex"
+uid="uid://caik11quqe2kb"
+path.s3tc="res://.godot/imported/cloud.webp-382628cc79f821e9139ec941fa2ee6a6.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/Stages/Sew/sky.webp"
-dest_files=["res://.godot/imported/sky.webp-baf583296884b001a265bfa41e631661.s3tc.ctex"]
+source_file="res://Assets/Stages/PetalForest/cloud.webp"
+dest_files=["res://.godot/imported/cloud.webp-382628cc79f821e9139ec941fa2ee6a6.s3tc.ctex"]
 
 [params]
 
