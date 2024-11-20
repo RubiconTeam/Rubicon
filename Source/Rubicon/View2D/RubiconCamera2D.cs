@@ -45,17 +45,17 @@ public partial class RubiconCamera2D : Camera2D
 
     public virtual void UpdatePosition(float delta)
     {
+        Vector2 finalPosition = TargetPosition + OffsetPosition;
         switch (PositionUpdateType)
         {
             case CameraUpdate.Instant:
-                GlobalPosition = TargetPosition;
+                GlobalPosition = finalPosition;
                 break;
             case CameraUpdate.Interpolation:
-                Vector2 pos = GlobalPosition;
+                Vector2 pos = finalPosition;
                 GlobalPosition = pos.Lerp(TargetPosition, PositionLerpWeight * delta);
                 break;
             case CameraUpdate.Tween:
-                Vector2 finalPosition = TargetPosition + OffsetPosition;
                 if (_previousPosition != finalPosition && !_posTween.IsRunning())
                     TweenPosition(finalPosition, PositionTweenDuration, true);
                 break;
@@ -64,17 +64,17 @@ public partial class RubiconCamera2D : Camera2D
     
     public virtual void UpdateZoom(float delta)
     {
+        Vector2 finalZoom = TargetZoom + OffsetZoom;
         switch (ZoomUpdateType)
         {
             case CameraUpdate.Instant:
-                Zoom = TargetZoom + OffsetZoom;
+                Zoom = finalZoom;
                 break;
             case CameraUpdate.Interpolation:
                 Vector2 zoom = GlobalPosition;
-                Zoom = zoom.Lerp(TargetZoom + OffsetZoom, ZoomLerpWeight * delta);
+                Zoom = zoom.Lerp(finalZoom, ZoomLerpWeight * delta);
                 break;
             case CameraUpdate.Tween:
-                Vector2 finalZoom = TargetZoom + OffsetZoom;
                 if (_previousZoom != finalZoom && !_zoomTween.IsRunning())
                     TweenZoom(finalZoom, ZoomTweenDuration, true);
                 break;
