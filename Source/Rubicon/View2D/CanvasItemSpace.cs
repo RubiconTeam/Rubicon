@@ -13,7 +13,6 @@ public partial class CanvasItemSpace : Node2D
 	[Export] public Stage2D Stage;
 
 	private Dictionary<StringName, Character2D> _namedCharacters;
-	private Dictionary<StringName, Array<Character2D>> _spawnPointCharacters;
 	private Dictionary<StringName, Array<Character2D>> _barLineCharacters;
 	
 	public void Initialize(SongMeta meta)
@@ -25,7 +24,6 @@ public partial class CanvasItemSpace : Node2D
 		// Init characters
 		Characters = new Array<Character2D>();
 		_namedCharacters = new Dictionary<StringName, Character2D>();
-		_spawnPointCharacters = new Dictionary<StringName, Array<Character2D>>();
 		_barLineCharacters = new Dictionary<StringName, Array<Character2D>>();
 		for (int i = 0; i < meta.Characters.Length; i++)
 			AddCharacter(meta.Characters[i]);
@@ -56,10 +54,6 @@ public partial class CanvasItemSpace : Node2D
 		Characters.Add(character);
 		_namedCharacters[meta.Nickname] = character;
 		
-		if (!_spawnPointCharacters.ContainsKey(meta.SpawnPoint))
-			_spawnPointCharacters.Add(meta.SpawnPoint, new Array<Character2D>());
-		
-		_spawnPointCharacters[meta.SpawnPoint].Add(character);
 		Stage.SpawnPoints[meta.SpawnPoint].AddChild(character);
 		
 		if (!_barLineCharacters.ContainsKey(meta.BarLine))
@@ -67,4 +61,10 @@ public partial class CanvasItemSpace : Node2D
 		
 		_barLineCharacters[meta.BarLine].Add(character);
 	}
+
+	public Character2D GetCharacter(StringName nickName) => _namedCharacters[nickName];
+	
+	public Array<Character2D> GetCharactersFromBarLine(StringName barLineName) => _barLineCharacters[barLineName];
+	
+	public Array<Character2D> GetCharactersFromSpawnPoint(StringName spawnPointName) => Stage.SpawnPoints[spawnPointName].Characters;
 }
