@@ -1,0 +1,61 @@
+[gd_scene load_steps=2 format=3 uid="uid://bi1y5wtwxspvv"]
+
+[ext_resource type="Script" path="res://addons/sprite_importer_temp/animation_exporter.gd" id="1_sk7b5"]
+
+[node name="SpriteImporter" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_sk7b5")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PathContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/PathContainer"]
+layout_mode = 2
+text = "Frames Path:"
+
+[node name="LineEdit" type="LineEdit" parent="VBoxContainer/PathContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "res://path/to/SpriteFrames.tres"
+
+[node name="NodePathContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/NodePathContainer"]
+layout_mode = 2
+text = "Node Path:"
+
+[node name="LineEdit" type="LineEdit" parent="VBoxContainer/NodePathContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "."
+placeholder_text = "path/to/AnimatedSprite/in/Node"
+
+[node name="OutputContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/OutputContainer"]
+layout_mode = 2
+text = "Output:"
+
+[node name="LineEdit" type="LineEdit" parent="VBoxContainer/OutputContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "res://path/to/folder"
+
+[node name="Button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Create Animations off SpriteFrames"

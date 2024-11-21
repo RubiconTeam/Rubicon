@@ -42,7 +42,7 @@ project/assembly_name="Rubicon"
 
 [editor_plugins]
 
-enabled=PackedStringArray()
+enabled=PackedStringArray("res://addons/sprite_importer_temp/plugin.cfg")
 
 [file_customization]
 
