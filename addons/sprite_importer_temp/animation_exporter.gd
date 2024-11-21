@@ -13,7 +13,7 @@ func _ready():
 func button_pressed():
 	var frames : SpriteFrames = load(frames_path.text)
 	for anim_name in frames.get_animation_names():
-		ResourceSaver.save(make_animation(frames, name), output_path.text + "/anim_name.tres")
+		ResourceSaver.save(make_animation(frames, anim_name), output_path.text + "/" + anim_name + ".tres")
 		
 func make_animation(frames : SpriteFrames, anim_name : String) -> Animation:
 	var anim : Animation = Animation.new()
@@ -22,11 +22,11 @@ func make_animation(frames : SpriteFrames, anim_name : String) -> Animation:
 	
 	# Make constant values first
 	set_initial_value(anim, "sprite_frames", frames)
-	set_initial_value(anim, "animation", name)
+	set_initial_value(anim, "animation", anim_name)
 	set_initial_value(anim, "offset", Vector2.ZERO)
 	
 	anim.loop_mode = Animation.LOOP_LINEAR if frames.get_animation_loop(anim_name) else Animation.LOOP_NONE
-	anim.step = frames.get_animation_speed(anim_name)
+	anim.step = 1.0 / frames.get_animation_speed(anim_name)
 	anim.length = anim.step * frame_count
 	
 	# Now with the frames
