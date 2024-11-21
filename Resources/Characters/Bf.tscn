@@ -1,18 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://ch42nuiw15uh6"]
+[gd_scene load_steps=4 format=3 uid="uid://ch42nuiw15uh6"]
 
 [ext_resource type="Script" path="res://Source/Rubicon/View2D/Character2D.cs" id="1_deaeb"]
 [ext_resource type="SpriteFrames" uid="uid://bf1b5h0jdi2y4" path="res://Assets/Characters/Bf/boyfriend.tres" id="2_7sbxo"]
-[ext_resource type="Animation" uid="uid://d22xt6cylo5iy" path="res://Assets/Characters/Bf/Animations/BF idle dance.tres" id="3_1tcb8"]
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_3vjhy"]
-_data = {
-&"idle": ExtResource("3_1tcb8")
-}
 
 [node name="BF" type="AnimatedSprite2D" node_paths=PackedStringArray("MainNode", "AnimPlayer")]
 sprite_frames = ExtResource("2_7sbxo")
 animation = &"BF idle dance"
-frame = 13
+offset = Vector2(-16, -185)
 script = ExtResource("1_deaeb")
 MainNode = NodePath("")
 AnimPlayer = NodePath("AnimationPlayer")
