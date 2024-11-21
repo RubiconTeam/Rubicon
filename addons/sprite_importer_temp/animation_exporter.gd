@@ -2,22 +2,23 @@
 
 extends Control
 
-@onready var button : Button = get_node("VBoxContainer/Button")
-@onready var frames_path : LineEdit = get_node("VBoxContainer/PathContainer/LineEdit")
-@onready var node_path : LineEdit = get_node("VBoxContainer/NodePathContainer/LineEdit")
+@onready var save_button : Button = get_node("VBoxContainer/Button")
+
+@onready var sprite_frames_path : LineEdit = get_node("VBoxContainer/PathContainer/LineEdit")
+@onready var animated_sprite_path : LineEdit = get_node("VBoxContainer/NodePathContainer/LineEdit")
 @onready var output_path : LineEdit = get_node("VBoxContainer/OutputContainer/LineEdit")
 
 func _ready():
-	button.pressed.connect(button_pressed)
+	save_button.pressed.connect(save_button_pressed)
 
-func button_pressed():
-	var frames : SpriteFrames = load(frames_path.text)
+func save_button_pressed():
+	var frames : SpriteFrames = load(sprite_frames_path.text)
 	for anim_name in frames.get_animation_names():
 		ResourceSaver.save(make_animation(frames, anim_name), output_path.text + "/" + anim_name + ".tres")
 		
 func make_animation(frames : SpriteFrames, anim_name : String) -> Animation:
 	var anim : Animation = Animation.new()
-	var path : String = node_path.text
+	var path : String = animated_sprite_path.text
 	var frame_count : int = frames.get_frame_count(anim_name)
 	
 	# Make constant values first
@@ -29,17 +30,15 @@ func make_animation(frames : SpriteFrames, anim_name : String) -> Animation:
 	anim.step = 1.0 / frames.get_animation_speed(anim_name)
 	anim.length = anim.step * frame_count
 	
-	# Now with the frames
-	var frame_track_idx : int = anim.add_track(Animation.TYPE_VALUE)
-	anim.value_track_set_update_mode(frame_track_idx, Animation.UPDATE_DISCRETE)
-	anim.track_set_path(frame_track_idx, path + ":frame")
-	for i in frame_count:
-		anim.track_insert_key(frame_track_idx, i * anim.step, i)
+	var method_track_idx : int = anim.add_track(Animation.TYPE_METHOD)
+	anim.value_track_set_update_mode(method_track_idx, Animation.UPDATE_DISCRETE)
+	anim.track_set_path(method_track_idx, path + ":")
+	#anim.track_insert_key(method_track_idx, i * anim.step, "play", )
 		
 	return anim
 	
 func set_initial_value(anim : Animation, property : String, value : Variant) -> void:
-	var sprite_path : String = node_path.text
+	var sprite_path : String = sprite_frames_path.text
 	var track_idx : int = anim.add_track(Animation.TYPE_VALUE)
 	anim.value_track_set_update_mode(track_idx, Animation.UPDATE_DISCRETE)
 	anim.track_set_path(track_idx, sprite_path + ":" + property)

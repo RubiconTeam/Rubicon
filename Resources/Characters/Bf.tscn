@@ -5,12 +5,11 @@
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_3vjhy"]
 
-[node name="BF" type="AnimatedSprite2D" node_paths=PackedStringArray("MainNode", "AnimPlayer")]
+[node name="BF" type="AnimatedSprite2D" node_paths=PackedStringArray("AnimPlayer")]
 sprite_frames = ExtResource("2_7sbxo")
 animation = &"BF idle dance"
 offset = Vector2(-16, -185)
 script = ExtResource("1_deaeb")
-MainNode = NodePath("")
 AnimPlayer = NodePath("AnimationPlayer")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
