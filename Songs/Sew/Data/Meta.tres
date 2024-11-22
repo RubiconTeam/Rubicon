@@ -1,16 +1,29 @@
-[gd_resource type="Resource" script_class="SongMeta" load_steps=2 format=3 uid="uid://de2lkhunlj07k"]
+[gd_resource type="Resource" script_class="SongMeta" load_steps=5 format=3 uid="uid://bnpe5ehdr4nit"]
 
-[ext_resource type="Script" path="res://Source/Rubicon/Core/Meta/SongMeta.cs" id="1_t6c4e"]
+[ext_resource type="Script" path="res://Source/Rubicon/Core/Meta/CharacterMeta.cs" id="1_3kgrg"]
+[ext_resource type="Script" path="res://Source/Rubicon/Core/Meta/SongMeta.cs" id="2_2ocoy"]
+
+[sub_resource type="Resource" id="Resource_p4ufk"]
+script = ExtResource("1_3kgrg")
+Character = "stitch"
+Nickname = &"Opponent"
+BarLine = &"Opponent"
+
+[sub_resource type="Resource" id="Resource_4co3d"]
+script = ExtResource("1_3kgrg")
+Character = "bf-stitch"
+Nickname = &"Player"
+BarLine = &"Player"
 
 [resource]
-script = ExtResource("1_t6c4e")
+script = ExtResource("2_2ocoy")
 Name = "Sew"
 RawName = "Sew"
 Artist = "Swifticul"
 DefaultRuleset = "Mania"
-UiStyle = "FunkLike"
+UiStyle = "Funkin"
 NoteSkin = "Funkin"
-PlayableCharts = [&"Player"]
-Characters = []
+PlayableCharts = [&"Player", &"Opponent"]
+Characters = [SubResource("Resource_p4ufk"), SubResource("Resource_4co3d")]
 Environment = 1
-Stage = "Stage"
+Stage = "petalforest"

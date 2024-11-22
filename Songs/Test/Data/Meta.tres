@@ -1,16 +1,35 @@
-[gd_resource type="Resource" script_class="SongMeta" load_steps=2 format=3 uid="uid://bnpl8q1kdxppc"]
+[gd_resource type="Resource" script_class="SongMeta" load_steps=6 format=3 uid="uid://cjiayr00o2qbj"]
 
-[ext_resource type="Script" path="res://Source/Rubicon/Core/Meta/SongMeta.cs" id="1_0jx5p"]
+[ext_resource type="Script" path="res://Source/Rubicon/Core/Meta/CharacterMeta.cs" id="1_hnf5s"]
+[ext_resource type="Script" path="res://Source/Rubicon/Core/Meta/SongMeta.cs" id="2_2ar1b"]
+
+[sub_resource type="Resource" id="Resource_a8ax7"]
+script = ExtResource("1_hnf5s")
+Character = "bf-pixel"
+Nickname = &"Opponent"
+BarLine = &"Opponent"
+
+[sub_resource type="Resource" id="Resource_1ch6w"]
+script = ExtResource("1_hnf5s")
+Character = "bf"
+Nickname = &"Player"
+BarLine = &"Player"
+
+[sub_resource type="Resource" id="Resource_s232e"]
+script = ExtResource("1_hnf5s")
+Character = "gf"
+Nickname = &"Speaker"
+BarLine = &""
 
 [resource]
-script = ExtResource("1_0jx5p")
+script = ExtResource("2_2ar1b")
 Name = "Test"
 RawName = "Test"
-Artist = "Hideo Kojima"
+Artist = "KawaiSprite, MtH"
 DefaultRuleset = "Mania"
 UiStyle = "Funkin"
 NoteSkin = "Funkin"
-PlayableCharts = [&"Player"]
-Characters = []
+PlayableCharts = [&"Player", &"Opponent"]
+Characters = [SubResource("Resource_a8ax7"), SubResource("Resource_1ch6w"), SubResource("Resource_s232e")]
 Environment = 1
-Stage = "Stage"
+Stage = "stage"
