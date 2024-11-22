@@ -89,7 +89,8 @@ public partial class RubiconGame : Node
 		Conductor.ChartOffset = Chart.Offset;
 		Conductor.BpmList = Chart.BpmInfo;
 		
-		LoadSpace();
+		// TODO: Make Spaces work
+		// LoadSpace();
 		
 		// Set up play field
 		PlayField = LoadPlayField(RuleSet);
