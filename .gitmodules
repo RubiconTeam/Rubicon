@@ -4,3 +4,6 @@
 [submodule "addons/sprite_importer"]
 	path = addons/sprite_importer
 	url = https://github.com/legole0/Godot-Sprite-Importer.git
+[submodule "addons/rubichart_importer"]
+	path = addons/rubichart_importer
+	url = https://github.com/RubiconTeam/rubichart_importer
