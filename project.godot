@@ -22,7 +22,7 @@ config/icon="res://Assets/UI/Misc/fnf.png"
 
 RubiconEngine="*res://Source/Rubicon/RubiconEngineInstance.cs"
 Conductor="*res://Source/Rubicon/Core/ConductorInstance.cs"
-UserSettings="*res://Source/Rubicon/Data/UserSettingsInstance.cs"
+UserSettings="*res://Source/Rubicon/Data/Settings/UserSettingsInstance.cs"
 DebugInfo="*res://Source/Rubicon/Core/Autoload/DebugInfo.tscn"
 StoryMode="*res://Source/Rubicon/Game/StoryModeInstance.cs"
 
