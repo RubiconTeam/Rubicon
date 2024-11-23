@@ -1,49 +1,40 @@
 using System.Reflection;
 using Rubicon.Menus;
-using Rubicon.Data.Settings;
 using Rubicon.Data.Settings.Attributes;
 
 namespace Rubicon.Data.Settings;
 public partial class SettingsMenu : BaseMenu
 {
-    [NodePath("Main/Sidebar/AnimationPlayer")] private AnimationPlayer _sidebarAnimationPlayer;
-    [NodePath("Main/Sidebar")] private Control _sidebar;
-    [NodePath("Main/UI/SectionButtons/PanelContainer/VBoxContainer")] private Control _sectionButtonContainer;
-    [NodePath("Main/UI/SectionButtons/PanelContainer/VBoxContainer/Section")] private Control _sectionButtonTemplate;
+	[Export] private Control _sectionButtonContainer;
+	[Export] private Control _sectionButtonTemplate;
+	private const string DefaultIconPath = "res://Assets/UI/Menus/Settings/Gameplay.png";
 
-    public override void _Ready()
-    {
-        this.OnReady();
-        base._Ready();
+	public override void _Ready()
+	{
+		base._Ready();
 
-        _sidebar.MouseEntered += () => _sidebarAnimationPlayer.Play("Enter");
-        _sidebar.MouseExited += () => _sidebarAnimationPlayer.Play("Leave");
+		_sectionButtonTemplate.Visible = false;
+		
+		foreach (PropertyInfo prop in typeof(UserSettingsData).GetProperties())
+		{
+			RubiconSettingsSectionAttribute attribute = prop.PropertyType.GetCustomAttribute<RubiconSettingsSectionAttribute>();
+			if (attribute != null && attribute.GenerateInMenu)
+			{
+				Texture2D icon = attribute.Icon ?? new Texture2D() { ResourcePath = DefaultIconPath };
+				CreateSectionButton(attribute.Name, icon);
+			}
+		}
+	}
 
-        // Hide the placeholder button
-        _sectionButtonTemplate.Visible = false;
-
-        foreach (var prop in typeof(UserSettingsData).GetProperties())
-        {
-            var attribute = prop.PropertyType.GetCustomAttribute<RubiconSettingsSectionAttribute>();
-            if (attribute != null && attribute.GenerateInMenu) CreateSectionButton(attribute.Name, attribute.Icon);
-        }
-    }
-
-    private void CreateSectionButton(string sectionName, Texture2D icon)
-    {
-        var buttonInstance = _sectionButtonTemplate.Duplicate() as Control;
-        if (buttonInstance != null)
-        {
-            buttonInstance.Name = sectionName;
-
-            var textureRect = buttonInstance.GetNode<TextureRect>("Icon");
-            var label = buttonInstance.GetNode<Label>("Text");
-
-            textureRect.Texture = icon;
-            label.Text = sectionName;
-            label.Name = sectionName;
-
-            _sectionButtonContainer.AddChild(buttonInstance);
-        }
-    }
+	private void CreateSectionButton(string sectionName, Texture2D icon)
+	{
+		Button buttonInstance = _sectionButtonTemplate.Duplicate() as Button;
+		if (buttonInstance != null)
+		{
+			buttonInstance.Name = sectionName;
+			buttonInstance.Text = sectionName;
+			buttonInstance.Icon = icon;
+			_sectionButtonContainer.AddChild(buttonInstance);
+		}
+	}
 }

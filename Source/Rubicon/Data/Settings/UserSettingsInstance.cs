@@ -7,7 +7,7 @@ namespace Rubicon.Data.Settings;
 [GlobalClass, StaticAutoloadSingleton("Rubicon.Data.Settings", "UserSettings")]
 public partial class UserSettingsInstance : Node
 {
-	private UserSettingsData _data;
+	public static UserSettingsData _data { get; private set; }
 
 	public override void _Ready()
 	{
@@ -26,7 +26,6 @@ public partial class UserSettingsInstance : Node
 		// Video
 		Window mainWindow = GetTree().GetRoot();
 		mainWindow.Mode = Video.Fullscreen;
-		mainWindow.Size = Video.Resolution;
 		DisplayServer.WindowSetVsyncMode(Video.VSync);
 		Engine.MaxFps = Video.MaxFps;
 		mainWindow.Scaling3DMode = Video.Settings3D.Scaling3DMode;

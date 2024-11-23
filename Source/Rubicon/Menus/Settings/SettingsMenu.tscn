@@ -78,7 +78,7 @@ shadow_color = Color(0, 0, 0, 0.647059)
 shadow_size = 15
 shadow_offset = Vector2(10, 10)
 
-[node name="Settings Menu" type="Control"]
+[node name="Settings Menu" type="Control" node_paths=PackedStringArray("_sectionButtonContainer", "_sectionButtonTemplate")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -87,6 +87,8 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
 script = ExtResource("1_lotll")
+_sectionButtonContainer = NodePath("Main/UI/SectionsControl/PanelContainer/VBoxContainer")
+_sectionButtonTemplate = NodePath("Main/UI/SectionsControl/PanelContainer/VBoxContainer/Section")
 
 [node name="BGContainer" type="AspectRatioContainer" parent="."]
 layout_mode = 1
@@ -134,7 +136,7 @@ grow_vertical = 2
 rotation = -0.00047175
 metadata/_edit_use_anchors_ = true
 
-[node name="SectionButtons" type="Control" parent="Main/UI"]
+[node name="SectionsControl" type="Control" parent="Main/UI"]
 layout_mode = 1
 anchor_left = 0.0496689
 anchor_top = 0.479633
@@ -142,7 +144,7 @@ anchor_right = 0.374172
 anchor_bottom = 0.55499
 metadata/_edit_use_anchors_ = true
 
-[node name="PanelContainer" type="PanelContainer" parent="Main/UI/SectionButtons"]
+[node name="PanelContainer" type="PanelContainer" parent="Main/UI/SectionsControl"]
 layout_mode = 1
 anchors_preset = -1
 anchor_top = -0.0316456
@@ -157,12 +159,12 @@ rotation = -0.0855211
 theme_override_styles/panel = SubResource("StyleBoxFlat_jwce3")
 metadata/_edit_use_anchors_ = true
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Main/UI/SectionButtons/PanelContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Main/UI/SectionsControl/PanelContainer"]
 layout_mode = 2
 theme_override_constants/separation = 16
 alignment = 1
 
-[node name="Section" type="Button" parent="Main/UI/SectionButtons/PanelContainer/VBoxContainer"]
+[node name="Section" type="Button" parent="Main/UI/SectionsControl/PanelContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/icon_max_width = 75
 theme_override_fonts/font = ExtResource("3_b8kiq")
@@ -181,7 +183,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_dwaca")
 text = "Section"
 icon = ExtResource("4_xs2iu")
 
-[node name="SettingsContainer" type="Control" parent="Main/UI"]
+[node name="ButtonsControl" type="Control" parent="Main/UI"]
 layout_mode = 1
 anchor_left = 0.543046
 anchor_top = 0.130346
@@ -189,7 +191,7 @@ anchor_right = 0.902318
 anchor_bottom = 0.754582
 metadata/_edit_use_anchors_ = true
 
-[node name="PanelContainer" type="PanelContainer" parent="Main/UI/SettingsContainer"]
+[node name="PanelContainer" type="PanelContainer" parent="Main/UI/ButtonsControl"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -203,16 +205,16 @@ grow_vertical = 2
 rotation = 0.0162759
 theme_override_styles/panel = SubResource("StyleBoxFlat_xs2iu")
 
-[node name="ScrollContainer" type="ScrollContainer" parent="Main/UI/SettingsContainer/PanelContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="Main/UI/ButtonsControl/PanelContainer"]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Main/UI/SettingsContainer/PanelContainer/ScrollContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Main/UI/ButtonsControl/PanelContainer/ScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_constants/separation = 22
 
-[node name="CheckBox" type="CheckButton" parent="Main/UI/SettingsContainer/PanelContainer/ScrollContainer/VBoxContainer"]
+[node name="CheckBox" type="CheckButton" parent="Main/UI/ButtonsControl/PanelContainer/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_b8kiq")
 theme_override_font_sizes/font_size = 51
@@ -231,7 +233,7 @@ text = "CheckBox"
 text_overrun_behavior = 3
 expand_icon = true
 
-[node name="Button" type="Button" parent="Main/UI/SettingsContainer/PanelContainer/ScrollContainer/VBoxContainer"]
+[node name="Button" type="Button" parent="Main/UI/ButtonsControl/PanelContainer/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_b8kiq")
 theme_override_font_sizes/font_size = 51
@@ -251,7 +253,7 @@ alignment = 0
 text_overrun_behavior = 3
 expand_icon = true
 
-[node name="Dropdown" type="MenuButton" parent="Main/UI/SettingsContainer/PanelContainer/ScrollContainer/VBoxContainer"]
+[node name="Dropdown" type="MenuButton" parent="Main/UI/ButtonsControl/PanelContainer/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_b8kiq")
 theme_override_font_sizes/font_size = 51
@@ -275,7 +277,7 @@ item_count = 1
 popup/item_0/text = "d"
 popup/item_0/id = 0
 
-[node name="ColorPicker" type="Label" parent="Main/UI/SettingsContainer/PanelContainer/ScrollContainer/VBoxContainer"]
+[node name="ColorPicker" type="Label" parent="Main/UI/ButtonsControl/PanelContainer/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_b8kiq")
 theme_override_font_sizes/font_size = 51
@@ -283,7 +285,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_hbx5l")
 text = "ColorPicker"
 text_overrun_behavior = 3
 
-[node name="Picker" type="ColorPickerButton" parent="Main/UI/SettingsContainer/PanelContainer/ScrollContainer/VBoxContainer/ColorPicker"]
+[node name="Picker" type="ColorPickerButton" parent="Main/UI/ButtonsControl/PanelContainer/ScrollContainer/VBoxContainer/ColorPicker"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -293,7 +295,7 @@ offset_right = -10.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Slider" type="Label" parent="Main/UI/SettingsContainer/PanelContainer/ScrollContainer/VBoxContainer"]
+[node name="Slider" type="Label" parent="Main/UI/ButtonsControl/PanelContainer/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_b8kiq")
 theme_override_font_sizes/font_size = 51
@@ -301,7 +303,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_hbx5l")
 text = "Slider [0.1] "
 text_overrun_behavior = 3
 
-[node name="HSlider" type="HSlider" parent="Main/UI/SettingsContainer/PanelContainer/ScrollContainer/VBoxContainer/Slider"]
+[node name="HSlider" type="HSlider" parent="Main/UI/ButtonsControl/PanelContainer/ScrollContainer/VBoxContainer/Slider"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.530961
@@ -312,7 +314,7 @@ grow_horizontal = 0
 grow_vertical = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="Max" type="Label" parent="Main/UI/SettingsContainer/PanelContainer/ScrollContainer/VBoxContainer/Slider/HSlider"]
+[node name="Max" type="Label" parent="Main/UI/ButtonsControl/PanelContainer/ScrollContainer/VBoxContainer/Slider/HSlider"]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.155
@@ -329,7 +331,7 @@ text = "1
 horizontal_alignment = 2
 text_overrun_behavior = 3
 
-[node name="Min" type="Label" parent="Main/UI/SettingsContainer/PanelContainer/ScrollContainer/VBoxContainer/Slider/HSlider"]
+[node name="Min" type="Label" parent="Main/UI/ButtonsControl/PanelContainer/ScrollContainer/VBoxContainer/Slider/HSlider"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = -0.114
@@ -347,7 +349,7 @@ text = "1
 "
 text_overrun_behavior = 3
 
-[node name="LineEdit" type="Label" parent="Main/UI/SettingsContainer/PanelContainer/ScrollContainer/VBoxContainer"]
+[node name="LineEdit" type="Label" parent="Main/UI/ButtonsControl/PanelContainer/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_b8kiq")
 theme_override_font_sizes/font_size = 51
@@ -355,7 +357,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_hbx5l")
 text = "LineEdit"
 text_overrun_behavior = 3
 
-[node name="Edit" type="LineEdit" parent="Main/UI/SettingsContainer/PanelContainer/ScrollContainer/VBoxContainer/LineEdit"]
+[node name="Edit" type="LineEdit" parent="Main/UI/ButtonsControl/PanelContainer/ScrollContainer/VBoxContainer/LineEdit"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -375,28 +377,28 @@ text = "line edit lmfao"
 placeholder_text = "hello im a line edit"
 alignment = 1
 
-[node name="SettingsDescription" type="Control" parent="Main/UI"]
+[node name="DescriptionControl" type="Control" parent="Main/UI"]
 layout_mode = 1
-anchor_left = 0.532561
+anchor_left = 0.536976
 anchor_top = 0.809572
-anchor_right = 0.896247
-anchor_bottom = 0.907332
+anchor_right = 0.891832
+anchor_bottom = 0.923625
 metadata/_edit_use_anchors_ = true
 
-[node name="PanelContainer" type="PanelContainer" parent="Main/UI/SettingsDescription"]
+[node name="PanelContainer" type="PanelContainer" parent="Main/UI/DescriptionControl"]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 5.0
-offset_right = -9.0
-offset_bottom = 31.0
+anchors_preset = -1
+anchor_right = 0.997438
+anchor_bottom = 1.10888
+offset_right = 1.64758
+offset_bottom = -10.4522
 grow_horizontal = 2
 grow_vertical = 2
 rotation = 0.0162759
 theme_override_styles/panel = SubResource("StyleBoxFlat_a0khw")
+metadata/_edit_use_anchors_ = true
 
-[node name="Description" type="Label" parent="Main/UI/SettingsDescription/PanelContainer"]
+[node name="Description" type="Label" parent="Main/UI/DescriptionControl/PanelContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_b8kiq")
 theme_override_font_sizes/font_size = 51

@@ -13,6 +13,8 @@
     <EmbeddedResource Remove="Source\Rubicon.SourceGenerators\**" />
     <Compile Remove="Source\Rubicon\Data\Settings\Enums\**" />
     <EmbeddedResource Remove="Source\Rubicon\Data\Settings\Enums\**" />
+    <Compile Remove="Source\Rubicon\Menus\Settings\Resources\**" />
+    <EmbeddedResource Remove="Source\Rubicon\Menus\Settings\Resources\**" />
   </ItemGroup>
   <ItemGroup>
     <!-- Root the assemblies to avoid trimming. -->
@@ -38,7 +40,6 @@
     <Content Include="Songs\Test\Vocals.ogg.import" />
     <Content Include="Source\Rubicon\API\a pi.txt" />
     <Content Include="Source\Rubicon\Core\Autoload\DebugInfo.tscn" />
-    <Content Include="Source\Rubicon\Menus\Settings\Resources\SectionButtonTemplate.tscn" />
     <Content Include="Source\Rubicon\Menus\Settings\SettingsMenu.tscn" />
   </ItemGroup>
 </Project>
