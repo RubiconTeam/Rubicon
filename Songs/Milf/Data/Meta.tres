@@ -1,0 +1,44 @@
+[gd_resource type="Resource" script_class="SongMeta" load_steps=8 format=3 uid="uid://dqwrimkhnqiyc"]
+
+[ext_resource type="Script" uid="uid://drd5b57dbi868" path="res://Source/Rubicon/Core/Meta/CharacterMeta.cs" id="1_g6yev"]
+[ext_resource type="Script" uid="uid://bin7tcge05j76" path="res://Source/Rubicon/Core/Chart/BpmInfo.cs" id="1_qkhdv"]
+[ext_resource type="Script" uid="uid://qhkqc1rjayhp" path="res://Source/Rubicon/Core/Meta/SongMeta.cs" id="2_qkhdv"]
+
+[sub_resource type="Resource" id="Resource_qkhdv"]
+script = ExtResource("1_qkhdv")
+Time = 0.0
+Bpm = 180.0
+TimeSignatureNumerator = 4
+TimeSignatureDenominator = 4
+
+[sub_resource type="Resource" id="Resource_3oghc"]
+script = ExtResource("1_g6yev")
+Character = "mom-car"
+Nickname = &"dad"
+BarLine = &"dad"
+
+[sub_resource type="Resource" id="Resource_ob138"]
+script = ExtResource("1_g6yev")
+Character = "bf-car"
+Nickname = &"boyfriend"
+BarLine = &"boyfriend"
+
+[sub_resource type="Resource" id="Resource_tvvk7"]
+script = ExtResource("1_g6yev")
+Character = "gf-car"
+Nickname = &"girlfriend"
+BarLine = &"girlfriend"
+
+[resource]
+script = ExtResource("2_qkhdv")
+Name = "MILF"
+RawName = "MILF"
+Artist = "kawaisprite"
+DefaultRuleset = "Mania"
+UiStyle = "Funkin"
+NoteSkin = "Funkin"
+PlayableCharts = [&"boyfriend", &"dad"]
+Characters = [SubResource("Resource_3oghc"), SubResource("Resource_ob138"), SubResource("Resource_tvvk7")]
+BpmInfo = [SubResource("Resource_qkhdv")]
+Environment = 1
+Stage = "limo"
