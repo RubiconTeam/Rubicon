@@ -57,7 +57,7 @@ public partial class RubiconGame : Node
 		if (!Context.IsValid())
 			return;
 		
-		Metadata = GD.Load<SongMeta>($"res://Songs/{Context.Name}/Data/Meta.tres");
+		Metadata = GD.Load<SongMeta>($"res://Songs/{Context.Name}/Data/Meta.tres").ConvertData();
 		
 		// Set up rule set, and check paths too
 		string ruleSetName = Context.RuleSet;
@@ -73,7 +73,7 @@ public partial class RubiconGame : Node
 			throw new Exception("RuleSet is still null. Please check your Project Settings at \"rubicon/rulesets\"");
 		
 		Chart = GD.Load<RubiChart>($"res://Songs/{Context.Name}/Data/{Context.RuleSet}-{Context.Difficulty}.tres");
-		Chart.ConvertData().Format();
+		Chart.ConvertData(Metadata.BpmInfo).Format();
 
 		string instPath = $"res://Songs/{Context.Name}/Inst.ogg";
 		string vocalsPath = $"res://Songs/{Context.Name}/Vocals.ogg";
@@ -87,7 +87,7 @@ public partial class RubiconGame : Node
 
 		Conductor.Reset();
 		Conductor.ChartOffset = Chart.Offset;
-		Conductor.BpmList = Chart.BpmInfo;
+		Conductor.BpmList = Metadata.BpmInfo;
 		
 		// TODO: Make Spaces work
 		// LoadSpace();

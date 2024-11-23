@@ -1,22 +1,36 @@
-[gd_resource type="Resource" script_class="SongMeta" load_steps=5 format=3 uid="uid://bnpe5ehdr4nit"]
+[gd_resource type="Resource" script_class="SongMeta" load_steps=8 format=3 uid="uid://by6jd0e4xxo5"]
 
-[ext_resource type="Script" path="res://Source/Rubicon/Core/Meta/CharacterMeta.cs" id="1_3kgrg"]
-[ext_resource type="Script" path="res://Source/Rubicon/Core/Meta/SongMeta.cs" id="2_2ocoy"]
+[ext_resource type="Script" path="res://Source/Rubicon/Core/Chart/BpmInfo.cs" id="1_5aygd"]
+[ext_resource type="Script" path="res://Source/Rubicon/Core/Meta/CharacterMeta.cs" id="2_moy6i"]
+[ext_resource type="Script" path="res://Source/Rubicon/Core/Meta/SongMeta.cs" id="3_75x4g"]
 
-[sub_resource type="Resource" id="Resource_p4ufk"]
-script = ExtResource("1_3kgrg")
+[sub_resource type="Resource" id="Resource_s5mlw"]
+script = ExtResource("1_5aygd")
+Time = 0.0
+Bpm = 225.0
+TimeSignatureNumerator = 4
+TimeSignatureDenominator = 4
+
+[sub_resource type="Resource" id="Resource_jtc0a"]
+script = ExtResource("2_moy6i")
 Character = "stitch"
 Nickname = &"Opponent"
 BarLine = &"Opponent"
 
-[sub_resource type="Resource" id="Resource_4co3d"]
-script = ExtResource("1_3kgrg")
+[sub_resource type="Resource" id="Resource_bb6bo"]
+script = ExtResource("2_moy6i")
 Character = "bf-stitch"
 Nickname = &"Player"
 BarLine = &"Player"
 
+[sub_resource type="Resource" id="Resource_kw1fk"]
+script = ExtResource("2_moy6i")
+Character = "gf"
+Nickname = &"Speaker"
+BarLine = &""
+
 [resource]
-script = ExtResource("2_2ocoy")
+script = ExtResource("3_75x4g")
 Name = "Sew"
 RawName = "Sew"
 Artist = "Swifticul"
@@ -24,6 +38,7 @@ DefaultRuleset = "Mania"
 UiStyle = "Funklike"
 NoteSkin = "Funkin"
 PlayableCharts = [&"Player", &"Opponent"]
-Characters = [SubResource("Resource_p4ufk"), SubResource("Resource_4co3d")]
+Characters = [SubResource("Resource_jtc0a"), SubResource("Resource_bb6bo"), SubResource("Resource_kw1fk")]
+BpmInfo = [SubResource("Resource_s5mlw")]
 Environment = 1
 Stage = "petalforest"

@@ -102,7 +102,6 @@ public partial class PlayField : Control
         Name = "Base PlayField";
         Metadata = meta;
         Chart = chart;
-        Chart.ConvertData().Format();
         SetAnchorsPreset(LayoutPreset.FullRect);
         Input.UseAccumulatedInput = false;
         

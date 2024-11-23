@@ -1,194 +1,182 @@
-[gd_resource type="Resource" script_class="EventMeta" load_steps=34 format=3 uid="uid://5740b8cfr5vt"]
+[gd_resource type="Resource" script_class="EventMeta" load_steps=32 format=3 uid="uid://d2712to8hgy2g"]
 
-[ext_resource type="Script" path="res://Source/Rubicon/Core/Events/EventData.cs" id="1_0qtfx"]
-[ext_resource type="Script" path="res://Source/Rubicon/Core/Events/EventMeta.cs" id="2_tyhcr"]
+[ext_resource type="Script" path="res://Source/Rubicon/Core/Events/EventData.cs" id="1_v7l0f"]
+[ext_resource type="Script" path="res://Source/Rubicon/Core/Events/EventMeta.cs" id="2_2yeh6"]
 
-[sub_resource type="Resource" id="Resource_d6rel"]
-script = ExtResource("1_0qtfx")
+[sub_resource type="Resource" id="Resource_gptco"]
+script = ExtResource("1_v7l0f")
 Time = 2.0
 Name = &"Set Camera Focus"
 Arguments = [1]
 
-[sub_resource type="Resource" id="Resource_nutij"]
-script = ExtResource("1_0qtfx")
+[sub_resource type="Resource" id="Resource_h4sy6"]
+script = ExtResource("1_v7l0f")
 Time = 4.0
 Name = &"Set Camera Focus"
 Arguments = [0]
 
-[sub_resource type="Resource" id="Resource_6yf0v"]
-script = ExtResource("1_0qtfx")
+[sub_resource type="Resource" id="Resource_f1frx"]
+script = ExtResource("1_v7l0f")
 Time = 6.0
 Name = &"Set Camera Focus"
 Arguments = [1]
 
-[sub_resource type="Resource" id="Resource_8oya5"]
-script = ExtResource("1_0qtfx")
+[sub_resource type="Resource" id="Resource_rk5v0"]
+script = ExtResource("1_v7l0f")
 Time = 8.0
 Name = &"Set Camera Focus"
 Arguments = [0]
 
-[sub_resource type="Resource" id="Resource_oslg1"]
-script = ExtResource("1_0qtfx")
+[sub_resource type="Resource" id="Resource_jectm"]
+script = ExtResource("1_v7l0f")
 Time = 9.0
 Name = &"Set Camera Focus"
 Arguments = [1]
 
-[sub_resource type="Resource" id="Resource_8v2cw"]
-script = ExtResource("1_0qtfx")
+[sub_resource type="Resource" id="Resource_fcgen"]
+script = ExtResource("1_v7l0f")
 Time = 10.0
 Name = &"Set Camera Focus"
 Arguments = [0]
 
-[sub_resource type="Resource" id="Resource_kapr2"]
-script = ExtResource("1_0qtfx")
+[sub_resource type="Resource" id="Resource_add3v"]
+script = ExtResource("1_v7l0f")
 Time = 11.0
 Name = &"Set Camera Focus"
 Arguments = [1]
 
-[sub_resource type="Resource" id="Resource_ycanh"]
-script = ExtResource("1_0qtfx")
+[sub_resource type="Resource" id="Resource_2wry1"]
+script = ExtResource("1_v7l0f")
 Time = 12.0
 Name = &"Set Camera Focus"
 Arguments = [0]
 
-[sub_resource type="Resource" id="Resource_vrphh"]
-script = ExtResource("1_0qtfx")
+[sub_resource type="Resource" id="Resource_vvxm6"]
+script = ExtResource("1_v7l0f")
 Time = 13.0
 Name = &"Set Camera Focus"
 Arguments = [1]
 
-[sub_resource type="Resource" id="Resource_f0cvl"]
-script = ExtResource("1_0qtfx")
+[sub_resource type="Resource" id="Resource_o7mr2"]
+script = ExtResource("1_v7l0f")
 Time = 14.0
 Name = &"Set Camera Focus"
 Arguments = [0]
 
-[sub_resource type="Resource" id="Resource_okojc"]
-script = ExtResource("1_0qtfx")
+[sub_resource type="Resource" id="Resource_23v8v"]
+script = ExtResource("1_v7l0f")
 Time = 15.0
 Name = &"Set Camera Focus"
 Arguments = [1]
 
-[sub_resource type="Resource" id="Resource_tudhr"]
-script = ExtResource("1_0qtfx")
+[sub_resource type="Resource" id="Resource_n7t0j"]
+script = ExtResource("1_v7l0f")
 Time = 16.0
 Name = &"Set Camera Focus"
 Arguments = [0]
 
-[sub_resource type="Resource" id="Resource_rmnk3"]
-script = ExtResource("1_0qtfx")
+[sub_resource type="Resource" id="Resource_6ktk0"]
+script = ExtResource("1_v7l0f")
 Time = 18.0
 Name = &"Set Camera Focus"
 Arguments = [1]
 
-[sub_resource type="Resource" id="Resource_qn2aq"]
-script = ExtResource("1_0qtfx")
+[sub_resource type="Resource" id="Resource_q8njl"]
+script = ExtResource("1_v7l0f")
 Time = 20.0
 Name = &"Set Camera Focus"
 Arguments = [0]
 
-[sub_resource type="Resource" id="Resource_1u1dr"]
-script = ExtResource("1_0qtfx")
+[sub_resource type="Resource" id="Resource_70xqv"]
+script = ExtResource("1_v7l0f")
 Time = 22.0
 Name = &"Set Camera Focus"
 Arguments = [1]
 
-[sub_resource type="Resource" id="Resource_xfd1w"]
-script = ExtResource("1_0qtfx")
+[sub_resource type="Resource" id="Resource_jfs3q"]
+script = ExtResource("1_v7l0f")
 Time = 24.0
 Name = &"Set Camera Focus"
 Arguments = [0]
 
-[sub_resource type="Resource" id="Resource_r83u8"]
-script = ExtResource("1_0qtfx")
+[sub_resource type="Resource" id="Resource_qgk3b"]
+script = ExtResource("1_v7l0f")
 Time = 26.0
 Name = &"Set Camera Focus"
 Arguments = [1]
 
-[sub_resource type="Resource" id="Resource_5epqi"]
-script = ExtResource("1_0qtfx")
+[sub_resource type="Resource" id="Resource_ykdf6"]
+script = ExtResource("1_v7l0f")
 Time = 28.0
 Name = &"Set Camera Focus"
 Arguments = [0]
 
-[sub_resource type="Resource" id="Resource_vivlx"]
-script = ExtResource("1_0qtfx")
+[sub_resource type="Resource" id="Resource_ysyam"]
+script = ExtResource("1_v7l0f")
 Time = 30.0
 Name = &"Set Camera Focus"
 Arguments = [1]
 
-[sub_resource type="Resource" id="Resource_ue6b6"]
-script = ExtResource("1_0qtfx")
+[sub_resource type="Resource" id="Resource_5iid4"]
+script = ExtResource("1_v7l0f")
 Time = 32.0
 Name = &"Set Camera Focus"
 Arguments = [0]
 
-[sub_resource type="Resource" id="Resource_t3bw8"]
-script = ExtResource("1_0qtfx")
+[sub_resource type="Resource" id="Resource_nwvdw"]
+script = ExtResource("1_v7l0f")
 Time = 36.0
 Name = &"Set Camera Focus"
 Arguments = [1]
 
-[sub_resource type="Resource" id="Resource_ieasr"]
-script = ExtResource("1_0qtfx")
+[sub_resource type="Resource" id="Resource_g5qng"]
+script = ExtResource("1_v7l0f")
 Time = 40.0
 Name = &"Set Camera Focus"
 Arguments = [0]
 
-[sub_resource type="Resource" id="Resource_0q1m6"]
-script = ExtResource("1_0qtfx")
+[sub_resource type="Resource" id="Resource_qxbpq"]
+script = ExtResource("1_v7l0f")
 Time = 44.0
 Name = &"Set Camera Focus"
 Arguments = [1]
 
-[sub_resource type="Resource" id="Resource_8c3db"]
-script = ExtResource("1_0qtfx")
+[sub_resource type="Resource" id="Resource_yvq3a"]
+script = ExtResource("1_v7l0f")
 Time = 48.0
 Name = &"Set Camera Focus"
 Arguments = [0]
 
-[sub_resource type="Resource" id="Resource_nn4yu"]
-script = ExtResource("1_0qtfx")
+[sub_resource type="Resource" id="Resource_sruvm"]
+script = ExtResource("1_v7l0f")
 Time = 50.0
 Name = &"Set Camera Focus"
 Arguments = [1]
 
-[sub_resource type="Resource" id="Resource_y8f3g"]
-script = ExtResource("1_0qtfx")
+[sub_resource type="Resource" id="Resource_3djv7"]
+script = ExtResource("1_v7l0f")
 Time = 52.0
 Name = &"Set Camera Focus"
 Arguments = [0]
 
-[sub_resource type="Resource" id="Resource_bf887"]
-script = ExtResource("1_0qtfx")
+[sub_resource type="Resource" id="Resource_y1nvy"]
+script = ExtResource("1_v7l0f")
 Time = 54.0
 Name = &"Set Camera Focus"
 Arguments = [1]
 
-[sub_resource type="Resource" id="Resource_055wq"]
-script = ExtResource("1_0qtfx")
+[sub_resource type="Resource" id="Resource_336hf"]
+script = ExtResource("1_v7l0f")
 Time = 56.0
 Name = &"Set Camera Focus"
 Arguments = [0]
 
-[sub_resource type="Resource" id="Resource_rihyy"]
-script = ExtResource("1_0qtfx")
+[sub_resource type="Resource" id="Resource_bg72a"]
+script = ExtResource("1_v7l0f")
 Time = 58.0
 Name = &"Set Camera Focus"
 Arguments = [1]
 
-[sub_resource type="Resource" id="Resource_syh8p"]
-script = ExtResource("1_0qtfx")
-Time = 60.0
-Name = &"Set Camera Focus"
-Arguments = [0]
-
-[sub_resource type="Resource" id="Resource_t3fv3"]
-script = ExtResource("1_0qtfx")
-Time = 62.0
-Name = &"Set Camera Focus"
-Arguments = [1]
-
 [resource]
-script = ExtResource("2_tyhcr")
-Events = [SubResource("Resource_d6rel"), SubResource("Resource_nutij"), SubResource("Resource_6yf0v"), SubResource("Resource_8oya5"), SubResource("Resource_oslg1"), SubResource("Resource_8v2cw"), SubResource("Resource_kapr2"), SubResource("Resource_ycanh"), SubResource("Resource_vrphh"), SubResource("Resource_f0cvl"), SubResource("Resource_okojc"), SubResource("Resource_tudhr"), SubResource("Resource_rmnk3"), SubResource("Resource_qn2aq"), SubResource("Resource_1u1dr"), SubResource("Resource_xfd1w"), SubResource("Resource_r83u8"), SubResource("Resource_5epqi"), SubResource("Resource_vivlx"), SubResource("Resource_ue6b6"), SubResource("Resource_t3bw8"), SubResource("Resource_ieasr"), SubResource("Resource_0q1m6"), SubResource("Resource_8c3db"), SubResource("Resource_nn4yu"), SubResource("Resource_y8f3g"), SubResource("Resource_bf887"), SubResource("Resource_055wq"), SubResource("Resource_rihyy"), SubResource("Resource_syh8p"), SubResource("Resource_t3fv3")]
+script = ExtResource("2_2yeh6")
+Events = [SubResource("Resource_gptco"), SubResource("Resource_h4sy6"), SubResource("Resource_f1frx"), SubResource("Resource_rk5v0"), SubResource("Resource_jectm"), SubResource("Resource_fcgen"), SubResource("Resource_add3v"), SubResource("Resource_2wry1"), SubResource("Resource_vvxm6"), SubResource("Resource_o7mr2"), SubResource("Resource_23v8v"), SubResource("Resource_n7t0j"), SubResource("Resource_6ktk0"), SubResource("Resource_q8njl"), SubResource("Resource_70xqv"), SubResource("Resource_jfs3q"), SubResource("Resource_qgk3b"), SubResource("Resource_ykdf6"), SubResource("Resource_ysyam"), SubResource("Resource_5iid4"), SubResource("Resource_nwvdw"), SubResource("Resource_g5qng"), SubResource("Resource_qxbpq"), SubResource("Resource_yvq3a"), SubResource("Resource_sruvm"), SubResource("Resource_3djv7"), SubResource("Resource_y1nvy"), SubResource("Resource_336hf"), SubResource("Resource_bg72a")]
