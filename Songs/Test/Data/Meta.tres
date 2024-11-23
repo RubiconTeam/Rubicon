@@ -1,27 +1,8 @@
-[gd_resource type="Resource" script_class="SongMeta" load_steps=8 format=3 uid="uid://b1pdll5e2e3kv"]
+[gd_resource type="Resource" script_class="SongMeta" load_steps=8 format=3 uid="uid://yuyiycoimhhm"]
 
-[ext_resource type="Script" path="res://Source/Rubicon/Core/Chart/BpmInfo.cs" id="1_ycdkm"]
-[ext_resource type="Script" path="res://Source/Rubicon/Core/Meta/CharacterMeta.cs" id="2_0eumu"]
-[ext_resource type="Script" path="res://Source/Rubicon/Core/Meta/SongMeta.cs" id="3_ejhfw"]
-
-[sub_resource type="Resource" id="Resource_ycdkm"]
-script = ExtResource("1_ycdkm")
-Time = 0.0
-Bpm = 150.0
-TimeSignatureNumerator = 4
-TimeSignatureDenominator = 4
-
-[sub_resource type="Resource" id="Resource_0eumu"]
-script = ExtResource("2_0eumu")
-Character = "bf-pixel"
-Nickname = &"Opponent"
-BarLine = &"Opponent"
-
-[sub_resource type="Resource" id="Resource_ejhfw"]
-script = ExtResource("2_0eumu")
-Character = "bf"
-Nickname = &"Player"
-BarLine = &"Player"
+[ext_resource type="Script" uid="uid://bin7tcge05j76" path="res://Source/Rubicon/Core/Chart/BpmInfo.cs" id="1_ycdkm"]
+[ext_resource type="Script" uid="uid://drd5b57dbi868" path="res://Source/Rubicon/Core/Meta/CharacterMeta.cs" id="2_0eumu"]
+[ext_resource type="Script" uid="uid://qhkqc1rjayhp" path="res://Source/Rubicon/Core/Meta/SongMeta.cs" id="3_ejhfw"]
 
 [sub_resource type="Resource" id="Resource_kw1yv"]
 script = ExtResource("1_ycdkm")
@@ -30,16 +11,34 @@ Bpm = 150.0
 TimeSignatureNumerator = 4
 TimeSignatureDenominator = 4
 
+[sub_resource type="Resource" id="Resource_12cs3"]
+script = ExtResource("2_0eumu")
+Character = "bf-pixel"
+Nickname = &"Opponent"
+BarLine = &"Opponent"
+
+[sub_resource type="Resource" id="Resource_fgly4"]
+script = ExtResource("2_0eumu")
+Character = "bf"
+Nickname = &"Player"
+BarLine = &"Player"
+
+[sub_resource type="Resource" id="Resource_64a8n"]
+script = ExtResource("2_0eumu")
+Character = "Missing"
+Nickname = &"Speaker"
+BarLine = &""
+
 [resource]
 script = ExtResource("3_ejhfw")
 Name = "Test"
 RawName = "Test"
-Artist = "Kawai Sprite & MtH"
+Artist = "kawaisprite & MtH"
 DefaultRuleset = "Mania"
 UiStyle = "Funkin"
 NoteSkin = "Funkin"
 PlayableCharts = [&"Player", &"Opponent"]
-Characters = [SubResource("Resource_0eumu"), SubResource("Resource_ejhfw"), SubResource("Resource_kw1yv")]
-BpmInfo = [SubResource("Resource_ycdkm")]
+Characters = [SubResource("Resource_12cs3"), SubResource("Resource_fgly4"), SubResource("Resource_64a8n")]
+BpmInfo = [SubResource("Resource_kw1yv")]
 Environment = 1
 Stage = "stage"
