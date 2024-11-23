@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cdtaelq0wxprt"
-path="res://.godot/imported/Keybinds.png-ea526d0344bb3373e751e387b0389089.ctex"
+uid="uid://dx6qho3155q0q"
+path="res://.godot/imported/Gameplay.png-85d3867257ad81ce9a6906eab547929a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/UI/Menus/Settings/Keybinds.png"
-dest_files=["res://.godot/imported/Keybinds.png-ea526d0344bb3373e751e387b0389089.ctex"]
+source_file="res://Assets/UI/Menus/Settings/Gameplay.png"
+dest_files=["res://.godot/imported/Gameplay.png-85d3867257ad81ce9a6906eab547929a.ctex"]
 
 [params]
 
