@@ -1,6 +1,6 @@
 using Rubicon.Core.Data;
 using Rubicon.Core.UI;
-using Rubicon.Data;
+using Rubicon.Data.Settings;
 using Rubicon.Game;
 using Rubicon.Rulesets;
 

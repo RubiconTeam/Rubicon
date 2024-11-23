@@ -1,7 +1,7 @@
 using System.Linq;
 using Rubicon.Core.Chart;
 using Rubicon.Core.Meta;
-using Rubicon.Data;
+using Rubicon.Data.Settings;
 
 namespace Rubicon.Rulesets.Mania;
 

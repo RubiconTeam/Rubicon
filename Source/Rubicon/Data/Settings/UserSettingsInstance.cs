@@ -2,9 +2,9 @@ using Godot.Collections;
 using Rubicon.Data.Generation;
 using Rubicon.Data.Settings;
 
-namespace Rubicon.Data;
+namespace Rubicon.Data.Settings;
 
-[GlobalClass, StaticAutoloadSingleton("Rubicon.Data", "UserSettings")]
+[GlobalClass, StaticAutoloadSingleton("Rubicon.Data.Settings", "UserSettings")]
 public partial class UserSettingsInstance : Node
 {
 	private UserSettingsData _data;
