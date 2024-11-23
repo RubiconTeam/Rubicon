@@ -11,6 +11,8 @@
   <ItemGroup>
     <Compile Remove="Source\Rubicon.SourceGenerators\**" />
     <EmbeddedResource Remove="Source\Rubicon.SourceGenerators\**" />
+    <Compile Remove="Source\Rubicon\Data\Settings\Enums\**" />
+    <EmbeddedResource Remove="Source\Rubicon\Data\Settings\Enums\**" />
   </ItemGroup>
   <ItemGroup>
     <!-- Root the assemblies to avoid trimming. -->

@@ -18,13 +18,13 @@ public partial class UserSettingsInstance : Node
 		}
 		
 		UpdateSettings();
+		UpdateKeybinds();
 	}
 
 	public void UpdateSettings()
 	{
-		Window mainWindow = GetTree().GetRoot();
-		
 		// Video
+		Window mainWindow = GetTree().GetRoot();
 		mainWindow.Mode = Video.Fullscreen;
 		mainWindow.Size = Video.Resolution;
 		DisplayServer.WindowSetVsyncMode(Video.VSync);
@@ -32,8 +32,10 @@ public partial class UserSettingsInstance : Node
 		mainWindow.Scaling3DMode = Video.Settings3D.Scaling3DMode;
 		mainWindow.Scaling3DScale = Video.Settings3D.RenderScale;
 		mainWindow.FsrSharpness = Video.Settings3D.FsrSharpness;
-		
-		// Bindings
+	}
+
+	public void UpdateKeybinds()
+	{
 		foreach (var bind in Bindings.Map)
 		{
 			string curAction = bind.Key;

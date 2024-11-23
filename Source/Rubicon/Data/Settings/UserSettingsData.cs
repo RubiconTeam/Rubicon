@@ -49,7 +49,7 @@ public class GameplaySection
     public bool GhostTapping = false;
     public bool FlashingLights = true;
     public bool Autoplay = false;
-    public float NoteAmplitude = 0f; // 0 means set to the default chart note amplitude (scroll speed)
+    public float NoteAmplitude = 0f;
 
     [RubiconSettingsGroup("Gameplay Modifiers")]
     public class GameplayModifiers
@@ -65,19 +65,19 @@ public class GameplaySection
 [RubiconSettingsSection("Video", true, "res://Assets/UI/Menus/Settings/Video.png")]
 public class VideoSection
 {
-    [ProjectSetting("display/window/size/mode")] public Window.ModeEnum Fullscreen = (Window.ModeEnum)ProjectSettings.GetSetting("display/window/size/mode").AsInt64();
-    [ProjectSetting("display/window/size/window_width_override")] public Vector2I Resolution = new(ProjectSettings.GetSetting("display/window/size/window_width_override").AsInt32(), ProjectSettings.GetSetting("display/window/size/window_height_override").AsInt32());
-    [ProjectSetting("display/window/vsync/vsync_mode")] public DisplayServer.VSyncMode VSync = (DisplayServer.VSyncMode)ProjectSettings.GetSetting("display/window/vsync/vsync_mode").AsInt64();
-    [ProjectSetting("application/run/max_fps")] public int MaxFps = ProjectSettings.GetSetting("application/run/max_fps").AsInt32();
+    [ProjectSetting("display/window/size/mode")] public Window.ModeEnum Fullscreen;
+    [ProjectSetting("display/window/size/window_width_override")] public Vector2I Resolution;
+    [ProjectSetting("display/window/vsync/vsync_mode")] public DisplayServer.VSyncMode VSync;
+    [ProjectSetting("application/run/max_fps")] public int MaxFps;
 
     public Settings3DSection Settings3D = new();
     
     [RubiconSettingsGroup("3D Settings")]
     public class Settings3DSection
     {
-        [ProjectSetting("rendering/scaling_3d/scale")] public Viewport.Scaling3DModeEnum Scaling3DMode = (Viewport.Scaling3DModeEnum)ProjectSettings.GetSetting("rendering/scaling_3d/scale").AsInt64();
-        [ProjectSetting("rendering/scaling_3d/scale")] public float RenderScale = ProjectSettings.GetSetting("rendering/scaling_3d/scale").AsSingle();
-        [ProjectSetting("rendering/scaling_3d/fsr_sharpness")] public float FsrSharpness = ProjectSettings.GetSetting("rendering/scaling_3d/fsr_sharpness").AsSingle();
+        [ProjectSetting("rendering/scaling_3d/scale")] public Viewport.Scaling3DModeEnum Scaling3DMode;
+        [ProjectSetting("rendering/scaling_3d/scale")] public float RenderScale;
+        [ProjectSetting("rendering/scaling_3d/fsr_sharpness")] public float FsrSharpness;
     }
 }
 

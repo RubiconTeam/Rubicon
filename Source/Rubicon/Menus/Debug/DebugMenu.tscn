@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://biducqu3nq13l"]
 
-[ext_resource type="Script" path="res://Source/Rubicon/Menus/Credits/CreditsMenu.cs" id="1_1upqg"]
+[ext_resource type="Script" uid="uid://datpdg5lrykf1" path="res://Source/Rubicon/Menus/Credits/CreditsMenu.cs" id="1_1upqg"]
 
 [node name="Credits Menu" type="Control"]
 layout_mode = 3

@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://gk0tkvl4wnv2"
-path="res://.godot/imported/funkin.ttf-f4ba6cc25cfc92479615f01f5f72d971.fontdata"
+uid="uid://ilqa3kmi8s03"
+path="res://.godot/imported/funkin2.ttf-11c37852365e16e20f5e009a219e47d2.fontdata"
 
 [deps]
 
-source_file="res://Assets/UI/Fonts/funkin.ttf"
-dest_files=["res://.godot/imported/funkin.ttf-f4ba6cc25cfc92479615f01f5f72d971.fontdata"]
+source_file="res://Assets/UI/Fonts/funkin2.ttf"
+dest_files=["res://.godot/imported/funkin2.ttf-11c37852365e16e20f5e009a219e47d2.fontdata"]
 
 [params]
 
@@ -22,7 +22,7 @@ msdf_size=48
 allow_system_fallback=true
 force_autohinter=false
 hinting=1
-subpixel_positioning=4
+subpixel_positioning=1
 oversampling=0.0
 Fallbacks=null
 fallbacks=[]

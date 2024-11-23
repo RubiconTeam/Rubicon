@@ -12,7 +12,6 @@ public class RubiconSettingsSectionAttribute : Attribute
 		Name = name;
 		GenerateInMenu = generateInMenu;
 
-		if (!string.IsNullOrWhiteSpace(iconPath))
-			Icon = GD.Load<Texture2D>(iconPath);
+		if (!string.IsNullOrWhiteSpace(iconPath)) Icon = GD.Load<Texture2D>(iconPath);
 	}
 }
