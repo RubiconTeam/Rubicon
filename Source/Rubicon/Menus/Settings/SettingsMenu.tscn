@@ -99,7 +99,7 @@ ratio = 1.78
 stretch_mode = 3
 
 [node name="BG" type="TextureRect" parent="BGContainer"]
-modulate = Color(0.526944, 0.519024, 1, 1)
+modulate = Color(0.52549, 0.517647, 0.752941, 1)
 layout_mode = 2
 texture = ExtResource("2_qyjh5")
 

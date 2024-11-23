@@ -38,5 +38,7 @@
     <Content Include="Songs\Test\Vocals.ogg.import" />
     <Content Include="Source\Rubicon\API\a pi.txt" />
     <Content Include="Source\Rubicon\Core\Autoload\DebugInfo.tscn" />
+    <Content Include="Source\Rubicon\Menus\Settings\Resources\SectionButtonTemplate.tscn" />
+    <Content Include="Source\Rubicon\Menus\Settings\SettingsMenu.tscn" />
   </ItemGroup>
 </Project>
