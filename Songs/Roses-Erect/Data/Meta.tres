@@ -1,0 +1,44 @@
+[gd_resource type="Resource" script_class="SongMeta" load_steps=8 format=3 uid="uid://dvqi6kvvcm8w4"]
+
+[ext_resource type="Script" path="res://Source/Rubicon/Core/Chart/BpmInfo.cs" id="1_stuxm"]
+[ext_resource type="Script" path="res://Source/Rubicon/Core/Meta/CharacterMeta.cs" id="2_c8k8s"]
+[ext_resource type="Script" path="res://Source/Rubicon/Core/Meta/SongMeta.cs" id="3_vivve"]
+
+[sub_resource type="Resource" id="Resource_stuxm"]
+script = ExtResource("1_stuxm")
+Time = 0.0
+Bpm = 128.0
+TimeSignatureNumerator = 4
+TimeSignatureDenominator = 4
+
+[sub_resource type="Resource" id="Resource_c8k8s"]
+script = ExtResource("2_c8k8s")
+Character = ""
+Nickname = &"Opponent"
+BarLine = &""
+
+[sub_resource type="Resource" id="Resource_vivve"]
+script = ExtResource("2_c8k8s")
+Character = "senpai-angry"
+Nickname = &"Player"
+BarLine = &"Opponent"
+
+[sub_resource type="Resource" id="Resource_ua2i7"]
+script = ExtResource("2_c8k8s")
+Character = "gf-pixel"
+Nickname = &"Speaker"
+BarLine = &""
+
+[resource]
+script = ExtResource("3_vivve")
+Name = "Roses Erect"
+RawName = "Roses Erect"
+Artist = "kawaisprite"
+DefaultRuleset = "Mania"
+UiStyle = "Funkin"
+NoteSkin = "pixel"
+PlayableCharts = [&"Player"]
+Characters = [SubResource("Resource_c8k8s"), SubResource("Resource_vivve"), SubResource("Resource_ua2i7")]
+BpmInfo = [SubResource("Resource_stuxm")]
+Environment = 1
+Stage = "school"

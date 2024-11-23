@@ -1,0 +1,629 @@
+[gd_resource type="Resource" script_class="EventMeta" load_steps=63 format=3 uid="uid://btb4qqv3piw2c"]
+
+[ext_resource type="Script" path="res://Source/Rubicon/Core/Events/EventMeta.cs" id="1_pfty4"]
+[ext_resource type="Script" path="res://Source/Rubicon/Core/Events/EventData.cs" id="1_xnuuf"]
+
+[sub_resource type="Resource" id="Resource_xnuuf"]
+script = ExtResource("1_xnuuf")
+Time = 0.0
+Name = &"FocusCamera"
+Arguments = {
+"char": [1.0],
+"x": [0.0],
+"y": [0.0]
+}
+
+[sub_resource type="Resource" id="Resource_66ou3"]
+script = ExtResource("1_xnuuf")
+Time = 0.0311261
+Name = &"SetCameraBop"
+Arguments = {
+"intensity": [1.0],
+"rate": [1.0]
+}
+
+[sub_resource type="Resource" id="Resource_xnhi0"]
+script = ExtResource("1_xnuuf")
+Time = 2.0
+Name = &"FocusCamera"
+Arguments = {
+"char": [0.0],
+"x": [0.0],
+"y": [0.0]
+}
+
+[sub_resource type="Resource" id="Resource_tb5xi"]
+script = ExtResource("1_xnuuf")
+Time = 4.0
+Name = &"FocusCamera"
+Arguments = {
+"char": [1.0],
+"x": [0.0],
+"y": [0.0]
+}
+
+[sub_resource type="Resource" id="Resource_8pxeo"]
+script = ExtResource("1_xnuuf")
+Time = 6.0
+Name = &"FocusCamera"
+Arguments = {
+"char": [0.0],
+"x": [0.0],
+"y": [0.0]
+}
+
+[sub_resource type="Resource" id="Resource_q7pns"]
+script = ExtResource("1_xnuuf")
+Time = 7.93726
+Name = &"SetCameraBop"
+Arguments = {
+"intensity": [1.1],
+"rate": [2.0]
+}
+
+[sub_resource type="Resource" id="Resource_p066e"]
+script = ExtResource("1_xnuuf")
+Time = 8.0
+Name = &"FocusCamera"
+Arguments = {
+"char": [1.0],
+"x": [0.0],
+"y": [0.0]
+}
+
+[sub_resource type="Resource" id="Resource_6j4bl"]
+script = ExtResource("1_xnuuf")
+Time = 10.0
+Name = &"FocusCamera"
+Arguments = {
+"char": [0.0],
+"x": [0.0],
+"y": [0.0]
+}
+
+[sub_resource type="Resource" id="Resource_llbv1"]
+script = ExtResource("1_xnuuf")
+Time = 11.9373
+Name = &"SetCameraBop"
+Arguments = {
+"intensity": [1.1],
+"rate": [1.0]
+}
+
+[sub_resource type="Resource" id="Resource_y3il6"]
+script = ExtResource("1_xnuuf")
+Time = 12.0
+Name = &"FocusCamera"
+Arguments = {
+"char": [2.0],
+"duration": [32.0],
+"ease": ["expoOut"],
+"x": [-50.0],
+"y": [20.0]
+}
+
+[sub_resource type="Resource" id="Resource_dpcum"]
+script = ExtResource("1_xnuuf")
+Time = 12.016
+Name = &"ZoomCamera"
+Arguments = {
+"duration": [32.0],
+"ease": ["expoOut"],
+"mode": ["stage"],
+"zoom": [1.0]
+}
+
+[sub_resource type="Resource" id="Resource_gtii6"]
+script = ExtResource("1_xnuuf")
+Time = 13.9373
+Name = &"SetCameraBop"
+Arguments = {
+"intensity": [1.2],
+"rate": [1.0]
+}
+
+[sub_resource type="Resource" id="Resource_yakcy"]
+script = ExtResource("1_xnuuf")
+Time = 14.0003
+Name = &"FocusCamera"
+Arguments = {
+"char": [0.0],
+"duration": [4.0],
+"ease": ["CLASSIC"],
+"x": [0.0],
+"y": [0.0]
+}
+
+[sub_resource type="Resource" id="Resource_56n25"]
+script = ExtResource("1_xnuuf")
+Time = 14.0309
+Name = &"ZoomCamera"
+Arguments = {
+"duration": [32.0],
+"ease": ["expoOut"],
+"mode": ["stage"],
+"zoom": [1.1]
+}
+
+[sub_resource type="Resource" id="Resource_3p2d7"]
+script = ExtResource("1_xnuuf")
+Time = 15.0
+Name = &"ZoomCamera"
+Arguments = {
+"duration": [32.0],
+"ease": ["expoOut"],
+"mode": ["stage"],
+"zoom": [1.2]
+}
+
+[sub_resource type="Resource" id="Resource_pipl4"]
+script = ExtResource("1_xnuuf")
+Time = 15.9373
+Name = &"SetCameraBop"
+Arguments = {
+"intensity": [1.1],
+"rate": [1.0]
+}
+
+[sub_resource type="Resource" id="Resource_lusfy"]
+script = ExtResource("1_xnuuf")
+Time = 16.0
+Name = &"FocusCamera"
+Arguments = {
+"char": [1.0],
+"x": [0.0],
+"y": [0.0]
+}
+
+[sub_resource type="Resource" id="Resource_wmsxu"]
+script = ExtResource("1_xnuuf")
+Time = 16.0309
+Name = &"ZoomCamera"
+Arguments = {
+"duration": [32.0],
+"ease": ["expoOut"],
+"mode": ["stage"],
+"zoom": [1.0]
+}
+
+[sub_resource type="Resource" id="Resource_jgi7t"]
+script = ExtResource("1_xnuuf")
+Time = 18.0
+Name = &"FocusCamera"
+Arguments = {
+"char": [0.0],
+"x": [0.0],
+"y": [0.0]
+}
+
+[sub_resource type="Resource" id="Resource_lbf7w"]
+script = ExtResource("1_xnuuf")
+Time = 20.0
+Name = &"FocusCamera"
+Arguments = {
+"char": [1.0],
+"x": [0.0],
+"y": [0.0]
+}
+
+[sub_resource type="Resource" id="Resource_6t2n0"]
+script = ExtResource("1_xnuuf")
+Time = 22.0
+Name = &"FocusCamera"
+Arguments = {
+"char": [0.0],
+"x": [0.0],
+"y": [0.0]
+}
+
+[sub_resource type="Resource" id="Resource_qej3e"]
+script = ExtResource("1_xnuuf")
+Time = 24.0003
+Name = &"FocusCamera"
+Arguments = {
+"char": [1.0],
+"duration": [4.0],
+"ease": ["CLASSIC"],
+"x": [0.0],
+"y": [0.0]
+}
+
+[sub_resource type="Resource" id="Resource_njivx"]
+script = ExtResource("1_xnuuf")
+Time = 26.0
+Name = &"FocusCamera"
+Arguments = {
+"char": [0.0],
+"x": [0.0],
+"y": [0.0]
+}
+
+[sub_resource type="Resource" id="Resource_cdn1o"]
+script = ExtResource("1_xnuuf")
+Time = 27.9373
+Name = &"SetCameraBop"
+Arguments = {
+"intensity": [1.3],
+"rate": [2.0]
+}
+
+[sub_resource type="Resource" id="Resource_iuayy"]
+script = ExtResource("1_xnuuf")
+Time = 28.0
+Name = &"FocusCamera"
+Arguments = {
+"char": [1.0],
+"x": [0.0],
+"y": [0.0]
+}
+
+[sub_resource type="Resource" id="Resource_gfljx"]
+script = ExtResource("1_xnuuf")
+Time = 28.0309
+Name = &"ZoomCamera"
+Arguments = {
+"duration": [8.0],
+"ease": ["expoOut"],
+"mode": ["stage"],
+"zoom": [1.05]
+}
+
+[sub_resource type="Resource" id="Resource_4ubto"]
+script = ExtResource("1_xnuuf")
+Time = 28.4997
+Name = &"ZoomCamera"
+Arguments = {
+"duration": [8.0],
+"ease": ["expoOut"],
+"mode": ["stage"],
+"zoom": [1.1]
+}
+
+[sub_resource type="Resource" id="Resource_uk6tm"]
+script = ExtResource("1_xnuuf")
+Time = 29.0
+Name = &"ZoomCamera"
+Arguments = {
+"duration": [8.0],
+"ease": ["expoOut"],
+"mode": ["stage"],
+"zoom": [1.15]
+}
+
+[sub_resource type="Resource" id="Resource_eusaq"]
+script = ExtResource("1_xnuuf")
+Time = 29.4997
+Name = &"ZoomCamera"
+Arguments = {
+"duration": [8.0],
+"ease": ["expoOut"],
+"mode": ["stage"],
+"zoom": [1.2]
+}
+
+[sub_resource type="Resource" id="Resource_xddlq"]
+script = ExtResource("1_xnuuf")
+Time = 30.0
+Name = &"FocusCamera"
+Arguments = {
+"char": [0.0],
+"x": [0.0],
+"y": [0.0]
+}
+
+[sub_resource type="Resource" id="Resource_3edt8"]
+script = ExtResource("1_xnuuf")
+Time = 30.0309
+Name = &"ZoomCamera"
+Arguments = {
+"duration": [8.0],
+"ease": ["expoOut"],
+"mode": ["stage"],
+"zoom": [1.05]
+}
+
+[sub_resource type="Resource" id="Resource_uj7su"]
+script = ExtResource("1_xnuuf")
+Time = 30.4997
+Name = &"ZoomCamera"
+Arguments = {
+"duration": [8.0],
+"ease": ["expoOut"],
+"mode": ["stage"],
+"zoom": [1.1]
+}
+
+[sub_resource type="Resource" id="Resource_muwu0"]
+script = ExtResource("1_xnuuf")
+Time = 31.0
+Name = &"ZoomCamera"
+Arguments = {
+"duration": [8.0],
+"ease": ["expoOut"],
+"mode": ["stage"],
+"zoom": [1.15]
+}
+
+[sub_resource type="Resource" id="Resource_7yyyc"]
+script = ExtResource("1_xnuuf")
+Time = 31.4997
+Name = &"ZoomCamera"
+Arguments = {
+"duration": [8.0],
+"ease": ["expoOut"],
+"mode": ["stage"],
+"zoom": [1.2]
+}
+
+[sub_resource type="Resource" id="Resource_8yr1m"]
+script = ExtResource("1_xnuuf")
+Time = 31.9373
+Name = &"SetCameraBop"
+Arguments = {
+"intensity": [1.0],
+"rate": [4.0]
+}
+
+[sub_resource type="Resource" id="Resource_23tlj"]
+script = ExtResource("1_xnuuf")
+Time = 32.0
+Name = &"ZoomCamera"
+Arguments = {
+"duration": [32.0],
+"ease": ["expoOut"],
+"mode": ["stage"],
+"zoom": [1.0]
+}
+
+[sub_resource type="Resource" id="Resource_5iaib"]
+script = ExtResource("1_xnuuf")
+Time = 32.2496
+Name = &"FocusCamera"
+Arguments = {
+"char": [2.0],
+"duration": [32.0],
+"ease": ["expoOut"],
+"x": [-50.0],
+"y": [20.0]
+}
+
+[sub_resource type="Resource" id="Resource_b65nf"]
+script = ExtResource("1_xnuuf")
+Time = 32.2656
+Name = &"ZoomCamera"
+Arguments = {
+"duration": [32.0],
+"ease": ["expoOut"],
+"mode": ["stage"],
+"zoom": [1.0]
+}
+
+[sub_resource type="Resource" id="Resource_shr3n"]
+script = ExtResource("1_xnuuf")
+Time = 35.9373
+Name = &"SetCameraBop"
+Arguments = {
+"intensity": [1.0],
+"rate": [1.0]
+}
+
+[sub_resource type="Resource" id="Resource_e3f1n"]
+script = ExtResource("1_xnuuf")
+Time = 36.0
+Name = &"FocusCamera"
+Arguments = {
+"char": [1.0],
+"x": [0.0],
+"y": [0.0]
+}
+
+[sub_resource type="Resource" id="Resource_rlyy5"]
+script = ExtResource("1_xnuuf")
+Time = 37.9373
+Name = &"SetCameraBop"
+Arguments = {
+"intensity": [1.1],
+"rate": [1.0]
+}
+
+[sub_resource type="Resource" id="Resource_pkcri"]
+script = ExtResource("1_xnuuf")
+Time = 38.0
+Name = &"FocusCamera"
+Arguments = {
+"char": [0.0],
+"x": [0.0],
+"y": [0.0]
+}
+
+[sub_resource type="Resource" id="Resource_vbqn2"]
+script = ExtResource("1_xnuuf")
+Time = 39.9373
+Name = &"SetCameraBop"
+Arguments = {
+"intensity": [1.7],
+"rate": [1.0]
+}
+
+[sub_resource type="Resource" id="Resource_4rnql"]
+script = ExtResource("1_xnuuf")
+Time = 40.0
+Name = &"FocusCamera"
+Arguments = {
+"char": [1.0],
+"x": [0.0],
+"y": [0.0]
+}
+
+[sub_resource type="Resource" id="Resource_rw86w"]
+script = ExtResource("1_xnuuf")
+Time = 42.0
+Name = &"FocusCamera"
+Arguments = {
+"char": [0.0],
+"x": [0.0],
+"y": [0.0]
+}
+
+[sub_resource type="Resource" id="Resource_ysob8"]
+script = ExtResource("1_xnuuf")
+Time = 43.9373
+Name = &"SetCameraBop"
+Arguments = {
+"intensity": [2.2],
+"rate": [2.0]
+}
+
+[sub_resource type="Resource" id="Resource_5pkp6"]
+script = ExtResource("1_xnuuf")
+Time = 44.0
+Name = &"FocusCamera"
+Arguments = {
+"char": [1.0],
+"x": [0.0],
+"y": [0.0]
+}
+
+[sub_resource type="Resource" id="Resource_p6qtp"]
+script = ExtResource("1_xnuuf")
+Time = 44.0309
+Name = &"ZoomCamera"
+Arguments = {
+"duration": [8.0],
+"ease": ["expoOut"],
+"mode": ["stage"],
+"zoom": [1.05]
+}
+
+[sub_resource type="Resource" id="Resource_n7bjh"]
+script = ExtResource("1_xnuuf")
+Time = 44.4997
+Name = &"ZoomCamera"
+Arguments = {
+"duration": [8.0],
+"ease": ["expoOut"],
+"mode": ["stage"],
+"zoom": [1.1]
+}
+
+[sub_resource type="Resource" id="Resource_rvwty"]
+script = ExtResource("1_xnuuf")
+Time = 45.0
+Name = &"ZoomCamera"
+Arguments = {
+"duration": [8.0],
+"ease": ["expoOut"],
+"mode": ["stage"],
+"zoom": [1.15]
+}
+
+[sub_resource type="Resource" id="Resource_bpu27"]
+script = ExtResource("1_xnuuf")
+Time = 45.4997
+Name = &"ZoomCamera"
+Arguments = {
+"duration": [8.0],
+"ease": ["expoOut"],
+"mode": ["stage"],
+"zoom": [1.2]
+}
+
+[sub_resource type="Resource" id="Resource_f7grl"]
+script = ExtResource("1_xnuuf")
+Time = 46.0
+Name = &"FocusCamera"
+Arguments = {
+"char": [0.0],
+"x": [0.0],
+"y": [0.0]
+}
+
+[sub_resource type="Resource" id="Resource_g6iii"]
+script = ExtResource("1_xnuuf")
+Time = 46.0309
+Name = &"ZoomCamera"
+Arguments = {
+"duration": [8.0],
+"ease": ["expoOut"],
+"mode": ["stage"],
+"zoom": [1.05]
+}
+
+[sub_resource type="Resource" id="Resource_afppt"]
+script = ExtResource("1_xnuuf")
+Time = 46.4997
+Name = &"ZoomCamera"
+Arguments = {
+"duration": [8.0],
+"ease": ["expoOut"],
+"mode": ["stage"],
+"zoom": [1.1]
+}
+
+[sub_resource type="Resource" id="Resource_n2a7m"]
+script = ExtResource("1_xnuuf")
+Time = 47.0
+Name = &"ZoomCamera"
+Arguments = {
+"duration": [8.0],
+"ease": ["expoOut"],
+"mode": ["stage"],
+"zoom": [1.15]
+}
+
+[sub_resource type="Resource" id="Resource_0ha6j"]
+script = ExtResource("1_xnuuf")
+Time = 47.4997
+Name = &"ZoomCamera"
+Arguments = {
+"duration": [8.0],
+"ease": ["expoOut"],
+"mode": ["stage"],
+"zoom": [1.2]
+}
+
+[sub_resource type="Resource" id="Resource_g50r4"]
+script = ExtResource("1_xnuuf")
+Time = 47.9373
+Name = &"SetCameraBop"
+Arguments = {
+"intensity": [1.0],
+"rate": [4.0]
+}
+
+[sub_resource type="Resource" id="Resource_di6ip"]
+script = ExtResource("1_xnuuf")
+Time = 48.0003
+Name = &"FocusCamera"
+Arguments = {
+"char": [1.0],
+"duration": [4.0],
+"ease": ["CLASSIC"],
+"x": [0.0],
+"y": [0.0]
+}
+
+[sub_resource type="Resource" id="Resource_gveed"]
+script = ExtResource("1_xnuuf")
+Time = 48.0309
+Name = &"ZoomCamera"
+Arguments = {
+"duration": [32.0],
+"ease": ["expoOut"],
+"mode": ["stage"],
+"zoom": [1.0]
+}
+
+[sub_resource type="Resource" id="Resource_8w4a6"]
+script = ExtResource("1_xnuuf")
+Time = 50.0
+Name = &"FocusCamera"
+Arguments = {
+"char": [0.0],
+"x": [0.0],
+"y": [0.0]
+}
+
+[resource]
+script = ExtResource("1_pfty4")
+Events = [SubResource("Resource_xnuuf"), SubResource("Resource_66ou3"), SubResource("Resource_xnhi0"), SubResource("Resource_tb5xi"), SubResource("Resource_8pxeo"), SubResource("Resource_q7pns"), SubResource("Resource_p066e"), SubResource("Resource_6j4bl"), SubResource("Resource_llbv1"), SubResource("Resource_y3il6"), SubResource("Resource_dpcum"), SubResource("Resource_gtii6"), SubResource("Resource_yakcy"), SubResource("Resource_56n25"), SubResource("Resource_3p2d7"), SubResource("Resource_pipl4"), SubResource("Resource_lusfy"), SubResource("Resource_wmsxu"), SubResource("Resource_jgi7t"), SubResource("Resource_lbf7w"), SubResource("Resource_6t2n0"), SubResource("Resource_qej3e"), SubResource("Resource_njivx"), SubResource("Resource_cdn1o"), SubResource("Resource_iuayy"), SubResource("Resource_gfljx"), SubResource("Resource_4ubto"), SubResource("Resource_uk6tm"), SubResource("Resource_eusaq"), SubResource("Resource_xddlq"), SubResource("Resource_3edt8"), SubResource("Resource_uj7su"), SubResource("Resource_muwu0"), SubResource("Resource_7yyyc"), SubResource("Resource_8yr1m"), SubResource("Resource_23tlj"), SubResource("Resource_5iaib"), SubResource("Resource_b65nf"), SubResource("Resource_shr3n"), SubResource("Resource_e3f1n"), SubResource("Resource_rlyy5"), SubResource("Resource_pkcri"), SubResource("Resource_vbqn2"), SubResource("Resource_4rnql"), SubResource("Resource_rw86w"), SubResource("Resource_ysob8"), SubResource("Resource_5pkp6"), SubResource("Resource_p6qtp"), SubResource("Resource_n7bjh"), SubResource("Resource_rvwty"), SubResource("Resource_bpu27"), SubResource("Resource_f7grl"), SubResource("Resource_g6iii"), SubResource("Resource_afppt"), SubResource("Resource_n2a7m"), SubResource("Resource_0ha6j"), SubResource("Resource_g50r4"), SubResource("Resource_di6ip"), SubResource("Resource_gveed"), SubResource("Resource_8w4a6")]
