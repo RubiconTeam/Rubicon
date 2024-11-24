@@ -86,7 +86,7 @@ public partial class RubiconGame : Node
 			Vocals.Stream = GD.Load<AudioStream>(vocalsPath);
 
 		Conductor.Reset();
-		Conductor.ChartOffset = Chart.Offset;
+		Conductor.ChartOffset = Metadata.Offset;
 		Conductor.BpmList = Metadata.BpmInfo;
 		
 		// TODO: Make Spaces work
