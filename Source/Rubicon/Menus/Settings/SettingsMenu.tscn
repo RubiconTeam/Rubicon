@@ -1,8 +1,9 @@
-[gd_scene load_steps=18 format=3 uid="uid://csxrq1ms8awxc"]
+[gd_scene load_steps=19 format=3 uid="uid://csxrq1ms8awxc"]
 
 [ext_resource type="Script" uid="uid://chvkodg7nb2c4" path="res://Source/Rubicon/Menus/Settings/SettingsMenu.cs" id="1_lotll"]
 [ext_resource type="Texture2D" uid="uid://qhfv36mgywf6" path="res://Assets/UI/Menus/menuBGDesat.png" id="2_qyjh5"]
 [ext_resource type="FontFile" uid="uid://ilqa3kmi8s03" path="res://Assets/UI/Fonts/funkin2.ttf" id="3_b8kiq"]
+[ext_resource type="Texture2D" uid="uid://dntwwyddihbu3" path="res://Source/Rubicon/Menus/Settings/vuzi.png" id="3_jwce3"]
 [ext_resource type="Texture2D" uid="uid://dx6qho3155q0q" path="res://Assets/UI/Menus/Settings/Gameplay.png" id="4_xs2iu"]
 
 [sub_resource type="Gradient" id="Gradient_we0p3"]
@@ -130,6 +131,12 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("GradientTexture2D_61vsb")
+
+[node name="Vuzi" type="Sprite2D" parent="."]
+modulate = Color(0.494118, 0.490196, 0.65098, 0.482353)
+position = Vector2(850, 556)
+scale = Vector2(0.497283, 0.603466)
+texture = ExtResource("3_jwce3")
 
 [node name="Main" type="Control" parent="."]
 layout_mode = 1
