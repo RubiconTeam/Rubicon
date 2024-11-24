@@ -1,10 +1,19 @@
-[gd_scene load_steps=19 format=3 uid="uid://csxrq1ms8awxc"]
+[gd_scene load_steps=22 format=3 uid="uid://csxrq1ms8awxc"]
 
 [ext_resource type="Script" uid="uid://chvkodg7nb2c4" path="res://Source/Rubicon/Menus/Settings/SettingsMenu.cs" id="1_lotll"]
 [ext_resource type="Texture2D" uid="uid://qhfv36mgywf6" path="res://Assets/UI/Menus/menuBGDesat.png" id="2_qyjh5"]
 [ext_resource type="FontFile" uid="uid://ilqa3kmi8s03" path="res://Assets/UI/Fonts/funkin2.ttf" id="3_b8kiq"]
 [ext_resource type="Texture2D" uid="uid://dntwwyddihbu3" path="res://Source/Rubicon/Menus/Settings/vuzi.png" id="3_jwce3"]
 [ext_resource type="Texture2D" uid="uid://dx6qho3155q0q" path="res://Assets/UI/Menus/Settings/Gameplay.png" id="4_xs2iu"]
+[ext_resource type="PackedScene" uid="uid://daaaww4g34j1r" path="res://Source/Rubicon/Menus/Settings/Templates/GroupSeparator.tscn" id="6_ynwdk"]
+[ext_resource type="PackedScene" uid="uid://gt48ja0rg1mc" path="res://Source/Rubicon/Menus/Settings/Templates/CheckButton.tscn" id="7_5i2d0"]
+[ext_resource type="PackedScene" uid="uid://cqfbj5qufxqd3" path="res://Source/Rubicon/Menus/Settings/Templates/Button.tscn" id="8_oijno"]
+[ext_resource type="PackedScene" uid="uid://d4msgekslmx4o" path="res://Source/Rubicon/Menus/Settings/Templates/Dropdown.tscn" id="9_260at"]
+[ext_resource type="PackedScene" uid="uid://b3a2i41tnbwyt" path="res://Source/Rubicon/Menus/Settings/Templates/ColorPicker.tscn" id="10_dwwis"]
+[ext_resource type="PackedScene" uid="uid://r14julhiorgq" path="res://Source/Rubicon/Menus/Settings/Templates/Slider.tscn" id="11_qg0c2"]
+[ext_resource type="PackedScene" uid="uid://drt7jnsey6usb" path="res://Source/Rubicon/Menus/Settings/Templates/LineEdit.tscn" id="12_lxjq6"]
+[ext_resource type="PackedScene" uid="uid://bob7c4gaapaou" path="res://Source/Rubicon/Menus/Settings/Templates/KeybindButton.tscn" id="13_b3tli"]
+[ext_resource type="PackedScene" uid="uid://0h228ay1ervr" path="res://Source/Rubicon/Menus/Settings/Templates/VBoxTemplate.tscn" id="14_bwaer"]
 
 [sub_resource type="Gradient" id="Gradient_we0p3"]
 offsets = PackedFloat32Array(0, 0.533333, 1)
@@ -42,36 +51,6 @@ expand_margin_bottom = 6.0
 shadow_size = 10
 shadow_offset = Vector2(10, 10)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tqg6v"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
-expand_margin_left = 14.0
-expand_margin_top = 5.0
-expand_margin_right = 14.0
-expand_margin_bottom = 5.0
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a6ud7"]
-bg_color = Color(0, 0, 0, 0.498039)
-expand_margin_left = 14.0
-expand_margin_top = 5.0
-expand_margin_right = 14.0
-expand_margin_bottom = 5.0
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hbx5l"]
-bg_color = Color(0, 0, 0, 0.498039)
-expand_margin_left = 14.0
-expand_margin_top = 5.0
-expand_margin_right = 14.0
-expand_margin_bottom = 5.0
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rdqll"]
-bg_color = Color(0, 0, 0, 0.458824)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cyjai"]
-bg_color = Color(0, 0, 0, 0.458824)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6ygec"]
-bg_color = Color(0, 0, 0, 0.458824)
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a0khw"]
 content_margin_left = 8.0
 content_margin_top = 12.0
@@ -86,7 +65,7 @@ shadow_color = Color(0, 0, 0, 0.647059)
 shadow_size = 15
 shadow_offset = Vector2(10, 10)
 
-[node name="Settings Menu" type="Control" node_paths=PackedStringArray("_sectionButtonContainer", "_settingsSectionContainer", "_sectionButtonTemplate", "_sectionContainerTemplate", "_buttonTemplate", "_checkButtonTemplate", "_dropDownTemplate", "_colorPickerTemplate", "_lineEditTemplate", "_sliderTemplate", "_keybindTemplate")]
+[node name="Settings Menu" type="Control" node_paths=PackedStringArray("_sectionButtonContainer", "_settingsSectionContainer", "_settingsDescriptionLabel", "_sectionButtonTemplate", "_sectionContainerTemplate", "_groupSeparatorTemplate", "_buttonTemplate", "_checkButtonTemplate", "_dropDownTemplate", "_colorPickerTemplate", "_lineEditTemplate", "_sliderTemplate", "_keybindTemplate")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -97,8 +76,10 @@ mouse_filter = 1
 script = ExtResource("1_lotll")
 _sectionButtonContainer = NodePath("Main/UI/SectionsControl/PanelContainer/VBoxContainer")
 _settingsSectionContainer = NodePath("Main/UI/ButtonsControl/PanelContainer/ScrollContainer")
+_settingsDescriptionLabel = NodePath("Main/UI/DescriptionControl/Panel/Description")
 _sectionButtonTemplate = NodePath("Main/UI/SectionsControl/PanelContainer/VBoxContainer/Section")
 _sectionContainerTemplate = NodePath("Main/UI/ButtonsControl/PanelContainer/ScrollContainer/VBoxTemplate")
+_groupSeparatorTemplate = NodePath("Main/UI/ButtonsControl/PanelContainer/ScrollContainer/Template/GroupSeparator")
 _buttonTemplate = NodePath("Main/UI/ButtonsControl/PanelContainer/ScrollContainer/Template/Button")
 _checkButtonTemplate = NodePath("Main/UI/ButtonsControl/PanelContainer/ScrollContainer/Template/CheckButton")
 _dropDownTemplate = NodePath("Main/UI/ButtonsControl/PanelContainer/ScrollContainer/Template/Dropdown")
@@ -237,430 +218,32 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_constants/separation = 22
 
-[node name="GroupSeparator" type="Label" parent="Main/UI/ButtonsControl/PanelContainer/ScrollContainer/Template"]
+[node name="GroupSeparator" parent="Main/UI/ButtonsControl/PanelContainer/ScrollContainer/Template" instance=ExtResource("6_ynwdk")]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("3_b8kiq")
-theme_override_font_sizes/font_size = 48
-theme_override_styles/normal = SubResource("StyleBoxFlat_tqg6v")
-text = "Group Separator"
-horizontal_alignment = 1
-vertical_alignment = 1
-text_overrun_behavior = 3
 
-[node name="CheckButton" type="CheckButton" parent="Main/UI/ButtonsControl/PanelContainer/ScrollContainer/Template"]
+[node name="CheckButton" parent="Main/UI/ButtonsControl/PanelContainer/ScrollContainer/Template" instance=ExtResource("7_5i2d0")]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("3_b8kiq")
-theme_override_font_sizes/font_size = 51
-theme_override_styles/focus = SubResource("StyleBoxFlat_a6ud7")
-theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_a6ud7")
-theme_override_styles/disabled = SubResource("StyleBoxFlat_a6ud7")
-theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_a6ud7")
-theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_a6ud7")
-theme_override_styles/hover_mirrored = SubResource("StyleBoxFlat_a6ud7")
-theme_override_styles/hover = SubResource("StyleBoxFlat_a6ud7")
-theme_override_styles/pressed_mirrored = SubResource("StyleBoxFlat_a6ud7")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_a6ud7")
-theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_a6ud7")
-theme_override_styles/normal = SubResource("StyleBoxFlat_a6ud7")
-text = "CheckButton"
-text_overrun_behavior = 3
-expand_icon = true
 
-[node name="Button" type="Button" parent="Main/UI/ButtonsControl/PanelContainer/ScrollContainer/Template"]
+[node name="Button" parent="Main/UI/ButtonsControl/PanelContainer/ScrollContainer/Template" instance=ExtResource("8_oijno")]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("3_b8kiq")
-theme_override_font_sizes/font_size = 51
-theme_override_styles/focus = SubResource("StyleBoxFlat_a6ud7")
-theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_a6ud7")
-theme_override_styles/disabled = SubResource("StyleBoxFlat_a6ud7")
-theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_a6ud7")
-theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_a6ud7")
-theme_override_styles/hover_mirrored = SubResource("StyleBoxFlat_a6ud7")
-theme_override_styles/hover = SubResource("StyleBoxFlat_a6ud7")
-theme_override_styles/pressed_mirrored = SubResource("StyleBoxFlat_a6ud7")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_a6ud7")
-theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_a6ud7")
-theme_override_styles/normal = SubResource("StyleBoxFlat_a6ud7")
-text = "Button"
-alignment = 0
-text_overrun_behavior = 3
-expand_icon = true
 
-[node name="Dropdown" type="MenuButton" parent="Main/UI/ButtonsControl/PanelContainer/ScrollContainer/Template"]
+[node name="Dropdown" parent="Main/UI/ButtonsControl/PanelContainer/ScrollContainer/Template" instance=ExtResource("9_260at")]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("3_b8kiq")
-theme_override_font_sizes/font_size = 51
-theme_override_styles/focus = SubResource("StyleBoxFlat_a6ud7")
-theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_a6ud7")
-theme_override_styles/disabled = SubResource("StyleBoxFlat_a6ud7")
-theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_a6ud7")
-theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_a6ud7")
-theme_override_styles/hover_mirrored = SubResource("StyleBoxFlat_a6ud7")
-theme_override_styles/hover = SubResource("StyleBoxFlat_a6ud7")
-theme_override_styles/pressed_mirrored = SubResource("StyleBoxFlat_a6ud7")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_a6ud7")
-theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_a6ud7")
-theme_override_styles/normal = SubResource("StyleBoxFlat_a6ud7")
-text = "Dropdown [Selected Item]"
-flat = false
-alignment = 0
-text_overrun_behavior = 3
-expand_icon = true
-item_count = 1
-popup/item_0/text = "d"
-popup/item_0/id = 0
 
-[node name="DropdownIndicator" type="Label" parent="Main/UI/ButtonsControl/PanelContainer/ScrollContainer/Template/Dropdown"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.930079
-anchor_top = 0.0788634
-anchor_right = 0.987587
-anchor_bottom = 0.828863
-grow_horizontal = 0
-grow_vertical = 2
-theme_override_fonts/font = ExtResource("3_b8kiq")
-theme_override_font_sizes/font_size = 38
-text = "v"
-horizontal_alignment = 1
-metadata/_edit_use_anchors_ = true
-
-[node name="ColorPicker" type="Label" parent="Main/UI/ButtonsControl/PanelContainer/ScrollContainer/Template"]
+[node name="ColorPicker" parent="Main/UI/ButtonsControl/PanelContainer/ScrollContainer/Template" instance=ExtResource("10_dwwis")]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("3_b8kiq")
-theme_override_font_sizes/font_size = 51
-theme_override_styles/normal = SubResource("StyleBoxFlat_hbx5l")
-text = "ColorPicker"
-text_overrun_behavior = 3
 
-[node name="Picker" type="ColorPickerButton" parent="Main/UI/ButtonsControl/PanelContainer/ScrollContainer/Template/ColorPicker"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 357.0
-offset_right = -10.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Slider" type="Label" parent="Main/UI/ButtonsControl/PanelContainer/ScrollContainer/Template"]
+[node name="Slider" parent="Main/UI/ButtonsControl/PanelContainer/ScrollContainer/Template" instance=ExtResource("11_qg0c2")]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("3_b8kiq")
-theme_override_font_sizes/font_size = 51
-theme_override_styles/normal = SubResource("StyleBoxFlat_hbx5l")
-text = "Slider"
-vertical_alignment = 1
-text_overrun_behavior = 3
 
-[node name="HSlider" type="HSlider" parent="Main/UI/ButtonsControl/PanelContainer/ScrollContainer/Template/Slider"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.517572
-anchor_top = 0.125
-anchor_right = 0.921725
-anchor_bottom = 0.9
-grow_horizontal = 0
-grow_vertical = 2
-max_value = 1.0
-step = 0.1
-value = 0.5
-metadata/_edit_use_anchors_ = true
-
-[node name="Max" type="Label" parent="Main/UI/ButtonsControl/PanelContainer/ScrollContainer/Template/Slider/HSlider"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 1.02767
-anchor_top = -0.16129
-anchor_right = 1.20949
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_fonts/font = ExtResource("3_b8kiq")
-theme_override_font_sizes/font_size = 45
-text = "1"
-vertical_alignment = 1
-metadata/_edit_use_anchors_ = true
-
-[node name="Min" type="Label" parent="Main/UI/ButtonsControl/PanelContainer/ScrollContainer/Template/Slider/HSlider"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = -0.29
-anchor_right = -0.02
-anchor_bottom = 1.0
-offset_left = 2.05005
-offset_top = -4.0
-offset_right = -1.1
-offset_bottom = 0.0909195
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_fonts/font = ExtResource("3_b8kiq")
-theme_override_font_sizes/font_size = 45
-text = "0"
-horizontal_alignment = 2
-vertical_alignment = 1
-
-[node name="LineEdit" type="Label" parent="Main/UI/ButtonsControl/PanelContainer/ScrollContainer/Template"]
+[node name="LineEdit" parent="Main/UI/ButtonsControl/PanelContainer/ScrollContainer/Template" instance=ExtResource("12_lxjq6")]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("3_b8kiq")
-theme_override_font_sizes/font_size = 51
-theme_override_styles/normal = SubResource("StyleBoxFlat_hbx5l")
-text = "LineEdit"
-text_overrun_behavior = 3
 
-[node name="Edit" type="LineEdit" parent="Main/UI/ButtonsControl/PanelContainer/ScrollContainer/Template/LineEdit"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 303.0
-offset_top = 5.0
-offset_right = -16.0
-offset_bottom = -1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_fonts/font = ExtResource("3_b8kiq")
-theme_override_font_sizes/font_size = 36
-theme_override_styles/focus = SubResource("StyleBoxFlat_rdqll")
-theme_override_styles/read_only = SubResource("StyleBoxFlat_cyjai")
-theme_override_styles/normal = SubResource("StyleBoxFlat_6ygec")
-text = "line edit lmfao"
-placeholder_text = "hello im a line edit"
-alignment = 1
-
-[node name="Keybind" type="Label" parent="Main/UI/ButtonsControl/PanelContainer/ScrollContainer/Template"]
+[node name="Keybind" parent="Main/UI/ButtonsControl/PanelContainer/ScrollContainer/Template" instance=ExtResource("13_b3tli")]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("3_b8kiq")
-theme_override_font_sizes/font_size = 51
-theme_override_styles/normal = SubResource("StyleBoxFlat_hbx5l")
-text = "KeybindButton"
-text_overrun_behavior = 3
 
-[node name="CurrentKeybind" type="Button" parent="Main/UI/ButtonsControl/PanelContainer/ScrollContainer/Template/Keybind"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.89
-anchor_top = 0.115
-anchor_right = 0.949
-anchor_bottom = 0.89
-offset_left = -98.14
-offset_top = 1.4
-offset_right = -24.074
-offset_bottom = -1.6
-grow_horizontal = 0
-grow_vertical = 2
-theme_override_fonts/font = ExtResource("3_b8kiq")
-theme_override_font_sizes/font_size = 36
-theme_override_styles/focus = SubResource("StyleBoxFlat_a6ud7")
-theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_a6ud7")
-theme_override_styles/disabled = SubResource("StyleBoxFlat_a6ud7")
-theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_a6ud7")
-theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_a6ud7")
-theme_override_styles/hover_mirrored = SubResource("StyleBoxFlat_a6ud7")
-theme_override_styles/hover = SubResource("StyleBoxFlat_a6ud7")
-theme_override_styles/pressed_mirrored = SubResource("StyleBoxFlat_a6ud7")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_a6ud7")
-theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_a6ud7")
-theme_override_styles/normal = SubResource("StyleBoxFlat_a6ud7")
-text = "Keybind"
-icon_alignment = 1
-expand_icon = true
-
-[node name="Keybind2" type="Label" parent="Main/UI/ButtonsControl/PanelContainer/ScrollContainer/Template"]
+[node name="VBoxTemplate" parent="Main/UI/ButtonsControl/PanelContainer/ScrollContainer" instance=ExtResource("14_bwaer")]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("3_b8kiq")
-theme_override_font_sizes/font_size = 51
-theme_override_styles/normal = SubResource("StyleBoxFlat_hbx5l")
-text = "KeybindButton"
-text_overrun_behavior = 3
-
-[node name="CurrentKeybind" type="Button" parent="Main/UI/ButtonsControl/PanelContainer/ScrollContainer/Template/Keybind2"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.89
-anchor_top = 0.115
-anchor_right = 0.949
-anchor_bottom = 0.89
-offset_left = -98.14
-offset_top = 1.4
-offset_right = -24.074
-offset_bottom = -1.6
-grow_horizontal = 0
-grow_vertical = 2
-theme_override_fonts/font = ExtResource("3_b8kiq")
-theme_override_font_sizes/font_size = 36
-theme_override_styles/focus = SubResource("StyleBoxFlat_a6ud7")
-theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_a6ud7")
-theme_override_styles/disabled = SubResource("StyleBoxFlat_a6ud7")
-theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_a6ud7")
-theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_a6ud7")
-theme_override_styles/hover_mirrored = SubResource("StyleBoxFlat_a6ud7")
-theme_override_styles/hover = SubResource("StyleBoxFlat_a6ud7")
-theme_override_styles/pressed_mirrored = SubResource("StyleBoxFlat_a6ud7")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_a6ud7")
-theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_a6ud7")
-theme_override_styles/normal = SubResource("StyleBoxFlat_a6ud7")
-text = "Keybind"
-icon_alignment = 1
-expand_icon = true
-
-[node name="Keybind3" type="Label" parent="Main/UI/ButtonsControl/PanelContainer/ScrollContainer/Template"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("3_b8kiq")
-theme_override_font_sizes/font_size = 51
-theme_override_styles/normal = SubResource("StyleBoxFlat_hbx5l")
-text = "KeybindButton"
-text_overrun_behavior = 3
-
-[node name="CurrentKeybind" type="Button" parent="Main/UI/ButtonsControl/PanelContainer/ScrollContainer/Template/Keybind3"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.89
-anchor_top = 0.115
-anchor_right = 0.949
-anchor_bottom = 0.89
-offset_left = -98.14
-offset_top = 1.4
-offset_right = -24.074
-offset_bottom = -1.6
-grow_horizontal = 0
-grow_vertical = 2
-theme_override_fonts/font = ExtResource("3_b8kiq")
-theme_override_font_sizes/font_size = 36
-theme_override_styles/focus = SubResource("StyleBoxFlat_a6ud7")
-theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_a6ud7")
-theme_override_styles/disabled = SubResource("StyleBoxFlat_a6ud7")
-theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_a6ud7")
-theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_a6ud7")
-theme_override_styles/hover_mirrored = SubResource("StyleBoxFlat_a6ud7")
-theme_override_styles/hover = SubResource("StyleBoxFlat_a6ud7")
-theme_override_styles/pressed_mirrored = SubResource("StyleBoxFlat_a6ud7")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_a6ud7")
-theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_a6ud7")
-theme_override_styles/normal = SubResource("StyleBoxFlat_a6ud7")
-text = "Keybind"
-icon_alignment = 1
-expand_icon = true
-
-[node name="Keybind4" type="Label" parent="Main/UI/ButtonsControl/PanelContainer/ScrollContainer/Template"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("3_b8kiq")
-theme_override_font_sizes/font_size = 51
-theme_override_styles/normal = SubResource("StyleBoxFlat_hbx5l")
-text = "KeybindButton"
-text_overrun_behavior = 3
-
-[node name="CurrentKeybind" type="Button" parent="Main/UI/ButtonsControl/PanelContainer/ScrollContainer/Template/Keybind4"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.89
-anchor_top = 0.115
-anchor_right = 0.949
-anchor_bottom = 0.89
-offset_left = -98.14
-offset_top = 1.4
-offset_right = -24.074
-offset_bottom = -1.6
-grow_horizontal = 0
-grow_vertical = 2
-theme_override_fonts/font = ExtResource("3_b8kiq")
-theme_override_font_sizes/font_size = 36
-theme_override_styles/focus = SubResource("StyleBoxFlat_a6ud7")
-theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_a6ud7")
-theme_override_styles/disabled = SubResource("StyleBoxFlat_a6ud7")
-theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_a6ud7")
-theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_a6ud7")
-theme_override_styles/hover_mirrored = SubResource("StyleBoxFlat_a6ud7")
-theme_override_styles/hover = SubResource("StyleBoxFlat_a6ud7")
-theme_override_styles/pressed_mirrored = SubResource("StyleBoxFlat_a6ud7")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_a6ud7")
-theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_a6ud7")
-theme_override_styles/normal = SubResource("StyleBoxFlat_a6ud7")
-text = "Keybind"
-icon_alignment = 1
-expand_icon = true
-
-[node name="Keybind5" type="Label" parent="Main/UI/ButtonsControl/PanelContainer/ScrollContainer/Template"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("3_b8kiq")
-theme_override_font_sizes/font_size = 51
-theme_override_styles/normal = SubResource("StyleBoxFlat_hbx5l")
-text = "KeybindButton"
-text_overrun_behavior = 3
-
-[node name="CurrentKeybind" type="Button" parent="Main/UI/ButtonsControl/PanelContainer/ScrollContainer/Template/Keybind5"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.89
-anchor_top = 0.115
-anchor_right = 0.949
-anchor_bottom = 0.89
-offset_left = -98.14
-offset_top = 1.4
-offset_right = -24.074
-offset_bottom = -1.6
-grow_horizontal = 0
-grow_vertical = 2
-theme_override_fonts/font = ExtResource("3_b8kiq")
-theme_override_font_sizes/font_size = 36
-theme_override_styles/focus = SubResource("StyleBoxFlat_a6ud7")
-theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_a6ud7")
-theme_override_styles/disabled = SubResource("StyleBoxFlat_a6ud7")
-theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_a6ud7")
-theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_a6ud7")
-theme_override_styles/hover_mirrored = SubResource("StyleBoxFlat_a6ud7")
-theme_override_styles/hover = SubResource("StyleBoxFlat_a6ud7")
-theme_override_styles/pressed_mirrored = SubResource("StyleBoxFlat_a6ud7")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_a6ud7")
-theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_a6ud7")
-theme_override_styles/normal = SubResource("StyleBoxFlat_a6ud7")
-text = "Keybind"
-icon_alignment = 1
-expand_icon = true
-
-[node name="Keybind6" type="Label" parent="Main/UI/ButtonsControl/PanelContainer/ScrollContainer/Template"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("3_b8kiq")
-theme_override_font_sizes/font_size = 51
-theme_override_styles/normal = SubResource("StyleBoxFlat_hbx5l")
-text = "KeybindButton"
-text_overrun_behavior = 3
-
-[node name="CurrentKeybind" type="Button" parent="Main/UI/ButtonsControl/PanelContainer/ScrollContainer/Template/Keybind6"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.89
-anchor_top = 0.115
-anchor_right = 0.949
-anchor_bottom = 0.89
-offset_left = -98.14
-offset_top = 1.4
-offset_right = -24.074
-offset_bottom = -1.6
-grow_horizontal = 0
-grow_vertical = 2
-theme_override_fonts/font = ExtResource("3_b8kiq")
-theme_override_font_sizes/font_size = 36
-theme_override_styles/focus = SubResource("StyleBoxFlat_a6ud7")
-theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_a6ud7")
-theme_override_styles/disabled = SubResource("StyleBoxFlat_a6ud7")
-theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_a6ud7")
-theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_a6ud7")
-theme_override_styles/hover_mirrored = SubResource("StyleBoxFlat_a6ud7")
-theme_override_styles/hover = SubResource("StyleBoxFlat_a6ud7")
-theme_override_styles/pressed_mirrored = SubResource("StyleBoxFlat_a6ud7")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_a6ud7")
-theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_a6ud7")
-theme_override_styles/normal = SubResource("StyleBoxFlat_a6ud7")
-text = "Keybind"
-icon_alignment = 1
-expand_icon = true
-
-[node name="VBoxTemplate" type="VBoxContainer" parent="Main/UI/ButtonsControl/PanelContainer/ScrollContainer"]
-visible = false
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme_override_constants/separation = 22
 
 [node name="DescriptionControl" type="Control" parent="Main/UI"]
 layout_mode = 1

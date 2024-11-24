@@ -1,0 +1,48 @@
+[gd_scene load_steps=3 format=3 uid="uid://d4msgekslmx4o"]
+
+[ext_resource type="FontFile" uid="uid://ilqa3kmi8s03" path="res://Assets/UI/Fonts/funkin2.ttf" id="1_h4qht"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a6ud7"]
+bg_color = Color(0, 0, 0, 0.498039)
+expand_margin_left = 14.0
+expand_margin_top = 5.0
+expand_margin_right = 14.0
+expand_margin_bottom = 5.0
+
+[node name="Dropdown" type="MenuButton"]
+theme_override_fonts/font = ExtResource("1_h4qht")
+theme_override_font_sizes/font_size = 51
+theme_override_styles/focus = SubResource("StyleBoxFlat_a6ud7")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_a6ud7")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_a6ud7")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_a6ud7")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_a6ud7")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxFlat_a6ud7")
+theme_override_styles/hover = SubResource("StyleBoxFlat_a6ud7")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxFlat_a6ud7")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_a6ud7")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_a6ud7")
+theme_override_styles/normal = SubResource("StyleBoxFlat_a6ud7")
+text = "Dropdown [Selected Item]"
+flat = false
+alignment = 0
+text_overrun_behavior = 3
+expand_icon = true
+item_count = 1
+popup/item_0/text = "d"
+popup/item_0/id = 0
+
+[node name="DropdownIndicator" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.930079
+anchor_top = 0.0788634
+anchor_right = 0.987587
+anchor_bottom = 0.828863
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_h4qht")
+theme_override_font_sizes/font_size = 38
+text = "v"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true

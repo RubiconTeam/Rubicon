@@ -12,6 +12,7 @@ public partial class SettingsMenu : BaseMenu
 
 	[Export] private VBoxContainer _sectionButtonContainer;
 	[Export] private ScrollContainer _settingsSectionContainer;
+	[Export] private Label _settingsDescriptionLabel;
 
 	#region Templates
 	/* Section Template */
@@ -21,7 +22,7 @@ public partial class SettingsMenu : BaseMenu
 	[Export] private VBoxContainer _sectionContainerTemplate;
 	
 	/* Group Separator Template */
-	[Export] private VBoxContainer _groupSeparatorTemplate;
+	[Export] private Label _groupSeparatorTemplate;
 
 	/* Setting Button Templates */
 	[Export] private Button _buttonTemplate;

@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://gt48ja0rg1mc"]
+
+[ext_resource type="FontFile" uid="uid://ilqa3kmi8s03" path="res://Assets/UI/Fonts/funkin2.ttf" id="1_35y84"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a6ud7"]
+bg_color = Color(0, 0, 0, 0.498039)
+expand_margin_left = 14.0
+expand_margin_top = 5.0
+expand_margin_right = 14.0
+expand_margin_bottom = 5.0
+
+[node name="CheckButton" type="CheckButton"]
+theme_override_fonts/font = ExtResource("1_35y84")
+theme_override_font_sizes/font_size = 51
+theme_override_styles/focus = SubResource("StyleBoxFlat_a6ud7")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_a6ud7")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_a6ud7")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_a6ud7")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_a6ud7")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxFlat_a6ud7")
+theme_override_styles/hover = SubResource("StyleBoxFlat_a6ud7")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxFlat_a6ud7")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_a6ud7")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_a6ud7")
+theme_override_styles/normal = SubResource("StyleBoxFlat_a6ud7")
+text = "CheckButton"
+text_overrun_behavior = 3
+expand_icon = true

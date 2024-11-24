@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://daaaww4g34j1r"]
+
+[ext_resource type="FontFile" uid="uid://ilqa3kmi8s03" path="res://Assets/UI/Fonts/funkin2.ttf" id="1_gr4lw"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tqg6v"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+expand_margin_left = 14.0
+expand_margin_top = 5.0
+expand_margin_right = 14.0
+expand_margin_bottom = 5.0
+
+[node name="GroupSeparator" type="Label"]
+theme_override_fonts/font = ExtResource("1_gr4lw")
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxFlat_tqg6v")
+text = "Group Separator"
+horizontal_alignment = 1
+vertical_alignment = 1
+text_overrun_behavior = 3

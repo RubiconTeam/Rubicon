@@ -1,0 +1,46 @@
+[gd_scene load_steps=6 format=3 uid="uid://drt7jnsey6usb"]
+
+[ext_resource type="FontFile" uid="uid://ilqa3kmi8s03" path="res://Assets/UI/Fonts/funkin2.ttf" id="1_ieenp"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hbx5l"]
+bg_color = Color(0, 0, 0, 0.498039)
+expand_margin_left = 14.0
+expand_margin_top = 5.0
+expand_margin_right = 14.0
+expand_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rdqll"]
+bg_color = Color(0, 0, 0, 0.458824)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cyjai"]
+bg_color = Color(0, 0, 0, 0.458824)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6ygec"]
+bg_color = Color(0, 0, 0, 0.458824)
+
+[node name="LineEdit" type="Label"]
+theme_override_fonts/font = ExtResource("1_ieenp")
+theme_override_font_sizes/font_size = 51
+theme_override_styles/normal = SubResource("StyleBoxFlat_hbx5l")
+text = "LineEdit"
+text_overrun_behavior = 3
+
+[node name="Edit" type="LineEdit" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 303.0
+offset_top = 5.0
+offset_right = -16.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_ieenp")
+theme_override_font_sizes/font_size = 36
+theme_override_styles/focus = SubResource("StyleBoxFlat_rdqll")
+theme_override_styles/read_only = SubResource("StyleBoxFlat_cyjai")
+theme_override_styles/normal = SubResource("StyleBoxFlat_6ygec")
+text = "line edit lmfao"
+placeholder_text = "hello im a line edit"
+alignment = 1

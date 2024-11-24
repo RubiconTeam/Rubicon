@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://b3a2i41tnbwyt"]
+
+[ext_resource type="FontFile" uid="uid://ilqa3kmi8s03" path="res://Assets/UI/Fonts/funkin2.ttf" id="1_81tuy"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hbx5l"]
+bg_color = Color(0, 0, 0, 0.498039)
+expand_margin_left = 14.0
+expand_margin_top = 5.0
+expand_margin_right = 14.0
+expand_margin_bottom = 5.0
+
+[node name="ColorPicker" type="Label"]
+theme_override_fonts/font = ExtResource("1_81tuy")
+theme_override_font_sizes/font_size = 51
+theme_override_styles/normal = SubResource("StyleBoxFlat_hbx5l")
+text = "ColorPicker"
+text_overrun_behavior = 3
+
+[node name="Picker" type="ColorPickerButton" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 357.0
+offset_right = -10.0
+grow_horizontal = 2
+grow_vertical = 2

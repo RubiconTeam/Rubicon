@@ -1,0 +1,65 @@
+[gd_scene load_steps=3 format=3 uid="uid://r14julhiorgq"]
+
+[ext_resource type="FontFile" uid="uid://ilqa3kmi8s03" path="res://Assets/UI/Fonts/funkin2.ttf" id="1_sc82e"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hbx5l"]
+bg_color = Color(0, 0, 0, 0.498039)
+expand_margin_left = 14.0
+expand_margin_top = 5.0
+expand_margin_right = 14.0
+expand_margin_bottom = 5.0
+
+[node name="Slider" type="Label"]
+theme_override_fonts/font = ExtResource("1_sc82e")
+theme_override_font_sizes/font_size = 51
+theme_override_styles/normal = SubResource("StyleBoxFlat_hbx5l")
+text = "Slider"
+vertical_alignment = 1
+text_overrun_behavior = 3
+
+[node name="HSlider" type="HSlider" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.517572
+anchor_top = 0.125
+anchor_right = 0.921725
+anchor_bottom = 0.9
+grow_horizontal = 0
+grow_vertical = 2
+max_value = 1.0
+step = 0.1
+value = 0.5
+metadata/_edit_use_anchors_ = true
+
+[node name="Max" type="Label" parent="HSlider"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.02767
+anchor_top = -0.16129
+anchor_right = 1.20949
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_sc82e")
+theme_override_font_sizes/font_size = 45
+text = "1"
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Min" type="Label" parent="HSlider"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.29
+anchor_right = -0.02
+anchor_bottom = 1.0
+offset_left = 2.05005
+offset_top = -4.0
+offset_right = -1.1
+offset_bottom = 0.0909195
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_sc82e")
+theme_override_font_sizes/font_size = 45
+text = "0"
+horizontal_alignment = 2
+vertical_alignment = 1
