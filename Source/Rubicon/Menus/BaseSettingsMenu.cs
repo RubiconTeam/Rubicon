@@ -6,7 +6,8 @@ namespace Rubicon.Menus.Settings;
 public abstract partial class BaseSettingsMenu : BaseMenu
 {
 	/* Section Template */
-	[ExportGroup("Templates"), Export] private PackedScene _sectionButtonTemplate;
+	[ExportGroup("Templates")] 
+	[Export] private PackedScene _sectionButtonTemplate;
 
 	/* Section Setting Container Template */
 	[Export] private PackedScene _sectionContainerTemplate;
