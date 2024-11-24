@@ -38,7 +38,6 @@ public partial class UserSettingsData
     public partial void SetSetting(string key, Variant val);
 }
 
-
 [RubiconSettingsSection("Gameplay", true, "res://Assets/UI/Menus/Settings/Gameplay.png")]
 public class GameplaySection
 {
@@ -51,6 +50,7 @@ public class GameplaySection
     public bool Autoplay = false;
     public float NoteAmplitude = 0f;
 
+    public GameplayModifiers Modifiers = new();
     [RubiconSettingsGroup("Gameplay Modifiers")]
     public class GameplayModifiers
     {
@@ -58,7 +58,7 @@ public class GameplaySection
         [StepValue(0.1f, 1f, 1f)] public double HealthGain = 1d;
         [StepValue(0.1f, 1f, 1f)] public double HealthLoss = 1d;
         [StepValue(0.1f, 1f, 1f)] public double HealthDrain = 0.5d;
-        public bool OpponentDrainsHealth { get; set; } = false;
+        public bool OpponentDrainsHealth = false;
     }
 }
 
@@ -71,7 +71,6 @@ public class VideoSection
     [ProjectSetting("application/run/max_fps")] public int MaxFps;
 
     public Settings3DSection Settings3D = new();
-    
     [RubiconSettingsGroup("3D Settings")]
     public class Settings3DSection
     {
@@ -98,7 +97,7 @@ public class MiscSection
     [RubiconSettingsGroup("Debug Settings")]
     public class DebugMiscSettings
     {
-        public bool PrintSettingsOnConsole;
+        public bool PrintSettingsOnConsole = false;
     }
 }
 

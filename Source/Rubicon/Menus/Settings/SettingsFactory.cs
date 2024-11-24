@@ -36,7 +36,7 @@ public static class SettingsFactory
 		VBoxContainer containerInstance = template.Duplicate() as VBoxContainer;
 		if (containerInstance != null)
 		{
-			containerInstance.Name = $"{sectionName}_Container";
+			containerInstance.Name = $"{sectionName}Container";
 			containerInstance.Visible = true;
 		}
 

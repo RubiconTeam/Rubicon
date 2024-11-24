@@ -2,7 +2,7 @@ namespace Rubicon.Data.Settings;
 
 public static class UserSettingsConstants
 {
-	public static readonly string[] InputActions = new string[]
+	public static readonly string[] InputActionExclusionList = new string[]
 	{
 		"ui_accept", 
 		"ui_select", 
