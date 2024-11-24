@@ -17,8 +17,11 @@ public partial class SettingsMenu : BaseMenu
 	/* Section Template */
 	[Export] private Button _sectionButtonTemplate;
 
-	/* VBox Template */
+	/* Section Setting Container Template */
 	[Export] private VBoxContainer _sectionContainerTemplate;
+	
+	/* Group Separator Template */
+	[Export] private VBoxContainer _groupSeparatorTemplate;
 
 	/* Setting Button Templates */
 	[Export] private Button _buttonTemplate;
@@ -35,6 +38,9 @@ public partial class SettingsMenu : BaseMenu
 	/* Label (_sliderTemplate.Slider.Min) */
 	/* Label (_sliderTemplate.Slider.Max) */
 	[Export] private Label _sliderTemplate;
+	
+	/* Button (_sliderTemplate.CurrentKeybind) */
+	[Export] private Label _keybindTemplate;
 	#endregion
 
 	private Dictionary<Button, VBoxContainer> _sectionMapping = new();
