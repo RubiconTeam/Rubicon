@@ -38,7 +38,7 @@ public partial class UserSettingsData
     public partial void SetSetting(string key, Variant val);
 }
 
-[RubiconSettingsSection("Gameplay", true, "res://Assets/UI/Menus/Settings/Gameplay.png", "Gameplay Settings")]
+[RubiconSettingsSection("Gameplay", true, "res://Assets/UI/Menus/Settings/Gameplay.png")]
 public class GameplaySection
 {
     public double Offset = 0.0d;
