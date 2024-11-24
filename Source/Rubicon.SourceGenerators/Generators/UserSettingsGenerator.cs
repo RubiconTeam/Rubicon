@@ -122,7 +122,7 @@ public class UserSettingsGenerator : ISourceGenerator
                          "\t}\n" +
                          "}");
 
-        context.AddSource($"{settingsData.Name}.g.cs", dataClass.ToString());
+        context.AddSource($"{settingsData.Name}.RubiconGenerated.cs", dataClass.ToString());
         #endregion
 
         #region User Settings Instance
@@ -263,13 +263,13 @@ public class UserSettingsGenerator : ISourceGenerator
             usingsText.Append($"using {usingDirective};\n");
         usingsText.Append("\n");
 
-        context.AddSource($"{settingsInstance.Name}.g.cs", usingsText.ToString() + instanceClass.ToString());
+        context.AddSource($"{settingsInstance.Name}.RubiconGenerated.cs", usingsText.ToString() + instanceClass.ToString());
 
         usingsText.Remove(usingsText.Length - 1, 1);
         usingsText.Append($"using {instanceNameSpace};");
         usingsText.Append("\n");
 
-        context.AddSource($"{staticClassName}Ex.g.cs", usingsText.ToString() + staticClass.ToString());
+        context.AddSource($"{staticClassName}Ex.RubiconGenerated.cs", usingsText.ToString() + staticClass.ToString());
 
         #endregion
     }

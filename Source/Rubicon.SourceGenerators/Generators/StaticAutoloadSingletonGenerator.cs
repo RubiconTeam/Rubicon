@@ -229,6 +229,6 @@ public class StaticAutoloadSingletonGenerator : ISourceGenerator
 
         //throw new Exception((usingsText.ToString() + finalClass.ToString()).Replace("\n", "").Replace("\t", ""));
 
-        context.AddSource($"{className}.g.cs", usingsText + finalClass.ToString());
+        context.AddSource($"{className}.RubiconGenerated.cs", usingsText + finalClass.ToString());
     }
 }

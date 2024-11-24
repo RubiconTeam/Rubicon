@@ -109,11 +109,9 @@ public partial class UserSettingsInstance : Node
 			GD.Print($"Processing field: {field.Name}, Type: {field.FieldType.Name}");
 			var (targetInstance, _) = GetOrCreateInstanceChain(field.DeclaringType, _data);
 
-			if (field.FieldType.IsClass && field.FieldType != typeof(string))
+			if (field.FieldType.IsClass)
 			{
-				object nestedInstance = field.GetValue(targetInstance) ?? Activator.CreateInstance(field.FieldType);
-				field.SetValue(targetInstance, nestedInstance);
-
+				field.SetValue(targetInstance, field.GetValue(targetInstance));
 				foreach (var nestedField in field.FieldType.GetFields(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic)) 
 					ProcessField(nestedField, config);
 			}
@@ -211,15 +209,15 @@ public partial class UserSettingsInstance : Node
 		return (currentInstance, parentChain);
 	}
 	
-    public Error Save(string path = null)
-    {
-        GD.Print("Saving settings...");
-        path ??= ProjectSettings.GetSetting("rubicon/general/settings_save_path").AsString();
-        GD.Print($"Saving settings to: {path}");
+	public Error Save(string path = null)
+	{
+		GD.Print("Saving settings...");
+		path ??= ProjectSettings.GetSetting("rubicon/general/settings_save_path").AsString();
+		GD.Print($"Saving settings to: {path}");
 
-        ConfigFile configFile = _data.CreateConfigFileInstance();
-        return configFile.Save(path);
-    }
+		ConfigFile configFile = _data.CreateConfigFileInstance();
+		return configFile.Save(path);
+	}
 
 	private object ConvertVariant(Variant value, Type targetType)
 	{
@@ -236,9 +234,9 @@ public partial class UserSettingsInstance : Node
 				nameof(Single) => value.AsSingle(),
 				nameof(Boolean) => value.AsBool(),
 				nameof(String) => value.AsString(),
-				nameof(Vector2I) => value.As<Vector2I>(),
-				nameof(Array) => value.As<Array>(),
-				nameof(Dictionary) => value.As<Dictionary>(),
+				nameof(Vector2I) => value.AsVector2I(),
+				nameof(Array) => value.AsGodotArray(),
+				nameof(Dictionary) => value.AsGodotDictionary(),
 				_ => throw new InvalidCastException($"Unsupported type: {targetType.Name}")
 			};
 		}
