@@ -14,3 +14,4 @@ Export/
 .vscode/
 *DotSettings.user
 /.cr/personal/FavoritesList
+*.uid

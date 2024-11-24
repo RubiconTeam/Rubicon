@@ -41,6 +41,4 @@ theme_override_font_sizes/font_size = 36
 theme_override_styles/focus = SubResource("StyleBoxFlat_rdqll")
 theme_override_styles/read_only = SubResource("StyleBoxFlat_cyjai")
 theme_override_styles/normal = SubResource("StyleBoxFlat_6ygec")
-text = "line edit lmfao"
-placeholder_text = "hello im a line edit"
 alignment = 1

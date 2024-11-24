@@ -1,3 +1,5 @@
+using System;
+
 namespace Rubicon.SourceGenerators;
 
 public static class GenerationConstants

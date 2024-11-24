@@ -1,10 +1,10 @@
-[gd_scene load_steps=22 format=3 uid="uid://csxrq1ms8awxc"]
+[gd_scene load_steps=20 format=3 uid="uid://csxrq1ms8awxc"]
 
 [ext_resource type="Script" uid="uid://chvkodg7nb2c4" path="res://Source/Rubicon/Menus/Settings/SettingsMenu.cs" id="1_lotll"]
 [ext_resource type="Texture2D" uid="uid://qhfv36mgywf6" path="res://Assets/UI/Menus/menuBGDesat.png" id="2_qyjh5"]
+[ext_resource type="PackedScene" uid="uid://dloydyiawkns6" path="res://Source/Rubicon/Menus/Settings/Templates/SectionButton.tscn" id="2_ynwdk"]
 [ext_resource type="FontFile" uid="uid://ilqa3kmi8s03" path="res://Assets/UI/Fonts/funkin2.ttf" id="3_b8kiq"]
 [ext_resource type="Texture2D" uid="uid://dntwwyddihbu3" path="res://Source/Rubicon/Menus/Settings/vuzi.png" id="3_jwce3"]
-[ext_resource type="Texture2D" uid="uid://dx6qho3155q0q" path="res://Assets/UI/Menus/Settings/Gameplay.png" id="4_xs2iu"]
 [ext_resource type="PackedScene" uid="uid://daaaww4g34j1r" path="res://Source/Rubicon/Menus/Settings/Templates/GroupSeparator.tscn" id="6_ynwdk"]
 [ext_resource type="PackedScene" uid="uid://gt48ja0rg1mc" path="res://Source/Rubicon/Menus/Settings/Templates/CheckButton.tscn" id="7_5i2d0"]
 [ext_resource type="PackedScene" uid="uid://cqfbj5qufxqd3" path="res://Source/Rubicon/Menus/Settings/Templates/Button.tscn" id="8_oijno"]
@@ -15,12 +15,12 @@
 [ext_resource type="PackedScene" uid="uid://bob7c4gaapaou" path="res://Source/Rubicon/Menus/Settings/Templates/KeybindButton.tscn" id="13_b3tli"]
 [ext_resource type="PackedScene" uid="uid://0h228ay1ervr" path="res://Source/Rubicon/Menus/Settings/Templates/VBoxTemplate.tscn" id="14_bwaer"]
 
-[sub_resource type="Gradient" id="Gradient_we0p3"]
+[sub_resource type="Gradient" id="Gradient_ynwdk"]
 offsets = PackedFloat32Array(0, 0.533333, 1)
 colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_61vsb"]
-gradient = SubResource("Gradient_we0p3")
+gradient = SubResource("Gradient_ynwdk")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jwce3"]
 bg_color = Color(0.160784, 0.137255, 0.415686, 1)
@@ -30,13 +30,6 @@ expand_margin_right = 6.0
 expand_margin_bottom = 6.0
 shadow_size = 10
 shadow_offset = Vector2(10, 10)
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xs2iu"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dwaca"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
-border_color = Color(0.291241, 0.00104795, 0.545935, 1)
-border_blend = true
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xs2iu"]
 content_margin_left = 8.0
@@ -65,7 +58,7 @@ shadow_color = Color(0, 0, 0, 0.647059)
 shadow_size = 15
 shadow_offset = Vector2(10, 10)
 
-[node name="Settings Menu" type="Control" node_paths=PackedStringArray("_sectionButtonContainer", "_settingsSectionContainer", "_settingsDescriptionLabel", "_sectionButtonTemplate", "_sectionContainerTemplate", "_groupSeparatorTemplate", "_buttonTemplate", "_checkButtonTemplate", "_dropDownTemplate", "_colorPickerTemplate", "_lineEditTemplate", "_sliderTemplate", "_keybindTemplate")]
+[node name="Settings Menu" type="Control" node_paths=PackedStringArray("_sectionButtonContainer", "_settingsSectionContainer", "_settingsDescriptionLabel")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -77,16 +70,16 @@ script = ExtResource("1_lotll")
 _sectionButtonContainer = NodePath("Main/UI/SectionsControl/PanelContainer/VBoxContainer")
 _settingsSectionContainer = NodePath("Main/UI/ButtonsControl/PanelContainer/ScrollContainer")
 _settingsDescriptionLabel = NodePath("Main/UI/DescriptionControl/Panel/Description")
-_sectionButtonTemplate = NodePath("Main/UI/SectionsControl/PanelContainer/VBoxContainer/Section")
-_sectionContainerTemplate = NodePath("Main/UI/ButtonsControl/PanelContainer/ScrollContainer/VBoxTemplate")
-_groupSeparatorTemplate = NodePath("Main/UI/ButtonsControl/PanelContainer/ScrollContainer/Template/GroupSeparator")
-_buttonTemplate = NodePath("Main/UI/ButtonsControl/PanelContainer/ScrollContainer/Template/Button")
-_checkButtonTemplate = NodePath("Main/UI/ButtonsControl/PanelContainer/ScrollContainer/Template/CheckButton")
-_dropDownTemplate = NodePath("Main/UI/ButtonsControl/PanelContainer/ScrollContainer/Template/Dropdown")
-_colorPickerTemplate = NodePath("Main/UI/ButtonsControl/PanelContainer/ScrollContainer/Template/ColorPicker")
-_lineEditTemplate = NodePath("Main/UI/ButtonsControl/PanelContainer/ScrollContainer/Template/LineEdit")
-_sliderTemplate = NodePath("Main/UI/ButtonsControl/PanelContainer/ScrollContainer/Template/Slider")
-_keybindTemplate = NodePath("Main/UI/ButtonsControl/PanelContainer/ScrollContainer/Template/Keybind")
+_sectionButtonTemplate = ExtResource("2_ynwdk")
+_sectionContainerTemplate = ExtResource("14_bwaer")
+_groupSeparatorTemplate = ExtResource("6_ynwdk")
+_buttonTemplate = ExtResource("8_oijno")
+_checkButtonTemplate = ExtResource("7_5i2d0")
+_dropDownTemplate = ExtResource("9_260at")
+_colorPickerTemplate = ExtResource("10_dwwis")
+_lineEditTemplate = ExtResource("12_lxjq6")
+_sliderTemplate = ExtResource("11_qg0c2")
+_keybindTemplate = ExtResource("13_b3tli")
 
 [node name="BGContainer" type="AspectRatioContainer" parent="."]
 layout_mode = 1
@@ -103,6 +96,12 @@ modulate = Color(0.52549, 0.517647, 0.752941, 1)
 layout_mode = 2
 texture = ExtResource("2_qyjh5")
 
+[node name="Vuzi" type="Sprite2D" parent="BGContainer/BG"]
+modulate = Color(0.494118, 0.490196, 0.65098, 0.313726)
+position = Vector2(963.7, 540)
+scale = Vector2(2.60462, 1.10092)
+texture = ExtResource("3_jwce3")
+
 [node name="grad" type="TextureRect" parent="BGContainer/BG"]
 modulate = Color(1, 1, 1, 0.772549)
 layout_mode = 1
@@ -112,12 +111,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("GradientTexture2D_61vsb")
-
-[node name="Vuzi" type="Sprite2D" parent="."]
-modulate = Color(0.494118, 0.490196, 0.65098, 0.482353)
-position = Vector2(850, 556)
-scale = Vector2(0.497283, 0.603466)
-texture = ExtResource("3_jwce3")
 
 [node name="Main" type="Control" parent="."]
 layout_mode = 1
@@ -168,25 +161,6 @@ layout_mode = 2
 theme_override_constants/separation = 16
 alignment = 1
 
-[node name="Section" type="Button" parent="Main/UI/SectionsControl/PanelContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_constants/icon_max_width = 75
-theme_override_fonts/font = ExtResource("3_b8kiq")
-theme_override_font_sizes/font_size = 69
-theme_override_styles/focus = SubResource("StyleBoxEmpty_xs2iu")
-theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_dwaca")
-theme_override_styles/disabled = SubResource("StyleBoxFlat_dwaca")
-theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_dwaca")
-theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_dwaca")
-theme_override_styles/hover_mirrored = SubResource("StyleBoxFlat_dwaca")
-theme_override_styles/hover = SubResource("StyleBoxFlat_dwaca")
-theme_override_styles/pressed_mirrored = SubResource("StyleBoxFlat_dwaca")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_dwaca")
-theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_dwaca")
-theme_override_styles/normal = SubResource("StyleBoxFlat_dwaca")
-text = "Section"
-icon = ExtResource("4_xs2iu")
-
 [node name="ButtonsControl" type="Control" parent="Main/UI"]
 layout_mode = 1
 anchor_left = 0.543046
@@ -210,39 +184,6 @@ rotation = 0.0162759
 theme_override_styles/panel = SubResource("StyleBoxFlat_xs2iu")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="Main/UI/ButtonsControl/PanelContainer"]
-layout_mode = 2
-
-[node name="Template" type="VBoxContainer" parent="Main/UI/ButtonsControl/PanelContainer/ScrollContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme_override_constants/separation = 22
-
-[node name="GroupSeparator" parent="Main/UI/ButtonsControl/PanelContainer/ScrollContainer/Template" instance=ExtResource("6_ynwdk")]
-layout_mode = 2
-
-[node name="CheckButton" parent="Main/UI/ButtonsControl/PanelContainer/ScrollContainer/Template" instance=ExtResource("7_5i2d0")]
-layout_mode = 2
-
-[node name="Button" parent="Main/UI/ButtonsControl/PanelContainer/ScrollContainer/Template" instance=ExtResource("8_oijno")]
-layout_mode = 2
-
-[node name="Dropdown" parent="Main/UI/ButtonsControl/PanelContainer/ScrollContainer/Template" instance=ExtResource("9_260at")]
-layout_mode = 2
-
-[node name="ColorPicker" parent="Main/UI/ButtonsControl/PanelContainer/ScrollContainer/Template" instance=ExtResource("10_dwwis")]
-layout_mode = 2
-
-[node name="Slider" parent="Main/UI/ButtonsControl/PanelContainer/ScrollContainer/Template" instance=ExtResource("11_qg0c2")]
-layout_mode = 2
-
-[node name="LineEdit" parent="Main/UI/ButtonsControl/PanelContainer/ScrollContainer/Template" instance=ExtResource("12_lxjq6")]
-layout_mode = 2
-
-[node name="Keybind" parent="Main/UI/ButtonsControl/PanelContainer/ScrollContainer/Template" instance=ExtResource("13_b3tli")]
-layout_mode = 2
-
-[node name="VBoxTemplate" parent="Main/UI/ButtonsControl/PanelContainer/ScrollContainer" instance=ExtResource("14_bwaer")]
 layout_mode = 2
 
 [node name="DescriptionControl" type="Control" parent="Main/UI"]
