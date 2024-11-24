@@ -42,7 +42,7 @@ project/assembly_name="Rubicon"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/rubichart_importer/plugin.cfg")
+enabled=PackedStringArray("res://addons/RubiconCharter/plugin.cfg", "res://addons/rubichart_importer/plugin.cfg")
 
 [file_customization]
 
