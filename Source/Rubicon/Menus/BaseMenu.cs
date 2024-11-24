@@ -1,6 +1,6 @@
 namespace Rubicon.Menus;
 
-public partial class BaseMenu : Node
+public abstract partial class BaseMenu : Node
 {
 	[ExportGroup("Status")] 
 	[Export] public int Selection = 0;
