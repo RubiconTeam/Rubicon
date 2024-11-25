@@ -41,5 +41,15 @@
     <Content Include="Source\Rubicon\API\a pi.txt" />
     <Content Include="Source\Rubicon\Core\Autoload\DebugInfo.tscn" />
     <Content Include="Source\Rubicon\Menus\Settings\SettingsMenu.tscn" />
+    <Content Include="Source\Rubicon\Menus\Settings\Templates\Button.tscn" />
+    <Content Include="Source\Rubicon\Menus\Settings\Templates\CheckButton.tscn" />
+    <Content Include="Source\Rubicon\Menus\Settings\Templates\ColorPicker.tscn" />
+    <Content Include="Source\Rubicon\Menus\Settings\Templates\Dropdown.tscn" />
+    <Content Include="Source\Rubicon\Menus\Settings\Templates\GroupSeparator.tscn" />
+    <Content Include="Source\Rubicon\Menus\Settings\Templates\KeybindButton.tscn" />
+    <Content Include="Source\Rubicon\Menus\Settings\Templates\LineEdit.tscn" />
+    <Content Include="Source\Rubicon\Menus\Settings\Templates\SectionButton.tscn" />
+    <Content Include="Source\Rubicon\Menus\Settings\Templates\Slider.tscn" />
+    <Content Include="Source\Rubicon\Menus\Settings\Templates\VBoxTemplate.tscn" />
   </ItemGroup>
 </Project>

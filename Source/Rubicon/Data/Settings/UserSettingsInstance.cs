@@ -36,7 +36,6 @@ public partial class UserSettingsInstance : Node
 			DisplayServer.WindowSetVsyncMode(Video.VSync);
 			Engine.MaxFps = Video.MaxFps;
 			mainWindow.Scaling3DMode = Video.Settings3D.Scaling3DMode;
-			mainWindow.Scaling3DScale = Video.Settings3D.RenderScale;
 			mainWindow.FsrSharpness = Video.Settings3D.FsrSharpness;
 
 			GD.Print("Settings updated successfully.");

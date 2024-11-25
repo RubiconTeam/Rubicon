@@ -1,5 +1,3 @@
-using System;
-
 namespace Rubicon.Data.Settings.Attributes
 {
     /// <summary>

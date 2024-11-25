@@ -1,5 +1,4 @@
 #if TOOLS
-using System.Collections.Generic;
 using System.Linq;
 using Rubicon.Core.Chart;
 using Godot.Collections;

@@ -1,7 +1,5 @@
-using System;
 using System.Collections.Generic;
 using System.Globalization;
-using System.Linq;
 
 namespace Rubicon.Menus.Settings;
 public static class ControlExtensions
@@ -102,14 +100,17 @@ public abstract partial class BaseSettingsMenu : BaseMenu
 			});
 	}
 
-	private protected LineEdit CreateLineEdit(string name, string initialText = "", string placeholder = "")
+	private protected Label CreateLineEdit(string name, string initialText = "", string placeholder = "")
 	{
-		return InstantiateTemplate<LineEdit>(_lineEditTemplate, "Template is not a LineEdit / is null.")
+		return InstantiateTemplate<Label>(_lineEditTemplate, "Template is not a LineEdit / is null.")
 			.Configure(lineEdit =>
 			{
 				lineEdit.Name = name;
-				lineEdit.Text = initialText;
-				lineEdit.PlaceholderText = placeholder;
+				lineEdit.Text = name;
+
+				LineEdit lineEditInstance = lineEdit.GetNode<LineEdit>("LineEdit");
+				lineEditInstance.PlaceholderText = placeholder;
+				lineEditInstance.Text = initialText;
 			});
 	}
 
@@ -123,10 +124,10 @@ public abstract partial class BaseSettingsMenu : BaseMenu
 			});
 	}
 
-	private protected MenuButton CreateDropdownMenuFromEnum<TEnum>(string name) where TEnum : struct, Enum
+	private protected MenuButton CreateDropdownMenuFromEnum(Type enumType)
 	{
-		var options = Enum.GetValues<TEnum>().Select(e => e.ToString());
-		return CreateDropdownMenu(name, options);
+		var options = Enum.GetNames(enumType);
+		return CreateDropdownMenu(enumType.Name, options);
 	}
 
 	private protected Button CreateToggleButton(string name, bool isActive)
@@ -141,25 +142,31 @@ public abstract partial class BaseSettingsMenu : BaseMenu
 			});
 	}
 
-	private protected (HSlider slider, Label minLabel, Label maxLabel) CreateSlider(string name, float minValue, float maxValue, float step, float initialValue = float.NaN)
+	private protected (Label sliderLabel, HSlider slider) CreateSlider(string name, float minValue, float maxValue, float step, float initialValue = float.NaN)
 	{
-		var slider = InstantiateTemplate<HSlider>(_sliderTemplate, "Template is not an HSlider / is null.")
+		var slider = InstantiateTemplate<Label>(_sliderTemplate, "Template is not an HSlider / is null.")
 			.Configure(s =>
 			{
-				s.Name = name;
-				s.MinValue = minValue;
-				s.MaxValue = maxValue;
-				s.Step = step;
-				if (!float.IsNaN(initialValue))
-				{
-					s.Value = Math.Clamp(initialValue, minValue, maxValue);
-				}
+				s.Name = name + "Label";
+				s.Text = name;
 			});
 
-		var minLabel = new Label { Text = minValue.ToString(CultureInfo.InvariantCulture) };
-		var maxLabel = new Label { Text = maxValue.ToString(CultureInfo.InvariantCulture) };
-
-		return (slider, minLabel, maxLabel);
+		HSlider sliderInstance = slider.GetNode<HSlider>("HSlider");
+		sliderInstance.MinValue = minValue;
+		sliderInstance.MaxValue = maxValue;
+		sliderInstance.Step = step;
+		if (!float.IsNaN(initialValue))
+		{
+			sliderInstance.Value = Math.Clamp(initialValue, minValue, maxValue);
+		}
+		
+		Label minLabel = sliderInstance.GetNode<Label>("Min");
+		minLabel.Text = minValue.ToString(CultureInfo.InvariantCulture);
+		
+		Label maxLabel = sliderInstance.GetNode<Label>("Max");
+		maxLabel.Text = maxValue.ToString(CultureInfo.InvariantCulture);
+		
+		return (slider, sliderInstance);
 	}
 	#endregion
 

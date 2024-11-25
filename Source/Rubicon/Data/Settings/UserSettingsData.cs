@@ -41,14 +41,14 @@ public partial class UserSettingsData
 [RubiconSettingsSection("Gameplay", true, "res://Assets/UI/Menus/Settings/Gameplay.png")]
 public class GameplaySection
 {
-    public double Offset = 0.0d;
-    public double VisualOffset = 0.0d;
+    [StepValue(0.01f, 1f, 1f)] public double Offset = 0.0d;
+    [StepValue(0.01f, 1f, 1f)] public double VisualOffset = 0.0d;
     public bool DownScroll = false;
     public bool CenterBarLine = false;
     public bool GhostTapping = false;
     public bool FlashingLights = true;
     public bool Autoplay = false;
-    public float NoteAmplitude = 0f;
+    [StepValue(0.01f, 1f, 1f)] public float NoteAmplitude = 0f;
 
     [RubiconSettingsGroup("Gameplay Modifiers")] public GameplayModifiers Modifiers = new();
     public class GameplayModifiers
@@ -73,7 +73,6 @@ public class VideoSection
     public class Settings3DSection
     {
         [ProjectSetting("rendering/scaling_3d/scale")] public Viewport.Scaling3DModeEnum Scaling3DMode;
-        [ProjectSetting("rendering/scaling_3d/scale")] public float RenderScale;
         [ProjectSetting("rendering/scaling_3d/fsr_sharpness")] public float FsrSharpness;
     }
 }
@@ -81,10 +80,10 @@ public class VideoSection
 [RubiconSettingsSection("Audio", true, "res://Assets/UI/Menus/Settings/Audio.png")]
 public class AudioSection
 {
-    public float MasterVolume = 1.0f;
-    public float MusicVolume = 1.0f;
-    public float VocalsVolume = 1.0f;
-    public float SfxVolume = 1.0f;
+    [StepValue(1, 0f, 100f)] public float MasterVolume = 1.0f;
+    [StepValue(1, 0f, 100f)] public float MusicVolume = 1.0f;
+    [StepValue(1, 0f, 100f)] public float VocalsVolume = 1.0f;
+    [StepValue(1, 0f, 100f)] public float SfxVolume = 1.0f;
 }
 
 [RubiconSettingsSection("Misc", true, "res://Assets/UI/Menus/Settings/Misc.png")]

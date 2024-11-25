@@ -25,20 +25,19 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_hbx5l")
 text = "LineEdit"
 text_overrun_behavior = 3
 
-[node name="Edit" type="LineEdit" parent="."]
+[node name="LineEdit" type="LineEdit" parent="."]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 303.0
-offset_top = 5.0
-offset_right = -16.0
-offset_bottom = -1.0
+anchors_preset = -1
+anchor_left = 98.0
+anchor_top = 0.125
+anchor_right = 190.0
+anchor_bottom = 0.975
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("1_ieenp")
-theme_override_font_sizes/font_size = 36
+theme_override_font_sizes/font_size = 31
 theme_override_styles/focus = SubResource("StyleBoxFlat_rdqll")
 theme_override_styles/read_only = SubResource("StyleBoxFlat_cyjai")
 theme_override_styles/normal = SubResource("StyleBoxFlat_6ygec")
 alignment = 1
+metadata/_edit_use_anchors_ = true
