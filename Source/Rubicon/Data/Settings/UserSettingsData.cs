@@ -50,8 +50,7 @@ public class GameplaySection
     public bool Autoplay = false;
     public float NoteAmplitude = 0f;
 
-    public GameplayModifiers Modifiers = new();
-    [RubiconSettingsGroup("Gameplay Modifiers")]
+    [RubiconSettingsGroup("Gameplay Modifiers")] public GameplayModifiers Modifiers = new();
     public class GameplayModifiers
     {
         [StepValue(0.01f, 1f, 1f)] public double PlaybackRate = 1d;
@@ -70,8 +69,7 @@ public class VideoSection
     [ProjectSetting("display/window/vsync/vsync_mode")] public DisplayServer.VSyncMode VSync;
     [ProjectSetting("application/run/max_fps")] public int MaxFps;
 
-    public Settings3DSection Settings3D = new();
-    [RubiconSettingsGroup("3D Settings")]
+    [RubiconSettingsGroup("3D Settings")] public Settings3DSection Settings3D = new();
     public class Settings3DSection
     {
         [ProjectSetting("rendering/scaling_3d/scale")] public Viewport.Scaling3DModeEnum Scaling3DMode;
@@ -92,9 +90,7 @@ public class AudioSection
 [RubiconSettingsSection("Misc", true, "res://Assets/UI/Menus/Settings/Misc.png")]
 public class MiscSection
 {
-    public DebugMiscSettings Debug = new();
-	
-    [RubiconSettingsGroup("Debug Settings")]
+    [RubiconSettingsGroup("Debug Settings")] public DebugMiscSettings Debug = new();
     public class DebugMiscSettings
     {
         public bool PrintSettingsOnConsole = false;

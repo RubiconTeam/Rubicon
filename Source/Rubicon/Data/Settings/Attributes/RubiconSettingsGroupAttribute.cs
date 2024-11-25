@@ -1,11 +1,7 @@
 namespace Rubicon.Data.Settings.Attributes;
 
-[AttributeUsage(AttributeTargets.Class, Inherited = false, AllowMultiple = false)]
-public class RubiconSettingsGroupAttribute : Attribute
+[AttributeUsage(AttributeTargets.Class | AttributeTargets.Field, Inherited = false)]
+public class RubiconSettingsGroupAttribute(string sectionName) : Attribute
 {
-	public string SectionName { get; set; }
-	public RubiconSettingsGroupAttribute(string sectionName)
-	{
-		SectionName = sectionName;
-	}
+	public string SectionName { get; set; } = sectionName;
 }
