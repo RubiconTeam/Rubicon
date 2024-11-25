@@ -1,129 +1,183 @@
+using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 
 namespace Rubicon.Menus.Settings;
+internal static class ControlExtensions
+{
+    public static T Configure<T>(this T control, Action<T> configure) where T : Control
+    {
+        configure(control);
+        return control;
+    }
+}
+
 public abstract partial class BaseSettingsMenu : BaseMenu
 {
-	/* Section Template */
-	[ExportGroup("Templates")] 
-	[Export] private PackedScene _sectionButtonTemplate;
+    #region Template Fields
+    [ExportGroup("Templates")]
+    [Export] private PackedScene _sectionButtonTemplate;
+    [Export] private PackedScene _sectionContainerTemplate;
+    [Export] private PackedScene _groupSeparatorTemplate;
+    [Export] private PackedScene _buttonTemplate;
+    [Export] private PackedScene _checkButtonTemplate;
+    [Export] private PackedScene _dropDownTemplate;
+    [Export] private PackedScene _colorPickerTemplate;
+    [Export] private PackedScene _lineEditTemplate;
+    [Export] private PackedScene _sliderTemplate;
+    [Export] private PackedScene _keybindTemplate;
+    #endregion
 
-	/* Section Setting Container Template */
-	[Export] private PackedScene _sectionContainerTemplate;
-	
-	/* Group Separator Template */
-	[Export] private PackedScene _groupSeparatorTemplate;
+    #region Factory Methods
+    public Button CreateSectionButton(string sectionName, Texture2D icon, bool generateInMenu = true)
+    {
+        if (!generateInMenu) return null;
 
-	/* Setting Button Templates */
-	[Export] private PackedScene _buttonTemplate;
-	[Export] private PackedScene _checkButtonTemplate;
-	[Export] private PackedScene _dropDownTemplate;
+        return InstantiateTemplate<Button>(_sectionButtonTemplate, "Section Button Template is not a Button / is null.")
+            .Configure(button =>
+            {
+                button.Name = sectionName;
+                button.Text = sectionName;
+                button.Icon = icon;
+                button.Visible = true;
+            });
+    }
 
-	/* ColorPickerButton (Parent.Picker) */
-	[Export] private PackedScene _colorPickerTemplate;
+    public VBoxContainer CreateSectionContainer(string sectionName, bool generateInMenu = true)
+    {
+        if (!generateInMenu) return null;
 
-	/* LineEdit (_lineEditTemplate.LineEdit) */
-	[Export] private PackedScene _lineEditTemplate;
+        return InstantiateTemplate<VBoxContainer>(_sectionContainerTemplate, "Section Container Template is not a VBoxContainer / is null.")
+            .Configure(container => container.Name = $"{sectionName}Container");
+    }
 
-	/* HSlider (_sliderTemplate.Slider) */
-	/* Label (_sliderTemplate.Slider.Min) */
-	/* Label (_sliderTemplate.Slider.Max) */
-	[Export] private PackedScene _sliderTemplate;
-	
-	/* Button (_sliderTemplate.CurrentKeybind) */
-	[Export] private PackedScene _keybindTemplate;
-	
-	public Button CreateSectionButton(string sectionName, Texture2D icon, bool generateInMenu)
-	{
-		if (!generateInMenu)
-			return null;
+    public MenuButton CreateDropdownMenu(string name, IEnumerable<string> options)
+    {
+        var menuButton = InstantiateTemplate<MenuButton>(_dropDownTemplate, "Template is not a MenuButton / is null.")
+            .Configure(button =>
+            {
+                button.Name = name;
+                button.Text = name;
+            });
 
-		var buttonInstance = InstantiateTemplate<Button>(_sectionButtonTemplate, "Section Button Template is not a Button / is null.");
-		buttonInstance.Name = sectionName;
-		buttonInstance.Text = sectionName;
-		buttonInstance.Icon = icon;
-		buttonInstance.Visible = true;
+        var popup = menuButton.GetPopup();
+        foreach (var option in options)
+        {
+            popup.AddItem(option);
+        }
 
-		return buttonInstance;
-	}
-	
-	public VBoxContainer CreateSectionContainer(string sectionName, bool generateInMenu)
-	{
-		if (!generateInMenu)
-			return null;
+        return menuButton;
+    }
 
-		var containerInstance = InstantiateTemplate<VBoxContainer>(_sectionContainerTemplate, "Section Container Template is not a VBoxContainer / is null.");
-		containerInstance.Name = $"{sectionName}Container";
-		return containerInstance;
-	}
+    public Label CreateSeparator(string text)
+    {
+        return InstantiateTemplate<Label>(_groupSeparatorTemplate, "Template is not a Label / is null.")
+            .Configure(separator =>
+            {
+                separator.Name = $"{text}_Separator";
+                separator.Text = text;
+            });
+    }
 
-	public MenuButton CreateDropdownMenu(string name, IEnumerable<string> options)
-	{
-		var menuButton = InstantiateTemplate<MenuButton>(_dropDownTemplate, "Template is not a MenuButton / is null.");
-		menuButton.Name = name;
-		menuButton.Text = name;
+    public ColorPickerButton CreateColorPickerButton(string name, Color initialColor)
+    {
+        return InstantiateTemplate<ColorPickerButton>(_colorPickerTemplate, "Template is not a ColorPickerButton / is null.")
+            .Configure(picker =>
+            {
+                picker.Name = name;
+                picker.Color = initialColor;
+            });
+    }
 
-		foreach (var option in options)
-		{
-			menuButton.GetPopup().AddItem(option);
-		}
+    public Button CreateCheckButton(string name, bool isChecked)
+    {
+        return InstantiateTemplate<Button>(_checkButtonTemplate, "Template is not a Button / is null.")
+            .Configure(button =>
+            {
+                button.Name = name;
+                button.Text = name;
+                button.ButtonPressed = isChecked;
+                button.ToggleMode = true;
+            });
+    }
 
-		return menuButton;
-	}
-	
-	public Label CreateSeparator(string text)
-	{
-		var separator = InstantiateTemplate<Label>(_groupSeparatorTemplate, "Template is not a Label / is null.");
-		separator.Name = $"{text}_Separator";
-		separator.Text = text;
-		return separator;
-	}
+    public LineEdit CreateLineEdit(string name, string initialText = "", string placeholder = "")
+    {
+        return InstantiateTemplate<LineEdit>(_lineEditTemplate, "Template is not a LineEdit / is null.")
+            .Configure(lineEdit =>
+            {
+                lineEdit.Name = name;
+                lineEdit.Text = initialText;
+                lineEdit.PlaceholderText = placeholder;
+            });
+    }
 
-	public ColorPickerButton CreateColorPickerButton(string name, Color initialColor)
-	{
-		var colorPicker = InstantiateTemplate<ColorPickerButton>(_colorPickerTemplate, "Template is not a ColorPickerButton / is null.");
-		colorPicker.Name = name;
-		colorPicker.Color = initialColor;
-		return colorPicker;
-	}
+    public Button CreateKeybindButton(string name, string currentKeybind)
+    {
+        return InstantiateTemplate<Button>(_keybindTemplate, "Template is not a Button / is null.")
+            .Configure(button =>
+            {
+                button.Name = name;
+                button.Text = currentKeybind;
+            });
+    }
 
-	public MenuButton CreateDropdownMenuFromEnum<TEnum>(string name) where TEnum : struct, Enum
-	{
-		var options = Enum.GetValues<TEnum>().Select(e => e.ToString());
-		return CreateDropdownMenu(name, options);
-	}
-	
-	public Button CreateToggleButton(string name, bool isActive)
-	{
-		var button = InstantiateTemplate<Button>(_buttonTemplate, "Template is not a Button / is null.");
-		button.Name = name;
-		button.Text = name;
-		button.ButtonPressed = isActive;
-		return button;
-	}
+    public MenuButton CreateDropdownMenuFromEnum<TEnum>(string name) where TEnum : struct, Enum
+    {
+        var options = Enum.GetValues<TEnum>().Select(e => e.ToString());
+        return CreateDropdownMenu(name, options);
+    }
 
-	public (HSlider slider, Label minLabel, Label maxLabel) CreateSlider(float minValue, float maxValue, float step)
-	{
-		var slider = InstantiateTemplate<HSlider>(_sliderTemplate, "Template is not an HSlider / is null.");
-		slider.MinValue = minValue;
-		slider.MaxValue = maxValue;
-		slider.Step = step;
+    public Button CreateToggleButton(string name, bool isActive)
+    {
+        return InstantiateTemplate<Button>(_buttonTemplate, "Template is not a Button / is null.")
+            .Configure(button =>
+            {
+                button.Name = name;
+                button.Text = name;
+                button.ButtonPressed = isActive;
+                button.ToggleMode = true;
+            });
+    }
 
-		var minLabel = new Label { Text = minValue.ToString(CultureInfo.InvariantCulture) };
-		var maxLabel = new Label { Text = maxValue.ToString(CultureInfo.InvariantCulture) };
+    public (HSlider slider, Label minLabel, Label maxLabel) CreateSlider(
+        string name,
+        float minValue, 
+        float maxValue, 
+        float step,
+        float initialValue = float.NaN)
+    {
+        var slider = InstantiateTemplate<HSlider>(_sliderTemplate, "Template is not an HSlider / is null.")
+            .Configure(s =>
+            {
+                s.Name = name;
+                s.MinValue = minValue;
+                s.MaxValue = maxValue;
+                s.Step = step;
+                if (!float.IsNaN(initialValue))
+                {
+                    s.Value = Math.Clamp(initialValue, minValue, maxValue);
+                }
+            });
 
-		return (slider, minLabel, maxLabel);
-	}
+        var minLabel = new Label { Text = minValue.ToString(CultureInfo.InvariantCulture) };
+        var maxLabel = new Label { Text = maxValue.ToString(CultureInfo.InvariantCulture) };
 
-	private static T InstantiateTemplate<T>(PackedScene template, string errorMessage) where T : class
-	{
-		if (template == null)
-			throw new ArgumentNullException(nameof(template), "The provided template is null.");
+        return (slider, minLabel, maxLabel);
+    }
+    #endregion
 
-		if (template.Instantiate() is not T instance)
-			throw new InvalidOperationException($"{errorMessage} Expected: {typeof(T).Name}");
+    #region Helper Methods
+    private static T InstantiateTemplate<T>(PackedScene template, string errorMessage) where T : Control
+    {
+        if (template == null)
+            throw new ArgumentNullException(nameof(template), "The provided template is null.");
 
-		return instance;
-	}
+        if (template.Instantiate() is not T instance)
+            throw new InvalidOperationException($"{errorMessage} Expected: {typeof(T).Name}");
+
+        return instance;
+    }
+    #endregion
 }
