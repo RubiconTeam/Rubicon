@@ -14,7 +14,7 @@ public partial class SettingsMenu : BaseSettingsMenu
 	[Export] private VBoxContainer _sectionButtonContainer;
 	[Export] private ScrollContainer _settingsSectionContainer;
 	[Export] private Label _settingsDescriptionLabel;
-
+	
 	private readonly Dictionary<Button, VBoxContainer> _sectionMapping = new();
 
 	public override void _Ready()

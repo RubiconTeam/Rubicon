@@ -30,7 +30,7 @@ public abstract partial class BaseSettingsMenu : BaseMenu
     #endregion
 
     #region Factory Methods
-    public Button CreateSectionButton(string sectionName, Texture2D icon, bool generateInMenu = true)
+    private protected Button CreateSectionButton(string sectionName, Texture2D icon, bool generateInMenu = true)
     {
         if (!generateInMenu) return null;
 
@@ -44,7 +44,7 @@ public abstract partial class BaseSettingsMenu : BaseMenu
             });
     }
 
-    public VBoxContainer CreateSectionContainer(string sectionName, bool generateInMenu = true)
+    private protected VBoxContainer CreateSectionContainer(string sectionName, bool generateInMenu = true)
     {
         if (!generateInMenu) return null;
 
@@ -52,7 +52,7 @@ public abstract partial class BaseSettingsMenu : BaseMenu
             .Configure(container => container.Name = $"{sectionName}Container");
     }
 
-    public MenuButton CreateDropdownMenu(string name, IEnumerable<string> options)
+    private protected MenuButton CreateDropdownMenu(string name, IEnumerable<string> options)
     {
         var menuButton = InstantiateTemplate<MenuButton>(_dropDownTemplate, "Template is not a MenuButton / is null.")
             .Configure(button =>
@@ -70,7 +70,7 @@ public abstract partial class BaseSettingsMenu : BaseMenu
         return menuButton;
     }
 
-    public Label CreateSeparator(string text)
+    private protected Label CreateSeparator(string text)
     {
         return InstantiateTemplate<Label>(_groupSeparatorTemplate, "Template is not a Label / is null.")
             .Configure(separator =>
@@ -80,7 +80,7 @@ public abstract partial class BaseSettingsMenu : BaseMenu
             });
     }
 
-    public ColorPickerButton CreateColorPickerButton(string name, Color initialColor)
+    private protected ColorPickerButton CreateColorPickerButton(string name, Color initialColor)
     {
         return InstantiateTemplate<ColorPickerButton>(_colorPickerTemplate, "Template is not a ColorPickerButton / is null.")
             .Configure(picker =>
@@ -90,7 +90,7 @@ public abstract partial class BaseSettingsMenu : BaseMenu
             });
     }
 
-    public Button CreateCheckButton(string name, bool isChecked)
+    private protected Button CreateCheckButton(string name, bool isChecked)
     {
         return InstantiateTemplate<Button>(_checkButtonTemplate, "Template is not a Button / is null.")
             .Configure(button =>
@@ -102,7 +102,7 @@ public abstract partial class BaseSettingsMenu : BaseMenu
             });
     }
 
-    public LineEdit CreateLineEdit(string name, string initialText = "", string placeholder = "")
+    private protected LineEdit CreateLineEdit(string name, string initialText = "", string placeholder = "")
     {
         return InstantiateTemplate<LineEdit>(_lineEditTemplate, "Template is not a LineEdit / is null.")
             .Configure(lineEdit =>
@@ -113,7 +113,7 @@ public abstract partial class BaseSettingsMenu : BaseMenu
             });
     }
 
-    public Button CreateKeybindButton(string name, string currentKeybind)
+    private protected Button CreateKeybindButton(string name, string currentKeybind)
     {
         return InstantiateTemplate<Button>(_keybindTemplate, "Template is not a Button / is null.")
             .Configure(button =>
@@ -123,13 +123,13 @@ public abstract partial class BaseSettingsMenu : BaseMenu
             });
     }
 
-    public MenuButton CreateDropdownMenuFromEnum<TEnum>(string name) where TEnum : struct, Enum
+    private protected MenuButton CreateDropdownMenuFromEnum<TEnum>(string name) where TEnum : struct, Enum
     {
         var options = Enum.GetValues<TEnum>().Select(e => e.ToString());
         return CreateDropdownMenu(name, options);
     }
 
-    public Button CreateToggleButton(string name, bool isActive)
+    private protected Button CreateToggleButton(string name, bool isActive)
     {
         return InstantiateTemplate<Button>(_buttonTemplate, "Template is not a Button / is null.")
             .Configure(button =>
@@ -141,12 +141,7 @@ public abstract partial class BaseSettingsMenu : BaseMenu
             });
     }
 
-    public (HSlider slider, Label minLabel, Label maxLabel) CreateSlider(
-        string name,
-        float minValue, 
-        float maxValue, 
-        float step,
-        float initialValue = float.NaN)
+    private protected (HSlider slider, Label minLabel, Label maxLabel) CreateSlider(string name, float minValue, float maxValue, float step, float initialValue = float.NaN)
     {
         var slider = InstantiateTemplate<HSlider>(_sliderTemplate, "Template is not an HSlider / is null.")
             .Configure(s =>

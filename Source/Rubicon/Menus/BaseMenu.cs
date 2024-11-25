@@ -14,15 +14,15 @@ public abstract partial class BaseMenu : Node
 	[Export] public AudioStream ConfirmAudio;
 	[Export] public AudioStream BackAudio;
 
-	public virtual void DownPressed(bool isPressed) {}
-	public virtual void UpPressed(bool isPressed) {}
-	public virtual void LeftPressed(bool isPressed) {}
-	public virtual void RightPressed(bool isPressed) {}
-	public virtual void ConfirmPressed(bool isPressed) {}
-	public virtual void BackPressed(bool isPressed) {}
-	public virtual void Scroll(float direction) {}
+	private protected virtual void DownPressed(bool isPressed) {}
+	private protected virtual void UpPressed(bool isPressed) {}
+	private protected virtual void LeftPressed(bool isPressed) {}
+	private protected virtual void RightPressed(bool isPressed) {}
+	private protected virtual void ConfirmPressed(bool isPressed) {}
+	private protected virtual void BackPressed(bool isPressed) {}
+	private protected virtual void Scroll(float direction) {}
 
-	public virtual void UpdateSelection() {}
+	private protected virtual void UpdateSelection() {}
 
 	public override void _Ready() => UpdateSelection();
 
@@ -51,8 +51,6 @@ public abstract partial class BaseMenu : Node
 			switch (mouseEvent.ButtonIndex)
 			{
 				case MouseButton.WheelDown:
-					Scroll(mouseEvent.Factor);
-					break;
 				case MouseButton.WheelUp:
 					Scroll(mouseEvent.Factor);
 					break;
