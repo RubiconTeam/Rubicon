@@ -1,11 +1,7 @@
 namespace Rubicon.Data.Settings.Attributes;
 
-[AttributeUsage(AttributeTargets.Property | AttributeTargets.Field, Inherited = false, AllowMultiple = false)]
-public class LineEditAttribute : Attribute
+[AttributeUsage(AttributeTargets.Field)]
+public class LineEditAttribute(string name) : Attribute
 {
-	public string PlaceholderText { get; set; }
-	public LineEditAttribute(string name)
-	{
-		PlaceholderText = name;
-	}
+	public string PlaceholderText { get; set; } = name;
 }
