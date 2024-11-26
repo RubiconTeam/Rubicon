@@ -71,8 +71,11 @@ public partial class RubiconGame : Node
 
 		if (RuleSet is null) // You fucked up again bro
 			throw new Exception("RuleSet is still null. Please check your Project Settings at \"rubicon/rulesets\"");
-		
-		Chart = GD.Load<RubiChart>($"res://Songs/{Context.Name}/Data/{Context.RuleSet}-{Context.Difficulty}.tres");
+
+		Chart = new RubiChart();
+		string songPath = $"res://Songs/{Context.Name}/Data/{Context.RuleSet}-{Context.Difficulty}";
+		if (FileAccess.FileExists(songPath + ".rbc"))
+			Chart.LoadBytes(FileAccess.GetFileAsBytes(songPath + ".rbc"));
 		Chart.ConvertData(Metadata.BpmInfo).Format();
 
 		string instPath = $"res://Songs/{Context.Name}/Inst.ogg";

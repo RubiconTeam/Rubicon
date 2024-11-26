@@ -37,10 +37,9 @@ public partial class LoadContext : Resource
             return false;
         }
 
-        if (!ResourceLoader.Exists($"res://Songs/{Name}/Data/{RuleSet}-{Difficulty}.tres"))
+        if (!FileAccess.FileExists($"res://Songs/{Name}/Data/{RuleSet}-{Difficulty}.rbc") && !FileAccess.FileExists($"res://Songs/{Name}/Data/{RuleSet}-{Difficulty}.trbc"))
         {
             GD.Print($"Chart for difficulty {RuleSet}-{Difficulty} was not found for song {Name}. Falling back to default.");
-            
             string fallBackSet = ProjectSettings.GetSetting("rubicon/rulesets/default_ruleset").AsString();
             string fallBackDiff = ProjectSettings.GetSetting("rubicon/general/fallback/difficulty").AsString();
             string fallBackChart = $"{fallBackSet}-{fallBackDiff}";

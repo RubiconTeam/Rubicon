@@ -4,8 +4,8 @@
 
 [node name="TestScene" type="Node" node_paths=PackedStringArray("Instrumental", "Vocals")]
 script = ExtResource("1_bikcc")
-EditorSongName = "Milf"
-EditorDifficulty = "Hard"
+EditorSongName = "Roses-Erect"
+EditorDifficulty = "Nightmare"
 Instrumental = NodePath("Instrumental")
 Vocals = NodePath("Vocals")
 
