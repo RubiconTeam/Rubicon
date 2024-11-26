@@ -13,11 +13,16 @@ public partial class NoteInputElement : RefCounted
     /// The note data linked with this object.
     /// </summary>
     [Export] public NoteData Note;
+    
+    /// <summary>
+    /// The index of the note hit.
+    /// </summary>
+    [Export] public int Index = 0;
 
     /// <summary>
     /// The distance from the note's actual hit time.
     /// </summary>
-    [Export] public double Distance { get => _distance; set { _distance = value; SetupHitWindow(); } }
+    [Export] public double Distance;
 
     /// <summary>
     /// Indicates whether the NoteManager was holding this note or not, if this note is a hold note.
@@ -27,14 +32,13 @@ public partial class NoteInputElement : RefCounted
     /// <summary>
     /// The type of hit that was retrieved. Automatically set when setting Distance.
     /// </summary>
-    public HitType Hit;
-
-    private double _distance = 0d;
+    [Export] public HitType Hit;
 
     /// <summary>
-    /// Sets up <see cref="Hit"/>, usually triggers after setting <see cref="Distance"/>.
+    /// Sets up <see cref="Hit"/> based on <see cref="Distance"/>.
     /// </summary>
-    private void SetupHitWindow()
+    /// <returns>Itself, for chaining purposes</returns>
+    public NoteInputElement AutoDetectHit()
     {
         double[] hitWindows = [ 
             ProjectSettings.GetSetting("rubicon/judgments/perfect_hit_window").AsDouble(),
@@ -54,5 +58,6 @@ public partial class NoteInputElement : RefCounted
         }
 
         Hit = (HitType)hit;
+        return this;
     }
 }

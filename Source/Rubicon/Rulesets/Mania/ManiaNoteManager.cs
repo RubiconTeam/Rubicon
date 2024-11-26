@@ -23,7 +23,7 @@ public partial class ManiaNoteManager : NoteManager
 		set
 		{
 			base.ScrollSpeed = value;
-			foreach (Note note in HitObjects)
+			foreach (Note note in HitObjectBin)
 				if (note is ManiaNote maniaNote)
 					maniaNote.AdjustInitialTailSize();
 		}
@@ -77,7 +77,7 @@ public partial class ManiaNoteManager : NoteManager
 	public override void _Process(double delta)
 	{
 		if (NoteHeld != null && NoteHeld.MsTime + NoteHeld.MsLength < Conductor.Time * 1000d)
-			ProcessQueue.Add(new NoteInputElement{Note = NoteHeld, Distance = 0d, Holding = false});
+			ProcessQueue.Add(new NoteInputElement{Note = NoteHeld, Distance = 0d, Holding = false, Index = HoldingIndex});
 		
 		base._Process(delta);
 	}
@@ -123,12 +123,14 @@ public partial class ManiaNoteManager : NoteManager
 					LaneObject.Animation = $"{Direction}LaneConfirm";
 				
 				NoteHeld = null;
+				HoldingIndex = -1;
 				LaneObject.Play();
-				inputElement.Note.HitObject?.PrepareRecycle();
+				HitObjects[inputElement.Index].PrepareRecycle();
 			}
 			else
 			{
 				NoteHeld = inputElement.Note;
+				HoldingIndex = inputElement.Index;
 				LaneObject.Animation = $"{Direction}LaneConfirm";
 				LaneObject.Pause();   
 			}	
@@ -137,14 +139,14 @@ public partial class ManiaNoteManager : NoteManager
 		{
 			if (inputElement.Note == NoteHeld)
 			{
-				if (inputElement.Note.HitObject is ManiaNote maniaNote)
+				if (HitObjects[inputElement.Index] is ManiaNote maniaNote)
 					maniaNote.UnsetHold();
 			
 				NoteHeld = null;
 			}
 		
 			if (inputElement.Note.MsLength <= 0)
-				inputElement.Note.HitObject.PrepareRecycle();
+				HitObjects[inputElement.Index].PrepareRecycle();
 		}
 
 		inputElement.Note.WasHit = true;
@@ -174,14 +176,14 @@ public partial class ManiaNoteManager : NoteManager
 			while (notes[NoteHitIndex].MsTime - songPos <= -(float)ProjectSettings.GetSetting("rubicon/judgments/bad_hit_window"))
 			{
 				// Miss every note thats too late first
-				ProcessQueue.Add(new NoteInputElement{Note = notes[NoteHitIndex], Distance = -ProjectSettings.GetSetting("rubicon/judgments/bad_hit_window").AsDouble() - 1, Holding = false});
+				ProcessQueue.Add(new NoteInputElement{Note = notes[NoteHitIndex], Distance = -ProjectSettings.GetSetting("rubicon/judgments/bad_hit_window").AsDouble() - 1, Holding = false, Index = NoteHitIndex}.AutoDetectHit());
 				NoteHitIndex++;
 			}
 
 			double hitTime = notes[NoteHitIndex].MsTime - songPos;
 			if (Mathf.Abs(hitTime) <= ProjectSettings.GetSetting("rubicon/judgments/bad_hit_window").AsDouble()) // Literally any other rating
 			{
-				ProcessQueue.Add(new NoteInputElement{Note = notes[NoteHitIndex], Distance = hitTime, Holding = notes[NoteHitIndex].Length > 0});
+				ProcessQueue.Add(new NoteInputElement{Note = notes[NoteHitIndex], Distance = hitTime, Holding = notes[NoteHitIndex].Length > 0, Index = NoteHitIndex}.AutoDetectHit());
 				NoteHitIndex++;
 			}
 			else
@@ -196,7 +198,7 @@ public partial class ManiaNoteManager : NoteManager
 			{
 				double length = NoteHeld.MsTime + NoteHeld.MsLength - (Conductor.Time * 1000d);
 				bool holding = length <= ProjectSettings.GetSetting("rubicon/judgments/bad_hit_window").AsDouble();
-				ProcessQueue.Add(new NoteInputElement{Note = NoteHeld, Distance = length, Holding = !holding});
+				ProcessQueue.Add(new NoteInputElement{Note = NoteHeld, Distance = length, Holding = !holding, Index = HoldingIndex}.AutoDetectHit());
 			}
 
 			if (LaneObject.Animation != $"{Direction}LaneNeutral")

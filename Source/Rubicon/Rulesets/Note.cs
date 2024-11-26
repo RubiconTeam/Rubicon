@@ -57,7 +57,6 @@ public abstract partial class Note : Control
     public virtual void PrepareRecycle()
     {
         Active = Visible = false;
-        Info.HitObject = null;
     }
 
     /// <summary>

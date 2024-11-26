@@ -36,14 +36,12 @@ public partial class ManiaNote : Note
 	/// Sets up this hit object for usage alongside a <see cref="ManiaNoteManager"/>.
 	/// </summary>
 	/// <param name="noteData">The note data</param>
-	/// <param name="svChange">The scroll velocity change associated</param>
 	/// <param name="parentManager">The parent manager</param>
 	/// <param name="noteSkin">The note skin</param>
 	public void Setup(NoteData noteData, ManiaNoteManager parentManager, ManiaNoteSkin noteSkin)
 	{
 		Position = new Vector2(5000, 0);
 		Info = noteData;
-		Info.HitObject = this;
 		ParentManager = parentManager;
 		ChangeNoteSkin(noteSkin);
 		

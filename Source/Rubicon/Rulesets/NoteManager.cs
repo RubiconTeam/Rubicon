@@ -14,16 +14,29 @@ public abstract partial class NoteManager : Control
 	/// The lane index of this note manager.
 	/// </summary>
 	[Export] public int Lane = 0;
-	
+
 	/// <summary>
 	/// Contains the individual notes for this manager.
 	/// </summary>
-	[Export] public NoteData[] Notes;
+	[Export] public NoteData[] Notes
+	{
+		get => _notes;
+		set
+		{
+			_notes = value;
+			HitObjects = new Note[_notes.Length];
+		}
+	}
 
 	/// <summary>
-	/// Contains the visual hit objects for this manager. Notes are recycled.
+	/// Hit objects whose index is linked to the note data's index in <see cref="Notes"/>.
 	/// </summary>
-	[Export] public Array<Note> HitObjects = new();
+	[Export] public Note[] HitObjects;
+	
+	/// <summary>
+	/// All the visual hit objects that were spawned for this manager. Notes are recycled.
+	/// </summary>
+	[Export] public Array<Note> HitObjectBin = new();
 
 	/// <summary>
 	/// If true, the computer will hit the notes that come by.
@@ -67,9 +80,16 @@ public abstract partial class NoteManager : Control
 	[Export] public int NoteSpawnIndex = 0;
 
 	/// <summary>
+	/// The index of the note that is currently being held.
+	/// </summary>
+	[Export] public int HoldingIndex = -1;
+
+	/// <summary>
 	/// The queue list for notes to be processed next frame.
 	/// </summary>
 	[Export] public Array<NoteInputElement> ProcessQueue = new();
+
+	private NoteData[] _notes = [];
 
 	public override void _Process(double delta)
 	{
@@ -87,11 +107,11 @@ public abstract partial class NoteManager : Control
 					continue;
 				}
 
-				Note note = HitObjects.FirstOrDefault(x => !x.Active);
+				Note note = HitObjectBin.FirstOrDefault(x => !x.Active);
 				if (note == null)
 				{
 					note = CreateNote();
-					HitObjects.Add(note);
+					HitObjectBin.Add(note);
 					AddChild(note);
 				}
 				else
@@ -100,6 +120,7 @@ public abstract partial class NoteManager : Control
 					note.Reset();
 				}
 
+				HitObjects[NoteSpawnIndex] = note;
 				note.Name = $"Note {NoteSpawnIndex}";
 				SetupNote(note, Notes[NoteSpawnIndex]);
 				Notes[NoteSpawnIndex].WasSpawned = true;
@@ -114,8 +135,14 @@ public abstract partial class NoteManager : Control
 			{
 				while (curNoteData.MsTime - time <= 0)
 				{
-					if (!Notes[NoteHitIndex].ShouldMiss)
-						ProcessQueue.Add(new NoteInputElement{ Note = curNoteData, Distance = 0, Holding = curNoteData.MsLength > 0});
+					if (!curNoteData.ShouldMiss)
+						ProcessQueue.Add(new NoteInputElement
+						{
+							Note = curNoteData,
+							Distance = 0,
+							Holding = curNoteData.Length > 0,
+							Index = NoteHitIndex
+						}.AutoDetectHit());
 				
 					NoteHitIndex++;
 					if (NoteHitIndex >= Notes.Length)
@@ -127,7 +154,14 @@ public abstract partial class NoteManager : Control
 
 			if (curNoteData.MsTime - time <= -ProjectSettings.GetSetting("rubicon/judgments/bad_hit_window").AsDouble())
 			{
-				ProcessQueue.Add(new NoteInputElement{ Note = Notes[NoteHitIndex], Distance = -ProjectSettings.GetSetting("rubicon/judgments/bad_hit_window").AsDouble() - 1, Holding = false});
+				ProcessQueue.Add(new NoteInputElement
+				{
+					Note = Notes[NoteHitIndex],
+					Distance = -ProjectSettings.GetSetting("rubicon/judgments/bad_hit_window").AsDouble() - 1,
+					Holding = false,
+					Index = NoteHitIndex
+				}.AutoDetectHit());
+				
 				NoteHitIndex++;
 			}	
 		}
