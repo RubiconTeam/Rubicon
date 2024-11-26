@@ -7,3 +7,6 @@
 [submodule "addons/rubichart_converter"]
 	path = addons/rubichart_converter
 	url = https://github.com/RubiconTeam/rubichart_converter.git
+[submodule "addons/rubicon_importer"]
+	path = addons/rubicon_importer
+	url = https://github.com/RubiconTeam/rubichart_importer.git
