@@ -18,6 +18,10 @@ config/features=PackedStringArray("4.4", "C#", "Forward Plus")
 run/delta_smoothing=false
 config/icon="res://Assets/UI/Misc/fnf.png"
 
+[audio]
+
+buses/default_bus_layout="uid://8f826qwop1rs"
+
 [autoload]
 
 RubiconEngine="*res://Source/Rubicon/RubiconEngineInstance.cs"
@@ -30,6 +34,7 @@ StoryMode="*res://Source/Rubicon/Game/StoryModeInstance.cs"
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
+window/size/sharp_corners=true
 window/size/window_width_override=1366
 window/size/window_height_override=768
 window/stretch/mode="canvas_items"
@@ -42,7 +47,7 @@ project/assembly_name="Rubicon"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/rubichart_importer/plugin.cfg")
+enabled=PackedStringArray("res://addons/rubichart_converter/plugin.cfg")
 
 [file_customization]
 
@@ -132,6 +137,10 @@ volume_mute={
 [input_devices]
 
 buffering/agile_event_flushing=true
+
+[rendering]
+
+rendering_device/driver.macos="vulkan"
 
 [rubicon]
 
