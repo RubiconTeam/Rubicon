@@ -18,6 +18,7 @@ global using Godot;
 global using Godot.Sharp.Extras;
 global using System;
 using Godot.Collections;
+using Rubicon.Core.Data;
 using Rubicon.Data.Generation;
 using Rubicon.Game;
 

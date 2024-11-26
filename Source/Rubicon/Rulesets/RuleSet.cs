@@ -1,3 +1,5 @@
+using Rubicon.Core.Data;
+
 namespace Rubicon.Rulesets;
 
 /// <summary>
