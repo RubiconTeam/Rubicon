@@ -29,6 +29,9 @@ public partial class SyncedSprite2D : AnimatedSprite2D
 			Stop();
 
 		double currentPos = AnimationPlayer.CurrentAnimationPosition;
+		if (Mathf.IsEqualApprox(currentPos, _lastPlayerPosition))
+			return;
+		
 		SyncWithAnimationPlayer(_playing ? currentPos - _lastPlayerPosition : 0.0);
 		_lastPlayerPosition = currentPos;
 	}
