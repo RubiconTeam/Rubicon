@@ -4,39 +4,32 @@ using Rubicon.Data;
 namespace Rubicon.View2D;
 
 /// <summary>
-/// This is the character class, which handles which animations the sprite should play
-/// among other utils
+/// Character class for <see cref="CanvasItemSpace"/> spaces.
 /// </summary>
 public partial class Character2D : Node2D
 {
     /// <summary>
     /// Determines whether the character is facing left or not.
     /// </summary>
-    [ExportGroup("Character Info"), Export] public bool LeftFacing = false;
+    [Export] public bool LeftFacing = false;
 
     /// <summary>
-    /// This property is automatically determined by the character class.
-    /// It flips the left and right animations depending on if <see cref="LeftFacing"/> does not match the <see cref="SpawnPoint2D"/>'s <see cref="SpawnPoint2D.LeftFacing"/>
+    /// Flips left and right animations depending on if <see cref="LeftFacing"/> != <see cref="SpawnPoint2D"/>'s <see cref="SpawnPoint2D.LeftFacing"/>
     /// </summary>
     public bool FlipAnimations = false;
 
     /// <summary>
-    /// This property gets added to the start of an animation's name.
-    /// It is overriden by the <see cref="CharacterAnimation.CustomPrefix"/> field inside <see cref="CurrentAnim"/>.
-    /// Useful for alt animations or similar.
+    /// Gets added to the start of EVERY animation that plays after this is set. Overridden by  <see cref="CharacterAnimation.CustomSuffix"/> when using <see cref="PlayAnim"/>.
     /// </summary>
-    [ExportGroup("Animation Info"), Export] public string GlobalPrefix;
+    [Export] public string GlobalPrefix;
 
     /// <summary>
-    /// This property gets added to the end of an animation's name.
-    /// It is overriden by the <see cref="CharacterAnimation.CustomSuffix"/> field inside <see cref="CurrentAnim"/>.
-    /// Useful for alt animations or similar.
+    /// Gets added to the end of EVERY animation that plays after this is set. Overridden by  <see cref="CharacterAnimation.CustomSuffix"/> when using <see cref="PlayAnim"/>.
     /// </summary>
     [Export] public string GlobalSuffix;
     
     /// <summary>
     /// A string array containing the sequence of idle/dance animations to be played.
-    /// Useful for left to right dance animations.
     /// </summary>
     [Export] public string[] DanceList = ["idle"];
 
@@ -45,7 +38,10 @@ public partial class Character2D : Node2D
     /// </summary>
     public int DanceIndex = 0;
 
-    public double DanceMeasure = 1f / 2f;
+    /// <summary>
+    /// How many times to dance each measure.
+    /// </summary>
+    public double DanceMeasure = 1d / 2d;
 
     /// <summary>
     /// If <see langword="true"/>, the character will jitter when holding a note. If <see langword="false"/>, it will stay completely static.
@@ -78,6 +74,9 @@ public partial class Character2D : Node2D
     /// </summary>
     public float HoldTimer;
 
+    /// <summary>
+    /// Marks whether this character is holding a note.
+    /// </summary>
     public bool Holding = false;
 
     /// <summary>
@@ -85,33 +84,32 @@ public partial class Character2D : Node2D
     /// It has to contain an idle animation.
     /// It can contain "lose" and "win" optionally.
     /// </summary>
-    [ExportGroup("Healthbar Info"), Export] public SpriteFrames CharacterIcon { get; set; } = GD.Load<SpriteFrames>("res://Assets/Characters/Placeholder/Icon.tres");
+    [ExportGroup("Healthbar Info"), Export] public SpriteFrames Icon;
 
     /// <summary>
-    /// The offset of the healthbar icon.
+    /// Moves this character's icon in pixels.
     /// </summary>
     [Export] public Vector2 IconOffset = new Vector2(0,10);
 
     /// <summary>
-    /// The healthbar color of this character.
+    /// Used as the color representing this character on the health bar.
     /// </summary>
     [Export] public Color HealthColor = new("#A1A1A1");
 
     /// <summary>
-    /// The main <see cref="Node2D"/> used for positioning and scaling.
-    /// Usually its the main <see cref="PlayerSprite2D"/> node.
+    /// The reference visual node. Usually a <see cref="SyncedSprite2D"/>.
     /// </summary>
-    [ExportGroup("Path Info"), Export] public Node2D MainNode;
+    [ExportGroup("References"), Export] public Node2D Sprite;
 
     /// <summary>
-    /// The main <see cref="AnimationPlayer"> node used for playing animations.
+    /// The animation controller for this character.
     /// </summary>
-    [Export] public AnimationPlayer AnimPlayer;
+    [Export] public AnimationPlayer AnimationPlayer;
 
     /// <summary>
-    /// A <see cref="Marker2D"/> from which the camera takes its position.
+    /// A <see cref="Node2D"/> from which the camera takes its position. Recommended to use <see cref="Marker2D"/>
     /// </summary>
-    [Export] public Marker2D CameraPoint;
+    [Export] public Node2D CameraPoint;
 
     private int _lastStep = -int.MaxValue;
     private double _lastDanceSnap = double.NegativeInfinity;
@@ -120,12 +118,7 @@ public partial class Character2D : Node2D
     {
         base._Ready();
 
-        AnimPlayer.AnimationFinished += AnimationFinished;
-        
-        // These should be determined by the stage
-        /*
-        FlipAnimations = IsPlayer != MirrorCharacter;
-		if (IsPlayer != MirrorCharacter) Scale *= new Vector2(-1,1);*/
+        AnimationPlayer.AnimationFinished += AnimationFinished;
     }
 
     public override void _Process(double delta)
@@ -139,7 +132,7 @@ public partial class Character2D : Node2D
 		    // For FNF jitter
 		    if (_lastStep != curStep)
 		    {
-			    AnimPlayer.Seek(0f);
+			    AnimationPlayer.Seek(0f);
 			    SingTimer = 0;
 		    }
 	    }
@@ -153,17 +146,29 @@ public partial class Character2D : Node2D
 	    _lastDanceSnap = curDanceSnap;
     }
     
+    /// <summary>
+    /// Plays a dance animation for this character.
+    /// </summary>
+    /// <param name="force">Force this animation to play</param>
     public void Dance(bool force = false)
     {
-	    if (!force && AnimPlayer.CurrentAnimationPosition < AnimPlayer.CurrentAnimationLength) 
+	    if (!force && AnimationPlayer.CurrentAnimationPosition < AnimationPlayer.CurrentAnimationLength) 
 		    return;
 
-	    PlayAnim(DanceList[DanceIndex], true);
+	    PlayAnim(new CharacterAnimation { Name = DanceList[DanceIndex], Force = true });
 
 	    DanceIndex++;
-	    DanceIndex = Mathf.Wrap(DanceIndex, 0, DanceList.Length-1);
+	    DanceIndex = (DanceIndex + 1) % DanceList.Length;
     }
 
+    /// <summary>
+    /// Plays a sing animation for this character.
+    /// </summary>
+    /// <param name="direction">Marks the direction to sing at</param>
+    /// <param name="holding">Marks this as a holding animation</param>
+    /// <param name="miss">Marks this as a miss animation</param>
+    /// <param name="customPrefix">Gets added to the start of the anim name</param>
+    /// <param name="customSuffix">Gets added to the end of the anim name</param>
     public virtual void Sing(string direction, bool holding = false, bool miss = false, string customPrefix = null, string customSuffix = null)
     {
 	    SingTimer = 0f;
@@ -182,7 +187,7 @@ public partial class Character2D : Node2D
 	    };
 	    
 	    // Help
-	    if (AnimPlayer.HasAnimation(animName + "-post"))
+	    if (AnimationPlayer.HasAnimation(animName + "-post"))
 	    {
 		    CharacterAnimation postAnim = new CharacterAnimation
 		    {
@@ -199,21 +204,13 @@ public partial class Character2D : Node2D
 	    PlayAnim(singAnim);
     }
 
-    public virtual void PlayAnim(string anim, bool force = false, float startTime = 0f, string customPrefix = null, string customSuffix = null)
-    {
-	    PlayAnim(new CharacterAnimation
-	    {
-		    Name = anim,
-		    Force = force,
-		    StartTime = startTime,
-		    CustomPrefix = customPrefix,
-		    CustomSuffix = customSuffix
-	    });
-    }
-
+    /// <summary>
+    /// Plays an animation for this character.
+    /// </summary>
+    /// <param name="anim">Animation data</param>
     public void PlayAnim(CharacterAnimation anim)
     {
-	    if (!anim.Force && AnimPlayer.CurrentAnimationPosition >= AnimPlayer.CurrentAnimationLength)
+	    if (!anim.Force && AnimationPlayer.CurrentAnimationPosition >= AnimationPlayer.CurrentAnimationLength)
 		    return;
 
 	    string originalName = anim.Name; 
@@ -224,21 +221,21 @@ public partial class Character2D : Node2D
 	    string suffix = !string.IsNullOrEmpty(anim.CustomSuffix) ? anim.CustomSuffix : GlobalSuffix;
 	    
 	    anim.Name = $"{prefix}{anim.Name}{suffix}";
-	    if (!AnimPlayer.HasAnimation(anim.Name))
+	    if (!AnimationPlayer.HasAnimation(anim.Name))
 	    {
-		    GD.PushWarning($"There is no animation in the AnimationPlayer called {anim.Name}. (Original Animation: {originalName})");
+		    GD.PushWarning($"There is no animation in AnimationPlayer called {anim.Name}. (Original Animation: {originalName})");
 		    return;
 	    }
 	    
 	    LastAnim = CurrentAnim;
 	    CurrentAnim = anim;
-	    AnimPlayer.Play(anim.Name);
-	    AnimPlayer.Seek(anim.StartTime);
+	    AnimationPlayer.Play(anim.Name);
+	    AnimationPlayer.Seek(anim.StartTime);
     }
 
-    public void AnimationFinished(StringName anim) 
+    private void AnimationFinished(StringName anim) 
     {
-        if(CurrentAnim.PostAnimation != null)
+        if (CurrentAnim.PostAnimation != null)
             PlayAnim(CurrentAnim.PostAnimation);
     }
 }
