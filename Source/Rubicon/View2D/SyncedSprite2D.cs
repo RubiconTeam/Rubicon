@@ -58,6 +58,9 @@ public partial class SyncedSprite2D : AnimatedSprite2D
 		_playing = value;
 		if (_playing)
 		{
+			if (AnimationPlayer != null)
+				return;
+			
 			Play(Animation);
 			return;
 		}
