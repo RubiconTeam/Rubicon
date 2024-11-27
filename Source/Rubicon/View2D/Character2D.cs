@@ -111,7 +111,7 @@ public partial class Character2D : Node2D
     /// <summary>
     /// A <see cref="Marker2D"/> from which the camera takes its position.
     /// </summary>
-    [NodePath("CamPoint")] public Marker2D CameraPoint;
+    [Export] public Marker2D CameraPoint;
 
     private int _lastStep = -int.MaxValue;
     private double _lastDanceSnap = double.NegativeInfinity;
@@ -119,7 +119,6 @@ public partial class Character2D : Node2D
     public override void _Ready()
     {
         base._Ready();
-        this.OnReady();
 
         AnimPlayer.AnimationFinished += AnimationFinished;
         

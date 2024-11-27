@@ -1,3 +1,4 @@
+using System.Linq;
 using Rubicon.Core;
 using Rubicon.Core.Data;
 using Rubicon.Core.UI;
@@ -59,5 +60,29 @@ public static class RubiconUtility
 		instance.OkayMaterial = style.OkayMaterial;
 		instance.BadMaterial = style.BadMaterial;
 		instance.MissMaterial = style.MissMaterial;
+	}
+	
+	/// <summary>
+	/// Gets the first child that is of type specified.
+	/// </summary>
+	/// <typeparam name="T">The type</typeparam>
+	/// <param name="node">The root node</param>
+	/// <param name="includeInternal">Whether to recursively check for children inside</param>
+	/// <returns>A child of type <see cref="T"/> if found, else null.</returns>
+	public static T GetChildOfType<T>(this Node node, bool includeInternal = false) where T : class
+	{
+		return node.GetChildren(includeInternal).FirstOrDefault(x => x is T) as T;
+	}
+
+	/// <summary>
+	/// Gets all children that is of type specified.
+	/// </summary>
+	/// <typeparam name="T">The type</typeparam>
+	/// <param name="node">The root node</param>
+	/// <param name="includeInternal">Whether to recursively check for children inside</param>
+	/// <returns>An array of children of type <see cref="T"/> if found, else null.</returns>
+	public static T[] GetChildrenOfType<T>(this Node node, bool includeInternal = false) where T : class
+	{
+		return node.GetChildren(includeInternal).Where(x => x is T).Cast<T>().ToArray();
 	}
 }

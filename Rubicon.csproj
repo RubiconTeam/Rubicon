@@ -23,7 +23,6 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="DiscordRichPresence" Version="1.2.1.24" />
-    <PackageReference Include="GodotSharpExtras" Version="0.5.0" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Source\Rubicon.SourceGenerators\Rubicon.SourceGenerators.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />

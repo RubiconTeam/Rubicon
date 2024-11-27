@@ -10,7 +10,7 @@ namespace Rubicon.Editor;
 	{
 		ChartEditorInstance.GetNode<Window>("WelcomeWindow").Visible = false;
 		ChartEditorInstance.preferenceManager = preferenceManager;
-		foreach (Window window in ChartEditorInstance.GetChildren<Window>())
+		foreach (Window window in ChartEditorInstance.GetChildrenOfType<Window>())
 		{
 			window.Visible = false;
 		}

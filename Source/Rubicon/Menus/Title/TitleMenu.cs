@@ -1,3 +1,4 @@
+using Rubicon;
 using Rubicon.Menus;
 
 public partial class TitleMenu : BaseMenu
@@ -10,7 +11,7 @@ public partial class TitleMenu : BaseMenu
 	public override void _Ready()
 	{
 		base._Ready();
-		foreach (Button button in buttonsContainer.GetChildren<Button>()) 
+		foreach (Button button in buttonsContainer.GetChildrenOfType<Button>()) 
 			button.Pressed += () => ButtonPressed(button.Name);
 	}
 
