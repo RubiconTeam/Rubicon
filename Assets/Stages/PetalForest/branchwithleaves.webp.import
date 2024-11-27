@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://u7r3i7bm5mq1"
 path.s3tc="res://.godot/imported/branchwithleaves.webp-d73d81afd417fa264560753cff2f9608.s3tc.ctex"
+path.etc2="res://.godot/imported/branchwithleaves.webp-d73d81afd417fa264560753cff2f9608.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/Stages/PetalForest/branchwithleaves.webp"
-dest_files=["res://.godot/imported/branchwithleaves.webp-d73d81afd417fa264560753cff2f9608.s3tc.ctex"]
+dest_files=["res://.godot/imported/branchwithleaves.webp-d73d81afd417fa264560753cff2f9608.s3tc.ctex", "res://.godot/imported/branchwithleaves.webp-d73d81afd417fa264560753cff2f9608.etc2.ctex"]
 
 [params]
 

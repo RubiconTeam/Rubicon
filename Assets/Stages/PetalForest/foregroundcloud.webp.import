@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dy1584t35hk45"
 path.s3tc="res://.godot/imported/foregroundcloud.webp-dba6315cbb1c09e9b4283bdbc942e10e.s3tc.ctex"
+path.etc2="res://.godot/imported/foregroundcloud.webp-dba6315cbb1c09e9b4283bdbc942e10e.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/Stages/PetalForest/foregroundcloud.webp"
-dest_files=["res://.godot/imported/foregroundcloud.webp-dba6315cbb1c09e9b4283bdbc942e10e.s3tc.ctex"]
+dest_files=["res://.godot/imported/foregroundcloud.webp-dba6315cbb1c09e9b4283bdbc942e10e.s3tc.ctex", "res://.godot/imported/foregroundcloud.webp-dba6315cbb1c09e9b4283bdbc942e10e.etc2.ctex"]
 
 [params]
 
