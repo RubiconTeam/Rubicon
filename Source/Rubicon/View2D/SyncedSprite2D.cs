@@ -36,6 +36,9 @@ public partial class SyncedSprite2D : AnimatedSprite2D
 	public void SyncWithAnimationPlayer(double delta)
 	{
 		_time += delta;
+		if (_time < 0.0)
+			_time = 0.0;
+			
 		double fps = SpriteFrames.GetAnimationSpeed(Animation);
 
 		base.Frame = (int)Math.Floor(_time * fps);
@@ -44,7 +47,7 @@ public partial class SyncedSprite2D : AnimatedSprite2D
 
 	private bool GetPlaying()
 	{
-		if (AnimationPlayer == null || !AnimationPlayer.IsPlaying())
+		if (AnimationPlayer == null)
 			return IsPlaying();
 
 		return _playing;
@@ -64,17 +67,25 @@ public partial class SyncedSprite2D : AnimatedSprite2D
 
 	private new void SetFrame(int value)
 	{
-		base.SetFrame(value);
+		FrameProgress = 0;
 
-		double frameRate = 1 / SpriteFrames.GetAnimationSpeed(Animation);
-		_time = value * frameRate + FrameProgress * frameRate;
+		double frameRate = SpriteFrames.GetAnimationSpeed(Animation);
+		double fps = 1 / frameRate;
+		_time = value * fps + FrameProgress * fps;
+		if (_time < 0.0)
+			_time = 0.0;
+		
+		base.Frame = (int)Math.Floor(_time * frameRate);
 	}
 
 	private new void SetFrameProgress(float value)
 	{
 		base.SetFrameProgress(value);
 			
-		double frameRate = 1 / SpriteFrames.GetAnimationSpeed(Animation);
-		_time = Frame * frameRate + value * frameRate;
+		double frameRate = SpriteFrames.GetAnimationSpeed(Animation);
+		double fps = 1 / frameRate;
+		_time = Frame * fps + value * fps;
+		if (_time < 0.0)
+			_time = 0.0;
 	}
 }
