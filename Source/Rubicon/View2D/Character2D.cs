@@ -44,9 +44,9 @@ public partial class Character2D : Node2D
     public double DanceMeasure = 1d / 2d;
 
     /// <summary>
-    /// If <see langword="true"/>, the character will jitter when holding a note. If <see langword="false"/>, it will stay completely static.
+    /// Determines how holding is handled animation-wise.
     /// </summary>
-    [Export] public bool StaticSustain = false;
+    [Export] public CharacterHold HoldType = CharacterHold.Freeze;
 
     /// <summary>
     /// The animation that is currently being played.
@@ -70,7 +70,6 @@ public partial class Character2D : Node2D
 
     /// <summary>
     /// A timer that determines if the hold animation should be repeated or not.
-    /// It will not be used in case <paramref name="StaticSustain"/> is <see langword="true"/>.
     /// </summary>
     public float HoldTimer;
 
@@ -84,7 +83,7 @@ public partial class Character2D : Node2D
     /// It has to contain an idle animation.
     /// It can contain "lose" and "win" optionally.
     /// </summary>
-    [ExportGroup("Healthbar Info"), Export] public SpriteFrames Icon;
+    [ExportGroup("Health Bar"), Export] public SpriteFrames Icon;
 
     /// <summary>
     /// Moves this character's icon in pixels.
@@ -128,14 +127,7 @@ public partial class Character2D : Node2D
 	    // Hacky hold method, should work for now
 	    int curStep = Mathf.FloorToInt(Conductor.CurrentStep);
 	    if (Holding)
-	    {
-		    // For FNF jitter
-		    if (_lastStep != curStep)
-		    {
-			    AnimationPlayer.Seek(0f);
-			    SingTimer = 0;
-		    }
-	    }
+			HandleHoldAnimations();
 
 	    double curDanceSnap = Mathf.Snapped(Conductor.CurrentMeasure, DanceMeasure);
 	    if ((CurrentAnim.Name.StartsWith("sing") && SingTimer >= SingDuration || !CurrentAnim.Name.StartsWith("sing")) && !Mathf.IsEqualApprox(curDanceSnap, _lastDanceSnap))
@@ -231,6 +223,37 @@ public partial class Character2D : Node2D
 	    CurrentAnim = anim;
 	    AnimationPlayer.Play(anim.Name);
 	    AnimationPlayer.Seek(anim.StartTime);
+    }
+
+    protected virtual void HandleHoldAnimations()
+    {
+	    switch (HoldType)
+	    {
+		    case CharacterHold.None:
+			    SingTimer = 0;
+			    break;
+		    case CharacterHold.StepJitter:
+			    int curStep = Mathf.FloorToInt(Conductor.CurrentStep);
+			    if (_lastStep != curStep)
+			    {
+				    AnimationPlayer.Seek(0f);
+				    SingTimer = 0;
+			    }
+			    
+			    _lastStep = curStep;
+			    break;
+		    case CharacterHold.Jitter:
+			    if (AnimationPlayer.CurrentAnimationPosition < 0.125)
+				    break;
+			    
+			    AnimationPlayer.Seek(0f);
+			    SingTimer = 0;
+			    break;
+		    case CharacterHold.Freeze:
+			    AnimationPlayer.Seek(0f);
+			    SingTimer = 0;
+			    break;
+	    }	
     }
 
     private void AnimationFinished(StringName anim) 

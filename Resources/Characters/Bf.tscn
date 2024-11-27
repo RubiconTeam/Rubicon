@@ -1,7 +1,8 @@
-[gd_scene load_steps=18 format=3 uid="uid://ch42nuiw15uh6"]
+[gd_scene load_steps=19 format=3 uid="uid://ch42nuiw15uh6"]
 
 [ext_resource type="Script" uid="uid://y3waqh3bwot7" path="res://Source/Rubicon/View2D/Character2D.cs" id="1_deaeb"]
 [ext_resource type="SpriteFrames" uid="uid://bf1b5h0jdi2y4" path="res://Assets/Characters/Bf/boyfriend.tres" id="2_7sbxo"]
+[ext_resource type="SpriteFrames" uid="uid://dd1qyud388qn8" path="res://Assets/Characters/Icons/PlaceholderIcon.tres" id="2_o37gp"]
 [ext_resource type="Script" uid="uid://5s8530i0pe1p" path="res://Source/Rubicon/View2D/SyncedSprite2D.cs" id="3_1tcb8"]
 
 [sub_resource type="Animation" id="Animation_1tcb8"]
@@ -708,11 +709,14 @@ _data = {
 &"singUPmiss": SubResource("Animation_ss25v")
 }
 
-[node name="BF" type="Node2D" node_paths=PackedStringArray("AnimPlayer")]
+[node name="BF" type="Node2D" node_paths=PackedStringArray("Sprite", "AnimationPlayer", "CameraPoint")]
 script = ExtResource("1_deaeb")
-AnimPlayer = NodePath("AnimationPlayer")
+Icon = ExtResource("2_o37gp")
+Sprite = NodePath("Sprite")
+AnimationPlayer = NodePath("AnimationPlayer")
+CameraPoint = NodePath("CameraPoint")
 
-[node name="Sprite" type="AnimatedSprite2D" parent="." node_paths=PackedStringArray("AnimationPlayer", "stupid")]
+[node name="Sprite" type="AnimatedSprite2D" parent="." node_paths=PackedStringArray("AnimationPlayer")]
 sprite_frames = ExtResource("2_7sbxo")
 animation = &"BF idle dance"
 frame = 13
@@ -721,7 +725,10 @@ script = ExtResource("3_1tcb8")
 Playing = true
 Frame = 13
 AnimationPlayer = NodePath("../AnimationPlayer")
-stupid = NodePath("")
+
+[node name="CameraPoint" type="Marker2D" parent="."]
+position = Vector2(-60, -156)
+gizmo_extents = 0.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
