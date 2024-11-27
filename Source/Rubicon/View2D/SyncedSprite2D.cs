@@ -6,54 +6,75 @@ namespace Rubicon.View2D;
 #endif
 public partial class SyncedSprite2D : AnimatedSprite2D
 {
-	[Export] public bool Playing
-	{
-		get
-		{
-			if (AnimationPlayer != null)
-				return AnimationPlayer.IsPlaying();
+	[Export] public bool Playing { get => GetPlaying(); set => SetPlaying(value); }
 
-			return IsPlaying();
-		}
-		set
-		{
-			if (AnimationPlayer != null)
-				return;
-			
-			if (value)
-			{
-				Play(Animation);
-				return;
-			}
-			
-			int curFrame = Frame;
-			Stop();
-			Frame = curFrame;
-		}
-	}
-	
+	[Export] public new int Frame { get => base.Frame; set => SetFrame(value); }
+
+	[Export] public new float FrameProgress { get => base.FrameProgress; set => SetFrameProgress(value); }
+
 	[ExportGroup("Sync With"), Export] public AnimationPlayer AnimationPlayer;
+	
+	private double _time = 0.0;
+	private double _lastPlayerPosition = 0.0;
+	private bool _playing = false;
 	
 	public override void _Process(double delta)
 	{
 		base._Process(delta);
 
-		if (!Playing)
+		if (AnimationPlayer == null)
 			return;
 		
-		if (AnimationPlayer != null)
-			SyncWithAnimationPlayer();
-	}
-
-	public void SyncWithAnimationPlayer()
-	{
 		if (IsPlaying())
 			Stop();
-		
-		double time = AnimationPlayer.CurrentAnimationPosition;
+
+		double currentPos = AnimationPlayer.CurrentAnimationPosition;
+		SyncWithAnimationPlayer(_playing ? currentPos - _lastPlayerPosition : 0.0);
+		_lastPlayerPosition = currentPos;
+	}
+
+	public void SyncWithAnimationPlayer(double delta)
+	{
+		_time += delta;
 		double fps = SpriteFrames.GetAnimationSpeed(Animation);
 
-		Frame = (int)Math.Floor(time * fps);
-		FrameProgress = (float)(time % (1 / fps) * fps);
+		base.Frame = (int)Math.Floor(_time * fps);
+		base.FrameProgress = (float)(_time % (1 / fps) * fps);
+	}
+
+	private bool GetPlaying()
+	{
+		if (AnimationPlayer == null || !AnimationPlayer.IsPlaying())
+			return IsPlaying();
+
+		return _playing;
+	}
+	
+	private void SetPlaying(bool value)
+	{
+		_playing = value;
+		if (_playing)
+		{
+			Play(Animation);
+			return;
+		}
+
+		Pause();
+	}
+
+	private new void SetFrame(int value)
+	{
+		base.SetFrame(value);
+
+		double frameRate = 1 / SpriteFrames.GetAnimationSpeed(Animation);
+		_time = value * frameRate + FrameProgress * frameRate;
+	}
+
+	private new void SetFrameProgress(float value)
+	{
+		base.SetFrameProgress(value);
+			
+		double frameRate = 1 / SpriteFrames.GetAnimationSpeed(Animation);
+		_time = Frame * frameRate + value * frameRate;
 	}
 }
