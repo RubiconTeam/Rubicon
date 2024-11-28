@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://bkj36j8snchyq"]
 
 [ext_resource type="Texture2D" uid="uid://cy7tsup6gbx7t" path="res://Assets/UI/Misc/icon.svg" id="1_3kfjx"]
-[ext_resource type="Script" path="res://Source/Rubicon/View2D/Character2D.cs" id="1_lj1lb"]
+[ext_resource type="Script" uid="uid://y3waqh3bwot7" path="res://Source/Rubicon/View2D/Character2D.cs" id="1_lj1lb"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_lb378"]
 animations = [{
@@ -31,17 +31,18 @@ resource_name = "singUP"
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_3vjhy"]
 _data = {
-"idle": SubResource("Animation_ylsds"),
-"singDOWN": SubResource("Animation_a1bfv"),
-"singLEFT": SubResource("Animation_igel0"),
-"singRIGHT": SubResource("Animation_bw28c"),
-"singUP": SubResource("Animation_elppf")
+&"idle": SubResource("Animation_ylsds"),
+&"singDOWN": SubResource("Animation_a1bfv"),
+&"singLEFT": SubResource("Animation_igel0"),
+&"singRIGHT": SubResource("Animation_bw28c"),
+&"singUP": SubResource("Animation_elppf")
 }
 
-[node name="Missing" type="Node2D" node_paths=PackedStringArray("MainNode", "AnimPlayer")]
+[node name="Missing" type="Node2D" node_paths=PackedStringArray("Sprite", "AnimationPlayer", "CameraPoint")]
 script = ExtResource("1_lj1lb")
-MainNode = NodePath("AnimatedSprite2D")
-AnimPlayer = NodePath("AnimationPlayer")
+Sprite = NodePath("AnimatedSprite2D")
+AnimationPlayer = NodePath("AnimationPlayer")
+CameraPoint = NodePath("CameraPoint")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(2.5, 0.5)
@@ -67,5 +68,7 @@ text = "MISSING CHARACTER"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_3vjhy")
+&"": SubResource("AnimationLibrary_3vjhy")
 }
+
+[node name="CameraPoint" type="Marker2D" parent="."]
