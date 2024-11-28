@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://2tqim1nji4fc"]
+
+[ext_resource type="Theme" uid="uid://dsa45ne22xeld" path="res://Source/Rubicon/Menus/Settings/SettingsMenu.tres" id="1_1bx7i"]
+
+[node name="CheckButton" type="CheckButton"]
+theme = ExtResource("1_1bx7i")
+text = "CheckButton"
+text_overrun_behavior = 3
+expand_icon = true

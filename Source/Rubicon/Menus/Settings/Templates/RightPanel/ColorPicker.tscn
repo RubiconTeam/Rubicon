@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=3 uid="uid://bi2vuk11onf0a"]
+
+[ext_resource type="Theme" uid="uid://dsa45ne22xeld" path="res://Source/Rubicon/Menus/Settings/SettingsMenu.tres" id="1_rwy3p"]
+
+[node name="ColorPicker" type="Label"]
+theme = ExtResource("1_rwy3p")
+text = "ColorPicker"
+text_overrun_behavior = 3
+
+[node name="Picker" type="ColorPickerButton" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.665
+anchor_top = 0.182
+anchor_right = 0.985
+anchor_bottom = 0.818
+offset_left = -0.225006
+offset_top = -0.00800037
+offset_right = -0.0250244
+offset_bottom = 0.00799942
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_rwy3p")

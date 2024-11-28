@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://bu2vkjvea1yub"]
+
+[ext_resource type="Theme" uid="uid://dsa45ne22xeld" path="res://Source/Rubicon/Menus/Settings/SettingsMenu.tres" id="1_kq22o"]
+
+[node name="Button" type="Button"]
+theme = ExtResource("1_kq22o")
+text = "Button"
+alignment = 0
+text_overrun_behavior = 3
+expand_icon = true

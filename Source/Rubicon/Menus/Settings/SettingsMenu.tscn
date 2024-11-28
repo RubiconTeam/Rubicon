@@ -1,19 +1,19 @@
-[gd_scene load_steps=20 format=3 uid="uid://csxrq1ms8awxc"]
+[gd_scene load_steps=21 format=3 uid="uid://csxrq1ms8awxc"]
 
 [ext_resource type="Script" uid="uid://chvkodg7nb2c4" path="res://Source/Rubicon/Menus/Settings/SettingsMenu.cs" id="1_lotll"]
 [ext_resource type="Texture2D" uid="uid://qhfv36mgywf6" path="res://Assets/UI/Menus/menuBGDesat.png" id="2_qyjh5"]
-[ext_resource type="PackedScene" uid="uid://dloydyiawkns6" path="res://Source/Rubicon/Menus/Settings/Templates/SectionButton.tscn" id="2_ynwdk"]
+[ext_resource type="PackedScene" uid="uid://dloydyiawkns6" path="res://Source/Rubicon/Menus/Settings/Templates/LeftPanel/SectionButton.tscn" id="2_ynwdk"]
 [ext_resource type="FontFile" uid="uid://ilqa3kmi8s03" path="res://Assets/UI/Fonts/funkin2.ttf" id="3_b8kiq"]
 [ext_resource type="Texture2D" uid="uid://dntwwyddihbu3" path="res://Source/Rubicon/Menus/Settings/vuzi.png" id="3_jwce3"]
-[ext_resource type="PackedScene" uid="uid://daaaww4g34j1r" path="res://Source/Rubicon/Menus/Settings/Templates/GroupSeparator.tscn" id="6_ynwdk"]
-[ext_resource type="PackedScene" uid="uid://gt48ja0rg1mc" path="res://Source/Rubicon/Menus/Settings/Templates/CheckButton.tscn" id="7_5i2d0"]
-[ext_resource type="PackedScene" uid="uid://cqfbj5qufxqd3" path="res://Source/Rubicon/Menus/Settings/Templates/Button.tscn" id="8_oijno"]
-[ext_resource type="PackedScene" uid="uid://d4msgekslmx4o" path="res://Source/Rubicon/Menus/Settings/Templates/Dropdown.tscn" id="9_260at"]
-[ext_resource type="PackedScene" uid="uid://b3a2i41tnbwyt" path="res://Source/Rubicon/Menus/Settings/Templates/ColorPicker.tscn" id="10_dwwis"]
-[ext_resource type="PackedScene" uid="uid://r14julhiorgq" path="res://Source/Rubicon/Menus/Settings/Templates/Slider.tscn" id="11_qg0c2"]
-[ext_resource type="PackedScene" uid="uid://drt7jnsey6usb" path="res://Source/Rubicon/Menus/Settings/Templates/LineEdit.tscn" id="12_lxjq6"]
-[ext_resource type="PackedScene" uid="uid://bob7c4gaapaou" path="res://Source/Rubicon/Menus/Settings/Templates/KeybindButton.tscn" id="13_b3tli"]
-[ext_resource type="PackedScene" uid="uid://0h228ay1ervr" path="res://Source/Rubicon/Menus/Settings/Templates/VBoxTemplate.tscn" id="14_bwaer"]
+[ext_resource type="PackedScene" uid="uid://daaaww4g34j1r" path="res://Source/Rubicon/Menus/Settings/Templates/RightPanel/Misc/GroupSeparator.tscn" id="6_ynwdk"]
+[ext_resource type="PackedScene" uid="uid://bu2vkjvea1yub" path="res://Source/Rubicon/Menus/Settings/Templates/RightPanel/Button.tscn" id="10_oijno"]
+[ext_resource type="PackedScene" uid="uid://2tqim1nji4fc" path="res://Source/Rubicon/Menus/Settings/Templates/RightPanel/CheckButton.tscn" id="11_260at"]
+[ext_resource type="PackedScene" uid="uid://bi2vuk11onf0a" path="res://Source/Rubicon/Menus/Settings/Templates/RightPanel/ColorPicker.tscn" id="12_dwwis"]
+[ext_resource type="PackedScene" uid="uid://d3mjwdy8702av" path="res://Source/Rubicon/Menus/Settings/Templates/RightPanel/Dropdown.tscn" id="13_qg0c2"]
+[ext_resource type="PackedScene" uid="uid://0h228ay1ervr" path="res://Source/Rubicon/Menus/Settings/Templates/RightPanel/Misc/VBoxTemplate.tscn" id="14_bwaer"]
+[ext_resource type="PackedScene" uid="uid://blsjfh0b0nrk7" path="res://Source/Rubicon/Menus/Settings/Templates/RightPanel/Slider.tscn" id="14_lxjq6"]
+[ext_resource type="PackedScene" uid="uid://toeixfft3esk" path="res://Source/Rubicon/Menus/Settings/Templates/RightPanel/LineEdit.tscn" id="15_b3tli"]
+[ext_resource type="PackedScene" uid="uid://bplcu32r44j4d" path="res://Source/Rubicon/Menus/Settings/Templates/RightPanel/Keybind.tscn" id="16_bwaer"]
 
 [sub_resource type="Gradient" id="Gradient_ynwdk"]
 offsets = PackedFloat32Array(0, 0.533333, 1)
@@ -44,6 +44,13 @@ expand_margin_bottom = 6.0
 shadow_size = 10
 shadow_offset = Vector2(10, 10)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tqg6v"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+expand_margin_left = 14.0
+expand_margin_top = 5.0
+expand_margin_right = 14.0
+expand_margin_bottom = 5.0
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a0khw"]
 content_margin_left = 8.0
 content_margin_top = 12.0
@@ -73,13 +80,13 @@ _settingsDescriptionLabel = NodePath("Main/UI/DescriptionControl/Panel/Descripti
 _sectionButtonTemplate = ExtResource("2_ynwdk")
 _sectionContainerTemplate = ExtResource("14_bwaer")
 _groupSeparatorTemplate = ExtResource("6_ynwdk")
-_buttonTemplate = ExtResource("8_oijno")
-_checkButtonTemplate = ExtResource("7_5i2d0")
-_dropDownTemplate = ExtResource("9_260at")
-_colorPickerTemplate = ExtResource("10_dwwis")
-_lineEditTemplate = ExtResource("12_lxjq6")
-_sliderTemplate = ExtResource("11_qg0c2")
-_keybindTemplate = ExtResource("13_b3tli")
+_buttonTemplate = ExtResource("10_oijno")
+_checkButtonTemplate = ExtResource("11_260at")
+_dropDownTemplate = ExtResource("13_qg0c2")
+_colorPickerTemplate = ExtResource("12_dwwis")
+_lineEditTemplate = ExtResource("15_b3tli")
+_sliderTemplate = ExtResource("14_lxjq6")
+_keybindTemplate = ExtResource("16_bwaer")
 
 [node name="BGContainer" type="AspectRatioContainer" parent="."]
 layout_mode = 1
@@ -144,9 +151,9 @@ metadata/_edit_use_anchors_ = true
 [node name="PanelContainer" type="PanelContainer" parent="Main/UI/SectionsControl"]
 layout_mode = 1
 anchors_preset = -1
-anchor_top = -0.0316456
-anchor_right = 1.00747
-anchor_bottom = 0.330368
+anchor_top = -0.0337835
+anchor_right = 0.92316
+anchor_bottom = 0.325661
 offset_top = 2.5
 offset_right = -4.81769
 offset_bottom = 52.9009
@@ -165,7 +172,7 @@ alignment = 1
 layout_mode = 1
 anchor_left = 0.543046
 anchor_top = 0.130346
-anchor_right = 0.902318
+anchor_right = 0.924393
 anchor_bottom = 0.754582
 metadata/_edit_use_anchors_ = true
 
@@ -186,11 +193,45 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_xs2iu")
 [node name="ScrollContainer" type="ScrollContainer" parent="Main/UI/ButtonsControl/PanelContainer"]
 layout_mode = 2
 
+[node name="VBoxTemplate" parent="Main/UI/ButtonsControl/PanelContainer/ScrollContainer" instance=ExtResource("14_bwaer")]
+layout_mode = 2
+
+[node name="GroupSeparator" type="Label" parent="Main/UI/ButtonsControl/PanelContainer/ScrollContainer/VBoxTemplate"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_b8kiq")
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxFlat_tqg6v")
+text = "Group Separator"
+horizontal_alignment = 1
+vertical_alignment = 1
+text_overrun_behavior = 3
+
+[node name="Button" parent="Main/UI/ButtonsControl/PanelContainer/ScrollContainer/VBoxTemplate" instance=ExtResource("10_oijno")]
+layout_mode = 2
+
+[node name="CheckButton" parent="Main/UI/ButtonsControl/PanelContainer/ScrollContainer/VBoxTemplate" instance=ExtResource("11_260at")]
+layout_mode = 2
+
+[node name="ColorPicker" parent="Main/UI/ButtonsControl/PanelContainer/ScrollContainer/VBoxTemplate" instance=ExtResource("12_dwwis")]
+layout_mode = 2
+
+[node name="Dropdown" parent="Main/UI/ButtonsControl/PanelContainer/ScrollContainer/VBoxTemplate" instance=ExtResource("13_qg0c2")]
+layout_mode = 2
+
+[node name="Slider" parent="Main/UI/ButtonsControl/PanelContainer/ScrollContainer/VBoxTemplate" instance=ExtResource("14_lxjq6")]
+layout_mode = 2
+
+[node name="LineEdit" parent="Main/UI/ButtonsControl/PanelContainer/ScrollContainer/VBoxTemplate" instance=ExtResource("15_b3tli")]
+layout_mode = 2
+
+[node name="Keybind" parent="Main/UI/ButtonsControl/PanelContainer/ScrollContainer/VBoxTemplate" instance=ExtResource("16_bwaer")]
+layout_mode = 2
+
 [node name="DescriptionControl" type="Control" parent="Main/UI"]
 layout_mode = 1
 anchor_left = 0.536976
 anchor_top = 0.809572
-anchor_right = 0.891832
+anchor_right = 0.913908
 anchor_bottom = 0.923625
 metadata/_edit_use_anchors_ = true
 
@@ -211,12 +252,12 @@ metadata/_edit_use_anchors_ = true
 layout_mode = 2
 offset_left = 8.0
 offset_top = 12.0
-offset_right = 635.0
-offset_bottom = 99.742
+offset_right = 678.0
+offset_bottom = 100.0
 size_flags_vertical = 1
 theme_override_fonts/font = ExtResource("3_b8kiq")
-theme_override_font_sizes/font_size = 46
-text = "whatever you're hovering at description"
+theme_override_font_sizes/font_size = 40
+text = "description of whatever ur hovering at"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2

@@ -1,18 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://r14julhiorgq"]
+[gd_scene load_steps=3 format=3 uid="uid://blsjfh0b0nrk7"]
 
-[ext_resource type="FontFile" uid="uid://ilqa3kmi8s03" path="res://Assets/UI/Fonts/funkin2.ttf" id="1_sc82e"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hbx5l"]
-bg_color = Color(0, 0, 0, 0.498039)
-expand_margin_left = 14.0
-expand_margin_top = 5.0
-expand_margin_right = 14.0
-expand_margin_bottom = 5.0
+[ext_resource type="Theme" uid="uid://dsa45ne22xeld" path="res://Source/Rubicon/Menus/Settings/SettingsMenu.tres" id="1_7bb5p"]
+[ext_resource type="FontFile" uid="uid://ilqa3kmi8s03" path="res://Assets/UI/Fonts/funkin2.ttf" id="2_km6rs"]
 
 [node name="Slider" type="Label"]
-theme_override_fonts/font = ExtResource("1_sc82e")
-theme_override_font_sizes/font_size = 51
-theme_override_styles/normal = SubResource("StyleBoxFlat_hbx5l")
+theme = ExtResource("1_7bb5p")
 text = "Slider"
 vertical_alignment = 1
 text_overrun_behavior = 3
@@ -40,7 +32,7 @@ anchor_right = 1.20949
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/font = ExtResource("1_sc82e")
+theme_override_fonts/font = ExtResource("2_km6rs")
 theme_override_font_sizes/font_size = 45
 text = "1"
 vertical_alignment = 1
@@ -49,16 +41,16 @@ metadata/_edit_use_anchors_ = true
 [node name="Min" type="Label" parent="HSlider"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = -0.29
+anchor_left = -0.149
 anchor_right = -0.02
 anchor_bottom = 1.0
-offset_left = 2.05005
-offset_top = -4.0
-offset_right = -1.1
-offset_bottom = 0.0909195
+offset_left = 0.0454979
+offset_top = -7.0
+offset_right = -18.6248
+offset_bottom = 2.45
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/font = ExtResource("1_sc82e")
+theme_override_fonts/font = ExtResource("2_km6rs")
 theme_override_font_sizes/font_size = 45
 text = "0"
 horizontal_alignment = 2
