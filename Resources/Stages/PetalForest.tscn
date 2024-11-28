@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=3 uid="uid://c5uuoopqkhy2f"]
 
-[ext_resource type="Script" path="res://Source/Rubicon/View2D/Stage2D.cs" id="1_q6g61"]
+[ext_resource type="Script" uid="uid://b266uq72uvca8" path="res://Source/Rubicon/View2D/Stage2D.cs" id="1_q6g61"]
 [ext_resource type="Texture2D" uid="uid://wgujoflvr6a4" path="res://Assets/Stages/PetalForest/sky.webp" id="2_s41wv"]
 [ext_resource type="Texture2D" uid="uid://caik11quqe2kb" path="res://Assets/Stages/PetalForest/cloud.webp" id="3_yq1i0"]
 [ext_resource type="Texture2D" uid="uid://bq5mpvxq6sfuw" path="res://Assets/Stages/PetalForest/secondcloud.webp" id="4_yq1i0"]
@@ -12,14 +12,11 @@
 [ext_resource type="Texture2D" uid="uid://xpou6jnvqig3" path="res://Assets/Stages/PetalForest/leavesandotherthing.webp" id="10_u3113"]
 [ext_resource type="Texture2D" uid="uid://646372nsavvk" path="res://Assets/Stages/PetalForest/branches.webp" id="11_j61hh"]
 [ext_resource type="Texture2D" uid="uid://dw3ce5760dt2v" path="res://Assets/Stages/PetalForest/cabin.webp" id="12_ey0vx"]
-[ext_resource type="Script" path="res://Source/Rubicon/View2D/SpawnPoint2D.cs" id="13_j61hh"]
+[ext_resource type="Script" uid="uid://bm2ughu3hgtjt" path="res://Source/Rubicon/View2D/SpawnPoint2D.cs" id="13_j61hh"]
 
 [node name="Stage" type="Node2D" node_paths=PackedStringArray("SpawnPoints")]
 script = ExtResource("1_q6g61")
-SpawnPoints = {
-&"stitch": NodePath("Spawns/Opponent"),
-&"bf-stitch": NodePath("Spawns/Player")
-}
+SpawnPoints = [NodePath("Spawns/Opponent"), NodePath("Spawns/Player")]
 
 [node name="Objects" type="Node2D" parent="."]
 
@@ -113,10 +110,12 @@ centered = false
 [node name="Opponent" type="Node2D" parent="Spawns"]
 position = Vector2(-270, 570)
 script = ExtResource("13_j61hh")
+ValidNicknames = [&"Opponent"]
 metadata/_custom_type_script = ExtResource("13_j61hh")
 
 [node name="Player" type="Node2D" parent="Spawns"]
 position = Vector2(332, 624)
 script = ExtResource("13_j61hh")
+ValidNicknames = [&"Player"]
 LeftFacing = true
 metadata/_custom_type_script = ExtResource("13_j61hh")

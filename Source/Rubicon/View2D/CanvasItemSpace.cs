@@ -33,7 +33,7 @@ public partial class CanvasItemSpace : Node2D
 	{
 		string path = $"res://Resources/Characters/{meta.Character}.tscn";
 		Character2D character;
-			
+		
 		if (!ResourceLoader.Exists(path))
 		{
 			GD.Print($"Character {meta.Character} was not found. Falling back to default.");
@@ -54,7 +54,7 @@ public partial class CanvasItemSpace : Node2D
 		character.Name = meta.Nickname;
 		Characters.Add(character);
 		_namedCharacters[meta.Nickname] = character;
-		Stage.SpawnPoints[meta.Nickname].AddChild(character);
+		Stage.GetSpawnPoint(meta.Nickname).AddChild(character);
 		
 		if (!_barLineCharacters.ContainsKey(meta.BarLine))
 			_barLineCharacters.Add(meta.BarLine, new Array<Character2D>());

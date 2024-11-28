@@ -118,6 +118,7 @@ public partial class Character2D : Node2D
         base._Ready();
 
         AnimationPlayer.AnimationFinished += AnimationFinished;
+        Dance();
     }
 
     public override void _Process(double delta)
@@ -130,7 +131,7 @@ public partial class Character2D : Node2D
 			HandleHoldAnimations();
 
 	    double curDanceSnap = Mathf.Snapped(Conductor.CurrentMeasure, DanceMeasure);
-	    if ((CurrentAnim.Name.StartsWith("sing") && SingTimer >= SingDuration || !CurrentAnim.Name.StartsWith("sing")) && !Mathf.IsEqualApprox(curDanceSnap, _lastDanceSnap))
+	    if (CurrentAnim != null && ((CurrentAnim.Name.StartsWith("sing") && SingTimer >= SingDuration || !CurrentAnim.Name.StartsWith("sing")) && !Mathf.IsEqualApprox(curDanceSnap, _lastDanceSnap)))
 		    Dance();
 
 	    SingTimer += delta;
@@ -144,11 +145,11 @@ public partial class Character2D : Node2D
     /// <param name="force">Force this animation to play</param>
     public void Dance(bool force = false)
     {
-	    if (!force && AnimationPlayer.CurrentAnimationPosition < AnimationPlayer.CurrentAnimationLength) 
+	    if (!force && AnimationPlayer.IsPlaying() && AnimationPlayer.CurrentAnimationPosition < AnimationPlayer.CurrentAnimationLength) 
 		    return;
 
-	    PlayAnim(new CharacterAnimation { Name = DanceList[DanceIndex], Force = true });
-
+	    PlayAnim(new CharacterAnimation { Name = DanceList[DanceIndex], Force = true, StartTime = 0});
+	    
 	    DanceIndex++;
 	    DanceIndex = (DanceIndex + 1) % DanceList.Length;
     }
@@ -202,7 +203,7 @@ public partial class Character2D : Node2D
     /// <param name="anim">Animation data</param>
     public void PlayAnim(CharacterAnimation anim)
     {
-	    if (!anim.Force && AnimationPlayer.CurrentAnimationPosition >= AnimationPlayer.CurrentAnimationLength)
+	    if (!anim.Force && AnimationPlayer.IsPlaying() && AnimationPlayer.CurrentAnimationPosition >= AnimationPlayer.CurrentAnimationLength)
 		    return;
 
 	    string originalName = anim.Name; 
@@ -221,8 +222,12 @@ public partial class Character2D : Node2D
 	    
 	    LastAnim = CurrentAnim;
 	    CurrentAnim = anim;
+	    
+	    if (LastAnim == null || (LastAnim != null && anim.Name != LastAnim.Name)) 
+		    AnimationPlayer.Play(anim.Name);
+	    
+	    AnimationPlayer.Seek(anim.StartTime, true);
 	    AnimationPlayer.Play(anim.Name);
-	    AnimationPlayer.Seek(anim.StartTime);
     }
 
     protected virtual void HandleHoldAnimations()

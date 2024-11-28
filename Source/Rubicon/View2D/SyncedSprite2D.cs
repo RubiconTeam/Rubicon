@@ -17,8 +17,9 @@ public partial class SyncedSprite2D : AnimatedSprite2D
 	public override void _Process(double delta)
 	{
 		base._Process(delta);
-
-		if (AnimationPlayer == null)
+		
+		bool isOnAnimation = AnimationPlayer != null && (!string.IsNullOrEmpty(AnimationPlayer.AssignedAnimation) || !string.IsNullOrEmpty(AnimationPlayer.CurrentAnimation) || AnimationPlayer.IsPlaying());
+		if (!isOnAnimation)
 			return;
 		
 		if (IsPlaying())

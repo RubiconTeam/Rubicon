@@ -722,6 +722,7 @@ animation = &"BF idle dance"
 frame = 13
 offset = Vector2(-16, -150)
 script = ExtResource("3_1tcb8")
+Sync = true
 AnimationPlayer = NodePath("../AnimationPlayer")
 
 [node name="CameraPoint" type="Marker2D" parent="."]

@@ -5,6 +5,8 @@ namespace Rubicon.View2D;
 [GlobalClass]
 public partial class SpawnPoint2D : Node2D
 {
+    [Export] public StringName[] ValidNicknames = [];
+    
     [Export] public bool LeftFacing = false;
 
     [Export] public Array<Character2D> Characters = new();
