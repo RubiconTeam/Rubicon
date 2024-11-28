@@ -99,6 +99,8 @@ namespace Rubicon.Game;
 		PlayField = LoadPlayField(RuleSet);
 		PlayField.Setup(Metadata, Chart);
 		AddChild(PlayField);
+
+		LoadAutoLoads();
 		
 		// TODO: Countdown
 		Conductor.Play();
@@ -197,6 +199,7 @@ namespace Rubicon.Game;
 
 	private void LoadSpace()
 	{
+		GD.Print("Environment: " + Metadata.Environment);
 		switch (Metadata.Environment)
 		{
 			case GameEnvironment.CanvasItem: // 2D Space
@@ -208,5 +211,31 @@ namespace Rubicon.Game;
 				break;
 			}
 		}
+		
+		GD.Print("Space created successfully.");
+	}
+
+	private void LoadAutoLoads()
+	{
+		string autoLoadDir = "res://Resources/Autoloads/";
+		string[] autoLoadPaths = RubiconUtility.GetFilesAt(autoLoadDir, true);
+		for (int i = 0; i < autoLoadPaths.Length; i++)
+		{
+			Resource autoLoadRes = GD.Load(autoLoadDir + autoLoadPaths[i]);
+			if (autoLoadRes is Script autoLoadScript)
+			{
+				Node node = new Node();
+				node.SetScript(autoLoadScript);
+				AddChild(node);
+			}
+
+			if (autoLoadRes is PackedScene autoLoadScene)
+			{
+				Node scene = autoLoadScene.Instantiate();
+				AddChild(scene);
+			}
+		}
+		
+		GD.Print("Loading song auto-loads successful.");
 	}
 }

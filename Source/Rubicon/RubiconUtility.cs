@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Linq;
 using Rubicon.Core;
 using Rubicon.Core.Data;
@@ -84,5 +85,23 @@ public static class RubiconUtility
 	public static T[] GetChildrenOfType<T>(this Node node, bool includeInternal = false) where T : class
 	{
 		return node.GetChildren(includeInternal).Where(x => x is T).Cast<T>().ToArray();
+	}
+
+	public static string[] GetFilesAt(string directory, bool recursive = false)
+	{
+		if (!recursive)
+			return DirAccess.GetFilesAt(directory);
+
+		List<string> files = DirAccess.GetFilesAt(directory).ToList();
+		string[] directories = DirAccess.GetDirectoriesAt(directory);
+		for (int i = 0; i < directories.Length; i++)
+		{
+			string curDirectory = directories[i];
+			string[] curDirFiles = GetFilesAt(curDirectory);
+			for (int j = 0; j < curDirFiles.Length; j++)
+				files.Add(curDirectory + curDirFiles[i]);
+		}
+		
+		return files.ToArray();
 	}
 }
