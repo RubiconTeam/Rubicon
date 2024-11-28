@@ -9,7 +9,7 @@ namespace Rubicon.Rulesets.Mania;
 /// <summary>
 /// A bar line class for Mania gameplay. Also referred to as a "strum" by some.
 /// </summary>
-[GlobalClass] public partial class ManiaNoteManager : NoteManager
+[GlobalClass] public partial class ManiaNoteController : NoteController
 {
 	/// <summary>
 	/// The direction of this note manager.

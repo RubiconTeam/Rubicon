@@ -69,20 +69,20 @@ namespace Rubicon.Rulesets.Mania;
 	}
 
 	/// <summary>
-	/// Assigns <see cref="NoteData"/> and a parent <see cref="ManiaNoteManager"/> to this hit object.
+	/// Assigns <see cref="NoteData"/> and a parent <see cref="ManiaNoteController"/> to this hit object.
 	/// </summary>
 	/// <param name="noteData">The note data</param>
-	/// <param name="parentManager">The parent manager</param>
-	public void Assign(NoteData noteData, ManiaNoteManager parentManager)
+	/// <param name="parentController">The parent controller</param>
+	public void Assign(NoteData noteData, ManiaNoteController parentController)
 	{
 		Position = new Vector2(5000, 0);
 		Info = noteData;
-		ParentManager = parentManager;
+		ParentController = parentController;
 
 		string direction = null;
 		if (NoteSkin != null)
 		{
-			direction = NoteSkin.GetDirection(noteData.Lane, ParentManager.ParentBarLine.Chart.Lanes).ToLower();
+			direction = NoteSkin.GetDirection(noteData.Lane, ParentController.ParentBarLine.Chart.Lanes).ToLower();
 			Note.Play($"{direction}NoteNeutral");
 			Note.Visible = true;
 		}
@@ -111,7 +111,7 @@ namespace Rubicon.Rulesets.Mania;
 
 	public override void _Process(double delta)
 	{
-		ManiaNoteManager parent = GetParentManiaNoteManager();
+		ManiaNoteController parent = GetParentManiaNoteManager();
 		if (!Active || parent == null || !Visible || Info == null)
 			return;
 
@@ -140,19 +140,19 @@ namespace Rubicon.Rulesets.Mania;
 			Active = false;
 			Visible = false;
 			
-			ParentManager.RemoveChild(this);
+			ParentController.RemoveChild(this);
 		}
 	}
 	
 	/// <inheritdoc/>
 	public override void UpdatePosition()
 	{
-		if (ParentManager is not ManiaNoteManager maniaNoteManager)
+		if (ParentController is not ManiaNoteController maniaNoteManager)
 			return;
 		
-		float startingPos = ParentManager.ParentBarLine.DistanceOffset * ParentManager.ScrollSpeed;
-		SvChange svChange = ParentManager.ParentBarLine.Chart.SvChanges[Info.StartingScrollVelocity];
-		float distance = (float)(svChange.Position + Info.MsTime - svChange.MsTime - _tailOffset) * ParentManager.ScrollSpeed;
+		float startingPos = ParentController.ParentBarLine.DistanceOffset * ParentController.ScrollSpeed;
+		SvChange svChange = ParentController.ParentBarLine.Chart.SvChanges[Info.StartingScrollVelocity];
+		float distance = (float)(svChange.Position + Info.MsTime - svChange.MsTime - _tailOffset) * ParentController.ScrollSpeed;
 		Vector2 posMult = new Vector2(Mathf.Cos(maniaNoteManager.DirectionAngle), Mathf.Sin(maniaNoteManager.DirectionAngle));
 		Position = maniaNoteManager.NoteHeld != Info ? (startingPos + distance) * posMult : Vector2.Zero;
 	}
@@ -175,10 +175,10 @@ namespace Rubicon.Rulesets.Mania;
 		Tail.Centered = false;
 		Tail.SpriteFrames = noteSkin.HoldAtlas;
 
-		if (Info == null || ParentManager == null)
+		if (Info == null || ParentController == null)
 			return;
 		
-		string direction = NoteSkin.GetDirection(Info.Lane, ParentManager.ParentBarLine.Chart.Lanes).ToLower();
+		string direction = NoteSkin.GetDirection(Info.Lane, ParentController.ParentBarLine.Chart.Lanes).ToLower();
 		Texture2D holdTexture = NoteSkin.HoldAtlas.GetFrameTexture($"{direction}NoteHold", 0);
 		Hold.Texture = holdTexture;
 		HoldContainer.Modulate = new Color(1f, 1f, 1f, 0.5f);
@@ -198,14 +198,14 @@ namespace Rubicon.Rulesets.Mania;
 	/// </summary>
 	public void AdjustInitialTailSize()
 	{
-		if (ParentManager is not ManiaNoteManager maniaNoteManager)
+		if (ParentController is not ManiaNoteController maniaNoteManager)
 			return;
 		
 		// Rough code, might clean up later if possible
 		string direction = maniaNoteManager.Direction;
 		int tailTexWidth = Tail.SpriteFrames.GetFrameTexture($"{direction}NoteTail", Tail.GetFrame()).GetWidth();
 
-		float holdWidth = GetOnScreenHoldLength(Info.MsLength) * ParentManager.ScrollSpeed;
+		float holdWidth = GetOnScreenHoldLength(Info.MsLength) * ParentController.ScrollSpeed;
 		Hold.Size = new Vector2((holdWidth - tailTexWidth) / HoldContainer.Scale.X, Hold.Size.Y);
 		
 		if (maniaNoteManager.NoteHeld != Info)
@@ -217,13 +217,13 @@ namespace Rubicon.Rulesets.Mania;
 	/// </summary>
 	public void AdjustTailLength(double length)
 	{
-		if (ParentManager is not ManiaNoteManager maniaNoteManager)
+		if (ParentController is not ManiaNoteController maniaNoteManager)
 			return;
 		
 		// Rough code, might clean up later if possible
 		string direction = maniaNoteManager.Direction;
-		float initialHoldWidth = GetOnScreenHoldLength(Info.MsLength) * ParentManager.ScrollSpeed;
-		float holdWidth = GetOnScreenHoldLength(length) * ParentManager.ScrollSpeed;
+		float initialHoldWidth = GetOnScreenHoldLength(Info.MsLength) * ParentController.ScrollSpeed;
+		float holdWidth = GetOnScreenHoldLength(length) * ParentController.ScrollSpeed;
 
 		Vector2 holdContainerScale = HoldContainer.Scale;
 		Vector2 holdContainerSize = HoldContainer.Size;
@@ -238,9 +238,9 @@ namespace Rubicon.Rulesets.Mania;
 		Tail.Position = new Vector2((initialHoldWidth - tailTexSize.X) / holdContainerScale.X + holdPos.X, Hold.Texture.GetHeight() - tailTexSize.Y);
 	}
 
-	public ManiaNoteManager GetParentManiaNoteManager()
+	public ManiaNoteController GetParentManiaNoteManager()
 	{
-		if (ParentManager is ManiaNoteManager a)
+		if (ParentController is ManiaNoteController a)
 			return a;
 
 		return null;
@@ -252,7 +252,7 @@ namespace Rubicon.Rulesets.Mania;
 	public void UnsetHold()
 	{
 		// Should be based on time, NOT note Y position
-		_tailOffset = GetStartingPoint() + ParentManager.ParentBarLine.DistanceOffset;
+		_tailOffset = GetStartingPoint() + ParentController.ParentBarLine.DistanceOffset;
 	}
 
 	/// <inheritdoc/>
@@ -270,7 +270,7 @@ namespace Rubicon.Rulesets.Mania;
 	/// <returns>The on-screen length</returns>
 	private float GetOnScreenHoldLength(double length)
 	{
-		SvChange[] svChangeList = ParentManager.ParentBarLine.Chart.SvChanges;
+		SvChange[] svChangeList = ParentController.ParentBarLine.Chart.SvChanges;
 		double startTime = Info.MsTime + (Info.MsLength - length);
 		int startIndex = Info.StartingScrollVelocity;
 		for (int i = startIndex; i <= Info.EndingScrollVelocity; i++)

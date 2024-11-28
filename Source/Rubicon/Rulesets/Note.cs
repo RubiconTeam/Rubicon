@@ -13,9 +13,9 @@ namespace Rubicon.Rulesets;
     [Export] public NoteData Info;
     
     /// <summary>
-    /// The parent <see cref="NoteManager"/>.
+    /// The parent <see cref="NoteController"/>.
     /// </summary>
-    [Export] public NoteManager ParentManager;
+    [Export] public NoteController ParentController;
 
     /// <summary>
     /// If false, this note is ready to be recycled.
@@ -70,7 +70,7 @@ namespace Rubicon.Rulesets;
     /// <returns>The starting position of the note</returns>
     protected float GetStartingPoint()
     {
-        SvChange[] svChangeList = ParentManager.ParentBarLine.Chart.SvChanges;
+        SvChange[] svChangeList = ParentController.ParentBarLine.Chart.SvChanges;
         return (float)(svChangeList[Info.StartingScrollVelocity].Position + ((Info.MsTime - svChangeList[Info.StartingScrollVelocity].MsTime) * svChangeList[Info.StartingScrollVelocity].Multiplier));
     }
 
@@ -80,7 +80,7 @@ namespace Rubicon.Rulesets;
     /// <returns>The ending position of the note</returns>
     protected float GetEndingPoint()
     {
-        SvChange[] svChangeList = ParentManager.ParentBarLine.Chart.SvChanges;
+        SvChange[] svChangeList = ParentController.ParentBarLine.Chart.SvChanges;
         return (float)(svChangeList[Info.EndingScrollVelocity].Position +
             ((Info.MsTime + Info.MsLength - svChangeList[Info.EndingScrollVelocity].MsTime) * svChangeList[Info.EndingScrollVelocity].Multiplier));
     }

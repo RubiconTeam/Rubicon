@@ -8,7 +8,7 @@ namespace Rubicon.Rulesets;
 /// <summary>
 /// A base note manager for Rubicon rulesets.
 /// </summary>
-[GlobalClass] public abstract partial class NoteManager : Control
+[GlobalClass] public abstract partial class NoteController : Control
 {
 	/// <summary>
 	/// The lane index of this note manager.

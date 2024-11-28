@@ -23,10 +23,10 @@ namespace Rubicon.Rulesets.Mania;
         Chart = chart;
         NoteSkin = noteSkin;
 
-        Managers = new NoteManager[chart.Lanes];
+        Managers = new NoteController[chart.Lanes];
         for (int i = 0; i < chart.Lanes; i++)
         {
-            ManiaNoteManager noteMan = new ManiaNoteManager();
+            ManiaNoteController noteMan = new ManiaNoteController();
             noteMan.Setup(this, i, noteSkin);
             noteMan.Position = new Vector2(i * NoteSkin.LaneSize - ((chart.Lanes - 1) * NoteSkin.LaneSize / 2f), 0);
             noteMan.Name = $"Mania Note Manager {i}";
@@ -49,8 +49,8 @@ namespace Rubicon.Rulesets.Mania;
     /// <param name="radians">The angle, in radians</param>
     public void SetDirectionAngle(float radians)
     {
-        foreach (NoteManager noteManager in Managers)
-            if (noteManager is ManiaNoteManager maniaNoteManager)
+        foreach (NoteController noteManager in Managers)
+            if (noteManager is ManiaNoteController maniaNoteManager)
                 maniaNoteManager.DirectionAngle = radians;
     }
 }
