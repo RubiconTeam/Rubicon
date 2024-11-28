@@ -8,7 +8,7 @@ namespace Rubicon.Rulesets;
 /// <summary>
 /// A base note manager for Rubicon rulesets.
 /// </summary>
-public abstract partial class NoteManager : Control
+[GlobalClass] public abstract partial class NoteManager : Control
 {
 	/// <summary>
 	/// The lane index of this note manager.
@@ -32,11 +32,6 @@ public abstract partial class NoteManager : Control
 	/// Hit objects whose index is linked to the note data's index in <see cref="Notes"/>.
 	/// </summary>
 	[Export] public Note[] HitObjects;
-	
-	/// <summary>
-	/// All the visual hit objects that were spawned for this manager. Notes are recycled.
-	/// </summary>
-	[Export] public Array<Note> HitObjectBin = new();
 
 	/// <summary>
 	/// If true, the computer will hit the notes that come by.
@@ -107,22 +102,13 @@ public abstract partial class NoteManager : Control
 					continue;
 				}
 
-				Note note = HitObjectBin.FirstOrDefault(x => !x.Active);
-				if (note == null)
-				{
-					note = CreateNote();
-					HitObjectBin.Add(note);
-					AddChild(note);
-				}
-				else
-				{
-					note.MoveToFront();
-					note.Reset();
-				}
+				Note note = ParentBarLine.PlayField.Factory.GetNote(Notes[NoteSpawnIndex].Type);
+				AddChild(note);
+				note.MoveToFront();
 
 				HitObjects[NoteSpawnIndex] = note;
 				note.Name = $"Note {NoteSpawnIndex}";
-				SetupNote(note, Notes[NoteSpawnIndex]);
+				AssignData(note, Notes[NoteSpawnIndex]);
 				Notes[NoteSpawnIndex].WasSpawned = true;
 				NoteSpawnIndex++;
 			}
@@ -171,6 +157,8 @@ public abstract partial class NoteManager : Control
 			
 		ProcessQueue.Clear();
 	}
+	
+	protected abstract void AssignData(Note note, NoteData noteData);
 
 	public override void _Input(InputEvent @event)
 	{
@@ -185,24 +173,9 @@ public abstract partial class NoteManager : Control
 			ParentBarLine.EmitSignal("BindPressed", ParentBarLine);*/
 	}
 
-	#region Virtual (Overridable) Methods
-	/// <summary>
-	/// Is called when creating a new note. Override to replace with a type that inherits from <see cref="Note"/>.
-	/// </summary>
-	/// <returns>A new note.</returns>
-	protected abstract Note CreateNote();
-
-	/// <summary>
-	/// Called when setting up a note. Notes will be recycled.
-	/// </summary>
-	/// <param name="note">The note passed in</param>
-	/// <param name="data">The note data</param>
-	protected abstract void SetupNote(Note note, NoteData data);
-
 	/// <summary>
 	/// Triggers upon this note manager hitting/missing a note.
 	/// </summary>
 	/// <param name="element">Contains information about a note and its hits</param>
 	protected abstract void OnNoteHit(NoteInputElement element);
-	#endregion
 }

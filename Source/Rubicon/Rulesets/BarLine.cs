@@ -6,7 +6,7 @@ namespace Rubicon.Rulesets;
 /// <summary>
 /// A base bar line for Rubicon rulesets
 /// </summary>
-public abstract partial class BarLine : Control
+[GlobalClass] public abstract partial class BarLine : Control
 {
 	/// <summary>
 	/// The individual chart for this bar line. Contains notes and scroll velocity changes.
@@ -17,6 +17,11 @@ public abstract partial class BarLine : Control
 	/// Contains all the nodes used to manage notes.
 	/// </summary>
 	[Export] public NoteManager[] Managers;
+	
+	/// <summary>
+	/// The PlayField this instance is associated with.
+	/// </summary>
+	[Export] public PlayField PlayField;
 
 	/// <summary>
 	/// The distance to offset notes by position-wise.

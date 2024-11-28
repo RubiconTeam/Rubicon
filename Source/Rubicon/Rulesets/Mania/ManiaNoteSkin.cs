@@ -5,8 +5,7 @@ namespace Rubicon.Rulesets.Mania;
 /// <summary>
 /// A resource that holds important information for Mania-related graphics.
 /// </summary>
-[GlobalClass]
-public partial class ManiaNoteSkin : Resource
+[GlobalClass] public partial class ManiaNoteSkin : Resource
 {
 	/// <summary>
 	/// The SpriteFrames resource to grab note textures from.

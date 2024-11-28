@@ -10,7 +10,7 @@ namespace Rubicon.Game;
 /// <summary>
 /// The main node that brings characters, stages, and ruleset gameplay together. Serves as "PlayState" in other Funkin' engines.
 /// </summary>
-public partial class RubiconGame : Node
+[GlobalClass] public partial class RubiconGame : Node
 {
 	public static RubiconGame Instance { get; private set; }
 

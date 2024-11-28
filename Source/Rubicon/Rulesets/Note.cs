@@ -5,7 +5,7 @@ namespace Rubicon.Rulesets;
 /// <summary>
 /// A control node used to visualize a note meant to be hit on-screen.
 /// </summary>
-public abstract partial class Note : Control
+[GlobalClass] public abstract partial class Note : Control
 {
     /// <summary>
     /// Contains info about this note.
@@ -27,6 +27,11 @@ public abstract partial class Note : Control
     /// </summary>
     [Export] public bool Missed = false;
 
+    /// <summary>
+    /// Run when a note is first created.
+    /// </summary>
+    public abstract void Initialize();
+    
     public override void _Process(double delta)
     {
         if (!Active)

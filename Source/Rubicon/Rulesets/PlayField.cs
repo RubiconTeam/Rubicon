@@ -1,3 +1,4 @@
+using System.Linq;
 using Rubicon.Core;
 using Rubicon.Core.Chart;
 using Rubicon.Core.Data;
@@ -9,7 +10,7 @@ namespace Rubicon.Rulesets;
 /// <summary>
 /// A control node with all general ruleset gameplay-related functions.
 /// </summary>
-public partial class PlayField : Control
+[GlobalClass] public abstract partial class PlayField : Control
 {
     /// <summary>
     /// The current health the player has.
@@ -42,6 +43,8 @@ public partial class PlayField : Control
 
     [Export] public uint HighestCombo = 0;
 
+    [Export] public uint NoteCount = 0;
+
     /// <summary>
     /// The Chart for this PlayField.
     /// </summary>
@@ -65,12 +68,21 @@ public partial class PlayField : Control
     /// <summary>
     /// The Target Bar Line's name for the player to control
     /// </summary>
-    [Export] public string TargetBarLine = "Player";
+    [Export] public StringName TargetBarLine = "Player";
     
     /// <summary>
     /// The Target Bar Line's index for the player to control
     /// </summary>
-    [Export] public int TargetBarLineIndex = 0;
+    [Export] public int TargetIndex = 0;
+
+    /// <summary>
+    /// Creates notes for bar lines to use.
+    /// </summary>
+    [Export] public NoteFactory Factory;
+
+    [Export] public RubiconEvent NoteHitEvent = new();
+    
+    [Signal] public delegate void BeforeNoteCreateEventHandler(NoteData note);
     
     /// <summary>
     /// A signal that is emitted upon failure.
@@ -166,8 +178,27 @@ public partial class PlayField : Control
             }
         }
         
-        for (int i = 0; i < BarLines.Length; i++)
-            BarLines[i].NoteHit += OnNoteHit;
+        BarLines = new BarLine[chart.Charts.Length];
+        TargetBarLine = meta.PlayableCharts[0]; // For now, allow this to be modified later
+        for (int i = 0; i < chart.Charts.Length; i++)
+        {
+            IndividualChart indChart = chart.Charts[i];
+            for (int j = 0; j < indChart.Notes.Length; j++)
+                EmitSignalBeforeNoteCreate(indChart.Notes[j]);
+            
+            BarLine curBarLine = CreateBarLine(indChart, i);
+            curBarLine.PlayField = this;
+            if (indChart.Name == TargetBarLine)
+            {
+                TargetIndex = i;
+                curBarLine.SetAutoPlay(false);
+                NoteCount = (uint)(indChart.Notes.Count(x => !x.ShouldMiss) + indChart.Notes.Count(x => !x.ShouldMiss && x.Length > 0));
+            }
+            
+            AddChild(curBarLine);
+            BarLines[i] = curBarLine;
+            curBarLine.NoteHit += OnNoteHit;
+        }
         
         UpdateOptions();
     }
@@ -185,30 +216,32 @@ public partial class PlayField : Control
     /// </summary>
     public void Fail()
     {
-        EmitSignal(SignalName.OnFail);
+        EmitSignalOnFail();
     }
 
     /// <summary>
     /// This function is triggered upon an update to the settings.
     /// </summary>
-    public virtual void UpdateOptions()
-    {
-        
-    }
+    public abstract void UpdateOptions();
 
     /// <summary>
     /// Triggers every time the player hits a note to update the in-game statistics
     /// </summary>
-    public virtual void UpdateStatistics()
-    {
-        
-    }
+    public abstract void UpdateStatistics();
     
     /// <summary>
     /// The fail condition for this play field.
     /// </summary>
     /// <returns>Whether the player has failed</returns>
     public virtual bool GetFailCondition() => false;
+
+    /// <summary>
+    /// Creates a new bar line and sets it up along with it.
+    /// </summary>
+    /// <param name="chart">The chart to assign</param>
+    /// <param name="index">The assigned index of the bar line</param>
+    /// <returns>A new <see cref="BarLine"/></returns>
+    public abstract BarLine CreateBarLine(IndividualChart chart, int index);
 
     /// <summary>
     /// The function that is connected to the bar lines when a note is hit. Can be overriden if needed for a specific ruleset.
@@ -219,9 +252,23 @@ public partial class PlayField : Control
     /// <param name="inputElement">Info about the input recieved</param>
     protected virtual void OnNoteHit(BarLine barLine, int lane, string direction, NoteInputElement inputElement)
     {
-        if (BarLines[TargetBarLineIndex] == barLine)
+        NoteResult result = new NoteResult(NoteResultFlags.None, inputElement.Hit);
+        Variant[] results = NoteHitEvent.Invoke(barLine, lane, (int)inputElement.Hit, inputElement.Holding);
+        for (int i = 0; i < results.Length; i++)
         {
-            HitType hit = inputElement.Hit;
+            if (results[i].VariantType != Variant.Type.Object || results[i].AsGodotObject() is not NoteResult newResult)
+                continue;
+
+            if (result.Equals(newResult))
+                continue;
+            
+            result = newResult;
+            break;
+        }
+        
+        if (BarLines[TargetIndex] == barLine && !result.HasFlag(NoteResultFlags.Score))
+        {
+            HitType hit = result.Hit;
             Combo = hit != HitType.Miss ? Combo + 1 : 0;
             if (Combo > HighestCombo)
                 HighestCombo = Combo;
@@ -253,5 +300,8 @@ public partial class PlayField : Control
             ComboDisplay?.Show(Combo, hit, UiStyle.ComboOffset);
             HitDistance?.Show(inputElement.Distance, hit, UiStyle.HitDistanceOffset);
         }
+        
+        result.Free();
+        inputElement.Free();
     }
 }

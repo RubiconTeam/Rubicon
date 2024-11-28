@@ -9,7 +9,7 @@ namespace Rubicon.Rulesets.Mania;
 /// <summary>
 /// A bar line class for Mania gameplay. Also referred to as a "strum" by some.
 /// </summary>
-public partial class ManiaNoteManager : NoteManager
+[GlobalClass] public partial class ManiaNoteManager : NoteManager
 {
 	/// <summary>
 	/// The direction of this note manager.
@@ -23,9 +23,14 @@ public partial class ManiaNoteManager : NoteManager
 		set
 		{
 			base.ScrollSpeed = value;
-			foreach (Note note in HitObjectBin)
-				if (note is ManiaNote maniaNote)
-					maniaNote.AdjustInitialTailSize();
+			for (int i = 0; i < HitObjects.Length; i++)
+			{
+				Note hitObject = HitObjects[i];
+				if (hitObject is not ManiaNote maniaNote)
+					continue;
+				
+				maniaNote.AdjustInitialTailSize();
+			}
 		}
 	}
 
@@ -100,6 +105,7 @@ public partial class ManiaNoteManager : NoteManager
 		MoveChild(LaneObject, 0);
 	}
 	
+	/*
 	/// <inheritdoc/>
 	protected override Note CreateNote() => new ManiaNote();
 
@@ -110,6 +116,14 @@ public partial class ManiaNoteManager : NoteManager
 			return;
 		
 		maniaNote.Setup(data, this, NoteSkin);
+	}*/
+
+	protected override void AssignData(Note note, NoteData noteData)
+	{
+		if (note is not ManiaNote maniaNote)
+			return;
+		
+		maniaNote.Assign(noteData, this);
 	}
 
 	/// <inheritdoc/>
@@ -125,6 +139,8 @@ public partial class ManiaNoteManager : NoteManager
 				NoteHeld = null;
 				HoldingIndex = -1;
 				LaneObject.Play();
+				
+				RemoveChild(HitObjects[inputElement.Index]);
 				HitObjects[inputElement.Index].PrepareRecycle();
 			}
 			else
@@ -144,9 +160,12 @@ public partial class ManiaNoteManager : NoteManager
 			
 				NoteHeld = null;
 			}
-		
+
 			if (inputElement.Note.MsLength <= 0)
+			{
+				RemoveChild(HitObjects[inputElement.Index]);
 				HitObjects[inputElement.Index].PrepareRecycle();
+			}
 		}
 
 		inputElement.Note.WasHit = true;

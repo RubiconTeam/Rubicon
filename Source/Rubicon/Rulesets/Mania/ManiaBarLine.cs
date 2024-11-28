@@ -5,7 +5,7 @@ namespace Rubicon.Rulesets.Mania;
 /// <summary>
 /// The bar line class for Mania gameplay.
 /// </summary>
-public partial class ManiaBarLine : BarLine
+[GlobalClass] public partial class ManiaBarLine : BarLine
 {
     /// <summary>
     /// The note skin associated with this bar line.

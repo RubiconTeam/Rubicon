@@ -140,6 +140,7 @@ buffering/agile_event_flushing=true
 
 [rendering]
 
+rendering_device/driver.macos="vulkan"
 textures/vram_compression/import_etc2_astc=true
 
 [rubicon]

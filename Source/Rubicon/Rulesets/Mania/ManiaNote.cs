@@ -3,7 +3,7 @@ using Rubicon.Core.Chart;
 
 namespace Rubicon.Rulesets.Mania;
 
-public partial class ManiaNote : Note
+[GlobalClass] public partial class ManiaNote : Note
 {
 	/// <summary>
 	/// The note skin associated with this note.
@@ -31,23 +31,79 @@ public partial class ManiaNote : Note
 	public AnimatedSprite2D Tail;
 
 	private double _tailOffset = 0d;
-	
+
+	public override void Initialize()
+	{
+		if (Note == null)
+		{
+			Note = new AnimatedSprite2D();
+			Note.Name = "Note Graphic";
+			AddChild(Note);
+		}
+		
+		if (HoldContainer == null)
+		{
+			HoldContainer = new Control();
+			HoldContainer.Name = "Hold Container";
+			HoldContainer.ClipContents = true;
+			AddChild(HoldContainer);
+		}
+		
+		// hold
+		if (Hold == null)
+		{
+			Hold = new TextureRect();
+			Hold.Name = "Hold Graphic";
+			HoldContainer.AddChild(Hold);
+			HoldContainer.MoveChild(Hold, 0);
+		}
+		
+		// The tail
+		if (Tail == null)
+		{
+			Tail = new AnimatedSprite2D();
+			Tail.Name = "Tail Graphic";
+			HoldContainer.AddChild(Tail);
+			Tail.MoveToFront();
+		}
+	}
+
 	/// <summary>
-	/// Sets up this hit object for usage alongside a <see cref="ManiaNoteManager"/>.
+	/// Assigns <see cref="NoteData"/> and a parent <see cref="ManiaNoteManager"/> to this hit object.
 	/// </summary>
 	/// <param name="noteData">The note data</param>
 	/// <param name="parentManager">The parent manager</param>
-	/// <param name="noteSkin">The note skin</param>
-	public void Setup(NoteData noteData, ManiaNoteManager parentManager, ManiaNoteSkin noteSkin)
+	public void Assign(NoteData noteData, ManiaNoteManager parentManager)
 	{
 		Position = new Vector2(5000, 0);
 		Info = noteData;
 		ParentManager = parentManager;
-		ChangeNoteSkin(noteSkin);
+
+		string direction = null;
+		if (NoteSkin != null)
+		{
+			direction = NoteSkin.GetDirection(noteData.Lane, ParentManager.ParentBarLine.Chart.Lanes).ToLower();
+			Note.Play($"{direction}NoteNeutral");
+			Note.Visible = true;
+		}
 		
 		HoldContainer.Visible = Info.MsLength > 0;
-		if (Info.MsLength <= 0)
+		if (Info.MsLength <= 0 || direction == null)
 			return;
+		
+		Texture2D holdTexture = NoteSkin.HoldAtlas.GetFrameTexture($"{direction}NoteHold", 0);
+		Hold.Texture = holdTexture;
+		HoldContainer.Modulate = new Color(1f, 1f, 1f, 0.5f);
+		HoldContainer.Size = new Vector2(0f, holdTexture.GetHeight());
+		HoldContainer.Scale = NoteSkin.Scale;
+		HoldContainer.PivotOffset = new Vector2(0f, HoldContainer.Size.Y / 2f);
+		HoldContainer.Position = new Vector2(0f, -HoldContainer.Size.Y / 2f);
+		Hold.StretchMode = NoteSkin.UseTiledHold && holdTexture is not AtlasTexture
+			? TextureRect.StretchModeEnum.Tile
+			: TextureRect.StretchModeEnum.Scale;
+		
+		Tail.Visible = true;
+		Tail.Play($"{direction}NoteTail");
 		
 		AdjustInitialTailSize();
 		AdjustTailLength(Info.MsLength);
@@ -83,6 +139,8 @@ public partial class ManiaNote : Note
 		{
 			Active = false;
 			Visible = false;
+			
+			ParentManager.RemoveChild(this);
 		}
 	}
 	
@@ -109,74 +167,30 @@ public partial class ManiaNote : Note
 			return;
 		
 		NoteSkin = noteSkin;
-
-		int lane = ParentManager.Lane;
-		int laneCount = ParentManager.ParentBarLine.Chart.Lanes;
-		string direction = noteSkin.GetDirection(lane, laneCount).ToLower();
-		
-		// Initialize graphic object here, if they're null.
-		if (Note == null)
-		{
-			Note = new AnimatedSprite2D();
-			Note.Name = "Note Graphic";
-			AddChild(Note);
-		}
-		
-		if (HoldContainer == null)
-		{
-			HoldContainer = new Control();
-			HoldContainer.Name = "Hold Container";
-			HoldContainer.ClipContents = true;
-			AddChild(HoldContainer);
-			
-			// Test
-			/*
-			ColorRect thing = new ColorRect();
-			HoldContainer.AddChild(thing);
-			thing.SetAnchorsPreset(LayoutPreset.FullRect);
-			thing.Color = Colors.Lavender;*/
-		}
-		
-		// hold
-		if (Hold == null)
-		{
-			Hold = new TextureRect();
-			Hold.Name = "Hold Graphic";
-			HoldContainer.AddChild(Hold);
-			HoldContainer.MoveChild(Hold, 0);
-		}
-		
-		// The tail
-		if (Tail == null)
-		{
-			Tail = new AnimatedSprite2D();
-			Tail.Name = "Tail Graphic";
-			HoldContainer.AddChild(Tail);
-			Tail.MoveToFront();
-		}
 		
 		// Do actual note skin graphic setting
 		Note.SpriteFrames = noteSkin.NoteAtlas;
 		Note.Scale = Vector2.One * NoteSkin.Scale;
-		Note.Play($"{direction}NoteNeutral");
-		Note.Visible = true;
+		
+		Tail.Centered = false;
+		Tail.SpriteFrames = noteSkin.HoldAtlas;
 
+		if (Info == null || ParentManager == null)
+			return;
+		
+		string direction = NoteSkin.GetDirection(Info.Lane, ParentManager.ParentBarLine.Chart.Lanes).ToLower();
 		Texture2D holdTexture = NoteSkin.HoldAtlas.GetFrameTexture($"{direction}NoteHold", 0);
+		Hold.Texture = holdTexture;
 		HoldContainer.Modulate = new Color(1f, 1f, 1f, 0.5f);
 		HoldContainer.Size = new Vector2(0f, holdTexture.GetHeight());
 		HoldContainer.Scale = NoteSkin.Scale;
 		HoldContainer.PivotOffset = new Vector2(0f, HoldContainer.Size.Y / 2f);
 		HoldContainer.Position = new Vector2(0f, -HoldContainer.Size.Y / 2f);
-
-		Hold.Texture = holdTexture;
 		Hold.StretchMode = noteSkin.UseTiledHold && holdTexture is not AtlasTexture
 			? TextureRect.StretchModeEnum.Tile
 			: TextureRect.StretchModeEnum.Scale;
-
-		Tail.Centered = false;
-		Tail.SpriteFrames = noteSkin.HoldAtlas;
+		
 		Tail.Play($"{direction}NoteTail");
-		Tail.Visible = true;
 	}
 	
 	/// <summary>

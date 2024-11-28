@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://b1dd6dwh3yhmb"]
+
+[ext_resource type="Script" uid="uid://chcsomp7jpcbi" path="res://Source/Rubicon/Rulesets/Mania/ManiaNoteSkin.cs" id="1_chvoa"]
+
+[sub_resource type="GDScript" id="GDScript_s26kk"]
+resource_name = "MineNoteType"
+script/source = "extends NoteType
+
+@export var mine_note_skin : ManiaNoteSkin
+
+func spawn_note(_note : Note, _note_type : StringName) -> void:
+	if _note_type != &\"mine\" or _note is not ManiaNote:
+		return
+	
+	var mania_note : ManiaNote = _note
+	mania_note.ChangeNoteSkin(mine_note_skin)
+"
+
+[sub_resource type="Resource" id="Resource_h2mhu"]
+script = ExtResource("1_chvoa")
+Scale = Vector2(1, 1)
+LaneSize = 160.0
+Filter = 2
+Directions = {
+4: PackedStringArray("left", "down", "up", "right")
+}
+UseTiledHold = false
+metadata/_custom_type_script = ExtResource("1_chvoa")
+
+[node name="Mine" type="Node"]
+script = SubResource("GDScript_s26kk")
+mine_note_skin = SubResource("Resource_h2mhu")

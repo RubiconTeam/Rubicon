@@ -6,7 +6,7 @@ namespace Rubicon.View2D;
 /// <summary>
 /// Character class for <see cref="CanvasItemSpace"/> spaces.
 /// </summary>
-public partial class Character2D : Node2D
+[GlobalClass] public partial class Character2D : Node2D
 {
     /// <summary>
     /// Determines whether the character is facing left or not.
