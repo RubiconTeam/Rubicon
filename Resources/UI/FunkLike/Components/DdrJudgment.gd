@@ -22,10 +22,10 @@ func update_stats(_combo : int, _hit : int, _distance : float) -> void:
 	if container == null:
 		container = Control.new()
 		container.name = &"Judgment Container"
+		container.size = Vector2.ZERO
 		
 		graphic = AnimatedSprite2D.new()
 		graphic.name = &"Graphic"
-		graphic.centered = false
 		
 		container.add_child(graphic)
 		add_child(container)
@@ -41,6 +41,7 @@ func update_stats(_combo : int, _hit : int, _distance : float) -> void:
 	
 	container.scale = graphic_scale * 1.1
 	container.modulate.a = opacity
+	container.pivot_offset = container.size / 2.0
 	
 	update_position()
 	
