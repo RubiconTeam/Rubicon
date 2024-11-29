@@ -16,7 +16,7 @@ namespace Rubicon.Rulesets;
 	/// <summary>
 	/// Contains all the nodes used to manage notes.
 	/// </summary>
-	[Export] public NoteManager[] Managers;
+	[Export] public NoteController[] Managers;
 	
 	/// <summary>
 	/// The PlayField this instance is associated with.
@@ -69,13 +69,13 @@ namespace Rubicon.Rulesets;
 
 	public void SetAutoPlay(bool autoplay)
 	{
-		foreach (NoteManager noteManager in Managers)
+		foreach (NoteController noteManager in Managers)
 			noteManager.Autoplay = autoplay;
 	}
 
 	public void SetScrollSpeed(float scrollSpeed)
 	{
-		foreach (NoteManager noteManager in Managers)
+		foreach (NoteController noteManager in Managers)
 			noteManager.ScrollSpeed = scrollSpeed;
 	}
 }

@@ -52,7 +52,7 @@ public partial class DdrComboDisplay : Control, IComboDisplay, IJudgmentMaterial
     private Vector2 _offset = Vector2.Zero;
 
     /// <inheritdoc/>
-    public void Show(uint combo, HitType type, Vector2? offset)
+    public void Show(long combo, HitType type, Vector2? offset)
     {
 	    if (RubiconGame.Instance != null && RubiconGame.Instance.PlayField != null)
 	    {
@@ -69,7 +69,7 @@ public partial class DdrComboDisplay : Control, IComboDisplay, IJudgmentMaterial
     }
     
     /// <inheritdoc/>
-    public void Show(uint combo, HitType type, float anchorLeft, float anchorTop, float anchorRight, float anchorBottom, Vector2? pos)
+    public void Show(long combo, HitType type, float anchorLeft, float anchorTop, float anchorRight, float anchorBottom, Vector2? pos)
     {
 	    if (type > _lastRating)
 		    _lastRating = type;

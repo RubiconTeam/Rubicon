@@ -13,7 +13,7 @@ namespace Rubicon.Rulesets.Mania;
     /// <summary>
     /// The max score this instance can get.
     /// </summary>
-    [Export] public uint MaxScore = 1000000;
+    [Export] public int MaxScore = 1000000;
 
     [Export] public ManiaNoteSkin NoteSkin;
     
@@ -66,20 +66,20 @@ namespace Rubicon.Rulesets.Mania;
     public override void UpdateStatistics()
     {
         // Score
-        if (PerfectHits == NoteCount) Score = MaxScore;
+        if (ScoreTracker.PerfectHits == ScoreTracker.NoteCount) ScoreTracker.Score = MaxScore;
         else
         {
-            float baseNoteValue = ((float)MaxScore / NoteCount) / 2f;
-            float baseScore = (float)((baseNoteValue * PerfectHits) + (baseNoteValue * (GreatHits * 0.9375)) + (baseNoteValue * (GoodHits * 0.625)) + (baseNoteValue * (OkayHits * 0.3125)) + (baseNoteValue * (BadHits * 0.15625)));
-            float bonusScore = Mathf.Sqrt(((float)HighestCombo / NoteCount) * 100f) * MaxScore * 0.05f; 
-            Score = (uint)(baseScore + bonusScore);
+            float baseNoteValue = ((float)MaxScore / ScoreTracker.NoteCount) / 2f;
+            float baseScore = (float)((baseNoteValue * ScoreTracker.PerfectHits) + (baseNoteValue * (ScoreTracker.GreatHits * 0.9375)) + (baseNoteValue * (ScoreTracker.GoodHits * 0.625)) + (baseNoteValue * (ScoreTracker.OkayHits * 0.3125)) + (baseNoteValue * (ScoreTracker.BadHits * 0.15625)));
+            float bonusScore = Mathf.Sqrt(((float)ScoreTracker.HighestCombo / ScoreTracker.NoteCount) * 100f) * MaxScore * 0.05f; 
+            ScoreTracker.Score = (int)Math.Floor(baseScore + bonusScore);
         }
         
         // Accuracy
-        uint hitNotes = PerfectHits + GreatHits + GoodHits + OkayHits + BadHits + Misses;
-        Accuracy = PerfectHits == NoteCount
+        long hitNotes = ScoreTracker.PerfectHits + ScoreTracker.GreatHits + ScoreTracker.GoodHits + ScoreTracker.OkayHits + ScoreTracker.BadHits + ScoreTracker.Misses;
+        ScoreTracker.Accuracy = ScoreTracker.PerfectHits == ScoreTracker.NoteCount
             ? 100f
-            : ((PerfectHits + (GreatHits * 0.95f) + (GoodHits * 0.65f) + (OkayHits * 0.3f) + (BadHits + 0.15f)) /
+            : ((ScoreTracker.PerfectHits + (ScoreTracker.GreatHits * 0.95f) + (ScoreTracker.GoodHits * 0.65f) + (ScoreTracker.OkayHits * 0.3f) + (ScoreTracker.BadHits + 0.15f)) /
                hitNotes) * 100f;
     }
 

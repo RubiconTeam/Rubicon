@@ -51,13 +51,13 @@ public partial class FunkinComboDisplay : Control, IComboDisplay, IJudgmentMater
     private Dictionary<Control, int> _comboAccelerations = new();
 
     /// <inheritdoc/>
-    public void Show(uint combo, HitType type, Vector2? offset)
+    public void Show(long combo, HitType type, Vector2? offset)
     {
         Show(combo, type, 0.5f, 0.5f, 0.5f, 0.5f, new Vector2((Size.X * 0.507f) - 97.5f, Size.Y * 0.48f) + offset);
     }
     
     /// <inheritdoc/>
-    public void Show(uint combo, HitType type, float anchorLeft, float anchorTop, float anchorRight, float anchorBottom, Vector2? pos)
+    public void Show(long combo, HitType type, float anchorLeft, float anchorTop, float anchorRight, float anchorBottom, Vector2? pos)
     {
         if (combo == 0 && _wasZero)
             return;

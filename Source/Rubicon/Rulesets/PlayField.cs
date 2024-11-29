@@ -22,28 +22,10 @@ namespace Rubicon.Rulesets;
     /// </summary>
     [Export] public uint MaxHealth = 1000;
 
-    // lego was probably right in having a high score class, ill save this for him
-    [Export] public uint Score = 0;
-
-    [Export] public float Accuracy = 100f;
-
-    [Export] public uint PerfectHits = 0;
-    
-    [Export] public uint GreatHits = 0;
-    
-    [Export] public uint GoodHits = 0;
-
-    [Export] public uint OkayHits = 0;
-    
-    [Export] public uint BadHits = 0;
-    
-    [Export] public uint Misses = 0;
-
-    [Export] public uint Combo = 0;
-
-    [Export] public uint HighestCombo = 0;
-
-    [Export] public uint NoteCount = 0;
+    /// <summary>
+    /// Keeps track of the player's combos and score.
+    /// </summary>
+    [Export] public ScoreTracker ScoreTracker = new();
 
     /// <summary>
     /// The Chart for this PlayField.
@@ -192,7 +174,6 @@ namespace Rubicon.Rulesets;
             {
                 TargetIndex = i;
                 curBarLine.SetAutoPlay(false);
-                NoteCount = (uint)(indChart.Notes.Count(x => !x.ShouldMiss) + indChart.Notes.Count(x => !x.ShouldMiss && x.Length > 0));
             }
             
             AddChild(curBarLine);
@@ -200,6 +181,7 @@ namespace Rubicon.Rulesets;
             curBarLine.NoteHit += OnNoteHit;
         }
         
+        ScoreTracker.Initialize(chart, TargetBarLine);
         UpdateOptions();
     }
 
@@ -269,35 +251,35 @@ namespace Rubicon.Rulesets;
         if (BarLines[TargetIndex] == barLine && !result.HasFlag(NoteResultFlags.Score))
         {
             HitType hit = result.Hit;
-            Combo = hit != HitType.Miss ? Combo + 1 : 0;
-            if (Combo > HighestCombo)
-                HighestCombo = Combo;
+            ScoreTracker.Combo = hit != HitType.Miss ? ScoreTracker.Combo + 1 : 0;
+            if (ScoreTracker.Combo > ScoreTracker.HighestCombo)
+                ScoreTracker.HighestCombo = ScoreTracker.Combo;
 
             switch (hit)
             {
                 case HitType.Perfect:
-                    PerfectHits++;
+                    ScoreTracker.PerfectHits++;
                     break;
                 case HitType.Great:
-                    GreatHits++;
+                    ScoreTracker.GreatHits++;
                     break;
                 case HitType.Good:
-                    GoodHits++;
+                    ScoreTracker.GoodHits++;
                     break;
                 case HitType.Okay:
-                    OkayHits++;
+                    ScoreTracker.OkayHits++;
                     break;
                 case HitType.Bad:
-                    BadHits++;
+                    ScoreTracker.BadHits++;
                     break;
                 case HitType.Miss:
-                    Misses++;
+                    ScoreTracker.Misses++;
                     break;
             }
             
             UpdateStatistics();
             Judgment?.Play(hit, UiStyle.JudgmentOffset);   
-            ComboDisplay?.Show(Combo, hit, UiStyle.ComboOffset);
+            ComboDisplay?.Show(ScoreTracker.Combo, hit, UiStyle.ComboOffset);
             HitDistance?.Show(inputElement.Distance, hit, UiStyle.HitDistanceOffset);
         }
         

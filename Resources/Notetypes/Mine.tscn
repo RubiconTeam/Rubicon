@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://b1dd6dwh3yhmb"]
 
-[ext_resource type="Script" uid="uid://chcsomp7jpcbi" path="res://Source/Rubicon/Rulesets/Mania/ManiaNoteSkin.cs" id="1_chvoa"]
+[ext_resource type="Script" uid="uid://chcsomp7jpcbi" path="res://Source/Rubicon/Rulesets/Mania/ManiaNoteSkin.cs" id="1_p6u6k"]
 
 [sub_resource type="GDScript" id="GDScript_s26kk"]
 resource_name = "MineNoteType"
@@ -17,7 +17,7 @@ func spawn_note(_note : Note, _note_type : StringName) -> void:
 "
 
 [sub_resource type="Resource" id="Resource_h2mhu"]
-script = ExtResource("1_chvoa")
+script = ExtResource("1_p6u6k")
 Scale = Vector2(1, 1)
 LaneSize = 160.0
 Filter = 2
@@ -25,7 +25,7 @@ Directions = {
 4: PackedStringArray("left", "down", "up", "right")
 }
 UseTiledHold = false
-metadata/_custom_type_script = ExtResource("1_chvoa")
+metadata/_custom_type_script = ExtResource("1_p6u6k")
 
 [node name="Mine" type="Node"]
 script = SubResource("GDScript_s26kk")
