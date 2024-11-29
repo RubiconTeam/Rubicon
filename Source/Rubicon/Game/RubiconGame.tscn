@@ -1,20 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://cuuuxjlonwxhn"]
+[gd_scene load_steps=2 format=3 uid="uid://cuuuxjlonwxhn"]
 
-[ext_resource type="Resource" uid="uid://vo15jymw0qh8" path="res://Resources/Rulesets/Mania.tres" id="1_br2md"]
-[ext_resource type="Script" path="res://Source/Rubicon/Game/RubiconGame.cs" id="1_qul2p"]
+[ext_resource type="Script" uid="uid://ioij6a50x82" path="res://Source/Rubicon/Game/RubiconGame.cs" id="1_qul2p"]
 
 [node name="RubiconGame" type="Node" node_paths=PackedStringArray("Instrumental", "Vocals")]
 script = ExtResource("1_qul2p")
-RuleSet = ExtResource("1_br2md")
-Instrumental = NodePath("Song/Inst")
-Vocals = NodePath("Song/Vocals")
+Instrumental = NodePath("Audio/Insturmental")
+Vocals = NodePath("Audio/Vocals")
 
-[node name="Space" type="Node" parent="."]
+[node name="Audio" type="Node" parent="."]
 
-[node name="Song" type="Node" parent="."]
-
-[node name="Inst" type="AudioStreamPlayer" parent="Song"]
+[node name="Insturmental" type="AudioStreamPlayer" parent="Audio"]
 bus = &"Instrumental"
 
-[node name="Vocals" type="AudioStreamPlayer" parent="Song"]
+[node name="Vocals" type="AudioStreamPlayer" parent="Audio"]
 bus = &"Vocals"
