@@ -253,13 +253,11 @@ public partial class UserSettingsInstance : Node
 
 	public Variant GetSetting(string key)
 	{
-		GD.Print($"Getting setting: {key}");
 		return _data.GetSetting(key);
 	}
 
 	public void SetSetting(string key, Variant value)
 	{
-		GD.Print($"Setting value: {key} = {value}");
 		_data.SetSetting(key, value);
 	}
 }
