@@ -14,7 +14,7 @@ This engine is in a very Work-In-Progress state at the moment, so not everything
 
 Please make sure you have the following on your device:
 
-- [Godot Engine v4.3 with .NET support](https://godotengine.org/download/archive/4.3-stable/) (Other versions not guaranteed to work)
+- [Godot Engine v4.4-dev5 with .NET support](https://godotengine.org/download/archive/4.4-dev5/) (Other versions not guaranteed to work)
 - [.NET 8](https://dotnet.microsoft.com/en-us/download/dotnet/8.0)
 - [rcedit](https://github.com/electron/rcedit) (Windows exclusive, required for Windows exporting)
 
@@ -24,21 +24,21 @@ We plan to have an API Reference and a wiki to help developers better understand
 
 ### Recommended IDEs
 
-We recommend using an IDE that has intelligent code completion, syntax highlighting, and integrates closely with Godot. Some that come to mind are [JetBrains Rider](https://www.jetbrains.com/rider/) and [Visual Studio Code](https://code.visualstudio.com/) with the [C#](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp) and [C# Tools for Godot](https://marketplace.visualstudio.com/items?itemName=neikeq.godot-csharp-vscode) plugins installed.
+We recommend using an IDE that has intelligent code completion, syntax highlighting, and integrates closely with Godot. We reccomend [JetBrains Rider](https://www.jetbrains.com/rider/) and [Visual Studio Code](https://code.visualstudio.com/) with the [C#](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp) and [C# Tools for Godot](https://marketplace.visualstudio.com/items?itemName=neikeq.godot-csharp-vscode) plugins installed. They're totally free to us (non-commercially for Rider)!
 
 [Visual Studio](https://visualstudio.microsoft.com/vs/) is also a good choice, but that's for Windows only.
 
 ### Languages
 
-This engine uses mainly C# for its code base and main scripting.
+This engine uses mainly C# for its main code base.
 
-Lua is not planned to be supported in this engine any time soon. However GDScript is, but will most likely be a little finicky to work with by nature since this is essentially cross-language scripting. 
+For actual scripting however, either GDScript or C# works, whatever tickles yer fancy! This engine is designed with that in mind, so keep a lookout for signals and events to connect to, since that's how you'll be working with the engine.
 
 You could possibly work with GDExtension, though we won't provide any support for those ourselves. (Theoretically you could use Haxe! We wouldn't recommend it though, C# is very similar, if not better functionally than it.)
 
 ### Disclaimer
 
-We ask you that you please follow proper C# formatting when developing with us, like for example: PascalCase names for public and protected properties, and _camelCase for private properties (with the underscore).
+We ask you that you please follow proper C# formatting when developing with C# on the main code base, like for example: PascalCase names for public and protected properties, and _camelCase for private properties (with the underscore).
 
 # Contributing
 
