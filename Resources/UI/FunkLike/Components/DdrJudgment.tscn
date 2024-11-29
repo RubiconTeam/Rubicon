@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://ct85hayoei4a1"]
 
-[ext_resource type="Script" path="res://Source/Rubicon/Extras/UI/DdrJudgment.cs" id="1_1b2yj"]
+[ext_resource type="Script" uid="uid://26nf0k5o1j4a" path="res://Resources/UI/FunkLike/Components/DdrJudgment.gd" id="1_f1a0t"]
 [ext_resource type="SpriteFrames" uid="uid://dfu73x2lu7p1f" path="res://Assets/UI/Styles/Funkin/Judgment/judgments.tres" id="2_ugn0q"]
 
 [node name="Judgment" type="Control"]
@@ -10,6 +10,5 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_1b2yj")
-Atlas = ExtResource("2_ugn0q")
-GraphicScale = Vector2(0.667, 0.667)
+script = ExtResource("1_f1a0t")
+atlas = ExtResource("2_ugn0q")

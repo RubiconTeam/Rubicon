@@ -29,7 +29,6 @@ namespace Rubicon.Rulesets;
         Note result = HitObjects[type].FirstOrDefault(x => !x.Active);
         if (result != null)
         {
-            GD.Print("recyle :3");
             result.Reset();
             return result;   
         }

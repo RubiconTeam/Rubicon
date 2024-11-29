@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://wg70s5307qtw"]
+
+[ext_resource type="Script" uid="uid://ckvi2uvl5fx8o" path="res://Resources/UI/Funkin/Components/FunkinJudgment.gd" id="1_4cu30"]
+[ext_resource type="SpriteFrames" uid="uid://dfu73x2lu7p1f" path="res://Assets/UI/Styles/Funkin/Judgment/judgments.tres" id="2_vsu3a"]
+
+[node name="Judgment" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4cu30")
+atlas = ExtResource("2_vsu3a")

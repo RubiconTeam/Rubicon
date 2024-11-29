@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://cynf1ud5pgdr3"]
 
-[ext_resource type="Script" path="res://Source/Rubicon/Extras/UI/DdrHitDistance.cs" id="1_ajaab"]
+[ext_resource type="Script" uid="uid://dre5q5e6eqk13" path="res://Resources/UI/FunkLike/Components/DdrHitDistance.gd" id="2_lxnkd"]
 [ext_resource type="FontFile" uid="uid://bqc4pbm6jidbr" path="res://Assets/UI/Fonts/vcr.ttf" id="2_whcw6"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_wf87c"]
@@ -9,9 +9,10 @@ font_size = 32
 outline_size = 6
 outline_color = Color(0, 0, 0, 1)
 
-[node name="Label" type="Label"]
+[node name="HitDistance" type="Label" node_paths=PackedStringArray("label")]
 offset_right = 400.0
 offset_bottom = 29.0
 label_settings = SubResource("LabelSettings_wf87c")
 horizontal_alignment = 1
-script = ExtResource("1_ajaab")
+script = ExtResource("2_lxnkd")
+label = NodePath(".")

@@ -1,16 +1,32 @@
+using Rubicon.Core.Meta;
+
 namespace Rubicon.Game;
 
 /// <summary>
-/// A resource that helps in defining what song to load in <see cref="RubiconGame"/>.
+/// An object that helps in defining what song to load in <see cref="RubiconGame"/>.
 /// </summary>
 [GlobalClass]
-public partial class LoadContext : Resource
+public partial class LoadContext : RefCounted
 {
+    /// <summary>
+    /// The name of the song to load.
+    /// </summary>
     [Export] public string Name = ProjectSettings.GetSetting("rubicon/general/fallback/song").AsString();
     
+    /// <summary>
+    /// The difficulty to load.
+    /// </summary>
     [Export] public string Difficulty = ProjectSettings.GetSetting("rubicon/general/fallback/difficulty").AsString();
 
+    /// <summary>
+    /// The rule set to play with.
+    /// </summary>
     [Export] public string RuleSet = ProjectSettings.GetSetting("rubicon/rulesets/default_ruleset").AsString();
+
+    /// <summary>
+    /// Defines which bar line is chosen in <see cref="SongMeta.PlayableCharts"/>. Chooses the first index by default.
+    /// </summary>
+    [Export] public int TargetIndex = 0;
 
     /// <summary>
     /// Checks for any errors and reports any errors to the Godot console if any are found.

@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://q5yhhc5khh8u"]
 
-[ext_resource type="Script" path="res://Source/Rubicon/Extras/UI/DdrComboDisplay.cs" id="1_1x1qq"]
+[ext_resource type="Script" uid="uid://bahnthfqe2ig" path="res://Resources/UI/FunkLike/Components/DdrComboDisplay.gd" id="1_tjue0"]
 [ext_resource type="SpriteFrames" uid="uid://c85tnr6y52kqk" path="res://Assets/UI/Styles/Funkin/Combo/combo.tres" id="2_wlae3"]
 
 [node name="ComboDisplay" type="Control"]
@@ -10,7 +10,5 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_1x1qq")
-Atlas = ExtResource("2_wlae3")
-Spacing = 60.0
-GraphicScale = Vector2(0.667, 0.667)
+script = ExtResource("1_tjue0")
+atlas = ExtResource("2_wlae3")

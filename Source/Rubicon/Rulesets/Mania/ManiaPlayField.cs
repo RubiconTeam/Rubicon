@@ -16,13 +16,14 @@ namespace Rubicon.Rulesets.Mania;
     [Export] public int MaxScore = 1000000;
 
     [Export] public ManiaNoteSkin NoteSkin;
-    
+
     /// <summary>
     /// Readies this PlayField for Mania gameplay!
     /// </summary>
     /// <param name="meta">The song meta</param>
     /// <param name="chart">The chart loaded</param>
-    public override void Setup(SongMeta meta, RubiChart chart)
+    /// <param name="targetIndex">The index to play in <see cref="SongMeta.PlayableCharts"/>.</param>
+    public override void Setup(SongMeta meta, RubiChart chart, int targetIndex)
     {
         // REALLY SHITTY, REPLACE BELOW LATER !!!
         string noteSkinName = meta.NoteSkin;
@@ -38,11 +39,11 @@ namespace Rubicon.Rulesets.Mania;
         maniaFactory.NoteSkin = NoteSkin;
         Factory = maniaFactory;
         
-        base.Setup(meta, chart);
+        base.Setup(meta, chart, targetIndex);
         
         Name = "Mania PlayField";
         for (int i = 0; i < BarLines.Length; i++)
-            BarLines[i].MoveToFront();;
+            BarLines[i].MoveToFront();
     }
     
     /// <inheritdoc/>

@@ -3,7 +3,6 @@ using Rubicon.Core;
 using Rubicon.Core.Chart;
 using Rubicon.Core.Data;
 using Rubicon.Core.Meta;
-using Rubicon.Core.UI;
 
 namespace Rubicon.Rulesets;
 
@@ -62,36 +61,28 @@ namespace Rubicon.Rulesets;
     /// </summary>
     [Export] public NoteFactory Factory;
 
-    [Export] public RubiconEvent NoteHitEvent = new();
+    /// <summary>
+    /// An event that is invoked when a note is hit.
+    /// </summary>
+    [Export] public RubiconEvent GetNoteResults = new();
     
-    [Signal] public delegate void BeforeNoteCreateEventHandler(NoteData note);
+    /// <summary>
+    /// Triggers upon the statistics updating.
+    /// </summary>
+    [Signal] public delegate void StatisticsUpdatedEventHandler(long combo, HitType hit, double distance);
     
     /// <summary>
     /// A signal that is emitted upon failure.
     /// </summary>
-    [Signal] public delegate void OnFailEventHandler();
+    [Signal] public delegate void FailedEventHandler();
 
-    /// <summary>
-    /// The Judgment instance for this play field.
-    /// </summary>
-    public IJudgment Judgment;
-
-    /// <summary>
-    /// The ComboDisplay instance for this play field.
-    /// </summary>
-    public IComboDisplay ComboDisplay;
-
-    /// <summary>
-    /// The HitDistance instance for this play field.
-    /// </summary>
-    public IHitDistance HitDistance;
-    
     /// <summary>
     /// Readies the PlayField for gameplay!
     /// </summary>
     /// <param name="meta">The song meta</param>
     /// <param name="chart">The chart loaded</param>
-    public virtual void Setup(SongMeta meta, RubiChart chart)
+    /// <param name="targetIndex">The index to play in <see cref="SongMeta.PlayableCharts"/>.</param>
+    public virtual void Setup(SongMeta meta, RubiChart chart, int targetIndex)
     {
         Name = "Base PlayField";
         Metadata = meta;
@@ -108,77 +99,29 @@ namespace Rubicon.Rulesets;
             uiStylePath = defaultUiPath;
         }
         UiStyle = GD.Load<UiStyle>(uiStylePath);
-
-        if (UiStyle.HitDistance != null)
-        {
-            Node hitDistNode = UiStyle.HitDistance.Instantiate();
-            if (hitDistNode is not IHitDistance hitDist)
-            {
-                GD.PrintErr($"UI Style's HitDistance does not inherit from IHitDistance! ({uiStylePath})");
-            }
-            else
-            {
-                HitDistance = hitDist;
-                AddChild(hitDistNode);
-                
-                if (HitDistance is IJudgmentMaterial toApply)
-                    toApply.ApplyUiStyle(UiStyle);
-            }
-        }
-
-        if (UiStyle.Judgment != null)
-        {
-            Node judgmentNode = UiStyle.Judgment.Instantiate();
-            if (judgmentNode is not IJudgment judgment)
-            {
-                GD.PrintErr($"UI Style's Judgment does not inherit from IJudgment! ({uiStylePath})");
-            }
-            else
-            {
-                Judgment = judgment;
-                AddChild(judgmentNode);   
-                
-                if (Judgment is IJudgmentMaterial toApply)
-                    toApply.ApplyUiStyle(UiStyle);
-            }
-        }
-
-        if (UiStyle.Combo != null)
-        {
-            Node comboNode = UiStyle.Combo.Instantiate();
-            if (comboNode is not IComboDisplay comboDisplay)
-            {
-                GD.PrintErr($"UI Style's ComboDisplay does not inherit from IComboDisplay! ({uiStylePath})");
-            }
-            else
-            {
-                ComboDisplay = comboDisplay;
-                AddChild(comboNode);   
-                
-                if (ComboDisplay is IJudgmentMaterial toApply)
-                    toApply.ApplyUiStyle(UiStyle);
-            }
-        }
+        if (UiStyle.HitDistance != null && UiStyle.HitDistance.CanInstantiate())
+            AddChild(UiStyle.HitDistance.Instantiate());
+        if (UiStyle.Judgment != null && UiStyle.Judgment.CanInstantiate())
+            AddChild(UiStyle.Judgment.Instantiate());
+        if (UiStyle.Combo != null && UiStyle.Combo.CanInstantiate())
+            AddChild(UiStyle.Combo.Instantiate());
         
         BarLines = new BarLine[chart.Charts.Length];
-        TargetBarLine = meta.PlayableCharts[0]; // For now, allow this to be modified later
+        TargetBarLine = meta.PlayableCharts[targetIndex];
         for (int i = 0; i < chart.Charts.Length; i++)
         {
             IndividualChart indChart = chart.Charts[i];
-            for (int j = 0; j < indChart.Notes.Length; j++)
-                EmitSignalBeforeNoteCreate(indChart.Notes[j]);
-            
             BarLine curBarLine = CreateBarLine(indChart, i);
             curBarLine.PlayField = this;
             if (indChart.Name == TargetBarLine)
             {
                 TargetIndex = i;
-                curBarLine.SetAutoPlay(false);
+                curBarLine.SetAutoPlay(false);   
             }
             
             AddChild(curBarLine);
             BarLines[i] = curBarLine;
-            curBarLine.NoteHit += OnNoteHit;
+            curBarLine.NoteHit += BarLineHit;
         }
         
         ScoreTracker.Initialize(chart, TargetBarLine);
@@ -198,7 +141,7 @@ namespace Rubicon.Rulesets;
     /// </summary>
     public void Fail()
     {
-        EmitSignalOnFail();
+        EmitSignalFailed();
     }
 
     /// <summary>
@@ -232,10 +175,10 @@ namespace Rubicon.Rulesets;
     /// <param name="lane">The lane</param>
     /// <param name="direction">The sing direction</param>
     /// <param name="inputElement">Info about the input recieved</param>
-    protected virtual void OnNoteHit(BarLine barLine, int lane, string direction, NoteInputElement inputElement)
+    protected virtual void BarLineHit(BarLine barLine, int lane, string direction, NoteInputElement inputElement)
     {
         NoteResult result = new NoteResult(NoteResultFlags.None, inputElement.Hit);
-        Variant[] results = NoteHitEvent.Invoke(barLine, lane, (int)inputElement.Hit, inputElement.Holding);
+        Variant[] results = GetNoteResults.Invoke(barLine, lane, (int)inputElement.Hit, inputElement.Holding);
         for (int i = 0; i < results.Length; i++)
         {
             if (results[i].VariantType != Variant.Type.Object || results[i].AsGodotObject() is not NoteResult newResult)
@@ -278,9 +221,7 @@ namespace Rubicon.Rulesets;
             }
             
             UpdateStatistics();
-            Judgment?.Play(hit, UiStyle.JudgmentOffset);   
-            ComboDisplay?.Show(ScoreTracker.Combo, hit, UiStyle.ComboOffset);
-            HitDistance?.Show(inputElement.Distance, hit, UiStyle.HitDistanceOffset);
+            EmitSignalStatisticsUpdated(ScoreTracker.Combo, result.Hit, inputElement.Distance);
         }
         
         result.Free();

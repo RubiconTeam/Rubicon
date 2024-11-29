@@ -97,7 +97,7 @@ namespace Rubicon.Game;
 		
 		// Set up play field
 		PlayField = LoadPlayField(RuleSet);
-		PlayField.Setup(Metadata, Chart);
+		PlayField.Setup(Metadata, Chart, Context.TargetIndex);
 		AddChild(PlayField);
 
 		LoadAutoLoads();

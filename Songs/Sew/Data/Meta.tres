@@ -19,7 +19,7 @@ BarLine = &"Opponent"
 
 [sub_resource type="Resource" id="Resource_bb6bo"]
 script = ExtResource("2_moy6i")
-Character = "Bf"
+Character = "bf"
 Nickname = &"Player"
 BarLine = &"Player"
 

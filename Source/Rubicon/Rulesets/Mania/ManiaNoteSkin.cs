@@ -1,4 +1,5 @@
 using Godot.Collections;
+using CollectionExtensions = System.Collections.Generic.CollectionExtensions;
 
 namespace Rubicon.Rulesets.Mania;
 
@@ -69,10 +70,6 @@ namespace Rubicon.Rulesets.Mania;
 	/// <returns>An array of direction names. (Ex: ["left", "down", "up", "right"])</returns>
 	public string[] GetDirections(int laneCount = 4)
 	{
-		string[] direction = Directions.ContainsKey(laneCount) ? Directions[laneCount] : null;
-		if (direction == null)
-			return [];
-
-		return direction;
+		return CollectionExtensions.GetValueOrDefault(Directions, laneCount);
 	}
 }

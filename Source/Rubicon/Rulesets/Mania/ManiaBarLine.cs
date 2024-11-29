@@ -29,7 +29,7 @@ namespace Rubicon.Rulesets.Mania;
             ManiaNoteController noteMan = new ManiaNoteController();
             noteMan.Setup(this, i, noteSkin);
             noteMan.Position = new Vector2(i * NoteSkin.LaneSize - ((chart.Lanes - 1) * NoteSkin.LaneSize / 2f), 0);
-            noteMan.Name = $"Mania Note Manager {i}";
+            noteMan.Name = NoteSkin.GetDirection(i, chart.Lanes);
             noteMan.ScrollSpeed = scrollSpeed;
             
             AddChild(noteMan);

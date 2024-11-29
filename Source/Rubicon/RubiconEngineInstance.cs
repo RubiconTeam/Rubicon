@@ -68,4 +68,10 @@ public partial class RubiconEngineInstance : Node
 	/// </summary>
 	/// <returns>An instance of <see cref="RubiconGame"/> if there is one, none if there isn't.</returns>
 	public RubiconGame GetGameInstance() => RubiconGame.Instance;
+
+	/// <summary>
+	/// Sets the next load context of RubiconGame.
+	/// </summary>
+	/// <param name="context">The song load context</param>
+	public void SetLoadContext(LoadContext context) => RubiconGame.Context = context;
 }
