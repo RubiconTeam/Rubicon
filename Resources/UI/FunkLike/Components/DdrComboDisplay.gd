@@ -59,7 +59,6 @@ func update_stats(_combo : int, _hit : int, _distance : float) -> void:
 			combo_spr.scale = Vector2.ONE
 		
 		for i in range(graphics_length, split_digits.size()):
-			print(i)
 			var combo_spr : Control = Control.new()
 			var graphic : AnimatedSprite2D = AnimatedSprite2D.new()
 			
