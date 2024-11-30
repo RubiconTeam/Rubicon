@@ -1,5 +1,5 @@
 #if TOOLS
-using Rubicon.Rulesets.Mania;
+using Rubicon.Core.Rulesets.Mania;
 
 namespace Rubicon.Editor.Rulesets.Mania;
 

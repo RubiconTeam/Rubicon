@@ -2,7 +2,7 @@ using Rubicon.Core;
 using Rubicon.Core.Chart;
 using Rubicon.Core.Meta;
 using Rubicon.Core.Data;
-using Rubicon.Rulesets;
+using Rubicon.Core.Rulesets;
 using Rubicon.View2D;
 
 namespace Rubicon.Game;

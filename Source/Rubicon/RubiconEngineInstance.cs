@@ -17,8 +17,8 @@
 global using Godot;
 global using System;
 using Godot.Collections;
+using Rubicon.Core;
 using Rubicon.Core.Data;
-using Rubicon.Data.Generation;
 using Rubicon.Game;
 
 namespace Rubicon;

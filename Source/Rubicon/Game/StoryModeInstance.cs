@@ -1,4 +1,4 @@
-using Rubicon.Data.Generation;
+using Rubicon.Core;
 
 namespace Rubicon.Game;
 
