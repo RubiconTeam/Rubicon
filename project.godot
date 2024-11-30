@@ -25,9 +25,9 @@ buses/default_bus_layout="uid://8f826qwop1rs"
 [autoload]
 
 RubiconEngine="*res://Source/Rubicon/RubiconEngineInstance.cs"
-Conductor="*res://Source/Rubicon/Core/ConductorInstance.cs"
-UserSettings="*res://Source/Rubicon/Data/Settings/UserSettingsInstance.cs"
-DebugInfo="*res://Source/Rubicon/Core/Autoload/DebugInfo.tscn"
+Conductor="*res://Source/Libraries/Core/Rubicon.Core/ConductorInstance.cs"
+UserSettings="*res://Source/Libraries/Core/Rubicon.Core/Settings/UserSettingsInstance.cs"
+DebugInfo="*res://Source/Libraries/Core/Rubicon.Core/UI/DebugInfo.tscn"
 StoryMode="*res://Source/Rubicon/Game/StoryModeInstance.cs"
 
 [display]

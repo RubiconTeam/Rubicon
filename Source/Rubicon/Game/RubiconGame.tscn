@@ -4,13 +4,12 @@
 
 [node name="RubiconGame" type="Node" node_paths=PackedStringArray("Instrumental", "Vocals")]
 script = ExtResource("1_qul2p")
+EditorSongName = "Test"
 Instrumental = NodePath("Audio/Insturmental")
 Vocals = NodePath("Audio/Vocals")
 
 [node name="Audio" type="Node" parent="."]
 
 [node name="Insturmental" type="AudioStreamPlayer" parent="Audio"]
-bus = &"Instrumental"
 
 [node name="Vocals" type="AudioStreamPlayer" parent="Audio"]
-bus = &"Vocals"

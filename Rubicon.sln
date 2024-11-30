@@ -2,9 +2,9 @@
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rubicon", "Rubicon.csproj", "{59851DE1-2761-4285-959C-23E212A67C62}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rubicon.SourceGenerators", "Source\Rubicon.SourceGenerators\Rubicon.SourceGenerators.csproj", "{71D650FD-9DD5-4710-9C9D-4DD2035A2FFB}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Libraries", "Libraries", "{7DC15B8F-2F8A-4C19-ABAB-3CA30B4D3410}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Roslyn", "Roslyn", "{7DC15B8F-2F8A-4C19-ABAB-3CA30B4D3410}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rubicon.SourceGenerators", "Source\Libraries\Core\Rubicon.SourceGenerators\Rubicon.SourceGenerators.csproj", "{B65FF7A7-E991-46BD-8349-755DE09C6549}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,14 +19,14 @@ Global
 		{59851DE1-2761-4285-959C-23E212A67C62}.ExportDebug|Any CPU.Build.0 = ExportDebug|Any CPU
 		{59851DE1-2761-4285-959C-23E212A67C62}.ExportRelease|Any CPU.ActiveCfg = ExportRelease|Any CPU
 		{59851DE1-2761-4285-959C-23E212A67C62}.ExportRelease|Any CPU.Build.0 = ExportRelease|Any CPU
-		{71D650FD-9DD5-4710-9C9D-4DD2035A2FFB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{71D650FD-9DD5-4710-9C9D-4DD2035A2FFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{71D650FD-9DD5-4710-9C9D-4DD2035A2FFB}.ExportDebug|Any CPU.ActiveCfg = Debug|Any CPU
-		{71D650FD-9DD5-4710-9C9D-4DD2035A2FFB}.ExportDebug|Any CPU.Build.0 = Debug|Any CPU
-		{71D650FD-9DD5-4710-9C9D-4DD2035A2FFB}.ExportRelease|Any CPU.ActiveCfg = Debug|Any CPU
-		{71D650FD-9DD5-4710-9C9D-4DD2035A2FFB}.ExportRelease|Any CPU.Build.0 = Debug|Any CPU
+		{B65FF7A7-E991-46BD-8349-755DE09C6549}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B65FF7A7-E991-46BD-8349-755DE09C6549}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B65FF7A7-E991-46BD-8349-755DE09C6549}.ExportDebug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B65FF7A7-E991-46BD-8349-755DE09C6549}.ExportDebug|Any CPU.Build.0 = Debug|Any CPU
+		{B65FF7A7-E991-46BD-8349-755DE09C6549}.ExportRelease|Any CPU.ActiveCfg = Debug|Any CPU
+		{B65FF7A7-E991-46BD-8349-755DE09C6549}.ExportRelease|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{71D650FD-9DD5-4710-9C9D-4DD2035A2FFB} = {7DC15B8F-2F8A-4C19-ABAB-3CA30B4D3410}
+		{B65FF7A7-E991-46BD-8349-755DE09C6549} = {7DC15B8F-2F8A-4C19-ABAB-3CA30B4D3410}
 	EndGlobalSection
 EndGlobal

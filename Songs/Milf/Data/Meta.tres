@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="SongMeta" load_steps=8 format=3 uid="uid://dqwrimkhnqiyc"]
 
-[ext_resource type="Script" uid="uid://drd5b57dbi868" path="res://Source/Rubicon/Core/Meta/CharacterMeta.cs" id="1_g6yev"]
-[ext_resource type="Script" uid="uid://bin7tcge05j76" path="res://Source/Rubicon/Core/Chart/BpmInfo.cs" id="1_qkhdv"]
-[ext_resource type="Script" uid="uid://qhkqc1rjayhp" path="res://Source/Rubicon/Core/Meta/SongMeta.cs" id="2_qkhdv"]
+[ext_resource type="Script" uid="uid://drd5b57dbi868" path="res://Source/Libraries/Core/Rubicon.Core/Meta/CharacterMeta.cs" id="1_g6yev"]
+[ext_resource type="Script" uid="uid://bin7tcge05j76" path="res://Source/Libraries/Core/Rubicon.Core/Chart/BpmInfo.cs" id="1_qkhdv"]
+[ext_resource type="Script" uid="uid://qhkqc1rjayhp" path="res://Source/Libraries/Core/Rubicon.Core/Meta/SongMeta.cs" id="2_qkhdv"]
 
 [sub_resource type="Resource" id="Resource_qkhdv"]
 script = ExtResource("1_qkhdv")

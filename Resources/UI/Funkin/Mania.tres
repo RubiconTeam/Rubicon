@@ -2,7 +2,7 @@
 
 [ext_resource type="SpriteFrames" uid="uid://4goneul8bdw4" path="res://Assets/UI/Styles/Funkin/Mania/funkinSustains.tres" id="1_1u4ew"]
 [ext_resource type="SpriteFrames" uid="uid://b8101m4w407vv" path="res://Assets/UI/Styles/Funkin/Mania/funkinLane.tres" id="2_vxuwv"]
-[ext_resource type="Script" uid="uid://chcsomp7jpcbi" path="res://Source/Rubicon/Rulesets/Mania/ManiaNoteSkin.cs" id="2_wyt6f"]
+[ext_resource type="Script" uid="uid://btgffnf6roka7" path="res://Source/Libraries/Core/Rubicon.Core/Rulesets/Mania/ManiaNoteSkin.cs" id="2_wyt6f"]
 [ext_resource type="SpriteFrames" uid="uid://47rhsae2m5sr" path="res://Assets/UI/Styles/Funkin/Mania/funkinNotes.tres" id="3_2wh6h"]
 
 [resource]
