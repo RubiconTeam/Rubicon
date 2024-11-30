@@ -1,6 +1,3 @@
-[submodule "Source/Rubicon/Core"]
-	path = Source/Rubicon/Core
-	url = https://github.com/RubiconTeam/Rubicon.Core.git
 [submodule "addons/sprite_importer"]
 	path = addons/sprite_importer
 	url = https://github.com/legole0/Godot-Sprite-Importer.git
