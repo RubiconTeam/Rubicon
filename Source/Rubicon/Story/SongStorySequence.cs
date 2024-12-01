@@ -1,4 +1,6 @@
-namespace Rubicon.Game;
+using Rubicon.Game;
+
+namespace Rubicon.Story;
 
 [GlobalClass]
 public partial class SongStorySequence : StorySequence

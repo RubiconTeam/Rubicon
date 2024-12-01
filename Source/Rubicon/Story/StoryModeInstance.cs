@@ -1,12 +1,12 @@
 using Rubicon.Core;
 
-namespace Rubicon.Game;
+namespace Rubicon.Story;
 
 /// <summary>
 /// Meant to control story mode related sequences here. Contains only songs for now, but should contain
 /// things such as dialogue and video playing too.
 /// </summary>
-[GlobalClass, StaticAutoloadSingleton("Rubicon.Game", "StoryMode")]
+[GlobalClass, StaticAutoloadSingleton("Rubicon.Story", "StoryMode")]
 public partial class StoryModeInstance : Node
 {
     [Export] public int Index = 0;

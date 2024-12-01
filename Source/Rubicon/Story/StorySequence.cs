@@ -1,4 +1,4 @@
-namespace Rubicon.Game;
+namespace Rubicon.Story;
 
 /// <summary>
 /// Serves as an event for the story mode instance to execute when reached.
