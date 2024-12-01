@@ -26,7 +26,6 @@ namespace Rubicon.Shared;
         Conductor.StepHit += StepHit;
         Conductor.BpmChanged += BpmChanged;
         
-        GD.Print(Conductor.BpmList[Conductor.BpmIndex] is null);
         BpmChanged(Conductor.BpmList[Conductor.BpmIndex]);
     }
     
