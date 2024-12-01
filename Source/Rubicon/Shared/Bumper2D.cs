@@ -11,13 +11,13 @@ namespace Rubicon.Shared;
     /// <summary>
     /// How many times to bump each measure.
     /// </summary>
-    [Export] public double BumpMeasure { get => _bumpMeasure; set => SetBumpMeasure(value); }
+    [Export] public float BumpMeasure { get => _bumpMeasure; set => SetBumpMeasure(value); }
 
     private BpmInfo _currentBpm;
     
     private int _bumpStep = 4;
     private int _stepOffset = 0;
-    private double _bumpMeasure = 1d / 2d;
+    private float _bumpMeasure = 1f / 2f;
 
     public override void _Ready()
     {
@@ -48,7 +48,7 @@ namespace Rubicon.Shared;
         SetBumpMeasure(_bumpMeasure);
     }
 
-    private void SetBumpMeasure(double value)
+    private void SetBumpMeasure(float value)
     {
         _bumpMeasure = value;
         _bumpStep = (int)Math.Floor(_currentBpm.TimeSignatureNumerator * _currentBpm.TimeSignatureDenominator * _bumpMeasure);
