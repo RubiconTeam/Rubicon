@@ -1,12 +1,13 @@
 using Rubicon.Core;
 using Rubicon.Data;
+using Rubicon.Shared;
 
 namespace Rubicon.View2D;
 
 /// <summary>
 /// Character class for <see cref="CanvasItemSpace"/> spaces.
 /// </summary>
-[GlobalClass] public partial class Character2D : Node2D
+[GlobalClass] public partial class Character2D : Bumper2D
 {
     /// <summary>
     /// Determines whether the character is facing left or not.
@@ -111,7 +112,6 @@ namespace Rubicon.View2D;
     [Export] public Node2D CameraPoint;
 
     private int _lastStep = -int.MaxValue;
-    private double _lastDanceSnap = double.NegativeInfinity;
 
     public override void _Ready()
     {
@@ -130,15 +130,16 @@ namespace Rubicon.View2D;
 	    if (Holding)
 			HandleHoldAnimations();
 
-	    double curDanceSnap = Mathf.Snapped(Conductor.CurrentMeasure, DanceMeasure);
-	    if (CurrentAnim != null && ((CurrentAnim.Name.StartsWith("sing") && SingTimer >= SingDuration || !CurrentAnim.Name.StartsWith("sing")) && !Mathf.IsEqualApprox(curDanceSnap, _lastDanceSnap)))
-		    Dance();
-
 	    SingTimer += delta;
 	    _lastStep = curStep;
-	    _lastDanceSnap = curDanceSnap;
     }
-    
+
+    public override void Bump()
+    {
+	    if (CurrentAnim != null && (CurrentAnim.Name.StartsWith("sing") && SingTimer >= SingDuration || !CurrentAnim.Name.StartsWith("sing")))
+		    Dance(true);
+    }
+
     /// <summary>
     /// Plays a dance animation for this character.
     /// </summary>

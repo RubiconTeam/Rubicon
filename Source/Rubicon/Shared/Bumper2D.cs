@@ -25,6 +25,8 @@ namespace Rubicon.Shared;
 
         Conductor.StepHit += StepHit;
         Conductor.BpmChanged += BpmChanged;
+        
+        GD.Print(Conductor.BpmList[Conductor.BpmIndex] is null);
         BpmChanged(Conductor.BpmList[Conductor.BpmIndex]);
     }
     
@@ -41,7 +43,7 @@ namespace Rubicon.Shared;
     
     private void BpmChanged(BpmInfo currentBpm)
     {
-        _stepOffset += (int)Math.Floor((currentBpm.Time - _currentBpm.Time) * _currentBpm.TimeSignatureNumerator * _currentBpm.TimeSignatureDenominator);
+        _stepOffset += _currentBpm == null ? 0 : (int)Math.Floor((currentBpm.Time - _currentBpm.Time) * _currentBpm.TimeSignatureNumerator * _currentBpm.TimeSignatureDenominator);
         
         _currentBpm = currentBpm;
         SetBumpMeasure(_bumpMeasure);
