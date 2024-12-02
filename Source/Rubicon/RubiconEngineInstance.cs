@@ -33,7 +33,7 @@ public partial class RubiconEngineInstance : Node
 	/// <summary>
 	/// The current version of Rubicon being used.
 	/// </summary>
-	public static VersionInfo Version = new(0, 1, 0, 0, "-alpha");
+	public static readonly VersionInfo Version = new(0, 1, 0, 0, "-alpha");
 	
 	/// <summary>
 	/// The scene that the game first starts with. Automatically set by <see cref="_Ready"/>.
@@ -53,25 +53,22 @@ public partial class RubiconEngineInstance : Node
 		StartingScene = GetTree().CurrentScene;
 
 		Array<StringName> actionNames = InputMap.GetActions();
-		for (int i = 0; i < actionNames.Count; i++)
-		{
-			string actionName = actionNames[i];
+		foreach (string actionName in actionNames) 
 			DefaultInputMap[actionName] = InputMap.ActionGetEvents(actionName);
-		}
 	}
 
 	/// <inheritdoc cref="Version"/>
-	public VersionInfo GetVersion() => Version;
+	public static VersionInfo GetVersion() => Version;
 	
 	/// <summary>
 	/// Returns the current running instance of <see cref="RubiconGame"/>.
 	/// </summary>
 	/// <returns>An instance of <see cref="RubiconGame"/> if there is one, none if there isn't.</returns>
-	public RubiconGame GetGameInstance() => RubiconGame.Instance;
+	public static RubiconGame GetGameInstance() => RubiconGame.Instance;
 
 	/// <summary>
 	/// Sets the next load context of RubiconGame.
 	/// </summary>
 	/// <param name="context">The song load context</param>
-	public void SetLoadContext(LoadContext context) => RubiconGame.Context = context;
+	public static void SetLoadContext(LoadContext context) => RubiconGame.Context = context;
 }
