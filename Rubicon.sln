@@ -4,7 +4,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rubicon", "Rubicon.csproj",
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Libraries", "Libraries", "{7DC15B8F-2F8A-4C19-ABAB-3CA30B4D3410}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rubicon.SourceGenerators", "Source\Libraries\Core\Rubicon.SourceGenerators\Rubicon.SourceGenerators.csproj", "{B65FF7A7-E991-46BD-8349-755DE09C6549}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rubicon.SourceGenerators", "Source\Rubicon.SourceGenerators\Rubicon.SourceGenerators.csproj", "{B65FF7A7-E991-46BD-8349-755DE09C6549}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

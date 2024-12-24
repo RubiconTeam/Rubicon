@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://cuuuxjlonwxhn"]
 
-[ext_resource type="Script" uid="uid://ioij6a50x82" path="res://Source/Rubicon/Game/RubiconGame.cs" id="1_qul2p"]
+[ext_resource type="Script" uid="uid://bc8hw5alkoe4" path="res://Source/Rubicon/Game/RubiconGame.cs" id="1_qul2p"]
 
 [node name="RubiconGame" type="Node" node_paths=PackedStringArray("Instrumental", "Vocals")]
 script = ExtResource("1_qul2p")

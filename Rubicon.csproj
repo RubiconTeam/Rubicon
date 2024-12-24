@@ -15,8 +15,8 @@
     <EmbeddedResource Remove="Source\Rubicon\Data\Settings\Enums\**" />
     <Compile Remove="Source\Rubicon\Menus\Settings\Resources\**" />
     <EmbeddedResource Remove="Source\Rubicon\Menus\Settings\Resources\**" />
-    <Compile Remove="Source\Libraries\Core\Rubicon.SourceGenerators\**" />
-    <EmbeddedResource Remove="Source\Libraries\Core\Rubicon.SourceGenerators\**" />
+    <Compile Remove="Source\Rubicon.SourceGenerators\**" />
+    <EmbeddedResource Remove="Source\Rubicon.SourceGenerators\**" />
   </ItemGroup>
   <ItemGroup>
     <!-- Root the assemblies to avoid trimming. -->
@@ -50,6 +50,6 @@
     <Content Include="Source\Rubicon\Menus\Settings\Templates\VBoxTemplate.tscn" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="Source\Libraries\Core\Rubicon.SourceGenerators\Rubicon.SourceGenerators.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
+    <ProjectReference Include="Source\Rubicon.SourceGenerators\Rubicon.SourceGenerators.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
   </ItemGroup>
 </Project>

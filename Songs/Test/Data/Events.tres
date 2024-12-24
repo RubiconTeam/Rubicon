@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="EventMeta" load_steps=2 format=3 uid="uid://dx3rtjop0ngtc"]
 
-[ext_resource type="Script" uid="uid://du5wyfyj1nrmp" path="res://Source/Libraries/Core/Rubicon.Core/Events/EventMeta.cs" id="1_ofh37"]
+[ext_resource type="Script" uid="uid://du5wyfyj1nrmp" path="res://Source/Rubicon.Core/Events/EventMeta.cs" id="1_ofh37"]
 
 [resource]
 script = ExtResource("1_ofh37")
