@@ -7,6 +7,3 @@
 [submodule "addons/rubichart_importer"]
 	path = addons/rubichart_importer
 	url = https://github.com/RubiconTeam/rubichart_importer.git
-[submodule "Source/Libraries/Core"]
-	path = Source/Libraries/Core
-	url = https://github.com/RubiconTeam/Rubicon.Core.git
