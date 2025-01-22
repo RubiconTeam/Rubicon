@@ -1,5 +1,6 @@
 using Godot.Collections;
 using Rubicon.Core.Meta;
+using Rubicon.Core.Rulesets;
 
 namespace Rubicon.View2D;
 
@@ -65,4 +66,12 @@ public partial class CanvasItemSpace : Node2D
 	public Character2D GetCharacter(StringName nickName) => _namedCharacters[nickName];
 	
 	public Array<Character2D> GetCharactersFromBarLine(StringName barLineName) => _barLineCharacters[barLineName];
+
+	
+	public void SingGroup(StringName barLineName, string direction, bool holding = false, bool miss = false, string customPrefix = null, string customSuffix = null)
+	{
+		Array<Character2D> characters = GetCharactersFromBarLine(barLineName);
+		for (int i = 0; i < characters.Count; i++)
+			characters[i].Sing(direction, holding, miss, customPrefix, customSuffix);
+	}
 }

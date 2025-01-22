@@ -60,14 +60,14 @@ namespace Rubicon.View2D;
     public CharacterAnimation LastAnim = null;
 
     /// <summary>
-    /// The duration of the sing animations before going back to idle.
+    /// How long the singing animation should last in steps before idling back.
     /// </summary>
     [Export] public float SingDuration = 4;
 
     /// <summary>
     /// A timer that determines if the animation should be finished or not.
     /// </summary>
-    public double SingTimer;
+    [Export] public float SingTimer;
 
     /// <summary>
     /// A timer that determines if the hold animation should be repeated or not.
@@ -130,13 +130,13 @@ namespace Rubicon.View2D;
 	    if (Holding)
 			HandleHoldAnimations();
 
-	    SingTimer += delta;
+	    SingTimer += (float)delta;
 	    _lastStep = curStep;
     }
 
     public override void Bump()
     {
-	    if (CurrentAnim != null && (CurrentAnim.Name.StartsWith("sing") && SingTimer >= SingDuration || !CurrentAnim.Name.StartsWith("sing")))
+	    if (CurrentAnim != null && (CurrentAnim.Name.StartsWith("sing") && SingTimer >= Conductor.StepValue * 0.001f * SingDuration || !CurrentAnim.Name.StartsWith("sing")))
 		    Dance(true);
     }
 

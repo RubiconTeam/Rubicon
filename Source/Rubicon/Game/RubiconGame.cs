@@ -98,6 +98,7 @@ namespace Rubicon.Game;
 		// Set up play field
 		PlayField = LoadPlayField(RuleSet);
 		PlayField.Setup(Metadata, Chart, Context.TargetIndex);
+		PlayField.SingCalled += SingCalled;
 		AddChild(PlayField);
 
 		LoadAutoLoads();
@@ -110,6 +111,18 @@ namespace Rubicon.Game;
 		
 		if (Vocals.Stream != null)
 			Vocals.Play();
+	}
+
+	protected virtual void SingCalled(StringName name, NoteInputElement inputElement)
+	{
+		switch (Metadata.Environment)
+		{
+			case GameEnvironment.CanvasItem: // 2D Space
+			{
+				CanvasItemSpace.SingGroup(name, inputElement.Direction, inputElement.Holding, inputElement.Hit == HitType.Miss);
+				break;
+			}
+		}
 	}
 
 	public override void _Input(InputEvent @event)
