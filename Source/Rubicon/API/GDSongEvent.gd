@@ -4,8 +4,6 @@ extends Node
 
 ## A template for a song event in GDScript. Must replace the function [method call_event]
 
-@export var event_name : StringName = &"" ## The name of the event.
-
 var _initialized : bool = false
 
 func _ready() -> void: ## Used to initialize this event for the first time.
@@ -25,7 +23,7 @@ func call_event(time : float, args : Dictionary[StringName, Variant]): ## This f
 	pass
 
 func on_event_called(event_name : StringName, time : float, args : Dictionary[StringName, Variant]):
-	if self.event_name != event_name:
+	if event_name != name:
 		return
 	
 	call_event(time, args)

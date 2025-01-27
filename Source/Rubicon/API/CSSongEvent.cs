@@ -8,11 +8,6 @@ namespace Rubicon.API;
 /// </summary>
 [GlobalClass] public abstract partial class CSSongEvent : Node
 {
-    /// <summary>
-    /// The name of the event.
-    /// </summary>
-    [Export] public StringName EventName;
-
     private bool _initialized = false;
 
     /// <summary>
@@ -44,7 +39,7 @@ namespace Rubicon.API;
     
     private void OnEventCalled(StringName eventName, float time, Dictionary<StringName, Variant> args)
     {
-        if (eventName != EventName)
+        if (eventName != Name)
             return;
 
         CallEvent(time, args);
