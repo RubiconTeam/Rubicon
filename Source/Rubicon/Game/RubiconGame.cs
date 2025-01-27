@@ -36,19 +36,25 @@ namespace Rubicon.Game;
 
 	[Export] public CanvasItemSpace CanvasItemSpace;
 
+	[Export] public SongEventController EventController;
+
 	[ExportSubgroup("Audio"), Export] public AudioStreamPlayer Instrumental;
 	
 	[Export] public AudioStreamPlayer Vocals;
-	
-	public override void _Ready()
+
+	public RubiconGame()
 	{
 		if (Instance != null)
 		{
 			QueueFree();
 			return;
 		}
+		
 		Instance = this;
-
+	}
+	
+	public override void _Ready()
+	{
 		#if TOOLS
 		if (Context == null)
 			Context = new LoadContext { Name = EditorSongName, Difficulty = EditorDifficulty, RuleSet = EditorRuleSet };
