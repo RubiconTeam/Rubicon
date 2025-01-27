@@ -45,6 +45,10 @@ window/vsync/vsync_mode=0
 
 project/assembly_name="Rubicon"
 
+[editor]
+
+script/templates_search_path="res://Templates/"
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/rubichart_converter/plugin.cfg", "res://addons/rubichart_importer/plugin.cfg", "res://addons/rubicon_helper/plugin.cfg")

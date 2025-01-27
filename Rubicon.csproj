@@ -17,6 +17,8 @@
     <EmbeddedResource Remove="Source\Rubicon\Menus\Settings\Resources\**" />
     <Compile Remove="Source\Rubicon.SourceGenerators\**" />
     <EmbeddedResource Remove="Source\Rubicon.SourceGenerators\**" />
+    <Compile Remove="Templates\**" />
+    <EmbeddedResource Remove="Templates\**" />
   </ItemGroup>
   <ItemGroup>
     <!-- Root the assemblies to avoid trimming. -->
