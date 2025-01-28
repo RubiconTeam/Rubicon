@@ -16,5 +16,5 @@ func spawn_note(_note : Note, _note_type : StringName) -> void:
 
 func note_hit(_bar_line : BarLine, _lane : int, _hit : int, _holding : bool) -> NoteResult:
 	var result : NoteResult = NoteResult.new()
-	result.Hit = _hit; result.ProcessFlags = 0x0
+	result.Flags = NoteResultFlags.NONE
 	return result

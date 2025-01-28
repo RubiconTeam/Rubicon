@@ -38,6 +38,9 @@
     <Content Include="Songs\Test\Inst.ogg.import" />
     <Content Include="Songs\Test\Vocals.ogg" />
     <Content Include="Songs\Test\Vocals.ogg.import" />
+    <Content Include="Source\Rubicon.Core\Data\HitType.gd" />
+    <Content Include="Source\Rubicon.Core\Rulesets\NoteResultFlags.gd" />
+    <Content Include="Source\Rubicon\API\GDNoteType.gd" />
     <Content Include="Source\Rubicon\API\GDSongEvent.gd" />
     <Content Include="Source\Rubicon\API\GDStatDisplay.gd" />
     <Content Include="Source\Rubicon\Menus\Settings\SettingsMenu.tscn" />

@@ -119,13 +119,13 @@ namespace Rubicon.Game;
 			Vocals.Play();
 	}
 
-	protected virtual void SingCalled(StringName name, NoteInputElement inputElement)
+	protected virtual void SingCalled(StringName name, NoteResult result)
 	{
 		switch (Metadata.Environment)
 		{
 			case GameEnvironment.CanvasItem: // 2D Space
 			{
-				CanvasItemSpace.SingGroup(name, inputElement.Direction, inputElement.Holding, inputElement.Hit == HitType.Miss);
+				CanvasItemSpace.SingGroup(name, result.Direction, result.Holding, result.Hit == HitType.Miss);
 				break;
 			}
 		}
