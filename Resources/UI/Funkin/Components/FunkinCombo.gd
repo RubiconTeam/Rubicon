@@ -1,6 +1,6 @@
 class_name FunkinCombo
 
-extends StatsDisplay
+extends GDStatDisplay
 
 @export var atlas : SpriteFrames
 @export var spacing : float = 54.0

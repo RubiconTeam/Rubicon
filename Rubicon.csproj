@@ -39,6 +39,7 @@
     <Content Include="Songs\Test\Vocals.ogg" />
     <Content Include="Songs\Test\Vocals.ogg.import" />
     <Content Include="Source\Rubicon\API\GDSongEvent.gd" />
+    <Content Include="Source\Rubicon\API\GDStatDisplay.gd" />
     <Content Include="Source\Rubicon\Menus\Settings\SettingsMenu.tscn" />
     <Content Include="Source\Rubicon\Menus\Settings\Templates\Button.tscn" />
     <Content Include="Source\Rubicon\Menus\Settings\Templates\CheckButton.tscn" />

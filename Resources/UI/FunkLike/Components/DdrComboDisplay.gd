@@ -1,6 +1,6 @@
 class_name DdrComboDisplay
 
-extends StatsDisplay
+extends GDStatDisplay
 
 @export var atlas : SpriteFrames
 @export var spacing : float = 60.0

@@ -1,6 +1,6 @@
 class_name DdrJudgment
 
-extends StatsDisplay
+extends GDStatDisplay
 
 @export var atlas : SpriteFrames
 @export var graphic_scale : Vector2 = Vector2.ONE * 0.667

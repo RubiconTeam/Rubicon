@@ -1,6 +1,6 @@
 class_name DdrHitDistance
 
-extends StatsDisplay
+extends GDStatDisplay
 
 @export var graphic_scale : Vector2 = Vector2.ONE
 @export var label : Label
