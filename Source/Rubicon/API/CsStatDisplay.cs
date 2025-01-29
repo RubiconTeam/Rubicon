@@ -7,7 +7,7 @@ namespace Rubicon.API;
 /// <summary>
 /// A template for a UI statistics (i.e. combo, judgment) element in C#. Must be inherited.
 /// </summary>
-[GlobalClass] public abstract partial class CSStatDisplay : Control
+[GlobalClass] public abstract partial class CsStatDisplay : Control
 {
 	/// <summary>
 	/// A reference to the UI Style.

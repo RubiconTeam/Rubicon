@@ -7,7 +7,7 @@ namespace Rubicon.API;
 /// <summary>
 /// A template for a note type in C#. Must be inherited.
 /// </summary>
-[GlobalClass] public abstract partial class CSNoteType : Node
+[GlobalClass] public abstract partial class CsNoteType : Node
 {
     private bool _initialized = false;
     

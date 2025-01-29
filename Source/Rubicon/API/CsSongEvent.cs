@@ -6,7 +6,7 @@ namespace Rubicon.API;
 /// <summary>
 /// A template for a song event in C#. Must be inherited.
 /// </summary>
-[GlobalClass] public abstract partial class CSSongEvent : Node
+[GlobalClass] public abstract partial class CsSongEvent : Node
 {
     private bool _initialized = false;
 

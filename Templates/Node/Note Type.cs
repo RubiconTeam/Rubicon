@@ -6,7 +6,7 @@ namespace Rubicon.API;
 // This is a template for a custom note type in C#.
 // Sorry if the amount of lines seem a little scary at first, there's a lot here I know!
 // This can also act as a Node! So yes, you will have access to such things like _Ready() and _Process(delta)
-public partial class NewNoteType : CSNoteType
+public partial class NewNoteType : CsNoteType
 {
     // This is what your note type will be named.
     [Export] public StringName TypeName = "";
