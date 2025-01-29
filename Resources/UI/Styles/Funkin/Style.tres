@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="UiStyle" load_steps=11 format=3 uid="uid://bumud17n0nyt2"]
+
+[ext_resource type="Script" uid="uid://b75l8uw5bicoh" path="res://Source/Rubicon.Core/UiStyle.cs" id="1_363r5"]
+[ext_resource type="Material" uid="uid://clrbqrdp1uiuf" path="res://Resources/UI/Styles/Funkin/Materials/okay.tres" id="1_ncot3"]
+[ext_resource type="PackedScene" uid="uid://wg70s5307qtw" path="res://Resources/UI/Styles/Funkin/Components/FunkinJudgment.tscn" id="1_w5fd1"]
+[ext_resource type="Material" uid="uid://c0cgdmxo1vf40" path="res://Resources/UI/Styles/Funkin/Materials/good.tres" id="2_4c21y"]
+[ext_resource type="PackedScene" uid="uid://djgolwf8k2y4" path="res://Resources/UI/Styles/Funkin/Components/FunkinCombo.tscn" id="2_bgkbr"]
+[ext_resource type="Material" uid="uid://b37f4mdn0h8w6" path="res://Resources/UI/Styles/Funkin/Materials/great.tres" id="3_7f7f8"]
+[ext_resource type="Material" uid="uid://bftkqmdktdaqt" path="res://Resources/UI/Styles/Funkin/Materials/bad.tres" id="4_iebmg"]
+[ext_resource type="PackedScene" uid="uid://cynf1ud5pgdr3" path="res://Resources/UI/Styles/FunkLike/Components/DdrHitDistance.tscn" id="5_3rjbs"]
+[ext_resource type="Material" uid="uid://bs8iq3r2cutsu" path="res://Resources/UI/Styles/Funkin/Materials/miss.tres" id="6_g8yvg"]
+[ext_resource type="Material" uid="uid://bn4b2kj3ajywl" path="res://Resources/UI/Styles/Funkin/Materials/perfect.tres" id="6_uiim7"]
+
+[resource]
+script = ExtResource("1_363r5")
+Judgment = ExtResource("1_w5fd1")
+JudgmentOffset = Vector2(0, 0)
+Combo = ExtResource("2_bgkbr")
+ComboOffset = Vector2(0, 0)
+HitDistance = ExtResource("5_3rjbs")
+HitDistanceOffset = Vector2(0, 95)
+PerfectMaterial = ExtResource("6_uiim7")
+GreatMaterial = ExtResource("3_7f7f8")
+GoodMaterial = ExtResource("2_4c21y")
+OkayMaterial = ExtResource("1_ncot3")
+BadMaterial = ExtResource("4_iebmg")
+MissMaterial = ExtResource("6_g8yvg")

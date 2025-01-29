@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://q5yhhc5khh8u"]
 
-[ext_resource type="Script" uid="uid://bahnthfqe2ig" path="res://Resources/UI/FunkLike/Components/DdrComboDisplay.gd" id="1_tjue0"]
+[ext_resource type="Script" path="res://Resources/UI/Styles/FunkLike/Components/DdrComboDisplay.gd" id="1_tjue0"]
 [ext_resource type="SpriteFrames" uid="uid://c85tnr6y52kqk" path="res://Assets/UI/Styles/Funkin/Combo/combo.tres" id="2_wlae3"]
 
 [node name="ComboDisplay" type="Control"]

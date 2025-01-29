@@ -21,22 +21,6 @@ func on_complete() -> void:
 	loading_bar.anchor_right = 1.0
 "
 
-[sub_resource type="Animation" id="Animation_t4uih"]
-resource_name = "open"
-length = 0.333337
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:anchor_left")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.333333),
-"transitions": PackedFloat32Array(0.5, 1),
-"update": 0,
-"values": [1.0, 0.0]
-}
-
 [sub_resource type="Animation" id="Animation_ntoyu"]
 length = 0.001
 tracks/0/type = "value"
@@ -104,6 +88,22 @@ tracks/1/keys = {
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_t4uih"]
+resource_name = "open"
+length = 0.333337
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:anchor_left")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.333333),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [1.0, 0.0]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ntoyu"]
 _data = {
 &"RESET": SubResource("Animation_ntoyu"),
@@ -112,7 +112,7 @@ _data = {
 }
 
 [node name="Default" type="ColorRect" node_paths=PackedStringArray("loading_bar", "animation_player")]
-anchors_preset = -1
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2

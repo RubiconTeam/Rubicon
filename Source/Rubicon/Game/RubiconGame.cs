@@ -1,8 +1,11 @@
+using System.Collections.Generic;
+using System.Linq;
 using Rubicon.Core;
 using Rubicon.Core.Chart;
 using Rubicon.Core.Meta;
 using Rubicon.Core.Data;
 using Rubicon.Core.Rulesets;
+using Rubicon.Screens;
 using Rubicon.View2D;
 
 namespace Rubicon.Game;
@@ -10,7 +13,7 @@ namespace Rubicon.Game;
 /// <summary>
 /// The main node that brings characters, stages, and ruleset gameplay together. Serves as "PlayState" in other Funkin' engines.
 /// </summary>
-[GlobalClass] public partial class RubiconGame : Node
+[GlobalClass] public partial class RubiconGame : CsScreen
 {
 	public static RubiconGame Instance { get; private set; }
 
@@ -42,17 +45,52 @@ namespace Rubicon.Game;
 	
 	[Export] public AudioStreamPlayer Vocals;
 
-	public RubiconGame()
+	private bool _preloaded = false;
+
+	public override void ReadyPreload()
 	{
-		if (Instance != null)
-		{
-			QueueFree();
-			return;
-		}
+		_preloaded = true;
 		
-		Instance = this;
+		// Just load the song meta for now, we'll wait until it's loaded.
+		List<string> resourceList = ResourcesToLoad.ToList();
+		resourceList.Add($"res://Songs/{Context.Name}/Data/Meta.tres");
+		resourceList.Add($"res://Songs/{Context.Name}/Data/{Context.RuleSet}-{Context.Difficulty}.rbc");
+		resourceList.Add($"res://Songs/{Context.Name}/Inst.ogg");
+
+		string vocalsPath = $"res://Songs/{Context.Name}/Vocals.ogg";
+		if (ResourceLoader.Exists(vocalsPath))
+			resourceList.Add(vocalsPath);
+		
+		ResourcesToLoad = resourceList.ToArray();
 	}
-	
+
+	public override void OnPreload(string path)
+	{
+		string metaPath = $"res://Songs/{Context.Name}/Data/Meta.tres";
+		if (path == metaPath)
+		{
+			Metadata = ResourceLoader.LoadThreadedGet(metaPath) as SongMeta;
+			List<string> resourceList = ResourcesToLoad.ToList();
+			resourceList.Add($"res://Resources/UI/Styles/{Metadata.UiStyle}/Style.tres");
+			resourceList.Add($"res://Resources/UI/Styles/{Metadata.NoteSkin}/{Context.RuleSet}.tres");
+			resourceList.Add($"res://Resources/Rulesets/{Context.RuleSet}.tres");
+			resourceList.Add($"res://Resources/Stages/{Metadata.Stage}.tscn");
+
+			List<string> loadedCharacters = new List<string>();
+			for (int i = 0; i < Metadata.Characters.Length; i++)
+			{
+				string curCharacter = Metadata.Characters[i].Character;
+				if (loadedCharacters.Contains(curCharacter))
+					continue;
+				
+				resourceList.Add($"res://Resources/Characters/{curCharacter}.tscn");
+				loadedCharacters.Add(curCharacter);
+			}
+				
+			ResourcesToLoad = resourceList.ToArray();
+		}
+	}
+
 	public override void _Ready()
 	{
 		#if TOOLS
@@ -60,10 +98,22 @@ namespace Rubicon.Game;
 			Context = new LoadContext { Name = EditorSongName, Difficulty = EditorDifficulty, RuleSet = EditorRuleSet };
 		#endif
 
+		if (!_preloaded)
+		{
+			ScreenManager.SwitchScreen("res://Screens/RubiconGame.tscn", "default");
+			return;
+		}
+
 		if (!Context.IsValid())
 			return;
 		
-		Metadata = GD.Load<SongMeta>($"res://Songs/{Context.Name}/Data/Meta.tres").ConvertData();
+		if (Instance != null)
+		{
+			QueueFree();
+			return;
+		}
+		
+		Instance = this;
 		
 		// Set up rule set, and check paths too
 		string ruleSetName = Context.RuleSet;
@@ -78,21 +128,18 @@ namespace Rubicon.Game;
 		if (RuleSet is null) // You fucked up again bro
 			throw new Exception("RuleSet is still null. Please check your Project Settings at \"rubicon/rulesets\"");
 
-		Chart = new RubiChart();
-		string songPath = $"res://Songs/{Context.Name}/Data/{Context.RuleSet}-{Context.Difficulty}";
-		if (FileAccess.FileExists(songPath + ".rbc"))
-			Chart.LoadBytes(FileAccess.GetFileAsBytes(songPath + ".rbc"));
-		Chart.ConvertData(Metadata.BpmInfo).Format();
-
+		string chartPath = $"res://Songs/{Context.Name}/Data/{Context.RuleSet}-{Context.Difficulty}.rbc";
+		Chart = ResourceLoader.LoadThreadedGet(chartPath) as RubiChart;
+		
 		string instPath = $"res://Songs/{Context.Name}/Inst.ogg";
 		string vocalsPath = $"res://Songs/{Context.Name}/Vocals.ogg";
 		if (ResourceLoader.Exists(instPath))
-			Instrumental.Stream = GD.Load<AudioStream>(instPath);
+			Instrumental.Stream = ResourceLoader.LoadThreadedGet(instPath) as AudioStream;
 		else
 			GD.PrintErr($"Audio file at path \"{instPath}\" was not found!");
 
 		if (ResourceLoader.Exists(vocalsPath))
-			Vocals.Stream = GD.Load<AudioStream>(vocalsPath);
+			Vocals.Stream = ResourceLoader.LoadThreadedGet(vocalsPath) as AudioStream;
 
 		Conductor.Reset();
 		Conductor.ChartOffset = Metadata.Offset;
@@ -185,15 +232,9 @@ namespace Rubicon.Game;
 			GD.PrintErr($"No resource exists at path \"{ruleSetResourcePath}\".");
 			return null;
 		}
-		
-		Resource ruleSetResource = GD.Load<Resource>(ruleSetResourcePath);
-		if (ruleSetResource is not RuleSet ruleSet)
-		{
-			GD.PrintErr($"Resource at path \"{ruleSetResourcePath}\" found, but does not inherit RuleSet.cs");
-			return null;
-		}
 
-		return ruleSet;
+		Variant ruleSetResource = ResourceLoader.LoadThreadedGet(ruleSetResourcePath);
+		return ruleSetResource.As<RuleSet>();
 	}
 
 	private PlayField LoadPlayField(RuleSet ruleSet)

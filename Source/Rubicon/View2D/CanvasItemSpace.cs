@@ -19,7 +19,7 @@ public partial class CanvasItemSpace : Node2D
 	public void Initialize(SongMeta meta)
 	{
 		// Init stage
-		Stage = GD.Load<PackedScene>($"res://Resources/Stages/{meta.Stage}.tscn").Instantiate<Stage2D>(); // TODO: Check if stage even exists
+		Stage = (ResourceLoader.LoadThreadedGet($"res://Resources/Stages/{meta.Stage}.tscn") as PackedScene).Instantiate<Stage2D>(); // TODO: Check if stage even exists
 		AddChild(Stage);
 		
 		// Init characters
@@ -45,11 +45,11 @@ public partial class CanvasItemSpace : Node2D
 				return;
 			}
 
-			character = ResourceLoader.Load<PackedScene>(fallBack).Instantiate<Character2D>();
+			character = (ResourceLoader.LoadThreadedGet(fallBack) as PackedScene).Instantiate<Character2D>();
 		}
 		else
 		{
-			character = ResourceLoader.Load<PackedScene>(path).Instantiate<Character2D>();
+			character = (ResourceLoader.LoadThreadedGet(path) as PackedScene).Instantiate<Character2D>();
 		}
 
 		character.Name = meta.Nickname;

@@ -108,6 +108,7 @@ public partial class ScreenManagerInstance : CanvasLayer
             EmitSignalProgressUpdated(Progress);
             
             // Start preloading
+            CallReadyPreload();
             UpdateResourcePaths();
             _preloadIndex = 0;
             
@@ -233,6 +234,21 @@ public partial class ScreenManagerInstance : CanvasLayer
         _preloadResourcePaths = [];
     }
 
+    private void CallReadyPreload()
+    {
+        if (CurrentScreen is CsScreen cSharpScreen)
+        {
+            cSharpScreen.ReadyPreload();
+            return;
+        }
+
+        GDScript screenScript = CurrentScreen.GetScript().As<GDScript>();
+        if (screenScript.GetGlobalName() != "GDScreen")
+            return;
+
+        CurrentScreen.Call("ready_preload");
+    }
+    
     private void NotifyResourceLoaded(string path)
     {
         if (CurrentScreen is CsScreen cSharpScreen)
