@@ -44,7 +44,11 @@
     <Content Include="Songs\Test\Inst.ogg.import" />
     <Content Include="Songs\Test\Vocals.ogg" />
     <Content Include="Songs\Test\Vocals.ogg.import" />
+    <Content Include="Source\Rubicon.Core\Data\BarDirection.gd" />
+    <Content Include="Source\Rubicon.Core\Data\ClearRank.gd" />
+    <Content Include="Source\Rubicon.Core\Data\GameEnvironment.gd" />
     <Content Include="Source\Rubicon.Core\Data\HitType.gd" />
+    <Content Include="Source\Rubicon.Core\Data\ScoreRank.gd" />
     <Content Include="Source\Rubicon.Core\Rulesets\NoteResultFlags.gd" />
     <Content Include="Source\Rubicon\API\GDLoadingScreen.gd" />
     <Content Include="Source\Rubicon\API\GDNoteType.gd" />

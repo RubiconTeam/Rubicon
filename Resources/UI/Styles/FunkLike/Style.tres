@@ -14,7 +14,7 @@
 
 [resource]
 script = ExtResource("2_kxovl")
-GameHud = ExtResource("3_6ro6a")
+PlayHud = ExtResource("3_6ro6a")
 Judgment = ExtResource("1_aan2g")
 JudgmentOffset = Vector2(0, 255)
 Combo = ExtResource("2_xpu51")
