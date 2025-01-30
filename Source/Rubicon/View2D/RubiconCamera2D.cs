@@ -10,15 +10,15 @@ public partial class RubiconCamera2D : Camera2D
     [Export] public float TargetRotation = 0f;
     [Export] public float OffsetRotation = 0f;
     [Export] public Vector2 TargetZoom = Vector2.One;
-    [Export] public Vector2 OffsetZoom = Vector2.One;
+    [Export] public Vector2 OffsetZoom = Vector2.Zero;
 
     [ExportGroup("Settings"), Export] public CameraUpdate PositionUpdateType = CameraUpdate.Interpolation;
     [Export] public CameraUpdate RotationUpdateType = CameraUpdate.Interpolation;
-    [Export] public CameraUpdate ZoomUpdateType = CameraUpdate.Instant;
+    [Export] public CameraUpdate ZoomUpdateType = CameraUpdate.Interpolation;
 
-    [ExportSubgroup("Interpolation"), Export] public float PositionLerpWeight = 0.12f;
-    [Export] public float RotationLerpWeight = 0.12f;
-    [Export] public float ZoomLerpWeight = 0.3f;
+    [ExportSubgroup("Interpolation"), Export] public float PositionLerpWeight = 2.4f;
+    [Export] public float RotationLerpWeight = 2.4f;
+    [Export] public float ZoomLerpWeight = 57f;
 
     [ExportSubgroup("Tweening"), Export] public float PositionTweenDuration = 1f;
     [Export] public float RotationTweenDuration = 1f;
@@ -38,7 +38,7 @@ public partial class RubiconCamera2D : Camera2D
 
     public override void _Process(double delta)
     {
-        PositionSmoothingEnabled = PositionUpdateType == CameraUpdate.Interpolation;
+        PositionSmoothingEnabled = PositionUpdateType == CameraUpdate.Smoothing;
         
         float deltaF = (float)delta;
         UpdatePosition(deltaF);
@@ -51,12 +51,26 @@ public partial class RubiconCamera2D : Camera2D
         switch (PositionUpdateType)
         {
             case CameraUpdate.Instant:
-            case CameraUpdate.Interpolation:
+            case CameraUpdate.Smoothing:
                 GlobalPosition = finalPosition;
                 break;
             case CameraUpdate.Tween:
                 if (_previousPosition != finalPosition && !_posTween.IsRunning())
                     TweenPosition(finalPosition, PositionTweenDuration, true);
+                break;
+            case CameraUpdate.Interpolation:
+                Vector2 pos = GlobalPosition;
+                if (pos.IsEqualApprox(finalPosition))
+                    return;
+                
+                Vector2 nextPos = pos.Lerp(finalPosition, PositionLerpWeight * delta);
+                if (nextPos.IsEqualApprox(finalPosition))
+                {
+                    GlobalPosition = finalPosition;
+                    return;
+                }
+
+                GlobalPosition = nextPos;
                 break;
         }
     }
@@ -71,8 +85,18 @@ public partial class RubiconCamera2D : Camera2D
                 Zoom = finalZoom;
                 break;
             case CameraUpdate.Interpolation:
-                Vector2 zoom = GlobalPosition;
-                Zoom = zoom.Lerp(finalZoom, ZoomLerpWeight * delta);
+                Vector2 zoom = Zoom;
+                if (zoom.IsEqualApprox(finalZoom))
+                    return;
+                
+                Vector2 nextZoom = zoom.Lerp(finalZoom, ZoomLerpWeight * delta);
+                if (nextZoom.IsEqualApprox(finalZoom))
+                {
+                    Zoom = finalZoom;
+                    return;
+                }
+
+                Zoom = nextZoom;
                 break;
             case CameraUpdate.Tween:
                 if (_previousZoom != finalZoom && !_zoomTween.IsRunning())

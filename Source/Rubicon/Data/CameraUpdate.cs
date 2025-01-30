@@ -23,5 +23,10 @@ public enum CameraUpdate : uint
     /// <summary>
     /// Tween the camera's value to the final value.
     /// </summary>
-    Tween
+    Tween,
+    
+    /// <summary>
+    /// Uses Godot's built-in smoothing, if available.
+    /// </summary>
+    Smoothing
 }

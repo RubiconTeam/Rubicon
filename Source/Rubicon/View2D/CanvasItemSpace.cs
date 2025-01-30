@@ -24,7 +24,12 @@ public partial class CanvasItemSpace : Node2D
 		AddChild(Stage);
 
 		Camera = new RubiconCamera2D();
+		Camera.Name = "Camera";
 		AddChild(Camera);
+
+		Camera.TargetZoom = Stage.Zoom;
+		if (Stage.SnapZoomOnStart)
+			Camera.Zoom = Stage.Zoom;
 		
 		// Init characters
 		Characters = new Array<Character2D>();
@@ -89,7 +94,7 @@ public partial class CanvasItemSpace : Node2D
 	public Array<Character2D> GetCharactersFromGroup(StringName groupName) => _barLineCharacters[groupName];
 
 	
-	public void SingGroup(StringName barLineName, string direction, bool holding = false, bool miss = false, string customPrefix = null, string customSuffix = null)
+	public void SingForGroup(StringName barLineName, string direction, bool holding = false, bool miss = false, string customPrefix = null, string customSuffix = null)
 	{
 		Array<Character2D> characters = GetCharactersFromGroup(barLineName);
 		for (int i = 0; i < characters.Count; i++)

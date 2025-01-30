@@ -180,7 +180,7 @@ namespace Rubicon.Game;
 		{
 			case GameEnvironment.CanvasItem: // 2D Space
 			{
-				CanvasItemSpace.SingGroup(name, result.Direction, result.Holding, result.Hit == HitType.Miss);
+				CanvasItemSpace.SingForGroup(name, result.Direction, result.Holding, result.Hit == HitType.Miss);
 				break;
 			}
 		}
