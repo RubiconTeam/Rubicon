@@ -11,7 +11,7 @@ namespace Rubicon.Extras.UI;
         base._Process(delta);
 
         ScoreTracker scoreTracker = PlayField.Instance.ScoreTracker;
-        Text = $"Score: {scoreTracker.Score} / Accuracy: {scoreTracker.Accuracy:n2}% / Misses: {scoreTracker.Misses} / Rank: {scoreTracker.Rank.ToString()} ({GetClearText(scoreTracker.Clear)})";
+        Text = $"Score: {scoreTracker.Score} / Accuracy: {scoreTracker.Accuracy:n2}% / Misses: {scoreTracker.Misses} / Rank: {scoreTracker.Rank.ToString().ToUpper()} ({GetClearText(scoreTracker.Clear)})";
     }
 
     private string GetClearText(ClearRank clear)
