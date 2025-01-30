@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://bkj36j8snchyq"]
 
 [ext_resource type="Texture2D" uid="uid://cy7tsup6gbx7t" path="res://Assets/UI/Misc/icon.svg" id="1_3kfjx"]
-[ext_resource type="Script" uid="uid://y3waqh3bwot7" path="res://Source/Rubicon/View2D/Character2D.cs" id="1_lj1lb"]
+[ext_resource type="Script" uid="uid://cqmn2xk4n5fbt" path="res://Source/Rubicon/View2D/Character2D.cs" id="1_lj1lb"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_lb378"]
 animations = [{
@@ -41,32 +41,34 @@ _data = {
 [node name="Missing" type="Node2D" node_paths=PackedStringArray("Sprite", "AnimationPlayer", "CameraPoint")]
 script = ExtResource("1_lj1lb")
 Sprite = NodePath("AnimatedSprite2D")
-AnimationPlayer = NodePath("AnimationPlayer")
+AnimationPlayer = NodePath("AnimatedSprite2D/AnimationPlayer")
 CameraPoint = NodePath("CameraPoint")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(2.5, 0.5)
+scale = Vector2(1.12891, 0.355469)
 sprite_frames = SubResource("SpriteFrames_lb378")
 autoplay = "default"
 
-[node name="Label" type="Label" parent="."]
+[node name="Label" type="Label" parent="AnimatedSprite2D"]
 modulate = Color(1, 1, 0, 1)
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -152.0
-offset_top = -21.0
-offset_right = 152.0
-offset_bottom = 21.0
+offset_left = -125.121
+offset_top = -83.6923
+offset_right = -3.12091
+offset_bottom = -66.6923
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(1.005, 1.975)
 theme_override_constants/outline_size = 6
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 12
 text = "MISSING CHARACTER"
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="AnimatedSprite2D"]
+root_node = NodePath("../..")
 libraries = {
 &"": SubResource("AnimationLibrary_3vjhy")
 }

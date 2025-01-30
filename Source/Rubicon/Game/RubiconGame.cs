@@ -102,7 +102,7 @@ namespace Rubicon.Game;
 
 		if (!_preloaded)
 		{
-			ScreenManager.SwitchScreen("res://Screens/RubiconGame.tscn", "default");
+			ScreenManager.SwitchScreen("res://Screens/RubiconGame.tscn", "Default");
 			return;
 		}
 

@@ -714,7 +714,7 @@ script = ExtResource("1_deaeb")
 LeftFacing = true
 Icon = ExtResource("2_o37gp")
 Sprite = NodePath("Sprite")
-AnimationPlayer = NodePath("AnimationPlayer")
+AnimationPlayer = NodePath("Sprite/AnimationPlayer")
 CameraPoint = NodePath("CameraPoint")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="." node_paths=PackedStringArray("AnimationPlayer")]
@@ -724,13 +724,14 @@ frame = 13
 offset = Vector2(-16, -150)
 script = ExtResource("3_1tcb8")
 Sync = true
-AnimationPlayer = NodePath("../AnimationPlayer")
+AnimationPlayer = NodePath("AnimationPlayer")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite"]
+root_node = NodePath("../..")
+libraries = {
+&"": SubResource("AnimationLibrary_3vjhy")
+}
 
 [node name="CameraPoint" type="Marker2D" parent="."]
 position = Vector2(-60, -156)
 gizmo_extents = 0.0
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_3vjhy")
-}

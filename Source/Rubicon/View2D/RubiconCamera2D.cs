@@ -38,6 +38,8 @@ public partial class RubiconCamera2D : Camera2D
 
     public override void _Process(double delta)
     {
+        PositionSmoothingEnabled = PositionUpdateType == CameraUpdate.Interpolation;
+        
         float deltaF = (float)delta;
         UpdatePosition(deltaF);
         UpdateZoom(deltaF);
@@ -50,10 +52,6 @@ public partial class RubiconCamera2D : Camera2D
         {
             case CameraUpdate.Instant:
                 GlobalPosition = finalPosition;
-                break;
-            case CameraUpdate.Interpolation:
-                Vector2 pos = finalPosition;
-                GlobalPosition = pos.Lerp(finalPosition, PositionLerpWeight * delta);
                 break;
             case CameraUpdate.Tween:
                 if (_previousPosition != finalPosition && !_posTween.IsRunning())

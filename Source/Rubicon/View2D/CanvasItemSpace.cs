@@ -52,7 +52,7 @@ public partial class CanvasItemSpace : Node2D
 		}
 		else
 		{
-			character = (ResourceLoader.LoadThreadedGet(path) as PackedScene).Instantiate<Character2D>();
+			character = ((PackedScene)ResourceLoader.LoadThreadedGet(path)).Instantiate<Character2D>();
 		}
 
 		character.Name = meta.Nickname;
