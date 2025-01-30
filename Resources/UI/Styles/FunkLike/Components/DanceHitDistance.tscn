@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://cynf1ud5pgdr3"]
 
-[ext_resource type="Script" uid="uid://d2fmud8cp46x5" path="res://Resources/UI/Styles/FunkLike/Components/DdrHitDistance.gd" id="2_lxnkd"]
+[ext_resource type="Script" uid="uid://d2fmud8cp46x5" path="res://Resources/UI/Styles/FunkLike/Components/DanceHitDistance.gd" id="2_lxnkd"]
 [ext_resource type="FontFile" uid="uid://bqc4pbm6jidbr" path="res://Assets/UI/Fonts/vcr.ttf" id="2_whcw6"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_wf87c"]

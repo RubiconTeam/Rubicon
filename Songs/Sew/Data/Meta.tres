@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="SongMeta" load_steps=7 format=3 uid="uid://by6jd0e4xxo5"]
 
-[ext_resource type="Script" uid="uid://bxwoouge22vr1" path="res://Source/Rubicon.Core/Chart/BpmInfo.cs" id="1_5aygd"]
-[ext_resource type="Script" uid="uid://dgp7dq56oolm3" path="res://Source/Rubicon.Core/Meta/CharacterMeta.cs" id="2_moy6i"]
-[ext_resource type="Script" uid="uid://c48ic58o1oseb" path="res://Source/Rubicon.Core/Meta/SongMeta.cs" id="3_75x4g"]
+[ext_resource type="Script" uid="uid://crgqugtqe2m3y" path="res://Source/Rubicon.Core/Chart/BpmInfo.cs" id="1_5aygd"]
+[ext_resource type="Script" uid="uid://byks2kdbeeipd" path="res://Source/Rubicon.Core/Meta/CharacterMeta.cs" id="2_moy6i"]
+[ext_resource type="Script" uid="uid://b87l817pyjjsp" path="res://Source/Rubicon.Core/Meta/SongMeta.cs" id="3_75x4g"]
 
 [sub_resource type="Resource" id="Resource_s5mlw"]
 script = ExtResource("1_5aygd")
@@ -30,7 +30,7 @@ RawName = "Sew"
 Artist = "Swifticul"
 Offset = 0.0
 DefaultRuleset = "Mania"
-UiStyle = "Funklike"
+UiStyle = "FunkLike"
 NoteSkin = "Funkin"
 PlayableCharts = [&"Player", &"Opponent"]
 Characters = [SubResource("Resource_jtc0a"), SubResource("Resource_bb6bo")]

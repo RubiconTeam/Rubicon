@@ -1,4 +1,4 @@
-class_name DdrHitDistance
+class_name DanceHitDistance
 
 extends GDStatDisplay
 

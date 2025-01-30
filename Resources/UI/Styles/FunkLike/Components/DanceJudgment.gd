@@ -1,4 +1,4 @@
-class_name DdrJudgment
+class_name DanceJudgment
 
 extends GDStatDisplay
 

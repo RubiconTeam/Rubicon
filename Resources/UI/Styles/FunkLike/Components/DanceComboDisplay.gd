@@ -1,4 +1,4 @@
-class_name DdrComboDisplay
+class_name DanceComboDisplay
 
 extends GDStatDisplay
 

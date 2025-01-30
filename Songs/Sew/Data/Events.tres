@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="EventMeta" load_steps=42 format=3 uid="uid://vtwkam86ug55"]
 
-[ext_resource type="Script" uid="uid://r5c8bg8a86pp" path="res://Source/Rubicon.Core/Events/EventData.cs" id="1_ufntl"]
-[ext_resource type="Script" uid="uid://n2bs3prnkvjw" path="res://Source/Rubicon.Core/Events/EventMeta.cs" id="2_t1qc5"]
+[ext_resource type="Script" uid="uid://b2vtxqusme7by" path="res://Source/Rubicon.Core/Events/EventData.cs" id="1_ufntl"]
+[ext_resource type="Script" uid="uid://by45gtac0cw1n" path="res://Source/Rubicon.Core/Events/EventMeta.cs" id="2_t1qc5"]
 
 [sub_resource type="Resource" id="Resource_qrl3c"]
 script = ExtResource("1_ufntl")

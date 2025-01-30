@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="SongMeta" load_steps=8 format=3 uid="uid://c1ig5rsoyd6f8"]
 
-[ext_resource type="Script" uid="uid://bdbyox76q6op" path="res://Source/Rubicon.Core/Chart/BpmInfo.cs" id="1_ycdkm"]
-[ext_resource type="Script" uid="uid://cl7wirfqv7gpr" path="res://Source/Rubicon.Core/Meta/CharacterMeta.cs" id="2_0eumu"]
-[ext_resource type="Script" uid="uid://c2ackjk3g00nu" path="res://Source/Rubicon.Core/Meta/SongMeta.cs" id="3_ejhfw"]
+[ext_resource type="Script" uid="uid://crgqugtqe2m3y" path="res://Source/Rubicon.Core/Chart/BpmInfo.cs" id="1_ycdkm"]
+[ext_resource type="Script" uid="uid://byks2kdbeeipd" path="res://Source/Rubicon.Core/Meta/CharacterMeta.cs" id="2_0eumu"]
+[ext_resource type="Script" uid="uid://b87l817pyjjsp" path="res://Source/Rubicon.Core/Meta/SongMeta.cs" id="3_ejhfw"]
 
 [sub_resource type="Resource" id="Resource_kw1yv"]
 script = ExtResource("1_ycdkm")
@@ -36,7 +36,7 @@ RawName = "Test"
 Artist = "Alexandros"
 Offset = -0.095
 DefaultRuleset = "Mania"
-UiStyle = "Funklike"
+UiStyle = "FunkLike"
 NoteSkin = "Funkin"
 PlayableCharts = [&"Player"]
 Characters = [SubResource("Resource_12cs3"), SubResource("Resource_fgly4"), SubResource("Resource_64a8n")]
