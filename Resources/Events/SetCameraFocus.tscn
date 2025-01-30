@@ -2,5 +2,5 @@
 
 [ext_resource type="Script" uid="uid://s1bs4ytj7ka8" path="res://Scripts/Events/SetCameraFocusSongEvent.cs" id="1_sj35p"]
 
-[node name="Set Camera Focus" type="Node"]
+[node name="SetCameraFocus" type="Node"]
 script = ExtResource("1_sj35p")

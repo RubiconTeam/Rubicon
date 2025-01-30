@@ -6,7 +6,7 @@
 [sub_resource type="Resource" id="Resource_xnuuf"]
 script = ExtResource("1_xnuuf")
 Time = 0.0
-Name = &"Set Camera Focus"
+Name = &"SetCameraFocus"
 Arguments = {
 "Focus": "Opponent"
 }
@@ -23,7 +23,7 @@ Arguments = {
 [sub_resource type="Resource" id="Resource_xnhi0"]
 script = ExtResource("1_xnuuf")
 Time = 2.0
-Name = &"Set Camera Focus"
+Name = &"SetCameraFocus"
 Arguments = {
 "Focus": "Player"
 }
@@ -31,7 +31,7 @@ Arguments = {
 [sub_resource type="Resource" id="Resource_tb5xi"]
 script = ExtResource("1_xnuuf")
 Time = 4.0
-Name = &"Set Camera Focus"
+Name = &"SetCameraFocus"
 Arguments = {
 "Focus": "Opponent"
 }
@@ -39,7 +39,7 @@ Arguments = {
 [sub_resource type="Resource" id="Resource_8pxeo"]
 script = ExtResource("1_xnuuf")
 Time = 6.0
-Name = &"Set Camera Focus"
+Name = &"SetCameraFocus"
 Arguments = {
 "Focus": "Player"
 }
@@ -56,7 +56,7 @@ Arguments = {
 [sub_resource type="Resource" id="Resource_p066e"]
 script = ExtResource("1_xnuuf")
 Time = 8.0
-Name = &"Set Camera Focus"
+Name = &"SetCameraFocus"
 Arguments = {
 "Focus": "Opponent"
 }
@@ -64,7 +64,7 @@ Arguments = {
 [sub_resource type="Resource" id="Resource_6j4bl"]
 script = ExtResource("1_xnuuf")
 Time = 10.0
-Name = &"Set Camera Focus"
+Name = &"SetCameraFocus"
 Arguments = {
 "Focus": "Player"
 }
@@ -110,7 +110,7 @@ Arguments = {
 [sub_resource type="Resource" id="Resource_yakcy"]
 script = ExtResource("1_xnuuf")
 Time = 14.0003
-Name = &"Set Camera Focus"
+Name = &"SetCameraFocus"
 Arguments = {
 "Focus": "Player"
 }
@@ -149,7 +149,7 @@ Arguments = {
 [sub_resource type="Resource" id="Resource_lusfy"]
 script = ExtResource("1_xnuuf")
 Time = 16.0
-Name = &"Set Camera Focus"
+Name = &"SetCameraFocus"
 Arguments = {
 "Focus": "Opponent"
 }
@@ -168,7 +168,7 @@ Arguments = {
 [sub_resource type="Resource" id="Resource_jgi7t"]
 script = ExtResource("1_xnuuf")
 Time = 18.0
-Name = &"Set Camera Focus"
+Name = &"SetCameraFocus"
 Arguments = {
 "Focus": "Player"
 }
@@ -176,7 +176,7 @@ Arguments = {
 [sub_resource type="Resource" id="Resource_lbf7w"]
 script = ExtResource("1_xnuuf")
 Time = 20.0
-Name = &"Set Camera Focus"
+Name = &"SetCameraFocus"
 Arguments = {
 "Focus": "Opponent"
 }
@@ -184,7 +184,7 @@ Arguments = {
 [sub_resource type="Resource" id="Resource_6t2n0"]
 script = ExtResource("1_xnuuf")
 Time = 22.0
-Name = &"Set Camera Focus"
+Name = &"SetCameraFocus"
 Arguments = {
 "Focus": "Player"
 }
@@ -192,7 +192,7 @@ Arguments = {
 [sub_resource type="Resource" id="Resource_qej3e"]
 script = ExtResource("1_xnuuf")
 Time = 24.0003
-Name = &"Set Camera Focus"
+Name = &"SetCameraFocus"
 Arguments = {
 "Focus": "Opponent"
 }
@@ -200,7 +200,7 @@ Arguments = {
 [sub_resource type="Resource" id="Resource_njivx"]
 script = ExtResource("1_xnuuf")
 Time = 26.0
-Name = &"Set Camera Focus"
+Name = &"SetCameraFocus"
 Arguments = {
 "Focus": "Player"
 }
@@ -217,7 +217,7 @@ Arguments = {
 [sub_resource type="Resource" id="Resource_iuayy"]
 script = ExtResource("1_xnuuf")
 Time = 28.0
-Name = &"Set Camera Focus"
+Name = &"SetCameraFocus"
 Arguments = {
 "Focus": "Opponent"
 }
@@ -269,7 +269,7 @@ Arguments = {
 [sub_resource type="Resource" id="Resource_xddlq"]
 script = ExtResource("1_xnuuf")
 Time = 30.0
-Name = &"Set Camera Focus"
+Name = &"SetCameraFocus"
 Arguments = {
 "Focus": "Player"
 }
@@ -370,7 +370,7 @@ Arguments = {
 [sub_resource type="Resource" id="Resource_e3f1n"]
 script = ExtResource("1_xnuuf")
 Time = 36.0
-Name = &"Set Camera Focus"
+Name = &"SetCameraFocus"
 Arguments = {
 "Focus": "Opponent"
 }
@@ -387,7 +387,7 @@ Arguments = {
 [sub_resource type="Resource" id="Resource_pkcri"]
 script = ExtResource("1_xnuuf")
 Time = 38.0
-Name = &"Set Camera Focus"
+Name = &"SetCameraFocus"
 Arguments = {
 "Focus": "Player"
 }
@@ -404,7 +404,7 @@ Arguments = {
 [sub_resource type="Resource" id="Resource_4rnql"]
 script = ExtResource("1_xnuuf")
 Time = 40.0
-Name = &"Set Camera Focus"
+Name = &"SetCameraFocus"
 Arguments = {
 "Focus": "Opponent"
 }
@@ -412,7 +412,7 @@ Arguments = {
 [sub_resource type="Resource" id="Resource_rw86w"]
 script = ExtResource("1_xnuuf")
 Time = 42.0
-Name = &"Set Camera Focus"
+Name = &"SetCameraFocus"
 Arguments = {
 "Focus": "Player"
 }
@@ -429,7 +429,7 @@ Arguments = {
 [sub_resource type="Resource" id="Resource_5pkp6"]
 script = ExtResource("1_xnuuf")
 Time = 44.0
-Name = &"Set Camera Focus"
+Name = &"SetCameraFocus"
 Arguments = {
 "Focus": "Opponent"
 }
@@ -481,7 +481,7 @@ Arguments = {
 [sub_resource type="Resource" id="Resource_f7grl"]
 script = ExtResource("1_xnuuf")
 Time = 46.0
-Name = &"Set Camera Focus"
+Name = &"SetCameraFocus"
 Arguments = {
 "Focus": "Player"
 }
@@ -542,7 +542,7 @@ Arguments = {
 [sub_resource type="Resource" id="Resource_di6ip"]
 script = ExtResource("1_xnuuf")
 Time = 48.0003
-Name = &"Set Camera Focus"
+Name = &"SetCameraFocus"
 Arguments = {
 "Focus": "Opponent"
 }
@@ -561,7 +561,7 @@ Arguments = {
 [sub_resource type="Resource" id="Resource_8w4a6"]
 script = ExtResource("1_xnuuf")
 Time = 50.0
-Name = &"Set Camera Focus"
+Name = &"SetCameraFocus"
 Arguments = {
 "Focus": "Player"
 }

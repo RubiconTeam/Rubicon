@@ -6,7 +6,7 @@
 [sub_resource type="Resource" id="Resource_w2m88"]
 script = ExtResource("1_w2m88")
 Time = 0.0
-Name = &"Set Camera Focus"
+Name = &"SetCameraFocus"
 Arguments = {
 &"Focus": &"boyfriend"
 }
@@ -14,7 +14,7 @@ Arguments = {
 [sub_resource type="Resource" id="Resource_sw7ps"]
 script = ExtResource("1_w2m88")
 Time = 2.0
-Name = &"Set Camera Focus"
+Name = &"SetCameraFocus"
 Arguments = {
 &"Focus": &"dad"
 }
@@ -22,7 +22,7 @@ Arguments = {
 [sub_resource type="Resource" id="Resource_euvtc"]
 script = ExtResource("1_w2m88")
 Time = 6.0
-Name = &"Set Camera Focus"
+Name = &"SetCameraFocus"
 Arguments = {
 &"Focus": &"boyfriend"
 }
@@ -30,7 +30,7 @@ Arguments = {
 [sub_resource type="Resource" id="Resource_hactb"]
 script = ExtResource("1_w2m88")
 Time = 10.0
-Name = &"Set Camera Focus"
+Name = &"SetCameraFocus"
 Arguments = {
 &"Focus": &"dad"
 }
@@ -38,7 +38,7 @@ Arguments = {
 [sub_resource type="Resource" id="Resource_hknvn"]
 script = ExtResource("1_w2m88")
 Time = 14.0
-Name = &"Set Camera Focus"
+Name = &"SetCameraFocus"
 Arguments = {
 &"Focus": &"boyfriend"
 }
@@ -46,7 +46,7 @@ Arguments = {
 [sub_resource type="Resource" id="Resource_lpqhv"]
 script = ExtResource("1_w2m88")
 Time = 18.0
-Name = &"Set Camera Focus"
+Name = &"SetCameraFocus"
 Arguments = {
 &"Focus": &"dad"
 }
@@ -54,7 +54,7 @@ Arguments = {
 [sub_resource type="Resource" id="Resource_kkv7j"]
 script = ExtResource("1_w2m88")
 Time = 22.0
-Name = &"Set Camera Focus"
+Name = &"SetCameraFocus"
 Arguments = {
 &"Focus": &"boyfriend"
 }
@@ -62,7 +62,7 @@ Arguments = {
 [sub_resource type="Resource" id="Resource_20hst"]
 script = ExtResource("1_w2m88")
 Time = 26.0
-Name = &"Set Camera Focus"
+Name = &"SetCameraFocus"
 Arguments = {
 &"Focus": &"dad"
 }
@@ -70,7 +70,7 @@ Arguments = {
 [sub_resource type="Resource" id="Resource_q1yjc"]
 script = ExtResource("1_w2m88")
 Time = 30.0
-Name = &"Set Camera Focus"
+Name = &"SetCameraFocus"
 Arguments = {
 &"Focus": &"boyfriend"
 }
@@ -78,7 +78,7 @@ Arguments = {
 [sub_resource type="Resource" id="Resource_xjbin"]
 script = ExtResource("1_w2m88")
 Time = 34.0
-Name = &"Set Camera Focus"
+Name = &"SetCameraFocus"
 Arguments = {
 &"Focus": &"dad"
 }
@@ -86,7 +86,7 @@ Arguments = {
 [sub_resource type="Resource" id="Resource_b1oa7"]
 script = ExtResource("1_w2m88")
 Time = 38.0
-Name = &"Set Camera Focus"
+Name = &"SetCameraFocus"
 Arguments = {
 &"Focus": &"boyfriend"
 }
@@ -94,7 +94,7 @@ Arguments = {
 [sub_resource type="Resource" id="Resource_b2hhs"]
 script = ExtResource("1_w2m88")
 Time = 42.0
-Name = &"Set Camera Focus"
+Name = &"SetCameraFocus"
 Arguments = {
 &"Focus": &"dad"
 }
@@ -102,7 +102,7 @@ Arguments = {
 [sub_resource type="Resource" id="Resource_i8pen"]
 script = ExtResource("1_w2m88")
 Time = 46.0
-Name = &"Set Camera Focus"
+Name = &"SetCameraFocus"
 Arguments = {
 &"Focus": &"boyfriend"
 }
@@ -110,7 +110,7 @@ Arguments = {
 [sub_resource type="Resource" id="Resource_ttu8c"]
 script = ExtResource("1_w2m88")
 Time = 50.0
-Name = &"Set Camera Focus"
+Name = &"SetCameraFocus"
 Arguments = {
 &"Focus": &"dad"
 }
@@ -118,7 +118,7 @@ Arguments = {
 [sub_resource type="Resource" id="Resource_7kspr"]
 script = ExtResource("1_w2m88")
 Time = 54.0
-Name = &"Set Camera Focus"
+Name = &"SetCameraFocus"
 Arguments = {
 &"Focus": &"boyfriend"
 }
@@ -126,7 +126,7 @@ Arguments = {
 [sub_resource type="Resource" id="Resource_6qjkb"]
 script = ExtResource("1_w2m88")
 Time = 58.0
-Name = &"Set Camera Focus"
+Name = &"SetCameraFocus"
 Arguments = {
 &"Focus": &"dad"
 }
@@ -134,7 +134,7 @@ Arguments = {
 [sub_resource type="Resource" id="Resource_gxtfd"]
 script = ExtResource("1_w2m88")
 Time = 65.0
-Name = &"Set Camera Focus"
+Name = &"SetCameraFocus"
 Arguments = {
 &"Focus": &"boyfriend"
 }
@@ -142,7 +142,7 @@ Arguments = {
 [sub_resource type="Resource" id="Resource_ufy7b"]
 script = ExtResource("1_w2m88")
 Time = 66.0
-Name = &"Set Camera Focus"
+Name = &"SetCameraFocus"
 Arguments = {
 &"Focus": &"dad"
 }
@@ -150,7 +150,7 @@ Arguments = {
 [sub_resource type="Resource" id="Resource_fwy44"]
 script = ExtResource("1_w2m88")
 Time = 70.0
-Name = &"Set Camera Focus"
+Name = &"SetCameraFocus"
 Arguments = {
 &"Focus": &"boyfriend"
 }
@@ -158,7 +158,7 @@ Arguments = {
 [sub_resource type="Resource" id="Resource_ec84i"]
 script = ExtResource("1_w2m88")
 Time = 74.0
-Name = &"Set Camera Focus"
+Name = &"SetCameraFocus"
 Arguments = {
 &"Focus": &"dad"
 }
@@ -166,7 +166,7 @@ Arguments = {
 [sub_resource type="Resource" id="Resource_l81i4"]
 script = ExtResource("1_w2m88")
 Time = 78.0
-Name = &"Set Camera Focus"
+Name = &"SetCameraFocus"
 Arguments = {
 &"Focus": &"boyfriend"
 }
@@ -174,7 +174,7 @@ Arguments = {
 [sub_resource type="Resource" id="Resource_yn4ea"]
 script = ExtResource("1_w2m88")
 Time = 82.0
-Name = &"Set Camera Focus"
+Name = &"SetCameraFocus"
 Arguments = {
 &"Focus": &"dad"
 }
@@ -182,7 +182,7 @@ Arguments = {
 [sub_resource type="Resource" id="Resource_hmujq"]
 script = ExtResource("1_w2m88")
 Time = 86.0
-Name = &"Set Camera Focus"
+Name = &"SetCameraFocus"
 Arguments = {
 &"Focus": &"boyfriend"
 }
