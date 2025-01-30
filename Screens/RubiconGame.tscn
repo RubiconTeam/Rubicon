@@ -1,9 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://cuuuxjlonwxhn"]
+[gd_scene load_steps=3 format=3 uid="uid://cuuuxjlonwxhn"]
 
 [ext_resource type="Script" uid="uid://bc8hw5alkoe4" path="res://Source/Rubicon/Game/RubiconGame.cs" id="1_i65p7"]
+[ext_resource type="Script" uid="uid://b4453kypdtdyt" path="res://Source/Rubicon/Game/SongEventController.cs" id="2_yp47r"]
 
-[node name="RubiconGame" type="Node" node_paths=PackedStringArray("Instrumental", "Vocals")]
+[node name="RubiconGame" type="Node" node_paths=PackedStringArray("EventController", "Instrumental", "Vocals")]
 script = ExtResource("1_i65p7")
+EventController = NodePath("SongEventController")
 Instrumental = NodePath("Audio/Insturmental")
 Vocals = NodePath("Audio/Vocals")
 
@@ -12,3 +14,7 @@ Vocals = NodePath("Audio/Vocals")
 [node name="Insturmental" type="AudioStreamPlayer" parent="Audio"]
 
 [node name="Vocals" type="AudioStreamPlayer" parent="Audio"]
+
+[node name="SongEventController" type="Node" parent="."]
+script = ExtResource("2_yp47r")
+metadata/_custom_type_script = ExtResource("2_yp47r")

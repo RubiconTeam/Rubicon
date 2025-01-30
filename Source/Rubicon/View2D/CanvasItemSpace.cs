@@ -21,6 +21,9 @@ public partial class CanvasItemSpace : Node2D
 		// Init stage
 		Stage = (ResourceLoader.LoadThreadedGet($"res://Resources/Stages/{meta.Stage}.tscn") as PackedScene).Instantiate<Stage2D>(); // TODO: Check if stage even exists
 		AddChild(Stage);
+
+		Camera = new RubiconCamera2D();
+		AddChild(Camera);
 		
 		// Init characters
 		Characters = new Array<Character2D>();
@@ -55,7 +58,7 @@ public partial class CanvasItemSpace : Node2D
 		character.Name = meta.Nickname;
 		Characters.Add(character);
 		_namedCharacters[meta.Nickname] = character;
-		Stage.GetSpawnPoint(meta.Nickname).AddChild(character);
+		Stage.GetSpawnPoint(meta.Nickname).AddCharacter(character);
 		
 		if (!_barLineCharacters.ContainsKey(meta.BarLine))
 			_barLineCharacters.Add(meta.BarLine, new Array<Character2D>());
@@ -65,13 +68,36 @@ public partial class CanvasItemSpace : Node2D
 
 	public Character2D GetCharacter(StringName nickName) => _namedCharacters[nickName];
 	
-	public Array<Character2D> GetCharactersFromBarLine(StringName barLineName) => _barLineCharacters[barLineName];
+	public Array<Character2D> GetCharactersFromGroup(StringName groupName) => _barLineCharacters[groupName];
 
 	
 	public void SingGroup(StringName barLineName, string direction, bool holding = false, bool miss = false, string customPrefix = null, string customSuffix = null)
 	{
-		Array<Character2D> characters = GetCharactersFromBarLine(barLineName);
+		Array<Character2D> characters = GetCharactersFromGroup(barLineName);
 		for (int i = 0; i < characters.Count; i++)
 			characters[i].Sing(direction, holding, miss, customPrefix, customSuffix);
+	}
+
+	public Vector2 GetGroupCameraPosition(StringName groupName)
+	{
+		Array<Character2D> characters = GetCharactersFromGroup(groupName);
+		if (characters.Count < 1)
+			return Vector2.Zero;
+
+		Vector2 min = characters[0].GetCameraPosition();
+		Vector2 max = characters[0].GetCameraPosition();
+		
+		for (int i = 1; i < characters.Count; i++)
+		{
+			Character2D character = characters[i];
+			Vector2 camPos = character.GetCameraPosition();
+			
+			min.X = Math.Min(camPos.X, min.X);
+			min.Y = Math.Min(camPos.Y, min.Y);
+			max.X = Math.Max(max.X, camPos.X);
+			max.Y = Math.Max(max.Y, camPos.Y);
+		}
+		
+		return new Vector2(min.X + (max.X - min.X) / 2f, min.Y + (max.Y - min.Y) / 2f);
 	}
 }

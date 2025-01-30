@@ -4,6 +4,7 @@ using Rubicon.Core;
 using Rubicon.Core.Chart;
 using Rubicon.Core.Meta;
 using Rubicon.Core.Data;
+using Rubicon.Core.Events;
 using Rubicon.Core.Rulesets;
 using Rubicon.Screens;
 using Rubicon.View2D;
@@ -54,6 +55,7 @@ namespace Rubicon.Game;
 		// Just load the song meta for now, we'll wait until it's loaded.
 		List<string> resourceList = ResourcesToLoad.ToList();
 		resourceList.Add($"res://Songs/{Context.Name}/Data/Meta.tres");
+		resourceList.Add($"res://Songs/{Context.Name}/Data/Events.tres");
 		resourceList.Add($"res://Songs/{Context.Name}/Data/{Context.RuleSet}-{Context.Difficulty}.rbc");
 		resourceList.Add($"res://Songs/{Context.Name}/Inst.ogg");
 
@@ -153,6 +155,12 @@ namespace Rubicon.Game;
 		PlayField.Setup(Metadata, Chart, Context.TargetIndex);
 		PlayField.SingCalled += SingCalled;
 		AddChild(PlayField);
+		
+		EventMeta eventMeta = ResourceLoader.LoadThreadedGet($"res://Songs/{Context.Name}/Data/Events.tres") as EventMeta;
+		for (int i = 0; i < eventMeta.Events.Length; i++)
+			eventMeta.Events[i].ConvertData(Metadata.BpmInfo);
+		
+		EventController.Setup(eventMeta.Events);
 
 		LoadAutoLoads();
 		

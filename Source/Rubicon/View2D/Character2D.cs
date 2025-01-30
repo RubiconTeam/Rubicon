@@ -231,6 +231,39 @@ namespace Rubicon.View2D;
 	    AnimationPlayer.Play(anim.Name);
     }
 
+    public Vector2 GetCameraPosition()
+    {
+	    Node curNode = CameraPoint;
+	    Vector2 pos = Vector2.Zero;
+	    while (curNode != null)
+	    {
+		    Node parent = curNode.GetParent();
+		    if (curNode is Parallax2D or ParallaxLayer or ParallaxBackground or not CanvasItem)
+		    {
+			    curNode = parent;
+			    continue;
+		    }
+
+		    Vector2 posAdd = Vector2.Zero;
+		    
+		    if (curNode is Control controlNode)
+			    posAdd = controlNode.Position.Rotated(controlNode.Rotation);
+		    if (curNode is Node2D node2D)
+			    posAdd = node2D.Position.Rotated(node2D.Rotation);
+		    
+		    if (parent is Node2D parent2d and not ParallaxLayer)
+			    posAdd *= parent2d.Scale;
+		    if (parent is Control controlParent)
+			    posAdd *= controlParent.Scale;
+
+		    pos += posAdd;
+
+		    curNode = parent;
+	    }
+
+	    return pos;
+    }
+
     protected virtual void HandleHoldAnimations()
     {
 	    switch (HoldType)

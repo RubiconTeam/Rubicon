@@ -9,16 +9,16 @@ public partial class RubiconCamera2D : Camera2D
     [Export] public Vector2 OffsetPosition = Vector2.Zero;
     [Export] public float TargetRotation = 0f;
     [Export] public float OffsetRotation = 0f;
-    [Export] public Vector2 TargetZoom = Vector2.Zero;
-    [Export] public Vector2 OffsetZoom = Vector2.Zero;
-    
+    [Export] public Vector2 TargetZoom = Vector2.One;
+    [Export] public Vector2 OffsetZoom = Vector2.One;
+
     [ExportGroup("Settings"), Export] public CameraUpdate PositionUpdateType = CameraUpdate.Interpolation;
     [Export] public CameraUpdate RotationUpdateType = CameraUpdate.Interpolation;
-    [Export] public CameraUpdate ZoomUpdateType = CameraUpdate.Interpolation;
+    [Export] public CameraUpdate ZoomUpdateType = CameraUpdate.Instant;
 
-    [ExportSubgroup("Interpolation"), Export] public float PositionLerpWeight = 1.2f;
-    [Export] public float RotationLerpWeight = 1.2f;
-    [Export] public float ZoomLerpWeight = 3f;
+    [ExportSubgroup("Interpolation"), Export] public float PositionLerpWeight = 0.12f;
+    [Export] public float RotationLerpWeight = 0.12f;
+    [Export] public float ZoomLerpWeight = 0.3f;
 
     [ExportSubgroup("Tweening"), Export] public float PositionTweenDuration = 1f;
     [Export] public float RotationTweenDuration = 1f;
@@ -53,7 +53,7 @@ public partial class RubiconCamera2D : Camera2D
                 break;
             case CameraUpdate.Interpolation:
                 Vector2 pos = finalPosition;
-                GlobalPosition = pos.Lerp(TargetPosition, PositionLerpWeight * delta);
+                GlobalPosition = pos.Lerp(finalPosition, PositionLerpWeight * delta);
                 break;
             case CameraUpdate.Tween:
                 if (_previousPosition != finalPosition && !_posTween.IsRunning())
@@ -64,6 +64,7 @@ public partial class RubiconCamera2D : Camera2D
     
     public virtual void UpdateZoom(float delta)
     {
+        //Vector2 combinedZoom = TargetZoom + OffsetZoom;
         Vector2 finalZoom = TargetZoom + OffsetZoom;
         switch (ZoomUpdateType)
         {
