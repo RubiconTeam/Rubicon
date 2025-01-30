@@ -21,6 +21,8 @@ public partial class SpawnPoint2D : Node2D
             Vector2 scale = character.Scale;
             scale.X *= -1f;
             character.Scale = scale;
+
+            character.FlipAnimations = true;
         }
         
         AddChild(character);
