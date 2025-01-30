@@ -1,24 +1,28 @@
-[gd_resource type="SpriteFrames" load_steps=3 format=3 uid="uid://dd1qyud388qn8"]
+[gd_resource type="SpriteFrames" load_steps=4 format=3 uid="uid://dd1qyud388qn8"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_mrxy7"]
+[ext_resource type="Texture2D" uid="uid://c8ip3a48ueggc" path="res://Assets/Characters/Icons/PlaceholderIcon.png" id="1_o8oti"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fhq6x"]
+atlas = ExtResource("1_o8oti")
 region = Rect2(150, 0, 150, 150)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_agymk"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ufip"]
+atlas = ExtResource("1_o8oti")
 region = Rect2(0, 0, 150, 150)
 
 [resource]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_mrxy7")
+"texture": SubResource("AtlasTexture_fhq6x")
 }],
 "loop": true,
-"name": &"losing",
+"name": &"lose",
 "speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_agymk")
+"texture": SubResource("AtlasTexture_6ufip")
 }],
 "loop": false,
 "name": &"neutral",

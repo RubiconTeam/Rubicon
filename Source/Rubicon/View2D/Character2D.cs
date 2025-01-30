@@ -79,16 +79,14 @@ namespace Rubicon.View2D;
     public bool Holding = false;
 
     /// <summary>
-    /// The <see cref="SpriteFrames"/>> used for the healthbar icons.
-    /// It has to contain an idle animation.
-    /// It can contain "lose" and "win" optionally.
+    /// <see cref="SpriteFrames"/> used for the health bar. Needs a "neutral" animation, but can optionally have a "lose" or "win" animation as well.
     /// </summary>
     [ExportGroup("Health Bar"), Export] public SpriteFrames Icon;
 
     /// <summary>
     /// Moves this character's icon in pixels.
     /// </summary>
-    [Export] public Vector2 IconOffset = new Vector2(0,10);
+    [Export] public Vector2 IconOffset = new(0f, 10f);
 
     /// <summary>
     /// Used as the color representing this character on the health bar.
