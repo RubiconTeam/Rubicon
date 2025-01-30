@@ -15,6 +15,7 @@ public partial class CanvasItemSpace : Node2D
 
 	private Dictionary<StringName, Character2D> _namedCharacters;
 	private Dictionary<StringName, Array<Character2D>> _barLineCharacters;
+	private Dictionary<string, PackedScene> _characterScenes;
 	
 	public void Initialize(SongMeta meta)
 	{
@@ -29,6 +30,7 @@ public partial class CanvasItemSpace : Node2D
 		Characters = new Array<Character2D>();
 		_namedCharacters = new Dictionary<StringName, Character2D>();
 		_barLineCharacters = new Dictionary<StringName, Array<Character2D>>();
+		_characterScenes = new Dictionary<string, PackedScene>();
 		for (int i = 0; i < meta.Characters.Length; i++)
 			AddCharacter(meta.Characters[i]);
 	}
@@ -36,23 +38,39 @@ public partial class CanvasItemSpace : Node2D
 	public void AddCharacter(CharacterMeta meta)
 	{
 		string path = $"res://Resources/Characters/{meta.Character}.tscn";
-		Character2D character;
+		Character2D character = null;
+		GD.Print(meta.Nickname, " ", path);
 		
-		if (!ResourceLoader.Exists(path))
+		if (_characterScenes.ContainsKey(meta.Character))
+		{
+			character = _characterScenes[meta.Character].Instantiate<Character2D>();
+		}
+		else if (!ResourceLoader.Exists(path))
 		{
 			GD.Print($"Character {meta.Character} was not found. Falling back to default.");
-			string fallBack = $"res://Resources/Characters/{ProjectSettings.GetSetting("rubicon/general/fallback/character").AsString()}.tscn";
-			if (!ResourceLoader.Exists(fallBack)) // Bro
+			string fallBackCharacter = ProjectSettings.GetSetting("rubicon/general/fallback/character").AsString();
+			string fallBackPath = $"res://Resources/Characters/{fallBackCharacter}.tscn";
+			if (!ResourceLoader.Exists(fallBackPath)) // Bro
 			{
 				GD.PrintErr("No character fallback was found. Please check your project settings at \"rubicon/general/fallback/character\". Skipping.");
 				return;
 			}
 
-			character = (ResourceLoader.LoadThreadedGet(fallBack) as PackedScene).Instantiate<Character2D>();
+			Resource characterResource = ResourceLoader.LoadThreadedGet(fallBackPath);
+			if (characterResource is PackedScene packedScene)
+			{
+				_characterScenes.Add(meta.Character, packedScene);
+				character = packedScene.Instantiate<Character2D>();
+			}
 		}
 		else
 		{
-			character = ((PackedScene)ResourceLoader.LoadThreadedGet(path)).Instantiate<Character2D>();
+			Resource characterResource = ResourceLoader.LoadThreadedGet(path);
+			if (characterResource is PackedScene packedScene)
+			{
+				_characterScenes.Add(meta.Character, packedScene);
+				character = packedScene.Instantiate<Character2D>();
+			}
 		}
 
 		character.Name = meta.Nickname;
