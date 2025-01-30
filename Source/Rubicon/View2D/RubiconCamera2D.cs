@@ -50,7 +50,8 @@ public partial class RubiconCamera2D : Camera2D
         Vector2 finalPosition = TargetPosition + OffsetPosition;
         switch (PositionUpdateType)
         {
-            default:
+            case CameraUpdate.Instant:
+            case CameraUpdate.Interpolation:
                 GlobalPosition = finalPosition;
                 break;
             case CameraUpdate.Tween:
