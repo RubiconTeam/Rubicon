@@ -1,6 +1,5 @@
 using Rubicon.Core;
 using Rubicon.Data;
-using Rubicon.Shared;
 
 namespace Rubicon.View2D;
 

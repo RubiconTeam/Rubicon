@@ -1,10 +1,11 @@
-[gd_resource type="Resource" script_class="UiStyle" load_steps=11 format=3 uid="uid://chxyngbhdngs7"]
+[gd_resource type="Resource" script_class="UiStyle" load_steps=12 format=3 uid="uid://chxyngbhdngs7"]
 
 [ext_resource type="Material" uid="uid://bftkqmdktdaqt" path="res://Resources/UI/Styles/Funkin/Materials/bad.tres" id="1_0mmj8"]
 [ext_resource type="PackedScene" uid="uid://ct85hayoei4a1" path="res://Resources/UI/Styles/FunkLike/Components/DanceJudgment.tscn" id="1_aan2g"]
 [ext_resource type="Material" uid="uid://c0cgdmxo1vf40" path="res://Resources/UI/Styles/Funkin/Materials/good.tres" id="2_1vgib"]
 [ext_resource type="Script" uid="uid://dbn85h7ahlsdp" path="res://Source/Rubicon.Core/UiStyle.cs" id="2_kxovl"]
 [ext_resource type="PackedScene" uid="uid://q5yhhc5khh8u" path="res://Resources/UI/Styles/FunkLike/Components/DanceComboDisplay.tscn" id="2_xpu51"]
+[ext_resource type="PackedScene" uid="uid://cywb2uc8om2ie" path="res://Resources/UI/Styles/Funkin/Components/GameHUD.tscn" id="3_6ro6a"]
 [ext_resource type="Material" uid="uid://b37f4mdn0h8w6" path="res://Resources/UI/Styles/Funkin/Materials/great.tres" id="3_n04w6"]
 [ext_resource type="PackedScene" uid="uid://cynf1ud5pgdr3" path="res://Resources/UI/Styles/FunkLike/Components/DanceHitDistance.tscn" id="5_ry7he"]
 [ext_resource type="Material" uid="uid://bs8iq3r2cutsu" path="res://Resources/UI/Styles/Funkin/Materials/miss.tres" id="6_wjw47"]
@@ -13,6 +14,7 @@
 
 [resource]
 script = ExtResource("2_kxovl")
+GameHud = ExtResource("3_6ro6a")
 Judgment = ExtResource("1_aan2g")
 JudgmentOffset = Vector2(0, 255)
 Combo = ExtResource("2_xpu51")

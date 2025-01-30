@@ -1,7 +1,7 @@
 using Rubicon.Core;
 using Rubicon.Core.Chart;
 
-namespace Rubicon.Shared;
+namespace Rubicon.View2D;
 
 /// <summary>
 /// A special <see cref="Node2D"/> that bumps to the beat.

@@ -1,18 +1,20 @@
-[gd_resource type="Resource" script_class="UiStyle" load_steps=11 format=3 uid="uid://bumud17n0nyt2"]
+[gd_resource type="Resource" script_class="UiStyle" load_steps=12 format=3 uid="uid://bumud17n0nyt2"]
 
-[ext_resource type="Script" uid="uid://7j4n8w24aynd" path="res://Source/Rubicon.Core/UiStyle.cs" id="1_363r5"]
+[ext_resource type="Script" uid="uid://dbn85h7ahlsdp" path="res://Source/Rubicon.Core/UiStyle.cs" id="1_363r5"]
 [ext_resource type="Material" uid="uid://clrbqrdp1uiuf" path="res://Resources/UI/Styles/Funkin/Materials/okay.tres" id="1_ncot3"]
 [ext_resource type="PackedScene" uid="uid://wg70s5307qtw" path="res://Resources/UI/Styles/Funkin/Components/FunkinJudgment.tscn" id="1_w5fd1"]
 [ext_resource type="Material" uid="uid://c0cgdmxo1vf40" path="res://Resources/UI/Styles/Funkin/Materials/good.tres" id="2_4c21y"]
 [ext_resource type="PackedScene" uid="uid://djgolwf8k2y4" path="res://Resources/UI/Styles/Funkin/Components/FunkinCombo.tscn" id="2_bgkbr"]
 [ext_resource type="Material" uid="uid://b37f4mdn0h8w6" path="res://Resources/UI/Styles/Funkin/Materials/great.tres" id="3_7f7f8"]
+[ext_resource type="PackedScene" uid="uid://cywb2uc8om2ie" path="res://Resources/UI/Styles/Funkin/Components/GameHUD.tscn" id="3_dj2ce"]
 [ext_resource type="Material" uid="uid://bftkqmdktdaqt" path="res://Resources/UI/Styles/Funkin/Materials/bad.tres" id="4_iebmg"]
-[ext_resource type="PackedScene" uid="uid://cynf1ud5pgdr3" path="res://Resources/UI/Styles/FunkLike/Components/DdrHitDistance.tscn" id="5_3rjbs"]
+[ext_resource type="PackedScene" uid="uid://cynf1ud5pgdr3" path="res://Resources/UI/Styles/FunkLike/Components/DanceHitDistance.tscn" id="5_3rjbs"]
 [ext_resource type="Material" uid="uid://bs8iq3r2cutsu" path="res://Resources/UI/Styles/Funkin/Materials/miss.tres" id="6_g8yvg"]
 [ext_resource type="Material" uid="uid://bn4b2kj3ajywl" path="res://Resources/UI/Styles/Funkin/Materials/perfect.tres" id="6_uiim7"]
 
 [resource]
 script = ExtResource("1_363r5")
+GameHud = ExtResource("3_dj2ce")
 Judgment = ExtResource("1_w5fd1")
 JudgmentOffset = Vector2(0, 0)
 Combo = ExtResource("2_bgkbr")
