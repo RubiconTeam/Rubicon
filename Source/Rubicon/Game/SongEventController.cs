@@ -12,21 +12,29 @@ namespace Rubicon.Game;
 
     [Export] private EventData[] _events = [];
     
-    public void Setup(EventData[] events)
+    public void Setup(EventMeta eventMeta)
     {
-        _events = events;
-        
+        _events = eventMeta.Events;
         List<StringName> eventsInitialized = new List<StringName>();
-        for (int i = 0; i < events.Length; i++)
+        for (int i = 0; i < _events.Length; i++)
         {
-            if (eventsInitialized.Contains(events[i].Name))
+            if (eventsInitialized.Contains(_events[i].Name))
                 return;
             
-            eventsInitialized.Add(events[i].Name);
+            eventsInitialized.Add(_events[i].Name);
+
+            string eventPath = $"res://Resources/Events/{_events[i].Name}";
+            bool eventTscnExists = ResourceLoader.Exists(eventPath + ".tscn");
+            bool eventScnExists = ResourceLoader.Exists(eventPath + ".scn");
+            if (!eventTscnExists && !eventScnExists)
+                continue;
             
-            // TODO: Actually initialize events
-            // GD LOAD FOR NOW CUZ IM LAZY
-            PackedScene eventScene = GD.Load<PackedScene>($"res://Resources/Events/{events[i].Name}.tscn");
+            if (eventTscnExists)
+                eventPath += ".tscn";
+            else
+                eventPath += ".scn";
+            
+            PackedScene eventScene = GD.Load<PackedScene>(eventPath);
             AddChild(eventScene.Instantiate());
         }
     }

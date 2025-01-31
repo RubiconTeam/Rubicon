@@ -1,6 +1,61 @@
-[gd_scene load_steps=2 format=3 uid="uid://c6bvhxnwtjffo"]
+[gd_scene load_steps=6 format=3 uid="uid://c6bvhxnwtjffo"]
 
-[ext_resource type="Script" path="res://Source/Rubicon/View2D/Stage2D.cs" id="1_q6g61"]
+[ext_resource type="Script" uid="uid://dxmj5v2b38sw8" path="res://Source/Rubicon/View2D/Stage2D.cs" id="1_q6g61"]
+[ext_resource type="Texture2D" uid="uid://be8jtey655hmj" path="res://Assets/Stages/Stage/stageback.png" id="2_bbiw8"]
+[ext_resource type="Texture2D" uid="uid://byh1wn4us8dni" path="res://Assets/Stages/Stage/stagefront.png" id="3_s41wv"]
+[ext_resource type="Texture2D" uid="uid://87bp34u36d1w" path="res://Assets/Stages/Stage/stagecurtains.png" id="4_yq1i0"]
+[ext_resource type="Script" uid="uid://bc06g0ycrwvf6" path="res://Source/Rubicon/View2D/SpawnPoint2D.cs" id="5_ol4oh"]
 
-[node name="Stage" type="Node2D"]
+[node name="Stage" type="Node2D" node_paths=PackedStringArray("SpawnPoints")]
 script = ExtResource("1_q6g61")
+Zoom = Vector2(1.35, 1.35)
+SpawnPoints = [NodePath("Spawns/SpeakerParallax/Speaker"), NodePath("Spawns/Opponent"), NodePath("Spawns/Player")]
+
+[node name="Objects" type="Node2D" parent="."]
+
+[node name="BG" type="Parallax2D" parent="Objects"]
+scroll_scale = Vector2(0.9, 0.9)
+
+[node name="BGSprite" type="Sprite2D" parent="Objects/BG"]
+position = Vector2(-600, -200)
+texture = ExtResource("2_bbiw8")
+centered = false
+
+[node name="StageFront" type="Sprite2D" parent="Objects/BG"]
+position = Vector2(-650, 600)
+scale = Vector2(1.1, 1.1)
+texture = ExtResource("3_s41wv")
+centered = false
+
+[node name="Curtains" type="Parallax2D" parent="Objects"]
+scroll_scale = Vector2(1.3, 1.3)
+
+[node name="Sprite" type="Sprite2D" parent="Objects/Curtains"]
+position = Vector2(-500, -300)
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("4_yq1i0")
+centered = false
+
+[node name="Spawns" type="Node2D" parent="."]
+
+[node name="SpeakerParallax" type="Parallax2D" parent="Spawns"]
+scroll_scale = Vector2(0.95, 0.95)
+
+[node name="Speaker" type="Node2D" parent="Spawns/SpeakerParallax"]
+position = Vector2(751.5, 778)
+script = ExtResource("5_ol4oh")
+ValidNicknames = [&"Speaker"]
+metadata/_custom_type_script = ExtResource("5_ol4oh")
+
+[node name="Opponent" type="Node2D" parent="Spawns"]
+position = Vector2(314.5, 867)
+script = ExtResource("5_ol4oh")
+ValidNicknames = [&"Opponent"]
+metadata/_custom_type_script = ExtResource("5_ol4oh")
+
+[node name="Player" type="Node2D" parent="Spawns"]
+position = Vector2(975.5, 864)
+script = ExtResource("5_ol4oh")
+ValidNicknames = [&"Player"]
+LeftFacing = true
+metadata/_custom_type_script = ExtResource("5_ol4oh")

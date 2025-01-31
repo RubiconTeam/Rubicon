@@ -20,11 +20,11 @@ SpawnPoints = [NodePath("Spawns/Opponent"), NodePath("Spawns/Player")]
 
 [node name="Objects" type="Node2D" parent="."]
 
-[node name="Sprite" type="Parallax2D" parent="Objects"]
+[node name="BG" type="Parallax2D" parent="Objects"]
 scroll_scale = Vector2(0.4, 0.5)
 scroll_offset = Vector2(-1200, -600)
 
-[node name="Sprite" type="Sprite2D" parent="Objects/Sprite"]
+[node name="Sprite" type="Sprite2D" parent="Objects/BG"]
 texture = ExtResource("2_s41wv")
 centered = false
 

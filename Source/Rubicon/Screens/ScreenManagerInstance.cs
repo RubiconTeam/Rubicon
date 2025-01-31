@@ -1,3 +1,4 @@
+using System.Linq;
 using Rubicon.Core;
 using Array = Godot.Collections.Array;
 using ThreadLoadStatus = Godot.ResourceLoader.ThreadLoadStatus;
@@ -43,7 +44,7 @@ public partial class ScreenManagerInstance : CanvasLayer
     private bool _startLoading = false;
     private bool _screenLoaded = false;
 
-    private string[] _preloadResourcePaths;
+    private ResourceLoadList _preloadList;
     private int _preloadIndex = 0;
 
     /// <summary>
@@ -112,26 +113,26 @@ public partial class ScreenManagerInstance : CanvasLayer
             UpdateResourcePaths();
             _preloadIndex = 0;
             
-            if (_preloadResourcePaths.Length != 0)
-                ResourceLoader.LoadThreadedRequest(_preloadResourcePaths[_preloadIndex]);
+            if (_preloadList.Count != 0)
+                ResourceLoader.LoadThreadedRequest(_preloadList[_preloadIndex]);
         }
 
         // Continue processing preloading here
-        if (_preloadIndex < _preloadResourcePaths.Length)
+        if (_preloadIndex < _preloadList.Count)
         {
-            string currentPath = _preloadResourcePaths[_preloadIndex];
+            string currentPath = _preloadList[_preloadIndex];
             while (!ResourceLoader.Exists(currentPath))
             {
                 _preloadIndex++;
 
-                if (_preloadIndex >= _preloadResourcePaths.Length)
+                if (_preloadIndex >= _preloadList.Count)
                     break;
                 
-                currentPath = _preloadResourcePaths[_preloadIndex];
+                currentPath = _preloadList[_preloadIndex];
             }
             
             ThreadLoadStatus resourceStatus = ResourceLoader.LoadThreadedGetStatus(currentPath, _progressArray);
-            int progressOffset = 50 + Mathf.FloorToInt((float)_preloadIndex / _preloadResourcePaths.Length * 50f);
+            int progressOffset = 50 + Mathf.FloorToInt((float)_preloadIndex / _preloadList.Count * 50f);
             int progress = progressOffset;
             switch (resourceStatus)
             {
@@ -139,14 +140,14 @@ public partial class ScreenManagerInstance : CanvasLayer
                     ResourceLoader.LoadThreadedRequest(currentPath);
                     break;
                 case ThreadLoadStatus.InProgress:
-                    progress += Mathf.FloorToInt(1f / _preloadResourcePaths.Length * _progressArray[0].AsSingle() * 50f);
+                    progress += Mathf.FloorToInt(1f / _preloadList.Count * _progressArray[0].AsSingle() * 50f);
                     break;
                 case ThreadLoadStatus.Loaded:
                     NotifyResourceLoaded(currentPath);
                     UpdateResourcePaths();
                     _preloadIndex++;
                     
-                    progress += Mathf.FloorToInt(1f / _preloadResourcePaths.Length * _progressArray[0].AsSingle() * 50f);
+                    progress += Mathf.FloorToInt(1f / _preloadList.Count * _progressArray[0].AsSingle() * 50f);
                     break;
                 default:
                     GD.PrintErr($"[ScreenManager] Failed to load resource at path {currentPath}. Error: {resourceStatus}");
@@ -231,7 +232,7 @@ public partial class ScreenManagerInstance : CanvasLayer
         _screenLoaded = false;
         _preloadIndex = 0;
         _startLoading = false;
-        _preloadResourcePaths = [];
+        _preloadList = [];
     }
 
     private void CallReadyPreload()
@@ -268,7 +269,7 @@ public partial class ScreenManagerInstance : CanvasLayer
     {
         if (CurrentScreen is CsScreen cSharpScreen)
         {
-            _preloadResourcePaths = cSharpScreen.ResourcesToLoad;
+            _preloadList = cSharpScreen.ResourcesToLoad;
             return;
         }
 
@@ -276,6 +277,6 @@ public partial class ScreenManagerInstance : CanvasLayer
         if (screenScript.GetGlobalName() != "GDScreen")
             return;
 
-        _preloadResourcePaths = CurrentScreen.Get("resources_to_load").AsStringArray();
+        _preloadList = CurrentScreen.Get("resources_to_load").As<ResourceLoadList>();
     }
 }

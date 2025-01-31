@@ -33,11 +33,11 @@ public partial class ShaderHealthBar : CsHealthBar
 
     protected override void ChangeLeftColor(Color leftColor)
     {
-        _material.SetShaderParameter("black", leftColor);
+        (Bar.Material as ShaderMaterial).SetShaderParameter("black", leftColor);
     }
 
     protected override void ChangeRightColor(Color rightColor)
     {
-        _material.SetShaderParameter("white", rightColor);
+        (Bar.Material as ShaderMaterial).SetShaderParameter("white", rightColor);
     }
 }

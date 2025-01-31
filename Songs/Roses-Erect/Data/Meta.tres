@@ -13,15 +13,15 @@ TimeSignatureDenominator = 4
 
 [sub_resource type="Resource" id="Resource_vq6fb"]
 script = ExtResource("2_c8k8s")
-Character = ""
+Character = "senpai-angry"
 Nickname = &"Opponent"
-BarLine = &""
+BarLine = &"Opponent"
 
 [sub_resource type="Resource" id="Resource_dtb5c"]
 script = ExtResource("2_c8k8s")
-Character = "senpai-angry"
+Character = "bf-pixel"
 Nickname = &"Player"
-BarLine = &"Opponent"
+BarLine = &"Player"
 
 [sub_resource type="Resource" id="Resource_l18a3"]
 script = ExtResource("2_c8k8s")

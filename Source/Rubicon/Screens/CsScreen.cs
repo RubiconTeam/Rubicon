@@ -8,7 +8,7 @@ namespace Rubicon.Screens;
     /// <summary>
     /// Resources that will be loaded upon entering a loading screen.
     /// </summary>
-    [Export(PropertyHint.File)] public string[] ResourcesToLoad = [];
+    [Export] public ResourceLoadList ResourcesToLoad = new();
     
     /// <summary>
     /// Triggers right after the scene is loaded to add resources to load.

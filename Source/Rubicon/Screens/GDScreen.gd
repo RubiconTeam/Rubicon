@@ -4,7 +4,7 @@ extends Node
 
 ## A main screen class for GDScript classes.
 
-@export_file var resources_to_load : PackedStringArray = [] ## Resources that will be loaded upon entering a loading screen.
+@export var resources_to_load : ResourceLoadList = ResourceLoadList.new() ## Resources that will be loaded upon entering a loading screen.
 
 func ready_preload() -> void: ## Triggers right after the scene is loaded to add resources to load.
 	pass

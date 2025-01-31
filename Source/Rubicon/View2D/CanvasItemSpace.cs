@@ -1,4 +1,5 @@
 using Godot.Collections;
+using Rubicon.Core;
 using Rubicon.Core.Meta;
 using Rubicon.Core.Rulesets;
 
@@ -20,7 +21,52 @@ public partial class CanvasItemSpace : Node2D
 	public void Initialize(SongMeta meta)
 	{
 		// Init stage
-		Stage = (ResourceLoader.LoadThreadedGet($"res://Resources/Stages/{meta.Stage}.tscn") as PackedScene).Instantiate<Stage2D>(); // TODO: Check if stage even exists
+		string stagePath = PathUtility.GetScenePath($"res://Resources/Stages/{meta.Stage}");
+		string fallBackStage = ProjectSettings.GetSetting("rubicon/general/fallback/stage_2d").AsString();
+		if (string.IsNullOrWhiteSpace(stagePath))
+		{
+			if (meta.Stage == fallBackStage)
+			{
+				GD.PrintErr($"[CanvasItemSpace] Fallback stage was not found. Please define a fallback.");
+				return;
+			}
+			
+			GD.PrintErr($"[CanvasItemSpace] Stage {meta.Stage} was not found. Falling back to default.");
+			meta.Stage = fallBackStage;
+			Initialize(meta);
+			return;
+		}
+
+		Resource stageResource = ResourceLoader.LoadThreadedGet(stagePath);
+		if (stageResource is not PackedScene packedScene)
+		{
+			if (meta.Stage == fallBackStage)
+			{
+				GD.PrintErr($"[CanvasItemSpace] Fallback stage was not a PackedScene.");
+				return;
+			}
+			
+			GD.PrintErr($"[CanvasItemSpace] Stage {meta.Stage} is not a PackedScene. Falling back to default.");
+			meta.Stage = fallBackStage;
+			Initialize(meta);
+			return;
+		}
+
+		Stage = packedScene.Instantiate<Stage2D>();
+		if (Stage == null)
+		{
+			if (meta.Stage == fallBackStage)
+			{
+				GD.PrintErr($"[CanvasItemSpace] Fallback stage failed to instantiate.");
+				return;
+			}
+			
+			GD.PrintErr($"[CanvasItemSpace] Stage {meta.Stage} failed to instantiate. Falling back to default.");
+			meta.Stage = fallBackStage;
+			Initialize(meta);
+			return;
+		}
+		
 		AddChild(Stage);
 
 		Camera = new RubiconCamera2D();
@@ -42,9 +88,8 @@ public partial class CanvasItemSpace : Node2D
 
 	public void AddCharacter(CharacterMeta meta)
 	{
-		string path = $"res://Resources/Characters/{meta.Character}.tscn";
+		string path = PathUtility.GetScenePath($"res://Resources/Characters/{meta.Character}");
 		Character2D character = null;
-		GD.Print(meta.Nickname, " ", path);
 		
 		if (_characterScenes.ContainsKey(meta.Character))
 		{
@@ -52,21 +97,9 @@ public partial class CanvasItemSpace : Node2D
 		}
 		else if (!ResourceLoader.Exists(path))
 		{
-			GD.Print($"Character {meta.Character} was not found. Falling back to default.");
-			string fallBackCharacter = ProjectSettings.GetSetting("rubicon/general/fallback/character").AsString();
-			string fallBackPath = $"res://Resources/Characters/{fallBackCharacter}.tscn";
-			if (!ResourceLoader.Exists(fallBackPath)) // Bro
-			{
-				GD.PrintErr("No character fallback was found. Please check your project settings at \"rubicon/general/fallback/character\". Skipping.");
-				return;
-			}
-
-			Resource characterResource = ResourceLoader.LoadThreadedGet(fallBackPath);
-			if (characterResource is PackedScene packedScene)
-			{
-				_characterScenes.Add(meta.Character, packedScene);
-				character = packedScene.Instantiate<Character2D>();
-			}
+			GD.Print($"[CanvasItemSpace] Character {meta.Character} was not found. Falling back to default.");
+			AddFallbackCharacter(meta);
+			return;
 		}
 		else
 		{
@@ -75,6 +108,12 @@ public partial class CanvasItemSpace : Node2D
 			{
 				_characterScenes.Add(meta.Character, packedScene);
 				character = packedScene.Instantiate<Character2D>();
+			}
+			else
+			{
+				GD.PrintErr($"[CanvasItemSpace] Character {meta.Character} is not inside a PackedScene. Falling back to default.");
+				AddFallbackCharacter(meta);
+				return;
 			}
 		}
 
@@ -122,5 +161,19 @@ public partial class CanvasItemSpace : Node2D
 		}
 		
 		return new Vector2(min.X + (max.X - min.X) / 2f, min.Y + (max.Y - min.Y) / 2f);
+	}
+
+	private void AddFallbackCharacter(CharacterMeta meta)
+	{
+		string fallBackCharacter = ProjectSettings.GetSetting("rubicon/general/fallback/character_2d").AsString();
+		string fallBackPath = PathUtility.GetScenePath($"res://Resources/Characters/{fallBackCharacter}");
+		if (!ResourceLoader.Exists(fallBackPath)) // Bro
+		{
+			GD.PrintErr("[CanvasItemSpace] No character fallback was found. Please check your project settings at \"rubicon/general/fallback/character\". Skipping.");
+			return;
+		}
+			
+		meta.Character = fallBackCharacter;
+		AddCharacter(meta);
 	}
 }
