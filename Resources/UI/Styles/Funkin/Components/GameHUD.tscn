@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cywb2uc8om2ie"]
+[gd_scene load_steps=15 format=3 uid="uid://cywb2uc8om2ie"]
 
 [ext_resource type="FontFile" uid="uid://bqc4pbm6jidbr" path="res://Assets/UI/Fonts/vcr.ttf" id="1_2ttfa"]
 [ext_resource type="Script" uid="uid://dy380qfn6dw5y" path="res://Source/Rubicon.Core/UI/PlayHud.cs" id="1_kcdli"]
@@ -7,6 +7,8 @@
 [ext_resource type="Shader" uid="uid://c70o45m6wr8np" path="res://Resources/Shaders/BarShader.gdshader" id="3_u5q2l"]
 [ext_resource type="SpriteFrames" uid="uid://dd1qyud388qn8" path="res://Assets/Characters/Icons/PlaceholderIcon.tres" id="6_owl4e"]
 [ext_resource type="SpriteFrames" uid="uid://dw06ivs1uhiwa" path="res://Assets/Characters/Icons/BfIcon.tres" id="7_l2r6r"]
+[ext_resource type="Script" uid="uid://bwhl1e5hup1vh" path="res://Scripts/UI/RubiconTimerBar.cs" id="8_baffn"]
+[ext_resource type="Texture2D" uid="uid://c44d31rl7ip3r" path="res://Assets/UI/Styles/Funkin/CircleGradient.png" id="9_72ks0"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ktnhm"]
 font = ExtResource("1_2ttfa")
@@ -24,6 +26,12 @@ shader_parameter/value = 0.5
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_owl4e"]
 gradient = SubResource("Gradient_kcdli")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4m0wy"]
+shader = ExtResource("3_u5q2l")
+shader_parameter/black = Color(1, 1, 1, 1)
+shader_parameter/white = Color(0, 0, 0, 0.294118)
+shader_parameter/value = 0.5
 
 [node name="GameHud" type="Control"]
 layout_mode = 3
@@ -118,3 +126,45 @@ scale = Vector2(1.5, 1.5)
 sprite_frames = ExtResource("7_l2r6r")
 animation = &"neutral"
 flip_h = true
+
+[node name="TimerBar" type="Control" parent="." node_paths=PackedStringArray("Text", "FillCircle")]
+layout_mode = 1
+anchor_right = 1.0
+offset_top = 70.0
+offset_bottom = 70.0
+grow_horizontal = 2
+script = ExtResource("8_baffn")
+Text = NodePath("FillCircle/Label")
+FillCircle = NodePath("FillCircle")
+metadata/_custom_type_script = ExtResource("8_baffn")
+
+[node name="FillCircle" type="TextureRect" parent="TimerBar"]
+material = SubResource("ShaderMaterial_4m0wy")
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -45.0
+offset_top = -45.0
+offset_right = 45.0
+offset_bottom = 45.0
+grow_horizontal = 2
+texture = ExtResource("9_72ks0")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="TimerBar/FillCircle"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "(0:00)"
+label_settings = SubResource("LabelSettings_ktnhm")
+horizontal_alignment = 1
