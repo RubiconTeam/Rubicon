@@ -42,19 +42,46 @@ public partial class RubiconEngineInstance : Node
 	public Node StartingScene;
 	
 	public Dictionary<string, Array<InputEvent>> DefaultInputMap = new();
+
+	private Window _mainWindow;
+
+	private float _minimumAspectRatio;
+	private float _maximumAspectRatio;
+
+	private Vector2I _viewportSize;
+	private Vector2I _previousWindowSize;
 	
 	public override void _Ready()
 	{
 		// Override the current scale size with the one set in the Rubicon project settings
 		// This is done so that the editor can stay in a 16:9 aspect ratio while keeping
 		// the 4:3 support in-game typically.
-		GetWindow().ContentScaleSize = ProjectSettings.GetSetting("rubicon/general/content_minimum_size").AsVector2I();
+		_mainWindow = GetWindow();
+		_minimumAspectRatio = ProjectSettings.GetSetting("rubicon/general/minimum_aspect_ratio").AsSingle();
+		_maximumAspectRatio = ProjectSettings.GetSetting("rubicon/general/maximum_aspect_ratio").AsSingle();
+		_viewportSize = new Vector2I(ProjectSettings.GetSetting("display/window/size/viewport_width").AsInt32(), ProjectSettings.GetSetting("display/window/size/viewport_height").AsInt32());
+		//GetWindow().ContentScaleSize = ProjectSettings.GetSetting("rubicon/general/content_minimum_size").AsVector2I();
 
 		StartingScene = GetTree().CurrentScene;
 
 		Array<StringName> actionNames = InputMap.GetActions();
 		foreach (string actionName in actionNames) 
 			DefaultInputMap[actionName] = InputMap.ActionGetEvents(actionName);
+	}
+
+	public override void _Process(double delta)
+	{
+		base._Process(delta);
+
+		Vector2I windowSize = _mainWindow.Size;
+		if (_previousWindowSize == windowSize)
+			return;
+
+		float aspectRatio = Mathf.Clamp(windowSize.Aspect(), _minimumAspectRatio, _maximumAspectRatio);
+		_mainWindow.ContentScaleSize = new Vector2I(Mathf.FloorToInt(_viewportSize.Y * aspectRatio), _viewportSize.Y);
+
+		//_mainWindow.ContentScaleSize
+		//window.ContentScaleSize = new Vector2I(window.Size.X, window.Size.Y);
 	}
 
 	/// <inheritdoc cref="Version"/>

@@ -39,7 +39,6 @@ window/size/sharp_corners=true
 window/size/window_width_override=1366
 window/size/window_height_override=768
 window/stretch/mode="canvas_items"
-window/stretch/aspect="expand"
 window/vsync/vsync_mode=0
 
 [dotnet]
@@ -157,7 +156,6 @@ judgments/great_hit_window=25.0
 judgments/good_hit_window=50.0
 judgments/okay_hit_window=90.0
 judgments/bad_hit_window=135.0
-general/content_minimum_size=Vector2i(1440, 1080)
 general/settings_save_path="user://settings.cfg"
 bindings/customizable=PackedStringArray("MANIA_4K_0", "MANIA_4K_1", "MANIA_4K_2", "MANIA_4K_3", "GAME_PAUSE", "DEBUG_INFO", "VOL_UP", "VOL_DOWN", "VOL_MUTE")
 general/fallback/song="Sew"
@@ -166,3 +164,5 @@ general/fallback/stage_2d="Stage"
 general/fallback/stage_3d=""
 general/fallback/character_2d="Bf"
 general/fallback/character_3d=""
+general/minimum_aspect_ratio=1.333
+general/maximum_aspect_ratio=1.778
