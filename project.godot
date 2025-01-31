@@ -165,4 +165,4 @@ general/fallback/stage_3d=""
 general/fallback/character_2d="Bf"
 general/fallback/character_3d=""
 general/minimum_aspect_ratio=1.333
-general/maximum_aspect_ratio=1.778
+general/maximum_aspect_ratio=1.85
