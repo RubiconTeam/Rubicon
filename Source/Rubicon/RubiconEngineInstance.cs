@@ -36,12 +36,16 @@ public partial class RubiconEngineInstance : Node
 	public static readonly VersionInfo Version = new(0, 1, 0, 0, "-alpha");
 	
 	/// <summary>
-	/// The scene that the game first starts with. Automatically set by <see cref="_Ready"/>.
-	/// Will always be the main scene when exported, but can vary in editor.
+	/// The minimum aspect ratio the viewport can scale down to.
 	/// </summary>
-	public Node StartingScene;
+	[Export] public float MinimumAspectRatio = ProjectSettings.GetSetting("rubicon/general/minimum_aspect_ratio").AsSingle();
 	
-	public Dictionary<string, Array<InputEvent>> DefaultInputMap = new();
+	/// <summary>
+	/// The minimum aspect ratio the viewport can scale up to.
+	/// </summary>
+	[Export] public float MaximumAspectRatio = ProjectSettings.GetSetting("rubicon/general/maximum_aspect_ratio").AsSingle();
+	
+	[Export] public Dictionary<string, Array<InputEvent>> DefaultInputMap = new();
 
 	private Window _mainWindow;
 
@@ -53,16 +57,8 @@ public partial class RubiconEngineInstance : Node
 	
 	public override void _Ready()
 	{
-		// Override the current scale size with the one set in the Rubicon project settings
-		// This is done so that the editor can stay in a 16:9 aspect ratio while keeping
-		// the 4:3 support in-game typically.
 		_mainWindow = GetWindow();
-		_minimumAspectRatio = ProjectSettings.GetSetting("rubicon/general/minimum_aspect_ratio").AsSingle();
-		_maximumAspectRatio = ProjectSettings.GetSetting("rubicon/general/maximum_aspect_ratio").AsSingle();
 		_viewportSize = new Vector2I(ProjectSettings.GetSetting("display/window/size/viewport_width").AsInt32(), ProjectSettings.GetSetting("display/window/size/viewport_height").AsInt32());
-		//GetWindow().ContentScaleSize = ProjectSettings.GetSetting("rubicon/general/content_minimum_size").AsVector2I();
-
-		StartingScene = GetTree().CurrentScene;
 
 		Array<StringName> actionNames = InputMap.GetActions();
 		foreach (string actionName in actionNames) 
@@ -77,11 +73,8 @@ public partial class RubiconEngineInstance : Node
 		if (_previousWindowSize == windowSize)
 			return;
 
-		float aspectRatio = Mathf.Clamp(windowSize.Aspect(), _minimumAspectRatio, _maximumAspectRatio);
+		float aspectRatio = Mathf.Clamp(windowSize.Aspect(), MinimumAspectRatio, MaximumAspectRatio);
 		_mainWindow.ContentScaleSize = new Vector2I(Mathf.FloorToInt(_viewportSize.Y * aspectRatio), _viewportSize.Y);
-
-		//_mainWindow.ContentScaleSize
-		//window.ContentScaleSize = new Vector2I(window.Size.X, window.Size.Y);
 	}
 
 	/// <inheritdoc cref="Version"/>
