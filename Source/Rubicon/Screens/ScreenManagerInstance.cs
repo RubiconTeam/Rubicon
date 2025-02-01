@@ -162,7 +162,9 @@ public partial class ScreenManagerInstance : CanvasLayer
         }
 
         Progress = 100;
+        
         _tree.Root.AddChild(CurrentScreen);
+        _tree.CurrentScene = CurrentScreen;
         
         EmitSignalProgressUpdated(Progress);
         EmitSignalCompleted();
