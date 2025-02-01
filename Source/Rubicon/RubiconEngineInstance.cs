@@ -79,16 +79,4 @@ public partial class RubiconEngineInstance : Node
 
 	/// <inheritdoc cref="Version"/>
 	public static VersionInfo GetVersion() => Version;
-	
-	/// <summary>
-	/// Returns the current running instance of <see cref="RubiconGame"/>.
-	/// </summary>
-	/// <returns>An instance of <see cref="RubiconGame"/> if there is one, none if there isn't.</returns>
-	public static RubiconGame GetGameInstance() => RubiconGame.Instance;
-
-	/// <summary>
-	/// Sets the next load context of RubiconGame.
-	/// </summary>
-	/// <param name="context">The song load context</param>
-	public static void SetLoadContext(LoadContext context) => RubiconGame.Context = context;
 }

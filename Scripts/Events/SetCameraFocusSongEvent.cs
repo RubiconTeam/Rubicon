@@ -1,6 +1,8 @@
 using Godot.Collections;
 using Rubicon.API;
+using Rubicon.Core.API;
 using Rubicon.Core.Data;
+using Rubicon.Data;
 using Rubicon.Game;
 using Rubicon.View2D;
 
@@ -13,19 +15,21 @@ namespace Rubicon.Extras.Events;
 	// Called when the event controller reaches this event.
 	public override void CallEvent(float time, Dictionary<StringName, Variant> args)
 	{
+		#if FUNKIN
 		StringName focusKey = new StringName("Focus");
 		if (!args.ContainsKey(focusKey))
 			return;
 		
 		StringName focusOn = args[focusKey].AsStringName();
-		RubiconGame game = RubiconGame.Instance;
-		switch (game.Metadata.Environment)
+		RubiconGameInstance gameInstance = RubiconGame.Singleton;
+		switch (gameInstance.Metadata.Environment)
 		{
 			case GameEnvironment.CanvasItem:
-				CanvasItemSpace space = game.CanvasItemSpace;
+				CanvasItemSpace space = gameInstance.CanvasItemSpace;
 				space.Camera.TargetPosition = space.GetGroupCameraPosition(focusOn);
 				break;
 		}
+		#endif
 	}
 }
 

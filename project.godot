@@ -30,6 +30,8 @@ ScreenManager="*res://Source/Rubicon/Screens/ScreenManagerInstance.cs"
 UserSettings="*res://Source/Rubicon.Core/Settings/UserSettingsInstance.cs"
 DebugInfo="*res://Source/Rubicon.Core/UI/DebugInfo.tscn"
 StoryMode="*res://Source/Rubicon/Story/StoryModeInstance.cs"
+RubiconGame="*res://Source/Rubicon/Game/RubiconGameInstance.cs"
+AudioManager="*res://Source/Rubicon.Core/Audio/AudioManagerInstance.cs"
 
 [display]
 

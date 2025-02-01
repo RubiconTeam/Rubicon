@@ -1,17 +1,24 @@
+using Rubicon.Core.API;
 using Rubicon.Core.Data;
 using Rubicon.Core.Rulesets;
 using Rubicon.Game;
 
 namespace Rubicon.Extras.UI;
 
-[GlobalClass] public partial class FunkinScorePanel : Label
+[GlobalClass] public partial class FunkinScorePanel : Label, IPlayElement
 {
+    [Export] public Label Text;
+
+    public PlayField PlayField { get; set; }
+    
+    public void Initialize() { }
+
     public override void _Process(double delta)
     {
         base._Process(delta);
 
-        ScoreTracker scoreTracker = PlayField.Instance.ScoreTracker;
-        Text = $"Score: {scoreTracker.Score} / Accuracy: {scoreTracker.Accuracy:n2}% / Misses: {scoreTracker.Misses} / Rank: {scoreTracker.Rank.ToString().ToUpper()} ({GetClearText(scoreTracker.Clear)})";
+        ScoreTracker scoreTracker = PlayField.ScoreTracker;
+        Text.Text = $"Score: {scoreTracker.Score} / Accuracy: {scoreTracker.Accuracy:n2}% / Misses: {scoreTracker.Misses} / Rank: {scoreTracker.Rank.ToString().ToUpper()} ({GetClearText(scoreTracker.Clear)})";
     }
 
     private string GetClearText(ClearRank clear)

@@ -1,47 +1,14 @@
 using System.Linq;
+using Rubicon.Core.API;
 using Rubicon.Core.Data;
-using Rubicon.Core.Rulesets;
+using Rubicon.Data;
 using Rubicon.Game;
 using Rubicon.View2D;
 
 namespace Rubicon.API;
 
-/// <summary>
-/// A template for a health bar in C#. Must be inherited.
-/// </summary>
-[GlobalClass] public abstract partial class CsHealthBar : Control
+[GlobalClass] public abstract partial class CsFunkinHealthBar : CsHealthBar
 {
-    /// <summary>
-    /// What direction the bar filling goes.
-    /// </summary>
-    [Export] public BarDirection Direction = BarDirection.LeftToRight;
-    
-    /// <summary>
-    /// The bar's color on the left side.
-    /// </summary>
-    [Export] public Color LeftColor
-    {
-        get => _leftColor;
-        set
-        {
-            _leftColor = value;
-            ChangeLeftColor(value);
-        }
-    }
-
-    /// <summary>
-    /// The bar's color on the right side.
-    /// </summary>
-    [Export] public Color RightColor
-    {
-        get => _rightColor;
-        set
-        {
-            _rightColor = value;
-            ChangeRightColor(value);
-        }
-    }
-
     /// <summary>
     /// The icon on the left side.
     /// </summary>
@@ -51,27 +18,15 @@ namespace Rubicon.API;
     /// The icon on the right side.
     /// </summary>
     [Export] public AnimatedSprite2D RightIcon;
-
-    private Color _leftColor = Colors.Red;
-    private Color _rightColor = Colors.Green;
-
+    
     private SpriteFrames _leftIcon;
     private SpriteFrames _rightIcon;
-    
-    private int _previousHealth = 0;
-    private BarDirection _previousDirection = BarDirection.RightToLeft;
 
-    public override void _Ready()
+    public override void Initialize()
     {
-        base._Ready();
+        base.Initialize();
         
-        PlayField playField = PlayField.Instance;
-        if (playField is null)
-            return;
-
-        Direction = playField.TargetIndex == 0 ? BarDirection.LeftToRight : BarDirection.RightToLeft;
-
-        if (RubiconGame.Instance is null || playField.Metadata.Environment == GameEnvironment.None)
+        if (!RubiconGame.Active || RubiconGame.Metadata.Environment == GameEnvironment.None)
         {
             if (Direction == BarDirection.LeftToRight)
             {
@@ -92,38 +47,27 @@ namespace Rubicon.API;
 
     public override void _Process(double delta)
     {
+        if (PlayField == null || PreviousHealth == PlayField.Health && PreviousDirection == Direction)
+            return;
+        
         base._Process(delta);
         
-        PlayField playField = PlayField.Instance;
-        if (playField == null || _previousHealth == playField.Health && _previousDirection == Direction)
-            return;
-
-        bool playerWinning = playField.Health > Mathf.FloorToInt(playField.MaxHealth * 0.8f);
-        bool playerLosing = playField.Health < Mathf.FloorToInt(playField.MaxHealth * 0.2f);
+        bool playerWinning = PlayField.Health > Mathf.FloorToInt(PlayField.MaxHealth * 0.8f);
+        bool playerLosing = PlayField.Health < Mathf.FloorToInt(PlayField.MaxHealth * 0.2f);
         
         StringName playerAnim = playerWinning ? "win" : playerLosing ? "lose" : "neutral";
         StringName opponentAnim = playerWinning ? "lose" : playerLosing ? "win" : "neutral";
         
         AnimatedSprite2D playerIcon = Direction == BarDirection.LeftToRight ? LeftIcon : RightIcon;
         AnimatedSprite2D opponentIcon = Direction == BarDirection.LeftToRight ? RightIcon : LeftIcon;
-        if (playerIcon.SpriteFrames.HasAnimation(playerAnim))
-            playerIcon.Play(playerAnim);
-            
-        if (opponentIcon.SpriteFrames.HasAnimation(opponentAnim))
-            opponentIcon.Play(opponentAnim);
         
-        UpdateBar((float)playField.Health / playField.MaxHealth, Direction);
-
-        _previousDirection = Direction;
-        _previousHealth = playField.Health;
+        if (playerIcon is not null && playerIcon.SpriteFrames.HasAnimation(playerAnim))
+            playerIcon.Play(playerAnim);
+        
+        if (opponentIcon is not null && opponentIcon.SpriteFrames.HasAnimation(opponentAnim))
+            opponentIcon.Play(opponentAnim);
     }
     
-    protected abstract void UpdateBar(float progress, BarDirection direction);
-
-    protected abstract void ChangeLeftColor(Color leftColor);
-    
-    protected abstract void ChangeRightColor(Color rightColor);
-
     public void SetLeftCharacter(Node character)
     {
         if (character is Character2D character2D)
@@ -146,18 +90,17 @@ namespace Rubicon.API;
     
     private void InitializeCharacters()
     {
-        RubiconGame game = RubiconGame.Instance;
-        if (game is null)
+        if (!RubiconGame.Active)
             return;
 
-        switch (game.Metadata.Environment)
+        switch (RubiconGame.Metadata.Environment)
         {
             case GameEnvironment.CanvasItem:
-                CanvasItemSpace space = game.CanvasItemSpace;
-                StringName playerGroupName = game.PlayField.TargetBarLine;
+                CanvasItemSpace space = RubiconGame.CanvasItemSpace;
+                StringName playerGroupName = RubiconGame.PlayField.TargetBarLine;
                 Character2D player = space.GetCharactersFromGroup(playerGroupName).First();
                 Character2D opponent = space
-                    .GetCharactersFromGroup(game.PlayField.BarLines.First(x => x.Name != playerGroupName).Name).First();
+                    .GetCharactersFromGroup(RubiconGame.PlayField.BarLines.First(x => x.Name != playerGroupName).Name).First();
                 if (Direction == BarDirection.LeftToRight)
                 {
                     SetLeftCharacter(player);

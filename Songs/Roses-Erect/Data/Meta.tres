@@ -1,8 +1,10 @@
-[gd_resource type="Resource" script_class="SongMeta" load_steps=8 format=3 uid="uid://o62tq3s5msjk"]
+[gd_resource type="Resource" script_class="FunkinSongMeta" load_steps=10 format=3 uid="uid://o62tq3s5msjk"]
 
 [ext_resource type="Script" uid="uid://crgqugtqe2m3y" path="res://Source/Rubicon.Core/Chart/BpmInfo.cs" id="1_stuxm"]
-[ext_resource type="Script" uid="uid://byks2kdbeeipd" path="res://Source/Rubicon.Core/Meta/CharacterMeta.cs" id="2_c8k8s"]
-[ext_resource type="Script" uid="uid://b87l817pyjjsp" path="res://Source/Rubicon.Core/Meta/SongMeta.cs" id="3_vivve"]
+[ext_resource type="Script" uid="uid://clg1lhiqfj0nk" path="res://Source/Rubicon/Data/CharacterMeta.cs" id="2_c8k8s"]
+[ext_resource type="AudioStream" uid="uid://dj1upuwj3757r" path="res://Songs/Roses-Erect/Inst.ogg" id="3_8vwn7"]
+[ext_resource type="Script" uid="uid://ekuh42try376" path="res://Source/Rubicon/Data/FunkinSongMeta.cs" id="3_vivve"]
+[ext_resource type="AudioStream" uid="uid://c0e7nq0kh2apw" path="res://Songs/Roses-Erect/Vocals.ogg" id="4_5ymvw"]
 
 [sub_resource type="Resource" id="Resource_ua2i7"]
 script = ExtResource("1_stuxm")
@@ -31,15 +33,17 @@ BarLine = &""
 
 [resource]
 script = ExtResource("3_vivve")
+Vocals = ExtResource("4_5ymvw")
+Characters = [SubResource("Resource_vq6fb"), SubResource("Resource_dtb5c"), SubResource("Resource_l18a3")]
+Environment = 1
+Stage = "school"
 Name = "Roses Erect"
 RawName = "Roses Erect"
 Artist = "kawaisprite"
+Music = ExtResource("3_8vwn7")
 Offset = 0.0
 DefaultRuleset = "Mania"
 UiStyle = "Funkin"
 NoteSkin = "pixel"
 PlayableCharts = [&"Player"]
-Characters = [SubResource("Resource_vq6fb"), SubResource("Resource_dtb5c"), SubResource("Resource_l18a3")]
 BpmInfo = [SubResource("Resource_ua2i7")]
-Environment = 1
-Stage = "school"

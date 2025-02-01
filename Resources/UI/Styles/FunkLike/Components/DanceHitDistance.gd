@@ -9,8 +9,8 @@ extends GDStatDisplay
 var offset : Vector2
 var tween : Tween
 
-func _ready() -> void:
-	super._ready()
+func initialize() -> void:
+	super()
 	
 	offset = ui_style.HitDistanceOffset
 
@@ -43,12 +43,7 @@ func _process(_delta: float) -> void:
 func update_position() -> void:
 	if label == null:
 		return
-	
-	var game : RubiconGame = RubiconEngine.GetGameInstance()
-	if game == null:
-		return
-	
-	var play_field : PlayField = game.PlayField
+
 	if play_field == null:
 		return
 	

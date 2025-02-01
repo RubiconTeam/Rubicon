@@ -1,7 +1,7 @@
-[gd_resource type="Resource" script_class="SongMeta" load_steps=8 format=3 uid="uid://c1ig5rsoyd6f8"]
+[gd_resource type="Resource" script_class="SongMeta" load_steps=5 format=3 uid="uid://c1ig5rsoyd6f8"]
 
 [ext_resource type="Script" uid="uid://crgqugtqe2m3y" path="res://Source/Rubicon.Core/Chart/BpmInfo.cs" id="1_ycdkm"]
-[ext_resource type="Script" uid="uid://byks2kdbeeipd" path="res://Source/Rubicon.Core/Meta/CharacterMeta.cs" id="2_0eumu"]
+[ext_resource type="AudioStream" uid="uid://bw8e310gljbm3" path="res://Songs/Test/Inst.ogg" id="2_s4sn7"]
 [ext_resource type="Script" uid="uid://b87l817pyjjsp" path="res://Source/Rubicon.Core/Meta/SongMeta.cs" id="3_ejhfw"]
 
 [sub_resource type="Resource" id="Resource_kw1yv"]
@@ -11,35 +11,15 @@ Bpm = 108.0
 TimeSignatureNumerator = 4
 TimeSignatureDenominator = 4
 
-[sub_resource type="Resource" id="Resource_12cs3"]
-script = ExtResource("2_0eumu")
-Character = "bf-pixel"
-Nickname = &"Opponent"
-BarLine = &"Opponent"
-
-[sub_resource type="Resource" id="Resource_fgly4"]
-script = ExtResource("2_0eumu")
-Character = "bf"
-Nickname = &"Player"
-BarLine = &"Player"
-
-[sub_resource type="Resource" id="Resource_64a8n"]
-script = ExtResource("2_0eumu")
-Character = "gf"
-Nickname = &"Speaker"
-BarLine = &""
-
 [resource]
 script = ExtResource("3_ejhfw")
 Name = "Arpeggio"
 RawName = "Test"
 Artist = "Alexandros"
+Music = ExtResource("2_s4sn7")
 Offset = -0.095
 DefaultRuleset = "Mania"
 UiStyle = "FunkLike"
 NoteSkin = "Funkin"
 PlayableCharts = [&"Player"]
-Characters = [SubResource("Resource_12cs3"), SubResource("Resource_fgly4"), SubResource("Resource_64a8n")]
 BpmInfo = [SubResource("Resource_kw1yv")]
-Environment = 0
-Stage = "stage"

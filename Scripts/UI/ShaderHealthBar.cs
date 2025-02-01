@@ -1,4 +1,5 @@
 using Rubicon.API;
+using Rubicon.Core.API;
 using Rubicon.Core.Data;
 using Rubicon.Core.Rulesets;
 using Rubicon.Game;
@@ -8,7 +9,7 @@ namespace Rubicon.Extras.UI;
 /// <summary>
 /// A health bar specifically to be worked with the shader in res://Resources/Shaders/BarShader.gdshader
 /// </summary>
-public partial class ShaderHealthBar : CsHealthBar
+public partial class ShaderHealthBar : CsFunkinHealthBar
 {
     [Export] public CanvasItem Bar;
 
@@ -16,11 +17,11 @@ public partial class ShaderHealthBar : CsHealthBar
     
     private ShaderMaterial _material;
 
-    public override void _Ready()
+    public override void Initialize()
     {
-        base._Ready();
-        
         _material = Bar.Material as ShaderMaterial;
+        
+        base.Initialize();
     }
 
     protected override void UpdateBar(float progress, BarDirection direction)

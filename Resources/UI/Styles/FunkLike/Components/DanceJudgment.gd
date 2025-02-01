@@ -13,8 +13,8 @@ var container : Control
 var graphic : AnimatedSprite2D
 var tween : Tween
 
-func _ready() -> void:
-	super._ready()
+func initialize() -> void:
+	super()
 	
 	offset = ui_style.JudgmentOffset
 
@@ -57,14 +57,6 @@ func _process(_delta: float) -> void:
 	update_position()
 
 func update_position() -> void:
-	if container == null:
-		return
-	
-	var game : RubiconGame = RubiconEngine.GetGameInstance()
-	if game == null:
-		return
-	
-	var play_field : PlayField = game.PlayField
 	if play_field == null:
 		return
 	

@@ -8,6 +8,9 @@
     <Authors>DuoNineXcore, legole0, Binpuki</Authors>
     <Description>A Friday Night Funkin' engine based primarily on C# and Godot Engine!</Description>
   </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DefineConstants>GODOT;GODOT_OSX;GODOT_MACOS;GODOT_PC;GODOT4;GODOT4_4;GODOT4_4_0;GODOT4_OR_GREATER;GODOT4_0_OR_GREATER;GODOT4_1_OR_GREATER;GODOT4_2_OR_GREATER;GODOT4_3_OR_GREATER;GODOT4_4_OR_GREATER;GODOT4_4_0_OR_GREATER;TRACE;TOOLS;FUNKIN</DefineConstants>
+  </PropertyGroup>
   <ItemGroup>
     <Compile Remove="Source\Rubicon.SourceGenerators\**" />
     <EmbeddedResource Remove="Source\Rubicon.SourceGenerators\**" />
@@ -44,16 +47,16 @@
     <Content Include="Songs\Test\Inst.ogg.import" />
     <Content Include="Songs\Test\Vocals.ogg" />
     <Content Include="Songs\Test\Vocals.ogg.import" />
+    <Content Include="Source\Rubicon.Core\API\GDNoteType.gd" />
+    <Content Include="Source\Rubicon.Core\API\GDSongEvent.gd" />
+    <Content Include="Source\Rubicon.Core\API\GDStatDisplay.gd" />
     <Content Include="Source\Rubicon.Core\Data\BarDirection.gd" />
     <Content Include="Source\Rubicon.Core\Data\ClearRank.gd" />
-    <Content Include="Source\Rubicon.Core\Data\GameEnvironment.gd" />
     <Content Include="Source\Rubicon.Core\Data\HitType.gd" />
     <Content Include="Source\Rubicon.Core\Data\ScoreRank.gd" />
     <Content Include="Source\Rubicon.Core\Rulesets\NoteResultFlags.gd" />
     <Content Include="Source\Rubicon\API\GDLoadingScreen.gd" />
-    <Content Include="Source\Rubicon\API\GDNoteType.gd" />
-    <Content Include="Source\Rubicon\API\GDSongEvent.gd" />
-    <Content Include="Source\Rubicon\API\GDStatDisplay.gd" />
+    <Content Include="Source\Rubicon\Data\GameEnvironment.gd" />
     <Content Include="Source\Rubicon\Menus\Settings\SettingsMenu.tscn" />
     <Content Include="Source\Rubicon\Menus\Settings\Templates\Button.tscn" />
     <Content Include="Source\Rubicon\Menus\Settings\Templates\CheckButton.tscn" />

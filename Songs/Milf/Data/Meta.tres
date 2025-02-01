@@ -1,8 +1,10 @@
-[gd_resource type="Resource" script_class="SongMeta" load_steps=8 format=3 uid="uid://dqwrimkhnqiyc"]
+[gd_resource type="Resource" script_class="FunkinSongMeta" load_steps=10 format=3 uid="uid://dqwrimkhnqiyc"]
 
-[ext_resource type="Script" uid="uid://byks2kdbeeipd" path="res://Source/Rubicon.Core/Meta/CharacterMeta.cs" id="1_g6yev"]
+[ext_resource type="Script" path="res://Source/Rubicon/Data/CharacterMeta.cs" id="1_g6yev"]
 [ext_resource type="Script" uid="uid://crgqugtqe2m3y" path="res://Source/Rubicon.Core/Chart/BpmInfo.cs" id="1_qkhdv"]
-[ext_resource type="Script" uid="uid://b87l817pyjjsp" path="res://Source/Rubicon.Core/Meta/SongMeta.cs" id="2_qkhdv"]
+[ext_resource type="Script" uid="uid://ekuh42try376" path="res://Source/Rubicon/Data/FunkinSongMeta.cs" id="2_qkhdv"]
+[ext_resource type="AudioStream" uid="uid://cwtjsj18bggik" path="res://Songs/Milf/Inst.ogg" id="3_rhv4t"]
+[ext_resource type="AudioStream" uid="uid://capkxulsrkbd6" path="res://Songs/Milf/Vocals.ogg" id="3_u6l60"]
 
 [sub_resource type="Resource" id="Resource_qkhdv"]
 script = ExtResource("1_qkhdv")
@@ -14,32 +16,34 @@ TimeSignatureDenominator = 4
 [sub_resource type="Resource" id="Resource_3oghc"]
 script = ExtResource("1_g6yev")
 Character = "mom-car"
-Nickname = &"dad"
-BarLine = &"dad"
+Nickname = &"Opponent"
+BarLine = &"Opponent"
 
 [sub_resource type="Resource" id="Resource_ob138"]
 script = ExtResource("1_g6yev")
 Character = "bf-car"
-Nickname = &"boyfriend"
-BarLine = &"boyfriend"
+Nickname = &"Player"
+BarLine = &"Player"
 
 [sub_resource type="Resource" id="Resource_tvvk7"]
 script = ExtResource("1_g6yev")
 Character = "gf-car"
-Nickname = &"girlfriend"
-BarLine = &"girlfriend"
+Nickname = &"Speaker"
+BarLine = &"Speaker"
 
 [resource]
 script = ExtResource("2_qkhdv")
+Vocals = ExtResource("3_u6l60")
+Characters = [SubResource("Resource_3oghc"), SubResource("Resource_ob138"), SubResource("Resource_tvvk7")]
+Environment = 1
+Stage = "limo"
 Name = "MILF"
 RawName = "MILF"
 Artist = "kawaisprite"
+Music = ExtResource("3_rhv4t")
 Offset = 0.0
 DefaultRuleset = "Mania"
 UiStyle = "Funkin"
 NoteSkin = "Funkin"
-PlayableCharts = [&"boyfriend", &"dad"]
-Characters = [SubResource("Resource_3oghc"), SubResource("Resource_ob138"), SubResource("Resource_tvvk7")]
+PlayableCharts = [&"Player", &"Opponent"]
 BpmInfo = [SubResource("Resource_qkhdv")]
-Environment = 1
-Stage = "limo"

@@ -13,8 +13,8 @@ var last_rating : int = 0
 var graphics : Array[Control] = []
 var tweens : Array[Tween] = []
 
-func _ready() -> void:
-	super._ready()
+func initialize() -> void:
+	super()
 	
 	offset = ui_style.ComboOffset
 
@@ -112,11 +112,6 @@ func _process(_delta: float) -> void:
 	update_position()
 
 func try_get_target_barline() -> BarLine:
-	var game : RubiconGame = RubiconEngine.GetGameInstance()
-	if game == null:
-		return null
-	
-	var play_field : PlayField = game.PlayField
 	if play_field == null:
 		return null
 	

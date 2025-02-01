@@ -3,7 +3,7 @@ using Rubicon.Core.Meta;
 namespace Rubicon.Game;
 
 /// <summary>
-/// An object that helps in defining what song to load in <see cref="RubiconGame"/>.
+/// An object that helps in defining what song to load in <see cref="RubiconGameInstance"/>.
 /// </summary>
 [GlobalClass]
 public partial class LoadContext : RefCounted
