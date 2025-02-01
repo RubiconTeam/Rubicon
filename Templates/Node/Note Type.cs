@@ -1,15 +1,21 @@
+using Rubicon.Core.API;
 using Rubicon.Core.Chart;
 using Rubicon.Core.Rulesets;
 
-namespace Rubicon.API;
-
 // This is a template for a custom note type in C#.
 // Sorry if the amount of lines seem a little scary at first, there's a lot here I know!
-// This can also act as a Node! So yes, you will have access to such things like _Ready() and _Process(delta)
+// This can also act as a Node! So yes, you will have access to such things like _Process(delta)
 public partial class NewNoteType : CsNoteType
 {
     // This is what your note type will be named.
     [Export] public StringName TypeName = "";
+    
+    // This is basically your _Ready() function.
+    // Do note that you can access the PlayField just by getting "PlayField"!
+    public override void Initialize()
+    {
+		
+    }
     
     // This is for modifying the initial note data before the notes spawn.
     protected override void InitializeNote(NoteData[] notes, StringName noteType)

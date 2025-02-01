@@ -24,7 +24,7 @@ buses/default_bus_layout="uid://8f826qwop1rs"
 
 [autoload]
 
-RubiconEngine="*res://Source/Rubicon/RubiconEngineInstance.cs"
+RubiconEngine="*res://Source/Rubicon.Core/RubiconEngineInstance.cs"
 Conductor="*res://Source/Rubicon.Core/ConductorInstance.cs"
 ScreenManager="*res://Source/Rubicon/Screens/ScreenManagerInstance.cs"
 UserSettings="*res://Source/Rubicon.Core/Settings/UserSettingsInstance.cs"

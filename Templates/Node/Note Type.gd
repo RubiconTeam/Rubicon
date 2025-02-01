@@ -2,10 +2,15 @@ extends GDNoteType
 
 # This is a template for a custom note type in C#.
 # Sorry if the amount of lines seem a little scary at first, there's a lot here I know!
-# This can also act as a Node! So yes, you will have access to such things like _Ready() and _Process(delta)
+# This can also act as a Node! So yes, you will have access to such things like _process(delta)
 
 # This is what your note type will be named.
 @export var type_name : StringName = &""
+
+# This is basically your _ready() function.
+# Do note that you can access the PlayField just by getting play_field!
+func initialize() -> void:
+	pass
 
 # This is for modifying the initial note data before the notes spawn.
 func initialize_note(_notes : Array[NoteData], _note_type : StringName):
