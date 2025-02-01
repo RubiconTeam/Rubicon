@@ -17,7 +17,8 @@ namespace Rubicon.Game;
 /// <summary>
 /// The main node that brings characters, stages, and ruleset gameplay together. Serves as "PlayState" in other Funkin' engines.
 /// </summary>
-[GlobalClass, StaticAutoloadSingleton("Rubicon.Game", "RubiconGame")] public partial class RubiconGameInstance : Node
+[GlobalClass, StaticAutoloadSingleton("Rubicon.Game", "RubiconGame")]
+public partial class RubiconGameInstance : CanvasLayer
 {
 	[Export] public bool Active = false;
 	
@@ -43,6 +44,8 @@ namespace Rubicon.Game;
 	
 	[Export] public PlayField PlayField;
 
+	[Export] public Bumper BounceBumper;
+
 	[Export] public Node RootNode;
 
 	[Export] public CanvasItemSpace CanvasItemSpace;
@@ -61,6 +64,8 @@ namespace Rubicon.Game;
 	{
 		if (!Context.IsValid())
 			return;
+
+		Layer = 16;
 		
 		RootNode = rootNode ?? this;
 		Active = true;
@@ -95,8 +100,43 @@ namespace Rubicon.Game;
 		PlayField.NoteHit += NoteHit;
 		AddChild(PlayField);
 		
+		BounceBumper = new Bumper();
+		BounceBumper.Name = "UI Bumper";
+		BounceBumper.BumpMeasure = 1f;
+		BounceBumper.Bumped += Bounce;
+		AddChild(BounceBumper);
+		
 		PlayField.Start();
 		Vocals?.Play();
+	}
+
+	public override void _Process(double delta)
+	{
+		base._Process(delta);
+
+		if (!Active)
+			return;
+		
+		// TODO: Optimize this later
+		Vector2 playFieldScale = PlayField.Scale;
+		PlayField.Scale = playFieldScale.Lerp(Vector2.One, 3.125f * (float)delta);
+
+		PlayField.PivotOffset = PlayField.Size / 2f;
+	}
+
+	public void Bounce()
+	{
+		PlayField.Scale += Vector2.One * 0.015f;
+
+		if (Metadata is not FunkinSongMeta funkinSongMeta)
+			return;
+
+		switch (funkinSongMeta.Environment)
+		{
+			case GameEnvironment.CanvasItem:
+				CanvasItemSpace.Camera.Zoom += Vector2.One * 0.045f;
+				break;
+		}
 	}
 
 	protected virtual void NoteHit(StringName name, NoteResult result)
@@ -160,6 +200,8 @@ namespace Rubicon.Game;
 		AudioManager.Music.RemoveSubPlayer(Vocals);
 		
 		PlayField.QueueFree();
+		BounceBumper.QueueFree();
+		
 		RuleSet = null;
 		RootNode = null;
 

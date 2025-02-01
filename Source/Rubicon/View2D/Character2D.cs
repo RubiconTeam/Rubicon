@@ -6,7 +6,7 @@ namespace Rubicon.View2D;
 /// <summary>
 /// Character class for <see cref="CanvasItemSpace"/> spaces.
 /// </summary>
-[GlobalClass] public partial class Character2D : Bumper2D
+[GlobalClass] public partial class Character2D : Node2D
 {
     /// <summary>
     /// Determines whether the character is facing left or not.
@@ -41,7 +41,17 @@ namespace Rubicon.View2D;
     /// <summary>
     /// How many times to dance each measure.
     /// </summary>
-    public double DanceMeasure = 1d / 2d;
+    [Export] public float DanceMeasure
+    {
+	    get => _danceMeasure;
+	    set
+	    {
+		    _danceMeasure = value;
+
+		    if (Bumper != null)
+			    Bumper.BumpMeasure = _danceMeasure;
+	    }
+    }
 
     /// <summary>
     /// Determines how holding is handled animation-wise.
@@ -79,6 +89,11 @@ namespace Rubicon.View2D;
     public bool Holding = false;
 
     /// <summary>
+    /// The node that helps with dancing to the beat.
+    /// </summary>
+    public Bumper Bumper;
+
+    /// <summary>
     /// <see cref="SpriteFrames"/> used for the health bar. Needs a "neutral" animation, but can optionally have a "lose" or "win" animation as well.
     /// </summary>
     [ExportGroup("Health Bar"), Export] public SpriteFrames Icon;
@@ -108,11 +123,19 @@ namespace Rubicon.View2D;
     /// </summary>
     [Export] public Node2D CameraPoint;
 
+    private float _danceMeasure = 1f / 2f;
     private int _lastStep = -int.MaxValue;
 
     public override void _Ready()
     {
         base._Ready();
+
+        Bumper = new Bumper();
+        Bumper.Name = "Bumper";
+        AddChild(Bumper);
+        
+        Bumper.BumpMeasure = _danceMeasure;
+        Bumper.Bumped += TryDance;
 
         AnimationPlayer.AnimationFinished += AnimationFinished;
         Dance();
@@ -129,12 +152,6 @@ namespace Rubicon.View2D;
 
 	    SingTimer += (float)delta;
 	    _lastStep = curStep;
-    }
-
-    public override void Bump()
-    {
-	    if (CurrentAnim != null && (CurrentAnim.Name.StartsWith("sing") && SingTimer >= Conductor.StepValue * 0.001f * SingDuration || !CurrentAnim.Name.StartsWith("sing")))
-		    Dance(true);
     }
 
     /// <summary>
@@ -290,6 +307,12 @@ namespace Rubicon.View2D;
 			    SingTimer = 0;
 			    break;
 	    }	
+    }
+    
+    private void TryDance()
+    {
+	    if (CurrentAnim != null && (CurrentAnim.Name.StartsWith("sing") && SingTimer >= Conductor.StepValue * 0.001f * SingDuration || !CurrentAnim.Name.StartsWith("sing")))
+		    Dance(true);
     }
 
     private void AnimationFinished(StringName anim) 

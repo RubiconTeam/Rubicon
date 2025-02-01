@@ -69,7 +69,7 @@ horizontal_alignment = 1
 script = ExtResource("2_ktnhm")
 Text = NodePath(".")
 
-[node name="HealthBar" type="ColorRect" parent="ScoreContainer" node_paths=PackedStringArray("Bar", "IconContainer", "LeftIcon", "RightIcon")]
+[node name="HealthBar" type="ColorRect" parent="ScoreContainer" node_paths=PackedStringArray("Bar", "LeftIcon", "RightIcon", "IconContainer")]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -85,9 +85,9 @@ grow_vertical = 2
 color = Color(0, 0, 0, 1)
 script = ExtResource("3_8iftt")
 Bar = NodePath("Bar")
-IconContainer = NodePath("Bar/IconContainer")
 LeftIcon = NodePath("Bar/IconContainer/LeftIcon")
 RightIcon = NodePath("Bar/IconContainer/RightIcon")
+IconContainer = NodePath("Bar/IconContainer")
 
 [node name="Bar" type="TextureRect" parent="ScoreContainer/HealthBar"]
 material = SubResource("ShaderMaterial_8iftt")
@@ -130,6 +130,7 @@ flip_h = true
 
 [node name="TimerBar" type="Control" parent="." node_paths=PackedStringArray("Text", "FillCircle")]
 layout_mode = 1
+anchors_preset = 10
 anchor_right = 1.0
 offset_top = 55.0
 offset_bottom = 55.0

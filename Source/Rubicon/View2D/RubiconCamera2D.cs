@@ -18,7 +18,7 @@ public partial class RubiconCamera2D : Camera2D
 
     [ExportSubgroup("Interpolation"), Export] public float PositionLerpWeight = 2.4f;
     [Export] public float RotationLerpWeight = 2.4f;
-    [Export] public float ZoomLerpWeight = 57f;
+    [Export] public float ZoomLerpWeight = 3.125f;
 
     [ExportSubgroup("Tweening"), Export] public float PositionTweenDuration = 1f;
     [Export] public float RotationTweenDuration = 1f;

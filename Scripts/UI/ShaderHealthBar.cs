@@ -12,8 +12,6 @@ namespace Rubicon.Extras.UI;
 public partial class ShaderHealthBar : CsFunkinHealthBar
 {
     [Export] public CanvasItem Bar;
-
-    [Export] public Control IconContainer;
     
     private ShaderMaterial _material;
 
