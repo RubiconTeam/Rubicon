@@ -722,6 +722,7 @@ CameraPoint = NodePath("CameraPoint")
 [node name="Sprite" type="AnimatedSprite2D" parent="." node_paths=PackedStringArray("AnimationPlayer")]
 sprite_frames = ExtResource("2_7sbxo")
 animation = &"BF idle dance"
+frame = 13
 offset = Vector2(-16, -150)
 script = ExtResource("3_1tcb8")
 Sync = true
