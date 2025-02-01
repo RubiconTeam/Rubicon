@@ -1,8 +1,8 @@
-[gd_resource type="Resource" script_class="FunkinSongMeta" load_steps=10 format=3 uid="uid://dqwrimkhnqiyc"]
+[gd_resource type="Resource" script_class="SongMeta" load_steps=10 format=3 uid="uid://dqwrimkhnqiyc"]
 
-[ext_resource type="Script" uid="uid://clg1lhiqfj0nk" path="res://Source/Rubicon/Data/CharacterMeta.cs" id="1_g6yev"]
+[ext_resource type="Script" uid="uid://clg1lhiqfj0nk" path="res://Source/Rubicon.Core/Meta/CharacterMeta.cs" id="1_g6yev"]
 [ext_resource type="Script" uid="uid://crgqugtqe2m3y" path="res://Source/Rubicon.Core/Chart/BpmInfo.cs" id="1_qkhdv"]
-[ext_resource type="Script" uid="uid://ekuh42try376" path="res://Source/Rubicon/Data/FunkinSongMeta.cs" id="2_qkhdv"]
+[ext_resource type="Script" uid="uid://b87l817pyjjsp" path="res://Source/Rubicon.Core/Meta/SongMeta.cs" id="2_qkhdv"]
 [ext_resource type="AudioStream" uid="uid://cwtjsj18bggik" path="res://Songs/Milf/Inst.ogg" id="3_rhv4t"]
 [ext_resource type="AudioStream" uid="uid://capkxulsrkbd6" path="res://Songs/Milf/Vocals.ogg" id="3_u6l60"]
 
@@ -33,17 +33,17 @@ BarLine = &""
 
 [resource]
 script = ExtResource("2_qkhdv")
-Vocals = ExtResource("3_u6l60")
-Characters = [SubResource("Resource_3oghc"), SubResource("Resource_ob138"), SubResource("Resource_tvvk7")]
-Environment = 1
-Stage = "limo"
 Name = "MILF"
-RawName = "MILF"
+InternalName = "Milf"
 Artist = "kawaisprite"
-Music = ExtResource("3_rhv4t")
-Offset = 0.0
-DefaultRuleset = "Mania"
+Instrumental = ExtResource("3_rhv4t")
+Vocals = ExtResource("3_u6l60")
+BpmInfo = [SubResource("Resource_qkhdv")]
 UiStyle = "Funkin"
 NoteSkin = "Funkin"
+Environment = 1
+Stage = "limo"
+Characters = [SubResource("Resource_3oghc"), SubResource("Resource_ob138"), SubResource("Resource_tvvk7")]
+Offset = 0.0
+DefaultRuleset = "Mania"
 PlayableCharts = [&"Player", &"Opponent"]
-BpmInfo = [SubResource("Resource_qkhdv")]

@@ -2,6 +2,7 @@ using System.Linq;
 using Rubicon.Core;
 using Rubicon.Core.API;
 using Rubicon.Core.Data;
+using Rubicon.Core.Meta;
 using Rubicon.Data;
 using Rubicon.Game;
 using Rubicon.View2D;
@@ -65,7 +66,7 @@ namespace Rubicon.API;
         Bumper.Bumped += Bump;
         AddChild(Bumper);
         
-        if (!RubiconGame.Active || RubiconGame.Metadata is not FunkinSongMeta funkinSongMeta || funkinSongMeta.Environment == GameEnvironment.None)
+        if (!RubiconGame.Active || RubiconGame.Metadata.Environment == GameEnvironment.None)
         {
             if (Direction == BarDirection.LeftToRight)
             {
@@ -81,7 +82,7 @@ namespace Rubicon.API;
             return;
         }
         
-        InitializeCharacters(funkinSongMeta);
+        InitializeCharacters(RubiconGame.Metadata);
     }
 
     public override void _Process(double delta)
@@ -142,7 +143,7 @@ namespace Rubicon.API;
         }
     }
     
-    private void InitializeCharacters(FunkinSongMeta songMeta)
+    private void InitializeCharacters(SongMeta songMeta)
     {
         if (!RubiconGame.Active)
             return;

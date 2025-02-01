@@ -19,7 +19,7 @@ public partial class CanvasItemSpace : Node2D
 	private Dictionary<StringName, Array<Character2D>> _barLineCharacters;
 	private Dictionary<string, PackedScene> _characterScenes;
 	
-	public void Initialize(FunkinSongMeta meta)
+	public void Initialize(SongMeta meta)
 	{
 		// Init stage
 		string stagePath = PathUtility.GetScenePath($"res://Resources/Stages/{meta.Stage}");

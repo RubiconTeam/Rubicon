@@ -1,9 +1,9 @@
-[gd_resource type="Resource" script_class="FunkinSongMeta" load_steps=8 format=3 uid="uid://by6jd0e4xxo5"]
+[gd_resource type="Resource" script_class="SongMeta" load_steps=8 format=3 uid="uid://by6jd0e4xxo5"]
 
 [ext_resource type="Script" uid="uid://crgqugtqe2m3y" path="res://Source/Rubicon.Core/Chart/BpmInfo.cs" id="1_5aygd"]
-[ext_resource type="Script" uid="uid://clg1lhiqfj0nk" path="res://Source/Rubicon/Data/CharacterMeta.cs" id="2_moy6i"]
+[ext_resource type="Script" uid="uid://clg1lhiqfj0nk" path="res://Source/Rubicon.Core/Meta/CharacterMeta.cs" id="2_moy6i"]
 [ext_resource type="AudioStream" uid="uid://br8kcafhjwjh4" path="res://Songs/Sew/Inst.ogg" id="3_7mi4t"]
-[ext_resource type="Script" uid="uid://ekuh42try376" path="res://Source/Rubicon/Data/FunkinSongMeta.cs" id="3_75x4g"]
+[ext_resource type="Script" uid="uid://b87l817pyjjsp" path="res://Source/Rubicon.Core/Meta/SongMeta.cs" id="3_75x4g"]
 
 [sub_resource type="Resource" id="Resource_s5mlw"]
 script = ExtResource("1_5aygd")
@@ -26,16 +26,16 @@ BarLine = &"Player"
 
 [resource]
 script = ExtResource("3_75x4g")
-Characters = [SubResource("Resource_jtc0a"), SubResource("Resource_bb6bo")]
-Environment = 1
-Stage = "PetalForest"
 Name = "Sew"
-RawName = "Sew"
+InternalName = "Test"
 Artist = "Swifticul"
-Music = ExtResource("3_7mi4t")
-Offset = 0.0
-DefaultRuleset = "Mania"
+Instrumental = ExtResource("3_7mi4t")
+BpmInfo = [SubResource("Resource_s5mlw")]
 UiStyle = "FunkLike"
 NoteSkin = "Funkin"
+Environment = 1
+Stage = "PetalForest"
+Characters = [SubResource("Resource_jtc0a"), SubResource("Resource_bb6bo")]
+Offset = 0.0
+DefaultRuleset = "Mania"
 PlayableCharts = [&"Player", &"Opponent"]
-BpmInfo = [SubResource("Resource_s5mlw")]

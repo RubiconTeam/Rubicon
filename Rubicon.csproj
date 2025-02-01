@@ -54,9 +54,9 @@
     <Content Include="Source\Rubicon.Core\Data\ClearRank.gd" />
     <Content Include="Source\Rubicon.Core\Data\HitType.gd" />
     <Content Include="Source\Rubicon.Core\Data\ScoreRank.gd" />
+    <Content Include="Source\Rubicon.Core\Meta\GameEnvironment.gd" />
     <Content Include="Source\Rubicon.Core\Rulesets\NoteResultFlags.gd" />
     <Content Include="Source\Rubicon\API\GDLoadingScreen.gd" />
-    <Content Include="Source\Rubicon\Data\GameEnvironment.gd" />
     <Content Include="Source\Rubicon\Menus\Settings\SettingsMenu.tscn" />
     <Content Include="Source\Rubicon\Menus\Settings\Templates\Button.tscn" />
     <Content Include="Source\Rubicon\Menus\Settings\Templates\CheckButton.tscn" />
@@ -72,8 +72,5 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Source\Rubicon.SourceGenerators\Rubicon.SourceGenerators.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Source\Rubicon\UI\" />
   </ItemGroup>
 </Project>

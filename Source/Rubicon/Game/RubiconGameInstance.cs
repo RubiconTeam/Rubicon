@@ -86,13 +86,10 @@ public partial class RubiconGameInstance : CanvasLayer
 		string chartPath = $"res://Songs/{Context.Name}/Data/{Context.RuleSet}-{Context.Difficulty}.rbc";
 		Chart = ResourceLoader.LoadThreadedGet(chartPath) as RubiChart;
 		
-		if (Metadata is FunkinSongMeta funkinSongMeta)
-		{
-			if (funkinSongMeta.Vocals is not null)
-				Vocals = AudioManager.Music.AddSubTrack(funkinSongMeta.Vocals, false, false);	
+		if (Metadata.Vocals is not null)
+			Vocals = AudioManager.Music.AddSubTrack(Metadata.Vocals, false, false);	
 			
-			LoadSpace(funkinSongMeta);
-		}
+		LoadSpace(Metadata);
 		
 		// Set up play field
 		PlayField = LoadPlayField(RuleSet);
@@ -127,11 +124,7 @@ public partial class RubiconGameInstance : CanvasLayer
 	public void Bounce()
 	{
 		PlayField.Scale += Vector2.One * 0.015f;
-
-		if (Metadata is not FunkinSongMeta funkinSongMeta)
-			return;
-
-		switch (funkinSongMeta.Environment)
+		switch (Metadata.Environment)
 		{
 			case GameEnvironment.CanvasItem:
 				CanvasItemSpace.Camera.Zoom += Vector2.One * 0.045f;
@@ -143,11 +136,8 @@ public partial class RubiconGameInstance : CanvasLayer
 	{
 		if (result.Flags.HasFlag(NoteResultFlags.Animation))
 			return;
-
-		if (Metadata is not FunkinSongMeta funkinSongMeta)
-			return;
 		
-		switch (funkinSongMeta.Environment)
+		switch (Metadata.Environment)
 		{
 			case GameEnvironment.CanvasItem: // 2D Space
 			{
@@ -205,15 +195,12 @@ public partial class RubiconGameInstance : CanvasLayer
 		RuleSet = null;
 		RootNode = null;
 
-		if (Metadata is FunkinSongMeta funkinSongMeta)
+		switch (Metadata.Environment)
 		{
-			switch (funkinSongMeta.Environment)
-			{
-				case GameEnvironment.CanvasItem:
-					CanvasItemSpace.QueueFree();
-					break;
-			}	
-		}
+			case GameEnvironment.CanvasItem:
+				CanvasItemSpace.QueueFree();
+				break;
+		}	
 
 		Metadata = null;
 		Chart = null;
@@ -255,7 +242,7 @@ public partial class RubiconGameInstance : CanvasLayer
 		return playField;
 	}
 
-	private void LoadSpace(FunkinSongMeta songMeta)
+	private void LoadSpace(SongMeta songMeta)
 	{
 		GD.Print("Environment: " + songMeta.Environment);
 		switch (songMeta.Environment)

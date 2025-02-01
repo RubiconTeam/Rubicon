@@ -60,11 +60,11 @@ namespace Rubicon.Game;
 			
 			ResourcesToLoad.AddResource(ruleSetLoadPath);
 			
-			if (meta is not FunkinSongMeta funkinMeta || funkinMeta.Environment == GameEnvironment.None)
+			if (meta.Environment == GameEnvironment.None)
 				return;
 			
-			string envSuffix = funkinMeta.Environment == GameEnvironment.CanvasItem ? "2d" : "3d";
-			string stagePath = $"res://Resources/Stages/{funkinMeta.Stage}";
+			string envSuffix = meta.Environment == GameEnvironment.CanvasItem ? "2d" : "3d";
+			string stagePath = $"res://Resources/Stages/{meta.Stage}";
 			if (!PathUtility.SceneExists(stagePath)) // Stage Fallback
 			{
 				string fallBackStage = ProjectSettings.GetSetting("rubicon/general/fallback/stage_" + envSuffix).AsString();
@@ -76,9 +76,9 @@ namespace Rubicon.Game;
 			ResourcesToLoad.AddScene(stagePath);
 			
 			List<string> loadedCharacters = new List<string>();
-			for (int i = 0; i < funkinMeta.Characters.Length; i++)
+			for (int i = 0; i < meta.Characters.Length; i++)
 			{
-				string curCharacter = funkinMeta.Characters[i].Character;
+				string curCharacter = meta.Characters[i].Character;
 				if (loadedCharacters.Contains(curCharacter))
 					continue;
 
