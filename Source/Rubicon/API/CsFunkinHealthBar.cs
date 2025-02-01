@@ -26,7 +26,7 @@ namespace Rubicon.API;
     {
         base.Initialize();
         
-        if (!RubiconGame.Active || RubiconGame.Metadata.Environment == GameEnvironment.None)
+        if (!RubiconGame.Active || RubiconGame.Metadata is not FunkinSongMeta funkinSongMeta || funkinSongMeta.Environment == GameEnvironment.None)
         {
             if (Direction == BarDirection.LeftToRight)
             {
@@ -42,7 +42,7 @@ namespace Rubicon.API;
             return;
         }
         
-        InitializeCharacters();
+        InitializeCharacters(funkinSongMeta);
     }
 
     public override void _Process(double delta)
@@ -88,12 +88,12 @@ namespace Rubicon.API;
         }
     }
     
-    private void InitializeCharacters()
+    private void InitializeCharacters(FunkinSongMeta songMeta)
     {
         if (!RubiconGame.Active)
             return;
 
-        switch (RubiconGame.Metadata.Environment)
+        switch (songMeta.Environment)
         {
             case GameEnvironment.CanvasItem:
                 CanvasItemSpace space = RubiconGame.CanvasItemSpace;

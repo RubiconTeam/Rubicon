@@ -21,11 +21,13 @@ namespace Rubicon.Extras.Events;
 			return;
 		
 		StringName focusOn = args[focusKey].AsStringName();
-		RubiconGameInstance gameInstance = RubiconGame.Singleton;
-		switch (gameInstance.Metadata.Environment)
+		if (RubiconGame.Metadata is not FunkinSongMeta songMeta)
+			return;
+		
+		switch (songMeta.Environment)
 		{
 			case GameEnvironment.CanvasItem:
-				CanvasItemSpace space = gameInstance.CanvasItemSpace;
+				CanvasItemSpace space = RubiconGame.CanvasItemSpace;
 				space.Camera.TargetPosition = space.GetGroupCameraPosition(focusOn);
 				break;
 		}

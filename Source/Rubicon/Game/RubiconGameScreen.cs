@@ -44,8 +44,7 @@ namespace Rubicon.Game;
 			if (metaResource is not SongMeta meta)
 				return;
 
-			RubiconGame.Metadata = meta as FunkinSongMeta;
-
+			RubiconGame.Metadata = meta;
 			string uiStylePath = $"res://Resources/UI/Styles/{meta.UiStyle}/Style";
 			if (!PathUtility.ResourceExists(uiStylePath))
 				uiStylePath = $"res://Resources/UI/Styles/{ProjectSettings.GetSetting("rubicon/general/default_ui_style")}/Style";

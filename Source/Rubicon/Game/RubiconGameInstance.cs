@@ -33,7 +33,7 @@ namespace Rubicon.Game;
 	
 	[ExportGroup("Status"), Export] public bool Paused = false;
 
-	[Export] public FunkinSongMeta Metadata;
+	[Export] public SongMeta Metadata;
 
 	[Export] public RubiChart Chart;
 
@@ -81,17 +81,19 @@ namespace Rubicon.Game;
 		string chartPath = $"res://Songs/{Context.Name}/Data/{Context.RuleSet}-{Context.Difficulty}.rbc";
 		Chart = ResourceLoader.LoadThreadedGet(chartPath) as RubiChart;
 		
-		// TODO: Make Spaces work
-		LoadSpace();
-		
 		// Set up play field
 		PlayField = LoadPlayField(RuleSet);
 		PlayField.Setup(Metadata, Chart, Context.TargetIndex, Events);
 		PlayField.NoteHit += NoteHit;
 		AddChild(PlayField);
-		
-		if (Metadata.Vocals != null)
-			Vocals = AudioManager.Music.AddSubTrack(Metadata.Vocals, false, false);	
+
+		if (Metadata is FunkinSongMeta funkinSongMeta)
+		{
+			if (Vocals is not null)
+				Vocals = AudioManager.Music.AddSubTrack(funkinSongMeta.Vocals, false, false);	
+			
+			LoadSpace(funkinSongMeta);
+		}
 		
 		PlayField.Start();
 		Vocals?.Play(0f);
@@ -101,8 +103,11 @@ namespace Rubicon.Game;
 	{
 		if (result.Flags.HasFlag(NoteResultFlags.Animation))
 			return;
+
+		if (Metadata is not FunkinSongMeta funkinSongMeta)
+			return;
 		
-		switch (Metadata.Environment)
+		switch (funkinSongMeta.Environment)
 		{
 			case GameEnvironment.CanvasItem: // 2D Space
 			{
@@ -158,11 +163,14 @@ namespace Rubicon.Game;
 		RuleSet = null;
 		RootNode = null;
 
-		switch (Metadata.Environment)
+		if (Metadata is FunkinSongMeta funkinSongMeta)
 		{
-			case GameEnvironment.CanvasItem:
-				CanvasItemSpace.QueueFree();
-				break;
+			switch (funkinSongMeta.Environment)
+			{
+				case GameEnvironment.CanvasItem:
+					CanvasItemSpace.QueueFree();
+					break;
+			}	
 		}
 
 		Metadata = null;
@@ -205,16 +213,16 @@ namespace Rubicon.Game;
 		return playField;
 	}
 
-	private void LoadSpace()
+	private void LoadSpace(FunkinSongMeta songMeta)
 	{
-		GD.Print("Environment: " + Metadata.Environment);
-		switch (Metadata.Environment)
+		GD.Print("Environment: " + songMeta.Environment);
+		switch (songMeta.Environment)
 		{
 			case GameEnvironment.CanvasItem: // 2D Space
 			{
 				CanvasItemSpace = new CanvasItemSpace();
 				CanvasItemSpace.Name = "Space";
-				CanvasItemSpace.Initialize(Metadata);
+				CanvasItemSpace.Initialize(songMeta);
 				RootNode.AddChild(CanvasItemSpace);
 				break;
 			}

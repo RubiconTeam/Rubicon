@@ -130,10 +130,9 @@ flip_h = true
 
 [node name="TimerBar" type="Control" parent="." node_paths=PackedStringArray("Text", "FillCircle")]
 layout_mode = 1
-anchors_preset = 10
 anchor_right = 1.0
-offset_top = 70.0
-offset_bottom = 70.0
+offset_top = 55.0
+offset_bottom = 55.0
 grow_horizontal = 2
 script = ExtResource("8_baffn")
 Text = NodePath("FillCircle/Label")
