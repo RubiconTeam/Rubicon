@@ -30,6 +30,7 @@ public partial class SettingsMenu : BaseSettingsMenu
 
 	private void GenerateSections()
 	{
+		/*
 		foreach (FieldInfo sectionField in typeof(UserSettingsData).GetFields())
 		{
 			var sectionAttribute = sectionField.FieldType.GetCustomAttribute<RubiconSettingsSectionAttribute>();
@@ -54,7 +55,7 @@ public partial class SettingsMenu : BaseSettingsMenu
 				_sectionMapping[sectionButton ?? throw new InvalidOperationException()] = sectionContainer;
 				GenerateSectionControls(sectionInstance, sectionContainer);
 			}
-		}
+		}*/
 	}
 
 	private void GenerateSectionControls(object sectionInstance, VBoxContainer container)
