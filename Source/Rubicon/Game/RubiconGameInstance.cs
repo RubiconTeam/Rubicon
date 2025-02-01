@@ -81,22 +81,22 @@ namespace Rubicon.Game;
 		string chartPath = $"res://Songs/{Context.Name}/Data/{Context.RuleSet}-{Context.Difficulty}.rbc";
 		Chart = ResourceLoader.LoadThreadedGet(chartPath) as RubiChart;
 		
-		// Set up play field
-		PlayField = LoadPlayField(RuleSet);
-		PlayField.Setup(Metadata, Chart, Context.TargetIndex, Events);
-		PlayField.NoteHit += NoteHit;
-		AddChild(PlayField);
-
 		if (Metadata is FunkinSongMeta funkinSongMeta)
 		{
-			if (Vocals is not null)
+			if (funkinSongMeta.Vocals is not null)
 				Vocals = AudioManager.Music.AddSubTrack(funkinSongMeta.Vocals, false, false);	
 			
 			LoadSpace(funkinSongMeta);
 		}
 		
+		// Set up play field
+		PlayField = LoadPlayField(RuleSet);
+		PlayField.Setup(Metadata, Chart, Context.TargetIndex, Events);
+		PlayField.NoteHit += NoteHit;
+		AddChild(PlayField);
+		
 		PlayField.Start();
-		Vocals?.Play(0f);
+		Vocals?.Play();
 	}
 
 	protected virtual void NoteHit(StringName name, NoteResult result)

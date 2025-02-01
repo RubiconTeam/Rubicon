@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="FunkinSongMeta" load_steps=10 format=3 uid="uid://dqwrimkhnqiyc"]
 
-[ext_resource type="Script" path="res://Source/Rubicon/Data/CharacterMeta.cs" id="1_g6yev"]
+[ext_resource type="Script" uid="uid://clg1lhiqfj0nk" path="res://Source/Rubicon/Data/CharacterMeta.cs" id="1_g6yev"]
 [ext_resource type="Script" uid="uid://crgqugtqe2m3y" path="res://Source/Rubicon.Core/Chart/BpmInfo.cs" id="1_qkhdv"]
 [ext_resource type="Script" uid="uid://ekuh42try376" path="res://Source/Rubicon/Data/FunkinSongMeta.cs" id="2_qkhdv"]
 [ext_resource type="AudioStream" uid="uid://cwtjsj18bggik" path="res://Songs/Milf/Inst.ogg" id="3_rhv4t"]
@@ -29,7 +29,7 @@ BarLine = &"Player"
 script = ExtResource("1_g6yev")
 Character = "gf-car"
 Nickname = &"Speaker"
-BarLine = &"Speaker"
+BarLine = &""
 
 [resource]
 script = ExtResource("2_qkhdv")
