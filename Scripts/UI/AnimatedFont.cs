@@ -1,8 +1,11 @@
 
 namespace Rubicon.Extras.UI;
-[Tool, GlobalClass] public partial class AnimatedFont : ReferenceRect
+#if TOOLS
+[Tool]
+#endif
+[GlobalClass] public partial class AnimatedFont : ReferenceRect
 {
-    [ExportToolButton("Update Text")] public Action _update = UpdateText;
+    [ExportToolButton("Update Text")] private Callable _update = Callable.From(UpdateText);
 
     [Export(PropertyHint.MultilineText)] public string Text = "Text Here";
     private string[] _letterArray;
