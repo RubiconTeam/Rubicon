@@ -168,7 +168,7 @@ public partial class RubiconGameInstance : CanvasLayer
 				Resume();
 		}
 
-		if (@event.IsEcho())
+		if (!Active || @event.IsEcho())
 			return;
 
 		// Freeze singing

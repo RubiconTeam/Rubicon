@@ -16,6 +16,7 @@
 
 [node name="Stage" type="Node2D" node_paths=PackedStringArray("SpawnPoints")]
 script = ExtResource("1_q6g61")
+Zoom = Vector2(0.825, 0.825)
 SpawnPoints = [NodePath("Spawns/Opponent"), NodePath("Spawns/Player")]
 
 [node name="Objects" type="Node2D" parent="."]
