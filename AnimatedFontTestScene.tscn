@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://df6tbau2acvyi"]
+
+[ext_resource type="Script" uid="uid://bgt5cfnherwx7" path="res://Scripts/UI/AnimatedFont.cs" id="1_ix2cu"]
+[ext_resource type="Script" uid="uid://chkyvjssh50na" path="res://Scripts/UI/GDAnimatedFont.gd" id="2_jdjbw"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_lock_ = true
+
+[node name="AnimatedFont" type="ReferenceRect" parent="."]
+layout_mode = 0
+script = ExtResource("1_ix2cu")
+metadata/_custom_type_script = ExtResource("1_ix2cu")
+
+[node name="GDAnimatedFont" type="ReferenceRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("2_jdjbw")
+text = ""
+metadata/_custom_type_script = ExtResource("2_jdjbw")
