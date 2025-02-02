@@ -178,7 +178,6 @@ public partial class RubiconGameInstance : CanvasLayer
 		{
 			if (@event.IsAction(_actionNames[i]))
 			{
-				GD.Print(_actionNames[i]);
 				if (@event.IsPressed())
 					isHolding = true;
 				
