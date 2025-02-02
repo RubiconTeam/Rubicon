@@ -89,6 +89,11 @@ namespace Rubicon.View2D;
     public bool Holding = false;
 
     /// <summary>
+    /// Whether this character should freeze after holding (and not go to idle)
+    /// </summary>
+    public bool FreezeSinging = false;
+
+    /// <summary>
     /// The node that helps with dancing to the beat.
     /// </summary>
     public Bumper Bumper;
@@ -311,7 +316,7 @@ namespace Rubicon.View2D;
     
     private void TryDance()
     {
-	    if (CurrentAnim != null && (CurrentAnim.Name.StartsWith("sing") && SingTimer >= Conductor.StepValue * 0.001f * SingDuration || !CurrentAnim.Name.StartsWith("sing")))
+	    if (CurrentAnim != null && (CurrentAnim.Name.StartsWith("sing") && !FreezeSinging && SingTimer >= Conductor.StepValue * 0.001f * SingDuration || !CurrentAnim.Name.StartsWith("sing")))
 		    Dance(true);
     }
 

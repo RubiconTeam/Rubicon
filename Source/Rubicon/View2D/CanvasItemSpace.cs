@@ -141,6 +141,13 @@ public partial class CanvasItemSpace : Node2D
 			characters[i].Sing(direction, holding, miss, customPrefix, customSuffix);
 	}
 
+	public void FreezeSingingForGroup(StringName barLineName, bool freeze)
+	{
+		Array<Character2D> characters = GetCharactersFromGroup(barLineName);
+		for (int i = 0; i < characters.Count; i++)
+			characters[i].FreezeSinging = freeze;
+	}
+
 	public Vector2 GetGroupCameraPosition(StringName groupName)
 	{
 		Array<Character2D> characters = GetCharactersFromGroup(groupName);

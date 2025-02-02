@@ -52,6 +52,8 @@ public partial class RubiconGameInstance : CanvasLayer
 
 	[Export] public SongEventController EventController;
 
+	private string[] _actionNames;
+
 	public override void _Ready()
 	{
 		base._Ready();
@@ -97,6 +99,11 @@ public partial class RubiconGameInstance : CanvasLayer
 		PlayField.NoteHit += NoteHit;
 		AddChild(PlayField);
 		
+		BarLine targetBarLine = PlayField.BarLines[PlayField.TargetIndex];
+		_actionNames = new string[targetBarLine.Managers.Length];
+		for (int i = 0; i < _actionNames.Length; i++)
+			_actionNames[i] = targetBarLine.Managers[i].Action;
+		
 		BounceBumper = new Bumper();
 		BounceBumper.Name = "UI Bumper";
 		BounceBumper.BumpMeasure = 1f;
@@ -136,12 +143,13 @@ public partial class RubiconGameInstance : CanvasLayer
 	{
 		if (result.Flags.HasFlag(NoteResultFlags.Animation))
 			return;
-		
+
+		bool missed = result.Hit == HitType.Miss;
 		switch (Metadata.Environment)
 		{
 			case GameEnvironment.CanvasItem: // 2D Space
 			{
-				CanvasItemSpace.SingForGroup(name, result.Direction, result.Holding, result.Hit == HitType.Miss);
+				CanvasItemSpace.SingForGroup(name, result.Direction, !missed && result.Holding, missed);
 				break;
 			}
 		}
@@ -158,6 +166,37 @@ public partial class RubiconGameInstance : CanvasLayer
 				Pause();
 			else
 				Resume();
+		}
+
+		if (@event.IsEcho())
+			return;
+
+		// Freeze singing
+		bool isAction = false;
+		bool isHolding = false;
+		for (int i = 0; i < _actionNames.Length; i++)
+		{
+			if (@event.IsAction(_actionNames[i]))
+			{
+				GD.Print(_actionNames[i]);
+				if (@event.IsPressed())
+					isHolding = true;
+				
+				isAction = true;	
+			}
+			
+			if (Input.IsActionPressed(_actionNames[i]))
+				isHolding = true;
+		}
+
+		if (!isAction)
+			return;
+
+		switch (Metadata.Environment)
+		{
+			case GameEnvironment.CanvasItem:
+				CanvasItemSpace.FreezeSingingForGroup(PlayField.TargetBarLine, isHolding);
+				break;
 		}
 	}
 
