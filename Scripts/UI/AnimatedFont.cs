@@ -1,45 +1,76 @@
 
+using System.Linq;
+using Godot.Collections;
+
 namespace Rubicon.Extras.UI;
 #if TOOLS
 [Tool]
 #endif
 [GlobalClass] public partial class AnimatedFont : ReferenceRect
 {
-    [ExportToolButton("Update Text")] private Callable _update = Callable.From(UpdateText);
-
     [Export(PropertyHint.MultilineText)] public string Text = "Text Here";
-    private string[] _letterArray;
+    [Export] private Dictionary<string,string> _characterAliases = new();
+    private AnimatedLetter[] _letterArray;
 
-    [Export(PropertyHint.File)] public SpriteFrames SpriteFrames;
-    private int _frameIndex = 0;
-
+    [ExportGroup("Style"), Export(PropertyHint.File)] private SpriteFrames SpriteFrames;
+    [Export] private float _separation = 3f;
+    
     public override void _Ready()
     {
         _letterArray = GetLetterArray();
     }
 
-    private string[] GetLetterArray()
+    private AnimatedLetter[] GetLetterArray()
     {
-        return Text.Split("\n");
+        string[] splitText = Text.Split('\n');
+        AnimatedLetter[] letterArray = new AnimatedLetter[splitText.Length];
+        for (int i = 0; i < splitText.Length; i++)
+        {
+            string letter = splitText[i];
+            AnimatedLetter animatedLetter = new AnimatedLetter()
+            {
+                Letter = letter
+            };
+            letterArray[i] = animatedLetter;
+        }
+        return letterArray;
+    }
+
+    private Rect2[] GetLetterRects()
+    {
+        Rect2[] letterRects = new Rect2[_letterArray.Length];
+        /*foreach (string letter in _letterArray)
+        {
+            letter 
+        }*/
+        return letterRects;
+    }
+
+    public void UpdateSpriteFrames(SpriteFrames newSpriteFrames)
+    {
+        SpriteFrames = newSpriteFrames;
+        UpdateLetters();
     }
     
-    private static void UpdateText()
+    private void UpdateLetters()
     {
-        GD.Print("wow you updated the text and it did nothing");
+        
     }
 
     public override void _Draw()
     {
-        foreach (var letter in _letterArray)
+        for (int i = 0; i < _letterArray.Length; i++)
         {
-            if (SpriteFrames != null && SpriteFrames.HasAnimation(letter))
+            AnimatedLetter animatedLetter = _letterArray[i];
+            if (SpriteFrames != null && SpriteFrames.HasAnimation(animatedLetter.Letter))
             {
-                if (SpriteFrames.GetFrameTexture(letter, _frameIndex) is AtlasTexture spriteAtlas)
+                if (SpriteFrames.GetFrameTexture(animatedLetter.Letter, animatedLetter.FrameIndex) is AtlasTexture spriteAtlas)
                 {
                     //atlas texture handling
                     return;
                 }
                 //texture2d handling
+                
             }
         }
     }

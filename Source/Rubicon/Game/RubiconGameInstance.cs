@@ -111,7 +111,7 @@ public partial class RubiconGameInstance : CanvasLayer
 		AddChild(BounceBumper);
 		
 		// Fuck this shit man
-		float SPEED = 6f;
+		float SPEED = 1f;
 		PlayField.Music.PitchScale = SPEED;
 		Vocals?.SetPitchScale(SPEED);
 		Conductor.Speed = SPEED;

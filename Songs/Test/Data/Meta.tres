@@ -1,28 +1,49 @@
-[gd_resource type="Resource" script_class="SongMeta" load_steps=5 format=3 uid="uid://c1ig5rsoyd6f8"]
+[gd_resource type="Resource" script_class="SongMeta" load_steps=10 format=3 uid="uid://dq6henrybso3d"]
 
 [ext_resource type="Script" uid="uid://crgqugtqe2m3y" path="res://Source/Rubicon.Core/Chart/BpmInfo.cs" id="1_ycdkm"]
-[ext_resource type="AudioStream" uid="uid://bw8e310gljbm3" path="res://Songs/Test/Inst.ogg" id="2_s4sn7"]
+[ext_resource type="Script" uid="uid://clg1lhiqfj0nk" path="res://Source/Rubicon.Core/Meta/CharacterMeta.cs" id="2_0eumu"]
 [ext_resource type="Script" uid="uid://b87l817pyjjsp" path="res://Source/Rubicon.Core/Meta/SongMeta.cs" id="3_ejhfw"]
+[ext_resource type="AudioStream" uid="uid://dpn1k0iwt43dk" path="res://Songs/Test/Inst.ogg" id="3_t8k4v"]
+[ext_resource type="AudioStream" uid="uid://bw5jtofolwx3o" path="res://Songs/Test/Voices.ogg" id="4_jr5xt"]
 
 [sub_resource type="Resource" id="Resource_kw1yv"]
 script = ExtResource("1_ycdkm")
 Time = 0.0
-Bpm = 108.0
+Bpm = 150.0
 TimeSignatureNumerator = 4
 TimeSignatureDenominator = 4
 
+[sub_resource type="Resource" id="Resource_12cs3"]
+script = ExtResource("2_0eumu")
+Character = "bf-pixel"
+Nickname = &"Opponent"
+BarLine = &"Opponent"
+
+[sub_resource type="Resource" id="Resource_fgly4"]
+script = ExtResource("2_0eumu")
+Character = "bf"
+Nickname = &"Player"
+BarLine = &"Player"
+
+[sub_resource type="Resource" id="Resource_64a8n"]
+script = ExtResource("2_0eumu")
+Character = "Missing"
+Nickname = &"Speaker"
+BarLine = &""
+
 [resource]
 script = ExtResource("3_ejhfw")
-Name = "Arpeggio"
+Name = "Test"
 InternalName = "Test"
-Artist = "Alexandros"
-Instrumental = ExtResource("2_s4sn7")
+Artist = "Hideo Kojima"
+Instrumental = ExtResource("3_t8k4v")
+Vocals = ExtResource("4_jr5xt")
 BpmInfo = [SubResource("Resource_kw1yv")]
-UiStyle = "FunkLike"
+UiStyle = "Funkin"
 NoteSkin = "Funkin"
-Environment = 0
+Environment = 1
 Stage = "stage"
-Characters = []
-Offset = -0.095
+Characters = [SubResource("Resource_12cs3"), SubResource("Resource_fgly4"), SubResource("Resource_64a8n")]
+Offset = 0.0
 DefaultRuleset = "Mania"
-PlayableCharts = [&"Player"]
+PlayableCharts = [&"Player", &"Opponent"]
