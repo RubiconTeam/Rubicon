@@ -14,3 +14,6 @@ Export/
 .vscode/
 *DotSettings.user
 /.cr/personal/FavoritesList
+
+# Secret songs for testing
+Songs/SecretSongs/
