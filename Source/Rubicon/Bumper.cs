@@ -1,5 +1,6 @@
 using Rubicon.Core;
 using Rubicon.Core.Chart;
+using Rubicon.Data;
 
 namespace Rubicon;
 
@@ -12,11 +13,43 @@ namespace Rubicon;
     /// Whether to allow bumps or not.
     /// </summary>
     [Export] public bool Enabled = true;
-    
+
     /// <summary>
-    /// How many times to bump each measure.
+    /// The type of time value to have. Options <see cref="TimeValue.Beat"/> and <see cref="TimeValue.Step"/> are referenced in 4/4 time.
     /// </summary>
-    [Export] public float BumpMeasure { get => _bumpMeasure; set => SetBumpMeasure(value); }
+    [Export] public TimeValue Type = TimeValue.Measure;
+
+    [Export]
+    public float Value
+    {
+        get
+        {
+            switch (Type)
+            {
+                default:
+                    return _bumpMeasure;
+                case TimeValue.Beat:
+                    return ConductorUtility.MeasureToBeats(_bumpMeasure);
+                case TimeValue.Step:
+                    return ConductorUtility.MeasureToSteps(_bumpMeasure);
+            }
+        }
+        set
+        {
+            switch (Type)
+            {
+                default:
+                    SetBumpMeasure(value);
+                    break;
+                case TimeValue.Beat:
+                    SetBumpMeasure(ConductorUtility.BeatsToMeasures(value));
+                    break;
+                case TimeValue.Step:
+                    SetBumpMeasure(ConductorUtility.StepsToMeasures(value));
+                    break;
+            }
+        }
+    }
     
     /// <summary>
     /// Emits every bump.
@@ -25,8 +58,11 @@ namespace Rubicon;
 
     private BpmInfo _currentBpm;
     
-    private int _bumpStep = 4;
+    private int _bumpStep = 4; // This is DIFFERENT from TimeValue.Step!!!
     private int _stepOffset = 0;
+
+    private float _cachedStep = 0;
+    private float _cachedBeat = 0;
     private float _bumpMeasure = 1f / 2f;
 
     private bool _initialized = false;
@@ -66,6 +102,9 @@ namespace Rubicon;
             _Ready();
         
         _bumpMeasure = value;
+        _cachedBeat = ConductorUtility.MeasureToBeats(_bumpMeasure);
+        _cachedStep = ConductorUtility.MeasureToSteps(_bumpMeasure);
+        
         _bumpStep = (int)Math.Floor(_currentBpm.TimeSignatureNumerator * _currentBpm.TimeSignatureDenominator * _bumpMeasure);
     }
 }

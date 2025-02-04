@@ -106,7 +106,7 @@ public partial class RubiconGameInstance : CanvasLayer
 		
 		BounceBumper = new Bumper();
 		BounceBumper.Name = "UI Bumper";
-		BounceBumper.BumpMeasure = 1f;
+		BounceBumper.Value = 1f;
 		BounceBumper.Bumped += Bounce;
 		AddChild(BounceBumper);
 		

@@ -17,20 +17,59 @@ namespace Rubicon.API;
     [Export] public float SizeLerpWeight = 9f;
 
     /// <summary>
-    /// How often the icons will bounce.
+    /// The time of type to go by with <see cref="BounceTime"/>.
     /// </summary>
-    [Export] public float BounceMeasure
+    [Export] public TimeValue TimeType
     {
-        get => _bounceMeasure;
+        get => _timeType;
         set
         {
-            _bounceMeasure = value;
+            _timeType = value;
 
             if (Bumper != null)
-                Bumper.BumpMeasure = _bounceMeasure;
+                Bumper.Type = _timeType;
         }
     }
-    
+
+    /// <summary>
+    /// How often to bounce.
+    /// </summary>
+    [Export] public float BounceTime
+    {
+        get
+        {
+            switch (TimeType)
+            {
+                case TimeValue.Measure:
+                    return _bounceMeasure;
+                case TimeValue.Beat:
+                    return ConductorUtility.MeasureToBeats(_bounceMeasure);
+                case TimeValue.Step:
+                    return ConductorUtility.MeasureToSteps(_bounceMeasure);
+            }
+
+            return 0; // ????
+        }
+        set
+        {
+            switch (TimeType)
+            {
+                case TimeValue.Measure:
+                    _bounceMeasure = value;
+                    break;
+                case TimeValue.Beat:
+                    _bounceMeasure = ConductorUtility.BeatsToMeasures(value);
+                    break;
+                case TimeValue.Step:
+                    _bounceMeasure = ConductorUtility.StepsToMeasures(value);
+                    break;
+            }
+
+            if (Bumper != null)
+                Bumper.Value = value;
+        }
+    }
+
     /// <summary>
     /// The icon on the left side.
     /// </summary>
@@ -51,6 +90,7 @@ namespace Rubicon.API;
     private SpriteFrames _leftIcon;
     private SpriteFrames _rightIcon;
 
+    private TimeValue _timeType = TimeValue.Beat;
     private float _bounceMeasure = 1f / 4f;
     
     private int _previousHealth = 0;
@@ -61,7 +101,8 @@ namespace Rubicon.API;
         base.Initialize();
 
         Bumper = new Bumper();
-        Bumper.BumpMeasure = _bounceMeasure;
+        Bumper.Type = TimeValue.Measure;
+        Bumper.Value = _bounceMeasure;
         Bumper.Name = "Bumper";
         Bumper.Bumped += Bump;
         AddChild(Bumper);

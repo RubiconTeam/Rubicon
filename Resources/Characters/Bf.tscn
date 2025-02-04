@@ -712,6 +712,7 @@ _data = {
 [node name="BF" type="Node2D" node_paths=PackedStringArray("Sprite", "AnimationPlayer", "CameraPoint")]
 script = ExtResource("1_deaeb")
 LeftFacing = true
+DanceTime = 2.0
 Icon = ExtResource("2_o37gp")
 IconOffset = Vector2(10, 0)
 HealthColor = Color(0.192157, 0.690196, 0.819608, 1)

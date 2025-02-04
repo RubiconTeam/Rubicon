@@ -39,17 +39,56 @@ namespace Rubicon.View2D;
     public int DanceIndex = 0;
 
     /// <summary>
-    /// How many times to dance each measure.
+    /// The time of type to go by with <see cref="BounceTime"/>.
     /// </summary>
-    [Export] public float DanceMeasure
+    [Export] public TimeValue DanceType
     {
-	    get => _danceMeasure;
+	    get => _timeType;
 	    set
 	    {
-		    _danceMeasure = value;
+		    _timeType = value;
 
 		    if (Bumper != null)
-			    Bumper.BumpMeasure = _danceMeasure;
+			    Bumper.Type = _timeType;
+	    }
+    }
+    
+    /// <summary>
+    /// How often to dance.
+    /// </summary>
+    [Export] public float DanceTime
+    {
+	    get
+	    {
+		    switch (DanceType)
+		    {
+			    case TimeValue.Measure:
+				    return _danceMeasure;
+			    case TimeValue.Beat:
+				    return ConductorUtility.MeasureToBeats(_danceMeasure);
+			    case TimeValue.Step:
+				    return ConductorUtility.MeasureToSteps(_danceMeasure);
+		    }
+
+		    return 0; // ????
+	    }
+	    set
+	    {
+		    switch (DanceType)
+		    {
+			    case TimeValue.Measure:
+				    _danceMeasure = value;
+				    break;
+			    case TimeValue.Beat:
+				    _danceMeasure = ConductorUtility.BeatsToMeasures(value);
+				    break;
+			    case TimeValue.Step:
+				    _danceMeasure = ConductorUtility.StepsToMeasures(value);
+				    break;
+		    }
+
+		    if (Bumper != null)
+			    Bumper.Value = _danceMeasure;
 	    }
     }
 
@@ -128,7 +167,9 @@ namespace Rubicon.View2D;
     /// </summary>
     [Export] public Node2D CameraPoint;
 
+    private TimeValue _timeType = TimeValue.Beat;
     private float _danceMeasure = 1f / 2f;
+    
     private int _lastStep = -int.MaxValue;
 
     public override void _Ready()
@@ -138,8 +179,9 @@ namespace Rubicon.View2D;
         Bumper = new Bumper();
         Bumper.Name = "Bumper";
         AddChild(Bumper);
-        
-        Bumper.BumpMeasure = _danceMeasure;
+
+        Bumper.Type = TimeValue.Measure;
+        Bumper.Value = _danceMeasure;
         Bumper.Bumped += TryDance;
 
         AnimationPlayer.AnimationFinished += AnimationFinished;
