@@ -14,11 +14,7 @@ namespace Rubicon.Extras.UI;
 
     [ExportGroup("Style"), Export(PropertyHint.File)] private SpriteFrames SpriteFrames;
     [Export] private float _separation = 3f;
-    
-    public override void _Ready()
-    {
-        _letterArray = GetLetterArray();
-    }
+    [Export] private float _fontSize = 24f;
 
     private AnimatedLetter[] GetLetterArray()
     {
@@ -36,16 +32,6 @@ namespace Rubicon.Extras.UI;
         return letterArray;
     }
 
-    private Rect2[] GetLetterRects()
-    {
-        Rect2[] letterRects = new Rect2[_letterArray.Length];
-        /*foreach (string letter in _letterArray)
-        {
-            letter 
-        }*/
-        return letterRects;
-    }
-
     public void UpdateSpriteFrames(SpriteFrames newSpriteFrames)
     {
         SpriteFrames = newSpriteFrames;
@@ -54,7 +40,11 @@ namespace Rubicon.Extras.UI;
     
     private void UpdateLetters()
     {
-        
+        _letterArray = GetLetterArray();
+        for (int i = 0; i < _letterArray.Length; i++)
+        {
+            
+        }
     }
 
     public override void _Draw()
@@ -62,15 +52,24 @@ namespace Rubicon.Extras.UI;
         for (int i = 0; i < _letterArray.Length; i++)
         {
             AnimatedLetter animatedLetter = _letterArray[i];
-            if (SpriteFrames != null && SpriteFrames.HasAnimation(animatedLetter.Letter))
+            if (animatedLetter.Texture != null && animatedLetter.Texture.Length > 0)
             {
-                if (SpriteFrames.GetFrameTexture(animatedLetter.Letter, animatedLetter.FrameIndex) is AtlasTexture spriteAtlas)
+                if (animatedLetter.Texture[animatedLetter.FrameIndex] is AtlasTexture letterAtlas)
                 {
-                    //atlas texture handling
+                    // AtlasTexture drawing
+                    DrawTextureRectRegion(animatedLetter.Texture[animatedLetter.FrameIndex],
+                        animatedLetter.Rect,
+                        animatedLetter.SourceRect[animatedLetter.FrameIndex],
+                        Modulate
+                        );
+                    
                     return;
                 }
-                //texture2d handling
-                
+                // Drawing other Texture2D derivatives
+                DrawTextureRect(animatedLetter.Texture[animatedLetter.FrameIndex],
+                    animatedLetter.Rect,
+                    false,
+                    Modulate);
             }
         }
     }

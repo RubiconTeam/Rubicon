@@ -28,6 +28,6 @@ layout_mode = 1
 offset_right = 102.0
 offset_bottom = 130.0
 script = ExtResource("1_ix2cu")
-Text = "a"
+Text = ""
 SpriteFrames = SubResource("SpriteFrames_3qwu5")
 metadata/_custom_type_script = ExtResource("1_ix2cu")
