@@ -110,12 +110,6 @@ public partial class RubiconGameInstance : CanvasLayer
 		BounceBumper.Bumped += Bounce;
 		AddChild(BounceBumper);
 		
-		// Fuck this shit man
-		float SPEED = 1f;
-		PlayField.Music.PitchScale = SPEED;
-		Vocals?.SetPitchScale(SPEED);
-		Conductor.Speed = SPEED;
-		
 		PlayField.Start();
 		Vocals?.Play();
 	}
@@ -147,6 +141,9 @@ public partial class RubiconGameInstance : CanvasLayer
 
 	protected virtual void NoteHit(StringName name, NoteResult result)
 	{
+		if (!result.Flags.HasFlag(NoteResultFlags.Vocals))
+			Vocals.VolumeLinear = result.Hit == HitType.Miss ? 0f : 1f;
+		
 		if (result.Flags.HasFlag(NoteResultFlags.Animation))
 			return;
 
