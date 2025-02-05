@@ -8,7 +8,8 @@ namespace Rubicon.Extras.UI;
 #endif
 [GlobalClass] public partial class AnimatedFont : ReferenceRect
 {
-    [Export(PropertyHint.MultilineText)] public string Text = "Text Here";
+    [ExportToolButton("Update Text")] public Callable UpdateTextButton;
+    [Export(PropertyHint.MultilineText)] public string Text = "";
     [Export] private Dictionary<string,string> _characterAliases = new();
     private AnimatedLetter[] _letterArray;
 
@@ -16,9 +17,19 @@ namespace Rubicon.Extras.UI;
     [Export] private float _separation = 3f;
     [Export] private float _fontSize = 24f;
 
+    public override void _EnterTree()
+    {
+        UpdateTextButton = Callable.From(UpdateText);
+    }
+
+    public override void _Ready()
+    {
+        UpdateText();
+    }
+
     private AnimatedLetter[] GetLetterArray()
     {
-        string[] splitText = Text.Split('\n');
+        string[] splitText = Text.Select(x => x.ToString()).ToArray();
         AnimatedLetter[] letterArray = new AnimatedLetter[splitText.Length];
         for (int i = 0; i < splitText.Length; i++)
         {
@@ -28,6 +39,7 @@ namespace Rubicon.Extras.UI;
                 Letter = letter
             };
             letterArray[i] = animatedLetter;
+            GD.Print(animatedLetter.Letter);
         }
         return letterArray;
     }
@@ -35,16 +47,32 @@ namespace Rubicon.Extras.UI;
     public void UpdateSpriteFrames(SpriteFrames newSpriteFrames)
     {
         SpriteFrames = newSpriteFrames;
-        UpdateLetters();
+        UpdateText();
     }
     
-    private void UpdateLetters()
+    private void UpdateText()
     {
         _letterArray = GetLetterArray();
         for (int i = 0; i < _letterArray.Length; i++)
         {
-            
+            AnimatedLetter animatedLetter = _letterArray[i];
+            animatedLetter.Texture = new Texture2D[SpriteFrames.GetFrameCount(animatedLetter.Letter)];
+            animatedLetter.Rect = new Rect2(new Vector2(_separation * i, 0), new Vector2(_fontSize, _fontSize));
+                
+            for (int frame = 0; frame < SpriteFrames.GetFrameCount(animatedLetter.Letter); frame++)
+            {
+                Texture2D frameTexture = SpriteFrames.GetFrameTexture(animatedLetter.Letter, frame);
+                animatedLetter.Texture[frame] = frameTexture;
+                animatedLetter.FrameSpeed = SpriteFrames.GetAnimationSpeed(animatedLetter.Letter);
+
+
+                if (frameTexture is AtlasTexture atlasTexture)
+                {
+                    animatedLetter.SourceRect[frame] = atlasTexture.GetRegion();
+                }
+            }
         }
+        QueueRedraw();
     }
 
     public override void _Draw()
