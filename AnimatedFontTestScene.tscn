@@ -1,18 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://df6tbau2acvyi"]
+[gd_scene load_steps=2 format=3 uid="uid://df6tbau2acvyi"]
 
 [ext_resource type="Script" uid="uid://bgt5cfnherwx7" path="res://Scripts/UI/AnimatedFont.cs" id="1_ix2cu"]
-[ext_resource type="Texture2D" uid="uid://cy7tsup6gbx7t" path="res://Assets/UI/Misc/icon.svg" id="2_jdjbw"]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_3qwu5"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("2_jdjbw")
-}],
-"loop": true,
-"name": &"a",
-"speed": 5.0
-}]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -28,7 +16,5 @@ layout_mode = 1
 offset_right = 102.0
 offset_bottom = 130.0
 script = ExtResource("1_ix2cu")
-Text = "a a a a "
-SpriteFrames = SubResource("SpriteFrames_3qwu5")
-_separation = 5.0
+Text = "asaadsasdadsadaaaaasafdsdfs"
 metadata/_custom_type_script = ExtResource("1_ix2cu")

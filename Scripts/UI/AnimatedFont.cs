@@ -8,19 +8,38 @@ namespace Rubicon.Extras.UI;
 #endif
 [GlobalClass] public partial class AnimatedFont : ReferenceRect
 {
-    [ExportToolButton("Update Text")] public Callable UpdateTextButton;
-    [Export(PropertyHint.MultilineText)] public string Text = "";
+    [Export(PropertyHint.MultilineText)]
+    public string Text
+    {
+        get => _text;
+        set
+        {
+            _text = value;
+            UpdateText();
+        }
+    }
+    
+    
     [Export] private Dictionary<string,string> _characterAliases = new();
     private AnimatedLetter[] _letterArray;
 
-    [ExportGroup("Style"), Export(PropertyHint.File)] private SpriteFrames SpriteFrames;
+    [ExportGroup("Style"), Export(PropertyHint.File)]
+    public SpriteFrames SpriteFrames
+    {
+        get => _spriteFrames;
+        set
+        {
+            _spriteFrames = value;
+            UpdateSpriteFrames();
+        }
+    }
+    
+    
     [Export] private float _separation = 3f;
     [Export] private float _fontSize = 24f;
 
-    public override void _EnterTree()
-    {
-        UpdateTextButton = Callable.From(UpdateText);
-    }
+    private string _text;
+    private SpriteFrames _spriteFrames;
 
     public override void _Ready()
     {
@@ -44,9 +63,8 @@ namespace Rubicon.Extras.UI;
         return letterArray;
     }
 
-    public void UpdateSpriteFrames(SpriteFrames newSpriteFrames)
+    public void UpdateSpriteFrames()
     {
-        SpriteFrames = newSpriteFrames;
         UpdateText();
     }
     
@@ -56,6 +74,7 @@ namespace Rubicon.Extras.UI;
         for (int i = 0; i < _letterArray.Length; i++)
         {
             AnimatedLetter animatedLetter = _letterArray[i];
+            GD.Print("SPRITE FRAMES IIISS NULL !? ", SpriteFrames is null);
             animatedLetter.Texture = new Texture2D[SpriteFrames.GetFrameCount(animatedLetter.Letter)];
             animatedLetter.Rect = new Rect2(new Vector2(_separation * i, 0), new Vector2(_fontSize, _fontSize));
                 
@@ -77,6 +96,7 @@ namespace Rubicon.Extras.UI;
 
     public override void _Draw()
     {
+        GD.Print("DAH");
         for (int i = 0; i < _letterArray.Length; i++)
         {
             AnimatedLetter animatedLetter = _letterArray[i];
