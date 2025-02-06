@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="ManiaNoteSkin" load_steps=3 format=3 uid="uid://bagkd17pscis0"]
+
+[ext_resource type="SpriteFrames" uid="uid://bwn0tovd1xctw" path="res://Assets/UI/Styles/FunkinPixel/Mania/NoteSkin.tres" id="1_kg536"]
+[ext_resource type="Script" uid="uid://ddude6p581oy2" path="res://Source/Rubicon.Core/Rulesets/Mania/ManiaNoteSkin.cs" id="4_y1sga"]
+
+[resource]
+script = ExtResource("4_y1sga")
+NoteAtlas = ExtResource("1_kg536")
+LaneAtlas = ExtResource("1_kg536")
+HoldAtlas = ExtResource("1_kg536")
+Scale = Vector2(9, 9)
+LaneSize = 160.0
+Filter = 1
+Directions = Dictionary[int, PackedStringArray]({
+4: PackedStringArray("left", "down", "up", "right")
+})
+UseTiledHold = false
