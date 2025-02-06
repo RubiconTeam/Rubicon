@@ -252,7 +252,7 @@ public partial class RubiconGameInstance : CanvasLayer
 	
 	private RuleSet LoadRuleSet(string ruleSetName)
 	{
-		string ruleSetResourcePath = PathUtility.GetResourcePath($"res://Resources/Rulesets/{ruleSetName}");
+		string ruleSetResourcePath = PathUtility.GetResourcePath($"res://Resources/Game/Rulesets/{ruleSetName}");
 		if (string.IsNullOrWhiteSpace(ruleSetResourcePath))
 		{
 			GD.PrintErr($"No resource exists at path \"{ruleSetResourcePath}\".");

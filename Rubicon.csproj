@@ -38,7 +38,6 @@
     <Content Include="addons\rubichart_importer\rubichart_res_loader.gd" />
     <Content Include="addons\rubichart_importer\rubichart_res_saver.gd" />
     <Content Include="addons\rubichart_importer\savers\rbc.gd" />
-    <Content Include="Resources\Characters\bf.tscn" />
     <Content Include="Resources\UI\Funkin\Mania.tres" />
     <Content Include="Resources\UI\Funkin\Style.tres" />
     <Content Include="Songs\Test\Data\Mania-Normal.tres" />

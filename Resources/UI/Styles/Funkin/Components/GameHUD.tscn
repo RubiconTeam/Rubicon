@@ -53,7 +53,7 @@ offset_bottom = -117.0
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="ScorePanel" type="Label" parent="ScoreContainer" node_paths=PackedStringArray("Text")]
+[node name="ScorePanel" type="Label" parent="ScoreContainer" node_paths=PackedStringArray("TextLabel")]
 layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5
@@ -67,7 +67,7 @@ text = "Score: 1000000 / Accuracy: 100% / Misses: 0 / Rank: P (Perfect)"
 label_settings = SubResource("LabelSettings_ktnhm")
 horizontal_alignment = 1
 script = ExtResource("2_ktnhm")
-Text = NodePath(".")
+TextLabel = NodePath(".")
 
 [node name="HealthBar" type="ColorRect" parent="ScoreContainer" node_paths=PackedStringArray("Bar", "LeftIcon", "RightIcon", "IconContainer")]
 layout_mode = 1

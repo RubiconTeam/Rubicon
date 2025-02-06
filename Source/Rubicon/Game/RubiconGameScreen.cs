@@ -51,11 +51,11 @@ namespace Rubicon.Game;
 				
 			ResourcesToLoad.AddResource(uiStylePath);
 			
-			string ruleSetLoadPath = $"res://Resources/Rulesets/{context.RuleSet}";
+			string ruleSetLoadPath = $"res://Resources/Game/Rulesets/{context.RuleSet}";
 			if (!PathUtility.ResourceExists(ruleSetLoadPath))
 			{
 				context.RuleSet = ProjectSettings.GetSetting("rubicon/rulesets/default_ruleset").AsString();
-				ruleSetLoadPath = $"res://Resources/Rulesets/{context.RuleSet}";
+				ruleSetLoadPath = $"res://Resources/Game/Rulesets/{context.RuleSet}";
 			}
 			
 			ResourcesToLoad.AddResource(ruleSetLoadPath);
@@ -64,11 +64,11 @@ namespace Rubicon.Game;
 				return;
 			
 			string envSuffix = meta.Environment == GameEnvironment.CanvasItem ? "2d" : "3d";
-			string stagePath = $"res://Resources/Stages/{meta.Stage}";
+			string stagePath = $"res://Resources/Game/Stages/{meta.Stage}";
 			if (!PathUtility.SceneExists(stagePath)) // Stage Fallback
 			{
 				string fallBackStage = ProjectSettings.GetSetting("rubicon/general/fallback/stage_" + envSuffix).AsString();
-				stagePath = $"res://Resources/Stages/{fallBackStage}";
+				stagePath = $"res://Resources/Game/Stages/{fallBackStage}";
 				if (!PathUtility.SceneExists(stagePath)) // Dude
 					return;
 			}
@@ -82,11 +82,11 @@ namespace Rubicon.Game;
 				if (loadedCharacters.Contains(curCharacter))
 					continue;
 
-				string charaPath = $"res://Resources/Characters/{curCharacter}";
+				string charaPath = $"res://Resources/Game/Characters/{curCharacter}";
 				if (!PathUtility.SceneExists(charaPath)) // Fallback
 				{
 					curCharacter = ProjectSettings.GetSetting("rubicon/general/fallback/character_" + envSuffix).AsString();	
-					charaPath = $"res://Resources/Characters/{curCharacter}";
+					charaPath = $"res://Resources/Game/Characters/{curCharacter}";
 					
 					if (!PathUtility.SceneExists(charaPath))
 						continue;
@@ -119,13 +119,13 @@ namespace Rubicon.Game;
 					continue;
 				
 				eventsPassed.Add(eventName);
-				ResourcesToLoad.AddScene($"res://Resources/Events/{eventName}");
+				ResourcesToLoad.AddScene($"res://Resources/Game/Events/{eventName}");
 			}
 
 			return;
 		}
 		
-		string ruleSetPath = PathUtility.GetResourcePath($"res://Resources/Rulesets/{context.RuleSet}");
+		string ruleSetPath = PathUtility.GetResourcePath($"res://Resources/Game/Rulesets/{context.RuleSet}");
 		if (path == ruleSetPath)
 		{
 			string noteSkinPath = $"res://Resources/UI/Styles/{RubiconGame.Metadata.NoteSkin}/{context.RuleSet}";

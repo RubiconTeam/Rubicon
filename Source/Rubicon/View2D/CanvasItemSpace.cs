@@ -22,7 +22,7 @@ public partial class CanvasItemSpace : Node2D
 	public void Initialize(SongMeta meta)
 	{
 		// Init stage
-		string stagePath = PathUtility.GetScenePath($"res://Resources/Stages/{meta.Stage}");
+		string stagePath = PathUtility.GetScenePath($"res://Resources/Game/Stages/{meta.Stage}");
 		string fallBackStage = ProjectSettings.GetSetting("rubicon/general/fallback/stage_2d").AsString();
 		if (string.IsNullOrWhiteSpace(stagePath))
 		{
@@ -89,7 +89,7 @@ public partial class CanvasItemSpace : Node2D
 
 	public void AddCharacter(CharacterMeta meta)
 	{
-		string path = PathUtility.GetScenePath($"res://Resources/Characters/{meta.Character}");
+		string path = PathUtility.GetScenePath($"res://Resources/Game/Characters/{meta.Character}");
 		Character2D character = null;
 		
 		if (_characterScenes.ContainsKey(meta.Character))
