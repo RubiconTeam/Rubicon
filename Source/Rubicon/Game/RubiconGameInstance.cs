@@ -142,17 +142,17 @@ public partial class RubiconGameInstance : CanvasLayer
 	protected virtual void NoteHit(StringName name, NoteResult result)
 	{
 		if (!result.Flags.HasFlag(NoteResultFlags.Vocals))
-			Vocals.VolumeLinear = result.Hit == HitType.Miss ? 0f : 1f;
+			Vocals.VolumeLinear = result.Rating == Judgment.Miss ? 0f : 1f;
 		
 		if (result.Flags.HasFlag(NoteResultFlags.Animation))
 			return;
 
-		bool missed = result.Hit == HitType.Miss;
+		bool missed = result.Rating == Judgment.Miss;
 		switch (Metadata.Environment)
 		{
 			case GameEnvironment.CanvasItem: // 2D Space
 			{
-				CanvasItemSpace.SingForGroup(name, result.Direction, !missed && result.Holding, missed);
+				CanvasItemSpace.SingForGroup(name, result.Direction, !missed && result.Hit == Hit.Hold, missed);
 				break;
 			}
 		}

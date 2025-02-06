@@ -52,7 +52,8 @@
     <Content Include="Source\Rubicon.Core\API\GDStatDisplay.gd" />
     <Content Include="Source\Rubicon.Core\Data\BarDirection.gd" />
     <Content Include="Source\Rubicon.Core\Data\ClearRank.gd" />
-    <Content Include="Source\Rubicon.Core\Data\HitType.gd" />
+    <Content Include="Source\Rubicon.Core\Data\Hit.gd" />
+    <Content Include="Source\Rubicon.Core\Data\Judgment.gd" />
     <Content Include="Source\Rubicon.Core\Data\ScoreRank.gd" />
     <Content Include="Source\Rubicon.Core\Meta\GameEnvironment.gd" />
     <Content Include="Source\Rubicon.Core\Rulesets\NoteResultFlags.gd" />
