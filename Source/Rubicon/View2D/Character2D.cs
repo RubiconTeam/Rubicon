@@ -151,6 +151,10 @@ namespace Rubicon.View2D;
     /// Used as the color representing this character on the health bar.
     /// </summary>
     [Export] public Color HealthColor = new("#A1A1A1");
+    
+    [Export] public Vector2 IconScale = Vector2.One;
+
+    [Export] public TextureFilterEnum IconFilter = TextureFilterEnum.Linear;
 
     /// <summary>
     /// The reference visual node. Usually a <see cref="SyncedSprite2D"/>.

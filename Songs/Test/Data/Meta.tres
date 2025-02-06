@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="SongMeta" load_steps=10 format=3 uid="uid://dq6henrybso3d"]
+[gd_resource type="Resource" script_class="SongMeta" load_steps=10 format=3 uid="uid://c1ig5rsoyd6f8"]
 
 [ext_resource type="Script" uid="uid://crgqugtqe2m3y" path="res://Source/Rubicon.Core/Chart/BpmInfo.cs" id="1_ycdkm"]
 [ext_resource type="Script" uid="uid://clg1lhiqfj0nk" path="res://Source/Rubicon.Core/Meta/CharacterMeta.cs" id="2_0eumu"]
@@ -15,7 +15,7 @@ TimeSignatureDenominator = 4
 
 [sub_resource type="Resource" id="Resource_12cs3"]
 script = ExtResource("2_0eumu")
-Character = "bf-pixel"
+Character = "BfPixel"
 Nickname = &"Opponent"
 BarLine = &"Opponent"
 

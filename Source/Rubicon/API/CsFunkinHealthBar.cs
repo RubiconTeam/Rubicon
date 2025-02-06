@@ -171,6 +171,8 @@ namespace Rubicon.API;
             LeftIcon.SpriteFrames = character2D.Icon;
             LeftColor = character2D.HealthColor;
             LeftIcon.Offset = character2D.IconOffset;
+            LeftIcon.Scale *= character2D.IconScale;
+            LeftIcon.TextureFilter = character2D.IconFilter;
         }
     }
     
@@ -181,6 +183,8 @@ namespace Rubicon.API;
             RightIcon.SpriteFrames = character2D.Icon;
             RightColor = character2D.HealthColor;
             RightIcon.Offset = character2D.IconOffset * new Vector2(-1f, 1f);
+            RightIcon.Scale *= character2D.IconScale;
+            RightIcon.TextureFilter = character2D.IconFilter;
         }
     }
     
