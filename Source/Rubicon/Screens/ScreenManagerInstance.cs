@@ -96,7 +96,7 @@ public partial class ScreenManagerInstance : CanvasLayer
                 return;
             }
                 
-            Node screen = (screenResource as PackedScene).Instantiate();
+            Node screen = (screenResource as PackedScene)?.Instantiate();
             if (screen is null)
             {
                 GD.PrintErr($"[ScreenManager] Resource at {_screenPath} is not of type Screen.");

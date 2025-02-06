@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using Rubicon.Core;
 using Rubicon.Core.Data;
 using Rubicon.Core.Events;
@@ -12,13 +13,11 @@ namespace Rubicon.Game;
 {
 #if TOOLS
 	[Export] public string SongName = ProjectSettings.GetSetting("rubicon/general/fallback/song").AsString();
-	
 	[Export] public string Difficulty = ProjectSettings.GetSetting("rubicon/general/fallback/difficulty").AsString();
-	
 	[Export] public string RuleSet = ProjectSettings.GetSetting("rubicon/rulesets/default_ruleset").AsString();
 #endif
 	
-    private bool _preloaded = false;
+    private bool _preloaded;
     
     public override void ReadyPreload()
 	{
@@ -33,16 +32,11 @@ namespace Rubicon.Game;
 		if (PathUtility.ResourceExists(eventsPath))
 			ResourcesToLoad.AddResource($"res://Songs/{context.Name}/Data/Events");
 
-		List<string> scriptPaths = new List<string>();
+		List<string> scriptPaths = [];
 		scriptPaths.AddRange(PathUtility.GetAbsoluteFilePathsAt("res://Resources/Game/Common/", true));
 		scriptPaths.AddRange(PathUtility.GetAbsoluteFilePathsAt($"res://Songs/{context.Name}/Scripts/", true));
-		for (int i = 0; i < scriptPaths.Count; i++)
+		foreach (var path in from path in scriptPaths let ext = path.GetExtension().ToLower() where ext is "tscn" or "scn" or "cs" or "gd" select path)
 		{
-			string path = scriptPaths[i];
-			string ext = path.GetExtension().ToLower();
-			if (ext != "tscn" && ext != "scn" && ext != "cs" && ext != "gd")
-				continue;
-			
 			ResourcesToLoad.AddPath(path);
 		}
 	}
@@ -88,7 +82,7 @@ namespace Rubicon.Game;
 			
 			ResourcesToLoad.AddScene(stagePath);
 			
-			List<string> loadedCharacters = new List<string>();
+			List<string> loadedCharacters = [];
 			for (int i = 0; i < meta.Characters.Length; i++)
 			{
 				string curCharacter = meta.Characters[i].Character;
