@@ -1,9 +1,18 @@
-[gd_scene load_steps=18 format=3 uid="uid://53h3lsvw1swp"]
+[gd_scene load_steps=20 format=3 uid="uid://53h3lsvw1swp"]
 
 [ext_resource type="Script" uid="uid://cqmn2xk4n5fbt" path="res://Source/Rubicon/View2D/Character2D.cs" id="1_gkk3t"]
 [ext_resource type="SpriteFrames" uid="uid://dwqx625sqpkm5" path="res://Assets/Characters/Gf/Icon.tres" id="2_gkk3t"]
+[ext_resource type="Script" uid="uid://bsc6hc1t5s5ry" path="res://Source/Rubicon/Data/CharacterIconData.cs" id="3_8bx5y"]
 [ext_resource type="SpriteFrames" uid="uid://bepsengc7tf5a" path="res://Assets/Characters/Gf/GF_assets.tres" id="3_gkk3t"]
 [ext_resource type="Script" uid="uid://chh5qfxuctxsq" path="res://Source/Rubicon/View2D/SyncedSprite2D.cs" id="4_d3eco"]
+
+[sub_resource type="Resource" id="Resource_y4mqf"]
+script = ExtResource("3_8bx5y")
+Icon = ExtResource("2_gkk3t")
+Offset = Vector2(-65, 0)
+Color = Color(0.643137, 0.0980392, 0.301961, 1)
+Scale = Vector2(1, 1)
+Filter = 2
 
 [sub_resource type="Animation" id="Animation_1tcb8"]
 length = 0.001
@@ -804,11 +813,9 @@ _data = {
 
 [node name="GF" type="Node2D" node_paths=PackedStringArray("Sprite", "AnimationPlayer", "CameraPoint")]
 script = ExtResource("1_gkk3t")
+Icon = SubResource("Resource_y4mqf")
 DanceList = PackedStringArray("danceLeft", "danceRight")
 DanceTime = 1.0
-Icon = ExtResource("2_gkk3t")
-IconOffset = Vector2(-65, 0)
-HealthColor = Color(0.65098, 0.0980392, 0.301961, 1)
 Sprite = NodePath("Sprite")
 AnimationPlayer = NodePath("Sprite/AnimationPlayer")
 CameraPoint = NodePath("CameraPoint")

@@ -166,26 +166,34 @@ namespace Rubicon.API;
     
     public void SetLeftCharacter(Node character)
     {
+        CharacterIconData data = null;
         if (character is Character2D character2D)
-        {
-            LeftIcon.SpriteFrames = character2D.Icon;
-            LeftColor = character2D.HealthColor;
-            LeftIcon.Offset = character2D.IconOffset;
-            LeftIcon.Scale *= character2D.IconScale;
-            LeftIcon.TextureFilter = character2D.IconFilter;
-        }
+            data = character2D.Icon;
+
+        if (data is null)
+            return;
+
+        LeftIcon.SpriteFrames = data.Icon;
+        LeftColor = data.Color;
+        LeftIcon.Offset = data.Offset;
+        LeftIcon.Scale *= data.Scale;
+        LeftIcon.TextureFilter = data.Filter;
     }
     
     public void SetRightCharacter(Node character)
     {
+        CharacterIconData data = null;
         if (character is Character2D character2D)
-        {
-            RightIcon.SpriteFrames = character2D.Icon;
-            RightColor = character2D.HealthColor;
-            RightIcon.Offset = character2D.IconOffset * new Vector2(-1f, 1f);
-            RightIcon.Scale *= character2D.IconScale;
-            RightIcon.TextureFilter = character2D.IconFilter;
-        }
+            data = character2D.Icon;
+
+        if (data is null)
+            return;
+
+        RightIcon.SpriteFrames = data.Icon;
+        RightColor = data.Color;
+        RightIcon.Offset = data.Offset * new Vector2(-1f, 1f);;
+        RightIcon.Scale *= data.Scale;
+        RightIcon.TextureFilter = data.Filter;
     }
     
     private void InitializeCharacters(SongMeta songMeta)
@@ -198,9 +206,11 @@ namespace Rubicon.API;
             case GameEnvironment.CanvasItem:
                 CanvasItemSpace space = RubiconGame.CanvasItemSpace;
                 StringName playerGroupName = RubiconGame.PlayField.TargetBarLine;
-                Character2D player = space.GetCharactersFromGroup(playerGroupName).First();
+                Character2D player = space.GetCharacterGroup(playerGroupName).Characters.First();
                 Character2D opponent = space
-                    .GetCharactersFromGroup(RubiconGame.PlayField.BarLines.First(x => x.Name != playerGroupName).Name).First();
+                    .GetCharacterGroup(RubiconGame.PlayField.BarLines.First(x => x.Name != playerGroupName).Name)
+                    .Characters.First();
+                
                 if (Direction == BarDirection.LeftToRight)
                 {
                     SetLeftCharacter(player);

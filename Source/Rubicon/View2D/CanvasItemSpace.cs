@@ -15,8 +15,8 @@ public partial class CanvasItemSpace : Node2D
 
 	[Export] public Stage2D Stage;
 
+	private Dictionary<StringName, CharacterGroup2D> _characterGroups;
 	private Dictionary<StringName, Character2D> _namedCharacters;
-	private Dictionary<StringName, Array<Character2D>> _barLineCharacters;
 	private Dictionary<string, PackedScene> _characterScenes;
 	
 	public void Initialize(SongMeta meta)
@@ -81,7 +81,7 @@ public partial class CanvasItemSpace : Node2D
 		// Init characters
 		Characters = new Array<Character2D>();
 		_namedCharacters = new Dictionary<StringName, Character2D>();
-		_barLineCharacters = new Dictionary<StringName, Array<Character2D>>();
+		_characterGroups = new Dictionary<StringName, CharacterGroup2D>();
 		_characterScenes = new Dictionary<string, PackedScene>();
 		for (int i = 0; i < meta.Characters.Length; i++)
 			AddCharacter(meta.Characters[i]);
@@ -123,53 +123,15 @@ public partial class CanvasItemSpace : Node2D
 		_namedCharacters[meta.Nickname] = character;
 		Stage.GetSpawnPoint(meta.Nickname).AddCharacter(character);
 		
-		if (!_barLineCharacters.ContainsKey(meta.BarLine))
-			_barLineCharacters.Add(meta.BarLine, new Array<Character2D>());
+		if (!_characterGroups.ContainsKey(meta.BarLine))
+			_characterGroups.Add(meta.BarLine, new CharacterGroup2D());
 		
-		_barLineCharacters[meta.BarLine].Add(character);
+		_characterGroups[meta.BarLine].Characters.Add(character);
 	}
 
 	public Character2D GetCharacter(StringName nickName) => _namedCharacters[nickName];
 	
-	public Array<Character2D> GetCharactersFromGroup(StringName groupName) => _barLineCharacters[groupName];
-
-	
-	public void SingForGroup(StringName barLineName, string direction, bool holding = false, bool miss = false, string customPrefix = null, string customSuffix = null)
-	{
-		Array<Character2D> characters = GetCharactersFromGroup(barLineName);
-		for (int i = 0; i < characters.Count; i++)
-			characters[i].Sing(direction, holding, miss, customPrefix, customSuffix);
-	}
-
-	public void FreezeSingingForGroup(StringName barLineName, bool freeze)
-	{
-		Array<Character2D> characters = GetCharactersFromGroup(barLineName);
-		for (int i = 0; i < characters.Count; i++)
-			characters[i].FreezeSinging = freeze;
-	}
-
-	public Vector2 GetGroupCameraPosition(StringName groupName)
-	{
-		Array<Character2D> characters = GetCharactersFromGroup(groupName);
-		if (characters.Count < 1)
-			return Vector2.Zero;
-
-		Vector2 min = characters[0].GetCameraPosition();
-		Vector2 max = characters[0].GetCameraPosition();
-		
-		for (int i = 1; i < characters.Count; i++)
-		{
-			Character2D character = characters[i];
-			Vector2 camPos = character.GetCameraPosition();
-			
-			min.X = Math.Min(camPos.X, min.X);
-			min.Y = Math.Min(camPos.Y, min.Y);
-			max.X = Math.Max(max.X, camPos.X);
-			max.Y = Math.Max(max.Y, camPos.Y);
-		}
-		
-		return new Vector2(min.X + (max.X - min.X) / 2f, min.Y + (max.Y - min.Y) / 2f);
-	}
+	public CharacterGroup2D GetCharacterGroup(StringName groupName) => _characterGroups[groupName];
 
 	private void AddFallbackCharacter(CharacterMeta meta)
 	{

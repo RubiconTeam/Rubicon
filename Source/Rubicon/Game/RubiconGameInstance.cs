@@ -155,7 +155,7 @@ public partial class RubiconGameInstance : CanvasLayer
 		{
 			case GameEnvironment.CanvasItem: // 2D Space
 			{
-				CanvasItemSpace.SingForGroup(name, result.Direction, !missed && result.Hit == Hit.Hold, missed);
+				CanvasItemSpace.GetCharacterGroup(name).Sing(result.Direction, !missed && result.Hit == Hit.Hold, missed);
 				break;
 			}
 		}
@@ -200,7 +200,7 @@ public partial class RubiconGameInstance : CanvasLayer
 		switch (Metadata.Environment)
 		{
 			case GameEnvironment.CanvasItem:
-				CanvasItemSpace.FreezeSingingForGroup(PlayField.TargetBarLine, isHolding);
+				CanvasItemSpace.GetCharacterGroup(PlayField.TargetBarLine).SetFreezeSinging(isHolding);
 				break;
 		}
 	}

@@ -29,8 +29,8 @@ public partial class TutorialScript : CsModChart
 		}
 
 		Boyfriend.CanDance = Girlfriend.CanDance = false;
-		Boyfriend.PlayAnim(new CharacterAnimation { Name = "hey", Force = true });
-		Girlfriend.PlayAnim(new CharacterAnimation { Name = "cheer", Force = true });
+		Boyfriend.PlayAnimation(new CharacterAnimation { Name = "hey", Force = true });
+		Girlfriend.PlayAnimation(new CharacterAnimation { Name = "cheer", Force = true });
 	}
 }
 

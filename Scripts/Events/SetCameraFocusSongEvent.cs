@@ -25,7 +25,7 @@ namespace Rubicon.Extras.Events;
 		{
 			case GameEnvironment.CanvasItem:
 				CanvasItemSpace space = RubiconGame.CanvasItemSpace;
-				space.Camera.TargetPosition = space.GetGroupCameraPosition(focusOn);
+				space.Camera.TargetPosition = space.GetCharacterGroup(focusOn).GetCameraPoint();
 				break;
 		}
 	}

@@ -1,9 +1,18 @@
-[gd_scene load_steps=19 format=3 uid="uid://ch42nuiw15uh6"]
+[gd_scene load_steps=21 format=3 uid="uid://ch42nuiw15uh6"]
 
 [ext_resource type="Script" uid="uid://cqmn2xk4n5fbt" path="res://Source/Rubicon/View2D/Character2D.cs" id="1_deaeb"]
 [ext_resource type="SpriteFrames" uid="uid://bf1b5h0jdi2y4" path="res://Assets/Characters/Bf/boyfriend.tres" id="2_7sbxo"]
 [ext_resource type="SpriteFrames" uid="uid://dw06ivs1uhiwa" path="res://Assets/Characters/Bf/BfIcon.tres" id="2_o37gp"]
 [ext_resource type="Script" uid="uid://chh5qfxuctxsq" path="res://Source/Rubicon/View2D/SyncedSprite2D.cs" id="3_1tcb8"]
+[ext_resource type="Script" uid="uid://bsc6hc1t5s5ry" path="res://Source/Rubicon/Data/CharacterIconData.cs" id="3_jt35w"]
+
+[sub_resource type="Resource" id="Resource_grh58"]
+script = ExtResource("3_jt35w")
+Icon = ExtResource("2_o37gp")
+Offset = Vector2(-65, 0)
+Color = Color(0.192, 0.69, 0.82, 1)
+Scale = Vector2(1, 1)
+Filter = 2
 
 [sub_resource type="Animation" id="Animation_1tcb8"]
 length = 0.001
@@ -711,11 +720,10 @@ _data = {
 
 [node name="BF" type="Node2D" node_paths=PackedStringArray("Sprite", "AnimationPlayer", "CameraPoint")]
 script = ExtResource("1_deaeb")
+Icon = SubResource("Resource_grh58")
 LeftFacing = true
 DanceTime = 2.0
-Icon = ExtResource("2_o37gp")
-IconOffset = Vector2(-65, 0)
-HealthColor = Color(0.192157, 0.690196, 0.819608, 1)
+HoldType = 2
 Sprite = NodePath("Sprite")
 AnimationPlayer = NodePath("Sprite/AnimationPlayer")
 CameraPoint = NodePath("CameraPoint")
@@ -723,6 +731,7 @@ CameraPoint = NodePath("CameraPoint")
 [node name="Sprite" type="AnimatedSprite2D" parent="." node_paths=PackedStringArray("AnimationPlayer")]
 sprite_frames = ExtResource("2_7sbxo")
 animation = &"BF idle dance"
+frame = 13
 offset = Vector2(-16, -150)
 script = ExtResource("3_1tcb8")
 Sync = true
