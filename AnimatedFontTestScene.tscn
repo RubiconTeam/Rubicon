@@ -13,11 +13,11 @@ grow_vertical = 2
 metadata/_edit_lock_ = true
 
 [node name="AnimatedFont" type="ReferenceRect" parent="."]
-custom_minimum_size = Vector2(216, 24)
+custom_minimum_size = Vector2(264, 24)
 layout_mode = 1
 offset_right = 168.0
 offset_bottom = 24.0
 script = ExtResource("1_ix2cu")
-Text = "eaeaeaea"
+Text = "HiguysHeh."
 SpriteFrames = ExtResource("2_jdjbw")
 metadata/_custom_type_script = ExtResource("1_ix2cu")

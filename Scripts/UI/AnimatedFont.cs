@@ -127,9 +127,11 @@ namespace Rubicon.Extras.UI;
                 {
                     GD.Print($"drawing atlastexture letter {animLetter.Letter}");
                     // AtlasTexture drawing
-                    DrawTextureRectRegion(animLetter.Texture[animLetter.FrameIndex],
+                    Texture2D atlas = letterAtlas.Atlas;
+                    Rect2 sourceRect = letterAtlas.Region;
+                    DrawTextureRectRegion(atlas,
                         animLetter.Rect,
-                        letterAtlas.Region,
+                        sourceRect,
                         Modulate
                         );
                     
