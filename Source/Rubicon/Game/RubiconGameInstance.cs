@@ -306,13 +306,14 @@ public partial class RubiconGameInstance : CanvasLayer
 
 	private void LoadGameScripts()
 	{
-		List<string> scriptPaths = [];
+		List<string> scriptPaths = new List<string>();
 		scriptPaths.AddRange(PathUtility.GetAbsoluteFilePathsAt("res://Resources/Game/Common/", true));
 		scriptPaths.AddRange(PathUtility.GetAbsoluteFilePathsAt($"res://Songs/{Context.Name}/Scripts/", true));
-		foreach (var path in scriptPaths)
+		for (int i = 0; i < scriptPaths.Count; i++)
 		{
+			string path = scriptPaths[i];
 			string ext = path.GetExtension().ToLower();
-			bool isScene = ext is "tscn" or "scn";
+			bool isScene = ext == "tscn" || ext == "scn";
 			bool isGdScript = ext == "gd";
 			bool isCSharpScript = ext == "cs";
 			if (!isScene && !isGdScript && !isCSharpScript)
