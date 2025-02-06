@@ -3,8 +3,8 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://kckn385nmg0v"
-path.s3tc="res://.godot/imported/leavesbackground.webp-121366ff5d8da0938259cbbe144f81b5.s3tc.ctex"
-path.etc2="res://.godot/imported/leavesbackground.webp-121366ff5d8da0938259cbbe144f81b5.etc2.ctex"
+path.bptc="res://.godot/imported/leavesbackground.webp-121366ff5d8da0938259cbbe144f81b5.bptc.ctex"
+path.astc="res://.godot/imported/leavesbackground.webp-121366ff5d8da0938259cbbe144f81b5.astc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -13,19 +13,19 @@ metadata={
 [deps]
 
 source_file="res://Assets/Stages/PetalForest/leavesbackground.webp"
-dest_files=["res://.godot/imported/leavesbackground.webp-121366ff5d8da0938259cbbe144f81b5.s3tc.ctex", "res://.godot/imported/leavesbackground.webp-121366ff5d8da0938259cbbe144f81b5.etc2.ctex"]
+dest_files=["res://.godot/imported/leavesbackground.webp-121366ff5d8da0938259cbbe144f81b5.bptc.ctex", "res://.godot/imported/leavesbackground.webp-121366ff5d8da0938259cbbe144f81b5.astc.ctex"]
 
 [params]
 
 compress/mode=2
-compress/high_quality=false
+compress/high_quality=true
 compress/lossy_quality=0.7
-compress/hdr_compression=1
-compress/normal_map=0
-compress/channel_pack=0
-mipmaps/generate=true
+compress/hdr_compression=0
+compress/normal_map=2
+compress/channel_pack=1
+mipmaps/generate=false
 mipmaps/limit=-1
-roughness/mode=0
+roughness/mode=1
 roughness/src_normal=""
 process/fix_alpha_border=true
 process/premult_alpha=false

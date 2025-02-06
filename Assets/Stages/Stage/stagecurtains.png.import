@@ -3,27 +3,29 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://87bp34u36d1w"
-path="res://.godot/imported/stagecurtains.png-edb8f1fbe97f4016755350150985cf52.ctex"
+path.bptc="res://.godot/imported/stagecurtains.png-edb8f1fbe97f4016755350150985cf52.bptc.ctex"
+path.astc="res://.godot/imported/stagecurtains.png-edb8f1fbe97f4016755350150985cf52.astc.ctex"
 metadata={
-"vram_texture": false
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
+"vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/Stages/Stage/stagecurtains.png"
-dest_files=["res://.godot/imported/stagecurtains.png-edb8f1fbe97f4016755350150985cf52.ctex"]
+dest_files=["res://.godot/imported/stagecurtains.png-edb8f1fbe97f4016755350150985cf52.bptc.ctex", "res://.godot/imported/stagecurtains.png-edb8f1fbe97f4016755350150985cf52.astc.ctex"]
 
 [params]
 
-compress/mode=0
-compress/high_quality=false
+compress/mode=2
+compress/high_quality=true
 compress/lossy_quality=0.7
-compress/hdr_compression=1
-compress/normal_map=0
-compress/channel_pack=0
+compress/hdr_compression=0
+compress/normal_map=2
+compress/channel_pack=1
 mipmaps/generate=false
 mipmaps/limit=-1
-roughness/mode=0
+roughness/mode=1
 roughness/src_normal=""
 process/fix_alpha_border=true
 process/premult_alpha=false

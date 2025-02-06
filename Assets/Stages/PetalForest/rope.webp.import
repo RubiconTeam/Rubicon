@@ -3,8 +3,8 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://12estmgxu6u3"
-path.s3tc="res://.godot/imported/rope.webp-1c6bade5a37f419dbe9f4bf2a4a103ad.s3tc.ctex"
-path.etc2="res://.godot/imported/rope.webp-1c6bade5a37f419dbe9f4bf2a4a103ad.etc2.ctex"
+path.bptc="res://.godot/imported/rope.webp-1c6bade5a37f419dbe9f4bf2a4a103ad.bptc.ctex"
+path.astc="res://.godot/imported/rope.webp-1c6bade5a37f419dbe9f4bf2a4a103ad.astc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -13,19 +13,19 @@ metadata={
 [deps]
 
 source_file="res://Assets/Stages/PetalForest/rope.webp"
-dest_files=["res://.godot/imported/rope.webp-1c6bade5a37f419dbe9f4bf2a4a103ad.s3tc.ctex", "res://.godot/imported/rope.webp-1c6bade5a37f419dbe9f4bf2a4a103ad.etc2.ctex"]
+dest_files=["res://.godot/imported/rope.webp-1c6bade5a37f419dbe9f4bf2a4a103ad.bptc.ctex", "res://.godot/imported/rope.webp-1c6bade5a37f419dbe9f4bf2a4a103ad.astc.ctex"]
 
 [params]
 
 compress/mode=2
-compress/high_quality=false
+compress/high_quality=true
 compress/lossy_quality=0.7
-compress/hdr_compression=1
-compress/normal_map=0
-compress/channel_pack=0
-mipmaps/generate=true
+compress/hdr_compression=0
+compress/normal_map=2
+compress/channel_pack=1
+mipmaps/generate=false
 mipmaps/limit=-1
-roughness/mode=0
+roughness/mode=1
 roughness/src_normal=""
 process/fix_alpha_border=true
 process/premult_alpha=false

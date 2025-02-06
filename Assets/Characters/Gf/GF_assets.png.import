@@ -2,9 +2,9 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dw3ce5760dt2v"
-path.bptc="res://.godot/imported/cabin.webp-400f698f28c18cb25222307f6a9d68b9.bptc.ctex"
-path.astc="res://.godot/imported/cabin.webp-400f698f28c18cb25222307f6a9d68b9.astc.ctex"
+uid="uid://b7gai8q85aiks"
+path.bptc="res://.godot/imported/GF_assets.png-2052c9759be73719e338c3e8efc6e9bb.bptc.ctex"
+path.astc="res://.godot/imported/GF_assets.png-2052c9759be73719e338c3e8efc6e9bb.astc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/Stages/PetalForest/cabin.webp"
-dest_files=["res://.godot/imported/cabin.webp-400f698f28c18cb25222307f6a9d68b9.bptc.ctex", "res://.godot/imported/cabin.webp-400f698f28c18cb25222307f6a9d68b9.astc.ctex"]
+source_file="res://Assets/Characters/Gf/GF_assets.png"
+dest_files=["res://.godot/imported/GF_assets.png-2052c9759be73719e338c3e8efc6e9bb.bptc.ctex", "res://.godot/imported/GF_assets.png-2052c9759be73719e338c3e8efc6e9bb.astc.ctex"]
 
 [params]
 
@@ -23,7 +23,7 @@ compress/lossy_quality=0.7
 compress/hdr_compression=0
 compress/normal_map=2
 compress/channel_pack=1
-mipmaps/generate=false
+mipmaps/generate=true
 mipmaps/limit=-1
 roughness/mode=1
 roughness/src_normal=""
@@ -33,4 +33,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=0
+detect_3d/compress_to=1

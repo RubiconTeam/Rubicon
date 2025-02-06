@@ -215,8 +215,6 @@ namespace Rubicon.View2D;
 		    return;
 
 	    PlayAnim(new CharacterAnimation { Name = DanceList[DanceIndex], Force = true, StartTime = 0});
-	    
-	    DanceIndex++;
 	    DanceIndex = (DanceIndex + 1) % DanceList.Length;
     }
 

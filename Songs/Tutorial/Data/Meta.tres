@@ -1,0 +1,43 @@
+[gd_resource type="Resource" script_class="SongMeta" load_steps=9 format=3 uid="uid://bwqs652ridapq"]
+
+[ext_resource type="Script" uid="uid://crgqugtqe2m3y" path="res://Source/Rubicon.Core/Chart/BpmInfo.cs" id="1_jeqb3"]
+[ext_resource type="Script" uid="uid://clg1lhiqfj0nk" path="res://Source/Rubicon.Core/Meta/CharacterMeta.cs" id="2_05uxy"]
+[ext_resource type="Script" uid="uid://b87l817pyjjsp" path="res://Source/Rubicon.Core/Meta/SongMeta.cs" id="3_cny2d"]
+[ext_resource type="Texture2D" uid="uid://wuwgfug56fmw" path="res://Assets/Characters/Gf/Icon.png" id="3_tprrc"]
+[ext_resource type="AudioStream" uid="uid://r4ua5fah2p3w" path="res://Songs/Tutorial/Inst.ogg" id="4_oaj7u"]
+
+[sub_resource type="Resource" id="Resource_rfcaf"]
+script = ExtResource("1_jeqb3")
+Time = 0.0
+Bpm = 100.0
+TimeSignatureNumerator = 4
+TimeSignatureDenominator = 4
+
+[sub_resource type="Resource" id="Resource_nj7kg"]
+script = ExtResource("2_05uxy")
+Character = "Gf"
+Nickname = &"Speaker"
+BarLine = &"Speaker"
+
+[sub_resource type="Resource" id="Resource_7lao4"]
+script = ExtResource("2_05uxy")
+Character = "Bf"
+Nickname = &"Player"
+BarLine = &"Player"
+
+[resource]
+script = ExtResource("3_cny2d")
+Icon = ExtResource("3_tprrc")
+Name = "Tutorial"
+InternalName = "Tutorial"
+Artist = "kawaisprite"
+Instrumental = ExtResource("4_oaj7u")
+BpmInfo = [SubResource("Resource_rfcaf")]
+UiStyle = "Funkin"
+NoteSkin = "Funkin"
+Environment = 1
+Stage = "stage"
+Characters = [SubResource("Resource_nj7kg"), SubResource("Resource_7lao4")]
+Offset = 0.0
+DefaultRuleset = "Mania"
+PlayableCharts = [&"Player", &"Opponent"]

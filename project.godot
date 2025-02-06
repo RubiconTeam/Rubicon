@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Rubicon"
-config/version="1"
+config/version="v1.0.0"
 run/main_scene="uid://cuuuxjlonwxhn"
 config/use_custom_user_dir=true
 config/features=PackedStringArray("4.4", "C#", "Forward Plus")
@@ -53,7 +53,7 @@ script/templates_search_path="res://Templates/"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/rubichart_converter/plugin.cfg", "res://addons/rubichart_importer/plugin.cfg", "res://addons/rubicon_helper/plugin.cfg", "res://addons/sprite_importer/plugin.cfg")
+enabled=PackedStringArray("res://addons/rubichart_converter/plugin.cfg", "res://addons/rubichart_importer/plugin.cfg", "res://addons/rubicon_helper/plugin.cfg")
 
 [file_customization]
 
@@ -71,6 +71,17 @@ Engine/Settings="[Engine-Related] Related to the SettingsManager class."
 [gui]
 
 fonts/dynamic_fonts/use_oversampling=false
+
+[importer_defaults]
+
+texture={
+&"compress/channel_pack": 1,
+&"compress/hdr_compression": 0,
+&"compress/high_quality": true,
+&"compress/mode": 2,
+&"compress/normal_map": 2,
+&"roughness/mode": 1
+}
 
 [input]
 

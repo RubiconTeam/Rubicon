@@ -3,6 +3,14 @@
 [ext_resource type="Script" uid="uid://b2vtxqusme7by" path="res://Source/Rubicon.Core/Events/EventData.cs" id="1_v7l0f"]
 [ext_resource type="Script" uid="uid://by45gtac0cw1n" path="res://Source/Rubicon.Core/Events/EventMeta.cs" id="2_2yeh6"]
 
+[sub_resource type="Resource" id="Resource_smthL"]
+script = ExtResource("1_v7l0f")
+Time = 0.0
+Name = &"SetCameraFocus"
+Arguments = {
+"Focus": &"Speaker"
+}
+
 [sub_resource type="Resource" id="Resource_gptco"]
 script = ExtResource("1_v7l0f")
 Time = 2.0
@@ -16,7 +24,7 @@ script = ExtResource("1_v7l0f")
 Time = 4.0
 Name = &"SetCameraFocus"
 Arguments = {
-"Focus": &"Opponent"
+"Focus": &"Speaker"
 }
 
 [sub_resource type="Resource" id="Resource_f1frx"]
@@ -32,7 +40,7 @@ script = ExtResource("1_v7l0f")
 Time = 8.0
 Name = &"SetCameraFocus"
 Arguments = {
-"Focus": &"Opponent"
+"Focus": &"Speaker"
 }
 
 [sub_resource type="Resource" id="Resource_jectm"]
@@ -48,7 +56,7 @@ script = ExtResource("1_v7l0f")
 Time = 10.0
 Name = &"SetCameraFocus"
 Arguments = {
-"Focus": &"Opponent"
+"Focus": &"Speaker"
 }
 
 [sub_resource type="Resource" id="Resource_add3v"]
@@ -64,7 +72,7 @@ script = ExtResource("1_v7l0f")
 Time = 12.0
 Name = &"SetCameraFocus"
 Arguments = {
-"Focus": &"Opponent"
+"Focus": &"Speaker"
 }
 
 [sub_resource type="Resource" id="Resource_vvxm6"]
@@ -80,7 +88,7 @@ script = ExtResource("1_v7l0f")
 Time = 14.0
 Name = &"SetCameraFocus"
 Arguments = {
-"Focus": &"Opponent"
+"Focus": &"Speaker"
 }
 
 [sub_resource type="Resource" id="Resource_23v8v"]
@@ -96,7 +104,7 @@ script = ExtResource("1_v7l0f")
 Time = 16.0
 Name = &"SetCameraFocus"
 Arguments = {
-"Focus": &"Opponent"
+"Focus": &"Speaker"
 }
 
 [sub_resource type="Resource" id="Resource_6ktk0"]
@@ -112,7 +120,7 @@ script = ExtResource("1_v7l0f")
 Time = 20.0
 Name = &"SetCameraFocus"
 Arguments = {
-"Focus": &"Opponent"
+"Focus": &"Speaker"
 }
 
 [sub_resource type="Resource" id="Resource_70xqv"]
@@ -128,7 +136,7 @@ script = ExtResource("1_v7l0f")
 Time = 24.0
 Name = &"SetCameraFocus"
 Arguments = {
-"Focus": &"Opponent"
+"Focus": &"Speaker"
 }
 
 [sub_resource type="Resource" id="Resource_qgk3b"]
@@ -144,7 +152,7 @@ script = ExtResource("1_v7l0f")
 Time = 28.0
 Name = &"SetCameraFocus"
 Arguments = {
-"Focus": &"Opponent"
+"Focus": &"Speaker"
 }
 
 [sub_resource type="Resource" id="Resource_ysyam"]
@@ -160,7 +168,7 @@ script = ExtResource("1_v7l0f")
 Time = 32.0
 Name = &"SetCameraFocus"
 Arguments = {
-"Focus": &"Opponent"
+"Focus": &"Speaker"
 }
 
 [sub_resource type="Resource" id="Resource_nwvdw"]
@@ -176,7 +184,7 @@ script = ExtResource("1_v7l0f")
 Time = 40.0
 Name = &"SetCameraFocus"
 Arguments = {
-"Focus": &"Opponent"
+"Focus": &"Speaker"
 }
 
 [sub_resource type="Resource" id="Resource_qxbpq"]
@@ -192,7 +200,7 @@ script = ExtResource("1_v7l0f")
 Time = 48.0
 Name = &"SetCameraFocus"
 Arguments = {
-"Focus": &"Opponent"
+"Focus": &"Speaker"
 }
 
 [sub_resource type="Resource" id="Resource_sruvm"]
@@ -208,7 +216,7 @@ script = ExtResource("1_v7l0f")
 Time = 52.0
 Name = &"SetCameraFocus"
 Arguments = {
-"Focus": &"Opponent"
+"Focus": &"Speaker"
 }
 
 [sub_resource type="Resource" id="Resource_y1nvy"]
@@ -224,7 +232,7 @@ script = ExtResource("1_v7l0f")
 Time = 56.0
 Name = &"SetCameraFocus"
 Arguments = {
-"Focus": &"Opponent"
+"Focus": &"Speaker"
 }
 
 [sub_resource type="Resource" id="Resource_bg72a"]
@@ -240,7 +248,7 @@ script = ExtResource("1_v7l0f")
 Time = 60.0
 Name = &"SetCameraFocus"
 Arguments = {
-"Focus": &"Opponent"
+"Focus": &"Speaker"
 }
 
 [sub_resource type="Resource" id="Resource_v0i56"]
@@ -253,4 +261,4 @@ Arguments = {
 
 [resource]
 script = ExtResource("2_2yeh6")
-Events = [SubResource("Resource_gptco"), SubResource("Resource_h4sy6"), SubResource("Resource_f1frx"), SubResource("Resource_rk5v0"), SubResource("Resource_jectm"), SubResource("Resource_fcgen"), SubResource("Resource_add3v"), SubResource("Resource_2wry1"), SubResource("Resource_vvxm6"), SubResource("Resource_o7mr2"), SubResource("Resource_23v8v"), SubResource("Resource_n7t0j"), SubResource("Resource_6ktk0"), SubResource("Resource_q8njl"), SubResource("Resource_70xqv"), SubResource("Resource_jfs3q"), SubResource("Resource_qgk3b"), SubResource("Resource_ykdf6"), SubResource("Resource_ysyam"), SubResource("Resource_5iid4"), SubResource("Resource_nwvdw"), SubResource("Resource_g5qng"), SubResource("Resource_qxbpq"), SubResource("Resource_yvq3a"), SubResource("Resource_sruvm"), SubResource("Resource_3djv7"), SubResource("Resource_y1nvy"), SubResource("Resource_336hf"), SubResource("Resource_bg72a"), SubResource("Resource_n8owx"), SubResource("Resource_v0i56")]
+Events = [SubResource("Resource_smthL"), SubResource("Resource_gptco"), SubResource("Resource_h4sy6"), SubResource("Resource_f1frx"), SubResource("Resource_rk5v0"), SubResource("Resource_jectm"), SubResource("Resource_fcgen"), SubResource("Resource_add3v"), SubResource("Resource_2wry1"), SubResource("Resource_vvxm6"), SubResource("Resource_o7mr2"), SubResource("Resource_23v8v"), SubResource("Resource_n7t0j"), SubResource("Resource_6ktk0"), SubResource("Resource_q8njl"), SubResource("Resource_70xqv"), SubResource("Resource_jfs3q"), SubResource("Resource_qgk3b"), SubResource("Resource_ykdf6"), SubResource("Resource_ysyam"), SubResource("Resource_5iid4"), SubResource("Resource_nwvdw"), SubResource("Resource_g5qng"), SubResource("Resource_qxbpq"), SubResource("Resource_yvq3a"), SubResource("Resource_sruvm"), SubResource("Resource_3djv7"), SubResource("Resource_y1nvy"), SubResource("Resource_336hf"), SubResource("Resource_bg72a"), SubResource("Resource_n8owx"), SubResource("Resource_v0i56")]

@@ -8,6 +8,8 @@ public partial class SyncedSprite2D : AnimatedSprite2D
 {
 	[Export] public bool Sync { get => GetSync(); set => SetSync(value); }
 
+	[Export] public int FrameOffset = 0;
+
 	[ExportGroup("Sync With"), Export] public AnimationPlayer AnimationPlayer;
 	
 	private double _time = 0.0;
@@ -41,7 +43,7 @@ public partial class SyncedSprite2D : AnimatedSprite2D
 			
 		double fps = SpriteFrames.GetAnimationSpeed(Animation);
 
-		Frame = (int)Math.Floor(_time * fps);
+		Frame = FrameOffset + (int)Math.Floor(_time * fps);
 		FrameProgress = (float)(_time % (1 / fps) * fps);
 	}
 

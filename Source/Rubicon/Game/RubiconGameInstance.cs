@@ -141,7 +141,7 @@ public partial class RubiconGameInstance : CanvasLayer
 
 	protected virtual void NoteHit(StringName name, NoteResult result)
 	{
-		if (!result.Flags.HasFlag(NoteResultFlags.Vocals))
+		if (!result.Flags.HasFlag(NoteResultFlags.Vocals) && Vocals is not null)
 			Vocals.VolumeLinear = result.Rating == Judgment.Miss ? 0f : 1f;
 		
 		if (result.Flags.HasFlag(NoteResultFlags.Animation))
