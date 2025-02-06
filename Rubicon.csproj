@@ -44,8 +44,6 @@
     <Content Include="Songs\Test\Data\Meta.tres" />
     <Content Include="Songs\Test\Inst.ogg" />
     <Content Include="Songs\Test\Inst.ogg.import" />
-    <Content Include="Songs\Test\Vocals.ogg" />
-    <Content Include="Songs\Test\Vocals.ogg.import" />
     <Content Include="Source\Rubicon.Core\API\GDNoteType.gd" />
     <Content Include="Source\Rubicon.Core\API\GDSongEvent.gd" />
     <Content Include="Source\Rubicon.Core\API\GDStatDisplay.gd" />
@@ -57,6 +55,7 @@
     <Content Include="Source\Rubicon.Core\Meta\GameEnvironment.gd" />
     <Content Include="Source\Rubicon.Core\Rulesets\NoteResultFlags.gd" />
     <Content Include="Source\Rubicon\API\GDLoadingScreen.gd" />
+    <Content Include="Source\Rubicon\API\GDModChart.gd" />
     <Content Include="Source\Rubicon\Menus\Settings\SettingsMenu.tscn" />
     <Content Include="Source\Rubicon\Menus\Settings\Templates\Button.tscn" />
     <Content Include="Source\Rubicon\Menus\Settings\Templates\CheckButton.tscn" />

@@ -122,6 +122,8 @@ namespace Rubicon.View2D;
     /// </summary>
     public float HoldTimer;
 
+    [Export] public bool CanDance = true;
+
     /// <summary>
     /// Marks whether this character is holding a note.
     /// </summary>
@@ -360,7 +362,7 @@ namespace Rubicon.View2D;
     
     private void TryDance()
     {
-	    if (CurrentAnim != null && (CurrentAnim.Name.StartsWith("sing") && !FreezeSinging && SingTimer >= Conductor.StepValue * 0.001f * SingDuration || !CurrentAnim.Name.StartsWith("sing")))
+	    if (CanDance && CurrentAnim != null && (CurrentAnim.Name.StartsWith("sing") && !FreezeSinging && SingTimer >= Conductor.StepValue * 0.001f * SingDuration || !CurrentAnim.Name.StartsWith("sing")))
 		    Dance(true);
     }
 
