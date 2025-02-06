@@ -136,7 +136,7 @@ public partial class CanvasItemSpace : Node2D
 	private void AddFallbackCharacter(CharacterMeta meta)
 	{
 		string fallBackCharacter = ProjectSettings.GetSetting("rubicon/general/fallback/character_2d").AsString();
-		string fallBackPath = PathUtility.GetScenePath($"res://Resources/Characters/{fallBackCharacter}");
+		string fallBackPath = PathUtility.GetScenePath($"res://Resources/Game/Characters/{fallBackCharacter}");
 		if (!ResourceLoader.Exists(fallBackPath)) // Bro
 		{
 			GD.PrintErr("[CanvasItemSpace] No character fallback was found. Please check your project settings at \"rubicon/general/fallback/character\". Skipping.");
