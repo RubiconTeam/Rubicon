@@ -21,13 +21,13 @@ BarLine = &"Opponent"
 
 [sub_resource type="Resource" id="Resource_ob138"]
 script = ExtResource("1_g6yev")
-Character = "bf-car"
+Character = "Bf"
 Nickname = &"Player"
 BarLine = &"Player"
 
 [sub_resource type="Resource" id="Resource_tvvk7"]
 script = ExtResource("1_g6yev")
-Character = "gf-car"
+Character = "Gf"
 Nickname = &"Speaker"
 BarLine = &""
 
