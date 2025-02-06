@@ -23,20 +23,26 @@ namespace Rubicon.Extras.UI;
     [Export] private Dictionary<string,string> _characterAliases = new();
     private AnimatedLetter[] _letterArray;
 
-    [ExportGroup("Style"), Export(PropertyHint.File)]
+    [ExportGroup("Animation"), Export(PropertyHint.File)]
     public SpriteFrames SpriteFrames
     {
         get => _spriteFrames;
         set
         {
             _spriteFrames = value;
-            UpdateSpriteFrames();
+            UpdateText();
         }
     }
     
+    [Export(PropertyHint.Enum)] private AnimationStyles _animationStyles;
     
-    [Export] private float _separation = 3f;
+    
+    [Export, ExportGroup("Style")] private float _separation = 24f;
     [Export] private float _fontSize = 24f;
+    [Export] private HorizontalAlignment _horizontalAlignment = 0;
+    [Export] private VerticalAlignment _verticalAlignment = 0;
+
+    private double _syncFrameIndex = 0;
 
     private string _text;
     private SpriteFrames _spriteFrames;
@@ -53,72 +59,94 @@ namespace Rubicon.Extras.UI;
         for (int i = 0; i < splitText.Length; i++)
         {
             string letter = splitText[i];
-            AnimatedLetter animatedLetter = new AnimatedLetter()
-            {
-                Letter = letter
-            };
+            AnimatedLetter animatedLetter = new AnimatedLetter(letter);
             letterArray[i] = animatedLetter;
-            GD.Print(animatedLetter.Letter);
         }
         return letterArray;
     }
 
-    public void UpdateSpriteFrames()
+    private void UpdateLetterPositions(bool redraw = true)
     {
-        UpdateText();
+        for (int i = 0; i < _letterArray.Length; i++)
+        {
+            AnimatedLetter animLetter = _letterArray[i];
+            animLetter.Rect = new Rect2(new Vector2(_separation * i, 0), new Vector2(_fontSize, _fontSize));
+        }
+        CustomMinimumSize = new Vector2(_separation * _letterArray.Length + _fontSize, _fontSize);
+        if (redraw)
+            QueueRedraw();
     }
     
     private void UpdateText()
     {
         _letterArray = GetLetterArray();
-        for (int i = 0; i < _letterArray.Length; i++)
+        foreach (AnimatedLetter animLetter in _letterArray)
         {
-            AnimatedLetter animatedLetter = _letterArray[i];
-            GD.Print("SPRITE FRAMES IIISS NULL !? ", SpriteFrames is null);
-            animatedLetter.Texture = new Texture2D[SpriteFrames.GetFrameCount(animatedLetter.Letter)];
-            animatedLetter.Rect = new Rect2(new Vector2(_separation * i, 0), new Vector2(_fontSize, _fontSize));
-                
-            for (int frame = 0; frame < SpriteFrames.GetFrameCount(animatedLetter.Letter); frame++)
+            if (SpriteFrames == null)
             {
-                Texture2D frameTexture = SpriteFrames.GetFrameTexture(animatedLetter.Letter, frame);
-                animatedLetter.Texture[frame] = frameTexture;
-                animatedLetter.FrameSpeed = SpriteFrames.GetAnimationSpeed(animatedLetter.Letter);
-
-
-                if (frameTexture is AtlasTexture atlasTexture)
-                {
-                    animatedLetter.SourceRect[frame] = atlasTexture.GetRegion();
-                }
+                GD.PrintErr("The provided SpriteFrames is null");
+                return;
             }
+
+            if (!SpriteFrames.HasAnimation(animLetter.Letter))
+                continue;
+            
+            //GD.Print(animLetter.Letter);
+            int frameCount = SpriteFrames.GetFrameCount(animLetter.Letter);
+            //GD.Print($"Frame count {frameCount}");
+            animLetter.Texture = new Texture2D[frameCount];
+            UpdateLetterPositions(false);
+                
+            for (int frame = 0; frame < frameCount; frame++)
+            {
+                Texture2D frameTexture = SpriteFrames.GetFrameTexture(animLetter.Letter, frame);
+                animLetter.Texture[frame] = frameTexture;
+                
+                if (_animationStyles == AnimationStyles.InstantLoop)
+                    animLetter.FrameSpeed = SpriteFrames.GetAnimationSpeed(animLetter.Letter);
+
+                //GD.Print($"Texture {frameTexture} for frame {frame} of letter {animLetter.Letter}");
+                
+                /*if (frameTexture is AtlasTexture atlasTexture)
+                {
+                    animatedLetter.SourceRect[frame] = atlasTexture.Region;
+                }*/
+            }
+            //GD.Print($"Done setting {SpriteFrames.GetFrameCount(animLetter.Letter)} textures for letter: {animLetter.Letter}");
         }
         QueueRedraw();
     }
 
     public override void _Draw()
     {
-        GD.Print("DAH");
-        for (int i = 0; i < _letterArray.Length; i++)
+        foreach (AnimatedLetter animLetter in _letterArray)
         {
-            AnimatedLetter animatedLetter = _letterArray[i];
-            if (animatedLetter.Texture != null && animatedLetter.Texture.Length > 0)
-            {
-                if (animatedLetter.Texture[animatedLetter.FrameIndex] is AtlasTexture letterAtlas)
+            /*if (animLetter.Texture != null)
+            {*/
+                if (animLetter.Texture[animLetter.FrameIndex] is AtlasTexture letterAtlas)
                 {
+                    GD.Print($"drawing atlastexture letter {animLetter.Letter}");
                     // AtlasTexture drawing
-                    DrawTextureRectRegion(animatedLetter.Texture[animatedLetter.FrameIndex],
-                        animatedLetter.Rect,
-                        animatedLetter.SourceRect[animatedLetter.FrameIndex],
+                    DrawTextureRectRegion(animLetter.Texture[animLetter.FrameIndex],
+                        animLetter.Rect,
+                        letterAtlas.Region,
                         Modulate
                         );
                     
-                    return;
+                    continue;
                 }
+                //GD.Print($"drawing texture2d letter {animLetter.Letter}");
                 // Drawing other Texture2D derivatives
-                DrawTextureRect(animatedLetter.Texture[animatedLetter.FrameIndex],
-                    animatedLetter.Rect,
+                DrawTextureRect(animLetter.Texture[animLetter.FrameIndex],
+                    animLetter.Rect,
                     false,
                     Modulate);
-            }
+            //}
         }
+    }
+    
+    public override void _PhysicsProcess(double delta)
+    {
+        
     }
 }

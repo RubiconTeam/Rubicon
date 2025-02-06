@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://df6tbau2acvyi"]
+[gd_scene load_steps=3 format=3 uid="uid://df6tbau2acvyi"]
 
 [ext_resource type="Script" uid="uid://bgt5cfnherwx7" path="res://Scripts/UI/AnimatedFont.cs" id="1_ix2cu"]
+[ext_resource type="SpriteFrames" uid="uid://npljdq44ldva" path="res://Assets/UI/Fonts/AnimatedFonts/default.tres" id="2_jdjbw"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -12,9 +13,11 @@ grow_vertical = 2
 metadata/_edit_lock_ = true
 
 [node name="AnimatedFont" type="ReferenceRect" parent="."]
+custom_minimum_size = Vector2(216, 24)
 layout_mode = 1
-offset_right = 102.0
-offset_bottom = 130.0
+offset_right = 168.0
+offset_bottom = 24.0
 script = ExtResource("1_ix2cu")
-Text = "asaadsasdadsadaaaaasafdsdfs"
+Text = "eaeaeaea"
+SpriteFrames = ExtResource("2_jdjbw")
 metadata/_custom_type_script = ExtResource("1_ix2cu")

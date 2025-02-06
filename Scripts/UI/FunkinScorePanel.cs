@@ -7,7 +7,7 @@ namespace Rubicon.Extras.UI;
 
 [GlobalClass] public partial class FunkinScorePanel : Label, IPlayElement
 {
-    [Export] public Label Text;
+    [Export] public Label TextLabel;
 
     public PlayField PlayField { get; set; }
     
@@ -18,7 +18,7 @@ namespace Rubicon.Extras.UI;
         base._Process(delta);
 
         ScoreTracker scoreTracker = PlayField.ScoreTracker;
-        Text.Text = $"Score: {scoreTracker.Score} / Accuracy: {scoreTracker.Accuracy:n2}% / Misses: {scoreTracker.Misses} / Rank: {scoreTracker.Rank.ToString().ToUpper()} ({GetClearText(scoreTracker.Clear)})";
+        TextLabel.Text = $"Score: {scoreTracker.Score} / Accuracy: {scoreTracker.Accuracy:n2}% / Misses: {scoreTracker.Misses} / Rank: {scoreTracker.Rank.ToString().ToUpper()} ({GetClearText(scoreTracker.Clear)})";
     }
 
     private string GetClearText(ClearRank clear)

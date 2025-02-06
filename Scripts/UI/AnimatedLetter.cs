@@ -1,13 +1,14 @@
 namespace Rubicon.Extras.UI;
 
-public class AnimatedLetter
+public class AnimatedLetter(string letter)
 {
+    
     /// <summary>
     /// The current letter.
     /// Can be either a letter or a special character
     /// that will later be replaced with its alias inside <see cref="AnimatedFont"/>.
     /// </summary>
-    public string Letter;
+    public readonly string Letter = letter;
     
     /// <summary>
     /// The texture array that caches every frame of the animation.
