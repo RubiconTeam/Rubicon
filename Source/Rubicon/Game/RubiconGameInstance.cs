@@ -110,6 +110,9 @@ public partial class RubiconGameInstance : CanvasLayer
 		BounceBumper.Bumped += Bounce;
 		AddChild(BounceBumper);
 		
+		LoadGameScripts();
+		
+		// TODO: Countdown
 		PlayField.Start();
 		Vocals?.Play();
 	}
@@ -299,5 +302,41 @@ public partial class RubiconGameInstance : CanvasLayer
 		}
 		
 		GD.Print("Space created successfully.");
+	}
+
+	private void LoadGameScripts()
+	{
+		List<string> scriptPaths = new List<string>();
+		scriptPaths.AddRange(PathUtility.GetAbsoluteFilePathsAt("res://Resources/Game/Common/", true));
+		scriptPaths.AddRange(PathUtility.GetAbsoluteFilePathsAt($"res://Songs/{Context.Name}/Scripts/", true));
+		for (int i = 0; i < scriptPaths.Count; i++)
+		{
+			string path = scriptPaths[i];
+			string ext = path.GetExtension().ToLower();
+			bool isScene = ext == "tscn" || ext == "scn";
+			bool isGdScript = ext == "gd";
+			bool isCSharpScript = ext == "cs";
+			if (!isScene && !isGdScript && !isCSharpScript)
+				continue;
+
+			Resource resource = ResourceLoader.LoadThreadedGet(path);
+			if (isScene && resource is PackedScene packedScene)
+			{
+				AddChild(packedScene.Instantiate());
+				continue;
+			}
+
+			if (isGdScript && resource is GDScript gdScript)
+			{
+				AddChild(gdScript.New().As<Node>());
+				continue;
+			}
+
+			if (isCSharpScript && resource is CSharpScript cSharpScript)
+			{
+				AddChild(cSharpScript.New().As<Node>());
+				continue;
+			}
+		}
 	}
 }

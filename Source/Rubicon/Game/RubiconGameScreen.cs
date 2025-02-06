@@ -32,6 +32,19 @@ namespace Rubicon.Game;
 		string eventsPath = $"res://Songs/{context.Name}/Data/Events";
 		if (PathUtility.ResourceExists(eventsPath))
 			ResourcesToLoad.AddResource($"res://Songs/{context.Name}/Data/Events");
+
+		List<string> scriptPaths = new List<string>();
+		scriptPaths.AddRange(PathUtility.GetAbsoluteFilePathsAt("res://Resources/Game/Common/", true));
+		scriptPaths.AddRange(PathUtility.GetAbsoluteFilePathsAt($"res://Songs/{context.Name}/Scripts/", true));
+		for (int i = 0; i < scriptPaths.Count; i++)
+		{
+			string path = scriptPaths[i];
+			string ext = path.GetExtension().ToLower();
+			if (ext != "tscn" && ext != "scn" && ext != "cs" && ext != "gd")
+				continue;
+			
+			ResourcesToLoad.AddPath(path);
+		}
 	}
 
 	public override void OnPreload(string path)
