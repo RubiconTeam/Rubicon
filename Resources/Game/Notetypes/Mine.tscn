@@ -1,5 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://b1dd6dwh3yhmb"]
+[gd_scene load_steps=5 format=3 uid="uid://b1dd6dwh3yhmb"]
 
+[ext_resource type="SpriteFrames" uid="uid://c8odmp2lgdt5p" path="res://Assets/Game/Notetypes/Mine/Mine.tres" id="1_0pk4b"]
 [ext_resource type="Script" uid="uid://ddude6p581oy2" path="res://Source/Rubicon.Core/Rulesets/Mania/ManiaNoteSkin.cs" id="1_p6u6k"]
 
 [sub_resource type="GDScript" id="GDScript_s26kk"]
@@ -27,12 +28,17 @@ func note_hit(_bar_line_name : StringName, _result : NoteResult) -> void:
 	if type_name != _result.Note.Type:
 		return
 	
-	_result.Hit = Judgment.MISS
+	_result.Rating = Judgment.MISS if _result.Rating != Judgment.MISS else Judgment.PERFECT
 	_result.Flags |= NoteResultFlags.SPLASH
+	
+	if _result.Rating != Judgment.MISS:
+		_result.Flags |= NoteResultFlags.ANIMATION
 "
 
 [sub_resource type="Resource" id="Resource_h2mhu"]
 script = ExtResource("1_p6u6k")
+NoteAtlas = ExtResource("1_0pk4b")
+HoldAtlas = ExtResource("1_0pk4b")
 Scale = Vector2(1, 1)
 LaneSize = 160.0
 Filter = 2

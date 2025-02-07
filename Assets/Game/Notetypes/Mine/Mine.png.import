@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bbiqc4k0d1op1"
-path="res://.godot/imported/MineNote.png-00279a136a1af34b3678318cae9cfa1a.ctex"
+uid="uid://dypv8cgridkht"
+path="res://.godot/imported/Mine.png-8bb1283da9d0cce7dda42905690315e2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Game/Notetypes/Mine/MineNote.png"
-dest_files=["res://.godot/imported/MineNote.png-00279a136a1af34b3678318cae9cfa1a.ctex"]
+source_file="res://Assets/Game/Notetypes/Mine/Mine.png"
+dest_files=["res://.godot/imported/Mine.png-8bb1283da9d0cce7dda42905690315e2.ctex"]
 
 [params]
 
