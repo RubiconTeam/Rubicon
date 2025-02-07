@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using Rubicon.Core.Settings;
 using Rubicon.Core.Settings.Attributes;
 
 namespace Rubicon.Menus.Settings;
