@@ -2,28 +2,28 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bumea4imycd5u"
-path="res://.godot/imported/funkinLane.png-4d82f4efe5bf0aef7caa92e59f958e71.ctex"
+uid="uid://c81i73x6lfj1e"
+path="res://.godot/imported/icon.png-60495b3c472ed100157b63d76cfd305f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/UI/Styles/Funkin/Mania/funkinLane.png"
-dest_files=["res://.godot/imported/funkinLane.png-4d82f4efe5bf0aef7caa92e59f958e71.ctex"]
+source_file="res://Assets/Game/Characters/BfPixel/icon.png"
+dest_files=["res://.godot/imported/icon.png-60495b3c472ed100157b63d76cfd305f.ctex"]
 
 [params]
 
-compress/mode=1
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
-compress/normal_map=2
-compress/channel_pack=1
+compress/normal_map=0
+compress/channel_pack=0
 mipmaps/generate=false
 mipmaps/limit=-1
-roughness/mode=1
+roughness/mode=0
 roughness/src_normal=""
 process/fix_alpha_border=true
 process/premult_alpha=false

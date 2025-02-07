@@ -40,6 +40,7 @@
     <Content Include="addons\rubichart_importer\savers\rbc.gd" />
     <Content Include="Resources\UI\Funkin\Mania.tres" />
     <Content Include="Resources\UI\Funkin\Style.tres" />
+    <Content Include="Songs\Test\Data\Mania-Normal.rbc" />
     <Content Include="Songs\Test\Data\Mania-Normal.tres" />
     <Content Include="Songs\Test\Data\Meta.tres" />
     <Content Include="Songs\Test\Inst.ogg" />

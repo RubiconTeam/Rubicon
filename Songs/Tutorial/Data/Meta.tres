@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://crgqugtqe2m3y" path="res://Source/Rubicon.Core/Chart/BpmInfo.cs" id="1_jeqb3"]
 [ext_resource type="Script" uid="uid://clg1lhiqfj0nk" path="res://Source/Rubicon.Core/Meta/CharacterMeta.cs" id="2_05uxy"]
 [ext_resource type="Script" uid="uid://b87l817pyjjsp" path="res://Source/Rubicon.Core/Meta/SongMeta.cs" id="3_cny2d"]
-[ext_resource type="Texture2D" uid="uid://wuwgfug56fmw" path="res://Assets/Characters/Gf/Icon.png" id="3_tprrc"]
+[ext_resource type="Texture2D" uid="uid://wuwgfug56fmw" path="res://Assets/Game/Characters/Gf/Icon.png" id="3_tprrc"]
 [ext_resource type="AudioStream" uid="uid://r4ua5fah2p3w" path="res://Songs/Tutorial/Inst.ogg" id="4_oaj7u"]
 
 [sub_resource type="Resource" id="Resource_rfcaf"]

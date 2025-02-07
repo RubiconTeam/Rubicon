@@ -1,12 +1,12 @@
 [gd_scene load_steps=4 format=3 uid="uid://b1dd6dwh3yhmb"]
 
-[ext_resource type="Script" uid="uid://dalc86ddoqxav" path="res://Source/Rubicon.Core/Rulesets/Mania/ManiaNoteSkin.cs" id="1_p6u6k"]
+[ext_resource type="Script" uid="uid://ddude6p581oy2" path="res://Source/Rubicon.Core/Rulesets/Mania/ManiaNoteSkin.cs" id="1_p6u6k"]
 
 [sub_resource type="GDScript" id="GDScript_s26kk"]
 resource_name = "MineNoteType"
 script/source = "extends GDNoteType
 
-@export var type_name : StringName = &\"mine\"
+@export var type_name : StringName = &\"Mine\"
 @export var mine_note_skin : ManiaNoteSkin
 
 func initialize_note(_notes : Array[NoteData], _note_type : StringName):
@@ -27,7 +27,7 @@ func note_hit(_bar_line_name : StringName, _result : NoteResult) -> void:
 	if type_name != _result.Note.Type:
 		return
 	
-	_result.Hit = HitType.MISS
+	_result.Hit = Judgment.MISS
 	_result.Flags |= NoteResultFlags.SPLASH
 "
 

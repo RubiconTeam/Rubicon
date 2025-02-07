@@ -1,9 +1,9 @@
 [gd_scene load_steps=18 format=3 uid="uid://8k757t5ispmp"]
 
 [ext_resource type="Script" uid="uid://cqmn2xk4n5fbt" path="res://Source/Rubicon/View2D/Character2D.cs" id="1_4dxf5"]
-[ext_resource type="SpriteFrames" uid="uid://bdbxe08wiehwd" path="res://Assets/Characters/BfPixel/Icon.tres" id="2_4dxf5"]
+[ext_resource type="SpriteFrames" uid="uid://bdbxe08wiehwd" path="res://Assets/Game/Characters/BfPixel/Icon.tres" id="2_4dxf5"]
 [ext_resource type="Script" uid="uid://bsc6hc1t5s5ry" path="res://Source/Rubicon/Data/CharacterIconData.cs" id="2_34v78"]
-[ext_resource type="SpriteFrames" uid="uid://c5vu3jvwfjlx3" path="res://Assets/Characters/BfPixel/bfPixel.tres" id="3_4dxf5"]
+[ext_resource type="SpriteFrames" uid="uid://c5vu3jvwfjlx3" path="res://Assets/Game/Characters/BfPixel/bfPixel.tres" id="3_4dxf5"]
 [ext_resource type="Script" uid="uid://chh5qfxuctxsq" path="res://Source/Rubicon/View2D/SyncedSprite2D.cs" id="4_yfwo5"]
 
 [sub_resource type="Resource" id="Resource_e8p3a"]
@@ -572,7 +572,6 @@ position = Vector2(0, -208)
 scale = Vector2(7.3, 7.3)
 sprite_frames = ExtResource("3_4dxf5")
 animation = &"BF IDLE instance 1"
-frame = 13
 script = ExtResource("4_yfwo5")
 Sync = true
 AnimationPlayer = NodePath("AnimationPlayer")

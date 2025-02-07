@@ -1,0 +1,14 @@
+[gd_resource type="SpriteFrames" load_steps=2 format=3 uid="uid://dwqx625sqpkm5"]
+
+[ext_resource type="Texture2D" uid="uid://wuwgfug56fmw" path="res://Assets/Game/Characters/Gf/Icon.png" id="1_bk2x6"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_bk2x6")
+}],
+"loop": true,
+"name": &"neutral",
+"speed": 5.0
+}]

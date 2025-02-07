@@ -1,9 +1,9 @@
 [gd_scene load_steps=20 format=3 uid="uid://53h3lsvw1swp"]
 
 [ext_resource type="Script" uid="uid://cqmn2xk4n5fbt" path="res://Source/Rubicon/View2D/Character2D.cs" id="1_gkk3t"]
-[ext_resource type="SpriteFrames" uid="uid://dwqx625sqpkm5" path="res://Assets/Characters/Gf/Icon.tres" id="2_gkk3t"]
+[ext_resource type="SpriteFrames" uid="uid://dwqx625sqpkm5" path="res://Assets/Game/Characters/Gf/Icon.tres" id="2_gkk3t"]
 [ext_resource type="Script" uid="uid://bsc6hc1t5s5ry" path="res://Source/Rubicon/Data/CharacterIconData.cs" id="3_8bx5y"]
-[ext_resource type="SpriteFrames" uid="uid://bepsengc7tf5a" path="res://Assets/Characters/Gf/GF_assets.tres" id="3_gkk3t"]
+[ext_resource type="SpriteFrames" uid="uid://bepsengc7tf5a" path="res://Assets/Game/Characters/Gf/GF_assets.tres" id="3_gkk3t"]
 [ext_resource type="Script" uid="uid://chh5qfxuctxsq" path="res://Source/Rubicon/View2D/SyncedSprite2D.cs" id="4_d3eco"]
 
 [sub_resource type="Resource" id="Resource_y4mqf"]
@@ -823,7 +823,6 @@ CameraPoint = NodePath("CameraPoint")
 [node name="Sprite" type="AnimatedSprite2D" parent="." node_paths=PackedStringArray("AnimationPlayer")]
 sprite_frames = ExtResource("3_gkk3t")
 animation = &"GF Dancing Beat"
-frame = 13
 offset = Vector2(0, -324)
 script = ExtResource("4_d3eco")
 Sync = true
