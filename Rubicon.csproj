@@ -57,16 +57,16 @@
     <Content Include="Source\Rubicon\API\GDLoadingScreen.gd" />
     <Content Include="Source\Rubicon\API\GDModChart.gd" />
     <Content Include="Source\Rubicon\Menus\Settings\SettingsMenu.tscn" />
-    <Content Include="Source\Rubicon\Menus\Settings\Templates\Button.tscn" />
-    <Content Include="Source\Rubicon\Menus\Settings\Templates\CheckButton.tscn" />
-    <Content Include="Source\Rubicon\Menus\Settings\Templates\ColorPicker.tscn" />
-    <Content Include="Source\Rubicon\Menus\Settings\Templates\Dropdown.tscn" />
-    <Content Include="Source\Rubicon\Menus\Settings\Templates\GroupSeparator.tscn" />
-    <Content Include="Source\Rubicon\Menus\Settings\Templates\KeybindButton.tscn" />
-    <Content Include="Source\Rubicon\Menus\Settings\Templates\LineEdit.tscn" />
-    <Content Include="Source\Rubicon\Menus\Settings\Templates\SectionButton.tscn" />
-    <Content Include="Source\Rubicon\Menus\Settings\Templates\Slider.tscn" />
-    <Content Include="Source\Rubicon\Menus\Settings\Templates\VBoxTemplate.tscn" />
+    <Content Include="Source\Rubicon\Menus\Settings\Templates\LeftPanel\SectionButton.tscn" />
+    <Content Include="Source\Rubicon\Menus\Settings\Templates\RightPanel\Button.tscn" />
+    <Content Include="Source\Rubicon\Menus\Settings\Templates\RightPanel\CheckButton.tscn" />
+    <Content Include="Source\Rubicon\Menus\Settings\Templates\RightPanel\ColorPicker.tscn" />
+    <Content Include="Source\Rubicon\Menus\Settings\Templates\RightPanel\Dropdown.tscn" />
+    <Content Include="Source\Rubicon\Menus\Settings\Templates\RightPanel\Keybind.tscn" />
+    <Content Include="Source\Rubicon\Menus\Settings\Templates\RightPanel\LineEdit.tscn" />
+    <Content Include="Source\Rubicon\Menus\Settings\Templates\RightPanel\Misc\GroupSeparator.tscn" />
+    <Content Include="Source\Rubicon\Menus\Settings\Templates\RightPanel\Misc\VBoxTemplate.tscn" />
+    <Content Include="Source\Rubicon\Menus\Settings\Templates\RightPanel\Slider.tscn" />
     <Content Include="Source\Rubicon\Screens\GDScreen.gd" />
   </ItemGroup>
   <ItemGroup>

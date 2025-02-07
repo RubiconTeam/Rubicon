@@ -8,7 +8,7 @@ namespace Rubicon;
 /// <summary>
 /// A general purpose utility class for Rubicon Engine
 /// I'm not naming this CoolUtil bro - binpuki
-/// :( - duo
+/// :( - riven
 /// </summary>
 public static class RubiconUtility
 {
