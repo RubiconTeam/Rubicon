@@ -180,3 +180,4 @@ general/fallback/character_3d=""
 general/minimum_aspect_ratio=1.333
 general/maximum_aspect_ratio=1.85
 general/starting_window_size=Vector2i(1366, 768)
+general/engine_version=1.0
