@@ -79,7 +79,7 @@ public partial class CanvasItemSpace : Node2D
 			Camera.Zoom = Stage.Zoom;
 		
 		// Init characters
-		Characters = new Array<Character2D>();
+		Characters = [];
 		_namedCharacters = new Dictionary<StringName, Character2D>();
 		_characterGroups = new Dictionary<StringName, CharacterGroup2D>();
 		_characterScenes = new Dictionary<string, PackedScene>();

@@ -33,7 +33,7 @@ namespace Rubicon.Game;
 		if (PathUtility.ResourceExists(eventsPath))
 			ResourcesToLoad.AddResource($"res://Songs/{context.Name}/Data/Events");
 
-		List<string> scriptPaths = new List<string>();
+		List<string> scriptPaths = [];
 		scriptPaths.AddRange(PathUtility.GetAbsoluteFilePathsAt("res://Resources/Game/Common/", true));
 		scriptPaths.AddRange(PathUtility.GetAbsoluteFilePathsAt($"res://Songs/{context.Name}/Scripts/", true));
 		for (int i = 0; i < scriptPaths.Count; i++)
@@ -88,7 +88,7 @@ namespace Rubicon.Game;
 			
 			ResourcesToLoad.AddScene(stagePath);
 			
-			List<string> loadedCharacters = new List<string>();
+			List<string> loadedCharacters = [];
 			for (int i = 0; i < meta.Characters.Length; i++)
 			{
 				string curCharacter = meta.Characters[i].Character;
@@ -124,7 +124,7 @@ namespace Rubicon.Game;
 
 			RubiconGame.Events = eventMeta;
 			
-			List<string> eventsPassed = new List<string>();
+			List<string> eventsPassed = [];
 			for (int i = 0; i < eventMeta.Events.Length; i++)
 			{
 				string eventName = eventMeta.Events[i].Name;

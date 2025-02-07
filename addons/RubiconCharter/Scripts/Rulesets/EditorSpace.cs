@@ -25,12 +25,12 @@ namespace Rubicon.Editor.Rulesets;
     /// <summary>
     /// The active hit objects on screen.
     /// </summary>
-    protected Array<EditorHitObject> ActiveHitObjects = new();
+    protected Array<EditorHitObject> ActiveHitObjects = [];
     
     /// <summary>
     /// A bin for every hit object that isn't in use, for recycling purposes.
     /// </summary>
-    protected Array<EditorHitObject> HitObjectBin = new();
+    protected Array<EditorHitObject> HitObjectBin = [];
     
     /// <summary>
     /// Loads an <see cref="IndividualChart"/> instance into this space, usually found in <see cref="RubiChart"/>.<see cref="RubiChart.Charts"/>.

@@ -5,7 +5,7 @@ namespace Rubicon.View2D;
 
 [GlobalClass] public partial class CharacterGroup2D : Node2D
 {
-    [Export] public Array<Character2D> Characters = new();
+    [Export] public Array<Character2D> Characters = [];
     
     public void SetGlobalPrefix(string prefix)
     {

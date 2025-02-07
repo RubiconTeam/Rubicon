@@ -9,7 +9,7 @@ namespace Rubicon.Screens;
 /// </summary>
 [GlobalClass] public partial class ResourceLoadList : Resource, IReadOnlyList<string>
 {
-    [Export(PropertyHint.File)] private Array<string> _paths = new();
+    [Export(PropertyHint.File)] private Array<string> _paths = [];
     
     public void AddResource(string path) => TryAdd(GetResourcePath(path));
 

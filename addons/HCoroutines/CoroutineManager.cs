@@ -10,9 +10,9 @@ public partial class CoroutineManager : Node {
     public double DeltaTimeDouble { get; private set; }
 
     private bool _isIteratingActiveCoroutines;
-    private readonly HashSet<CoroutineBase> _activeCoroutines = new();
-    private readonly HashSet<CoroutineBase> _coroutinesToDeactivate = new();
-    private readonly HashSet<CoroutineBase> _coroutinesToActivate = new();
+    private readonly HashSet<CoroutineBase> _activeCoroutines = [];
+    private readonly HashSet<CoroutineBase> _coroutinesToDeactivate = [];
+    private readonly HashSet<CoroutineBase> _coroutinesToActivate = [];
 
     public void StartCoroutine(CoroutineBase coroutine) {
         coroutine.Manager = this;

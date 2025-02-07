@@ -9,7 +9,7 @@ public partial class SpawnPoint2D : Node2D
     
     [Export] public bool LeftFacing = false;
 
-    [Export] public Array<Character2D> Characters = new();
+    [Export] public Array<Character2D> Characters = [];
 
     public void AddCharacter(Character2D character)
     {

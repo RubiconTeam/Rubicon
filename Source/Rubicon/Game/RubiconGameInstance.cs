@@ -306,7 +306,7 @@ public partial class RubiconGameInstance : CanvasLayer
 
 	private void LoadGameScripts()
 	{
-		List<string> scriptPaths = new List<string>();
+		List<string> scriptPaths = [];
 		scriptPaths.AddRange(PathUtility.GetAbsoluteFilePathsAt("res://Resources/Game/Common/", true));
 		scriptPaths.AddRange(PathUtility.GetAbsoluteFilePathsAt($"res://Songs/{Context.Name}/Scripts/", true));
 		for (int i = 0; i < scriptPaths.Count; i++)
