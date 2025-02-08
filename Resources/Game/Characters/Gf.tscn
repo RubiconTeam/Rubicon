@@ -823,6 +823,7 @@ CameraPoint = NodePath("CameraPoint")
 [node name="Sprite" type="AnimatedSprite2D" parent="." node_paths=PackedStringArray("AnimationPlayer")]
 sprite_frames = ExtResource("3_gkk3t")
 animation = &"GF Dancing Beat"
+frame = 13
 offset = Vector2(0, -324)
 script = ExtResource("4_d3eco")
 Sync = true
@@ -835,5 +836,5 @@ libraries = {
 }
 
 [node name="CameraPoint" type="Marker2D" parent="."]
-position = Vector2(0, -436)
+position = Vector2(150, -424)
 gizmo_extents = 0.0

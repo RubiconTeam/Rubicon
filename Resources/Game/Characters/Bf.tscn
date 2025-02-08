@@ -50,7 +50,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-16, -150)]
+"values": [Vector2(0, -207)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -103,7 +103,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-25, -140)]
+"values": [Vector2(-9, -197)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -156,7 +156,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-15, -152)]
+"values": [Vector2(1, -209)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -208,7 +208,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-16, -150)]
+"values": [Vector2(0, -207)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -262,7 +262,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-15, -149)]
+"values": [Vector2(1, -206)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -315,7 +315,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-30, -125)]
+"values": [Vector2(-14, -182)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -368,7 +368,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-30, -125)]
+"values": [Vector2(-12, -197.5)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -421,7 +421,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-38, -146)]
+"values": [Vector2(-22, -203)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -474,7 +474,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-38, -159)]
+"values": [Vector2(-22, -216)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -527,7 +527,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(28, -146)]
+"values": [Vector2(44, -203)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -580,7 +580,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(25.5, -160)]
+"values": [Vector2(41.5, -217)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -633,7 +633,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(8, -155)]
+"values": [Vector2(24, -212)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -686,7 +686,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(5.5, -155)]
+"values": [Vector2(21.5, -212)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -731,7 +731,8 @@ CameraPoint = NodePath("CameraPoint")
 [node name="Sprite" type="AnimatedSprite2D" parent="." node_paths=PackedStringArray("AnimationPlayer")]
 sprite_frames = ExtResource("2_7sbxo")
 animation = &"BF idle dance"
-offset = Vector2(-16, -150)
+frame = 13
+offset = Vector2(0, -207)
 script = ExtResource("3_1tcb8")
 Sync = true
 AnimationPlayer = NodePath("AnimationPlayer")
@@ -743,5 +744,5 @@ libraries = {
 }
 
 [node name="CameraPoint" type="Marker2D" parent="."]
-position = Vector2(-60, -156)
+position = Vector2(-100, -307)
 gizmo_extents = 0.0

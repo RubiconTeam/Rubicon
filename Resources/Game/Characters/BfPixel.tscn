@@ -568,10 +568,11 @@ AnimationPlayer = NodePath("Sprite/AnimationPlayer")
 CameraPoint = NodePath("CameraPoint")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="." node_paths=PackedStringArray("AnimationPlayer")]
-position = Vector2(0, -208)
-scale = Vector2(7.3, 7.3)
+position = Vector2(19, -251)
+scale = Vector2(7, 7)
 sprite_frames = ExtResource("3_4dxf5")
 animation = &"BF IDLE instance 1"
+frame = 13
 script = ExtResource("4_yfwo5")
 Sync = true
 AnimationPlayer = NodePath("AnimationPlayer")
@@ -583,5 +584,5 @@ libraries = {
 }
 
 [node name="CameraPoint" type="Marker2D" parent="."]
-position = Vector2(-60, -156)
+position = Vector2(-100, -355.5)
 gizmo_extents = 0.0
