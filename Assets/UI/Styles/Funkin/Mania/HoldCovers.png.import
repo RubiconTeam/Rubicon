@@ -2,9 +2,9 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://di2vhk7ksm8vf"
-path.bptc="res://.godot/imported/noteSplashes.png-ed30a193c99a3a579a96d8169f7ff871.bptc.ctex"
-path.astc="res://.godot/imported/noteSplashes.png-ed30a193c99a3a579a96d8169f7ff871.astc.ctex"
+uid="uid://dagcw4p111kr"
+path.bptc="res://.godot/imported/HoldCovers.png-12393bec17c00e669d6632d9afc255c6.bptc.ctex"
+path.astc="res://.godot/imported/HoldCovers.png-12393bec17c00e669d6632d9afc255c6.astc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/UI/Styles/Funkin/Mania/noteSplashes.png"
-dest_files=["res://.godot/imported/noteSplashes.png-ed30a193c99a3a579a96d8169f7ff871.bptc.ctex", "res://.godot/imported/noteSplashes.png-ed30a193c99a3a579a96d8169f7ff871.astc.ctex"]
+source_file="res://Assets/UI/Styles/Funkin/Mania/HoldCovers.png"
+dest_files=["res://.godot/imported/HoldCovers.png-12393bec17c00e669d6632d9afc255c6.bptc.ctex", "res://.godot/imported/HoldCovers.png-12393bec17c00e669d6632d9afc255c6.astc.ctex"]
 
 [params]
 
