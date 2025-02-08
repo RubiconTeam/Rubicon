@@ -108,11 +108,11 @@ public partial class RubiconGameInstance : CanvasLayer
 		
 		LoadGameScripts();
 
-		
-		float SPEED = 10f;
+		/*
+		float SPEED = 1f;
 		PlayField.Music.PitchScale = SPEED;
 		Vocals?.SetPitchScale(SPEED);
-		Conductor.Speed = SPEED;
+		Conductor.Speed = SPEED;*/
 		
 		// TODO: Countdown
 		PlayField.Start();
