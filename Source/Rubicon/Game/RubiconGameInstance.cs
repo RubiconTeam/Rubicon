@@ -107,6 +107,12 @@ public partial class RubiconGameInstance : CanvasLayer
 		AddChild(BounceBumper);
 		
 		LoadGameScripts();
+
+		
+		float SPEED = 10f;
+		PlayField.Music.PitchScale = SPEED;
+		Vocals?.SetPitchScale(SPEED);
+		Conductor.Speed = SPEED;
 		
 		// TODO: Countdown
 		PlayField.Start();
@@ -140,6 +146,9 @@ public partial class RubiconGameInstance : CanvasLayer
 
 	protected virtual void NoteHit(StringName name, NoteResult result)
 	{
+		if (result.Rating == Judgment.None)
+			return;
+		
 		if (!result.Flags.HasFlag(NoteResultFlags.Vocals) && Vocals is not null)
 			Vocals.VolumeLinear = result.Rating == Judgment.Miss ? 0f : 1f;
 		
