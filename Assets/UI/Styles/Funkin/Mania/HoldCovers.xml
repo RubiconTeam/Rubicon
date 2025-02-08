@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="HoldCovers.png">
+	<!-- Created with Adobe Animate version 24.0.2.12 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="downLaneCoverEnd0000" x="1" y="1" width="171" height="151" frameX="-30" frameY="-3" frameWidth="256" frameHeight="229"/>
+	<SubTexture name="downLaneCoverEnd0001" x="173" y="1" width="219" height="190" frameX="-4" frameY="0" frameWidth="256" frameHeight="229"/>
+	<SubTexture name="downLaneCoverEnd0002" x="173" y="1" width="219" height="190" frameX="-4" frameY="0" frameWidth="256" frameHeight="229"/>
+	<SubTexture name="downLaneCoverEnd0003" x="393" y="1" width="234" height="197" frameX="-1" frameY="-6" frameWidth="256" frameHeight="229"/>
+	<SubTexture name="downLaneCoverEnd0004" x="628" y="1" width="251" height="198" frameX="0" frameY="-22" frameWidth="256" frameHeight="229"/>
+	<SubTexture name="downLaneCoverEnd0005" x="880" y="1" width="246" height="171" frameX="-10" frameY="-58" frameWidth="256" frameHeight="229"/>
+	<SubTexture name="downLaneCoverHold0000" x="1127" y="1" width="125" height="160"/>
+	<SubTexture name="downLaneCoverHold0001" x="1253" y="1" width="109" height="134" frameX="-12" frameY="-16" frameWidth="125" frameHeight="160"/>
+	<SubTexture name="downLaneCoverHold0002" x="1363" y="1" width="86" height="98" frameX="-18" frameY="-32" frameWidth="125" frameHeight="160"/>
+	<SubTexture name="downLaneCoverStart0000" x="1058" y="200" width="98" height="98"/>
+	<SubTexture name="leftLaneCoverEnd0000" x="1450" y="1" width="171" height="151" frameX="-30" frameY="-3" frameWidth="256" frameHeight="229"/>
+	<SubTexture name="leftLaneCoverEnd0001" x="1622" y="1" width="219" height="190" frameX="-4" frameY="0" frameWidth="256" frameHeight="229"/>
+	<SubTexture name="leftLaneCoverEnd0002" x="1622" y="1" width="219" height="190" frameX="-4" frameY="0" frameWidth="256" frameHeight="229"/>
+	<SubTexture name="leftLaneCoverEnd0003" x="1" y="200" width="234" height="197" frameX="-1" frameY="-6" frameWidth="256" frameHeight="229"/>
+	<SubTexture name="leftLaneCoverEnd0004" x="236" y="200" width="251" height="198" frameX="0" frameY="-22" frameWidth="256" frameHeight="229"/>
+	<SubTexture name="leftLaneCoverEnd0005" x="488" y="200" width="246" height="171" frameX="-10" frameY="-58" frameWidth="256" frameHeight="229"/>
+	<SubTexture name="leftLaneCoverHold0000" x="735" y="200" width="125" height="161"/>
+	<SubTexture name="leftLaneCoverHold0001" x="861" y="200" width="109" height="134" frameX="-12" frameY="-16" frameWidth="125" frameHeight="161"/>
+	<SubTexture name="leftLaneCoverHold0002" x="971" y="200" width="86" height="98" frameX="-18" frameY="-33" frameWidth="125" frameHeight="161"/>
+	<SubTexture name="leftLaneCoverStart0000" x="1058" y="200" width="98" height="98"/>
+	<SubTexture name="rightLaneCoverEnd0000" x="1157" y="200" width="171" height="151" frameX="-30" frameY="-3" frameWidth="256" frameHeight="229"/>
+	<SubTexture name="rightLaneCoverEnd0001" x="1329" y="200" width="219" height="190" frameX="-4" frameY="0" frameWidth="256" frameHeight="229"/>
+	<SubTexture name="rightLaneCoverEnd0002" x="1329" y="200" width="219" height="190" frameX="-4" frameY="0" frameWidth="256" frameHeight="229"/>
+	<SubTexture name="rightLaneCoverEnd0003" x="1549" y="200" width="234" height="197" frameX="-1" frameY="-6" frameWidth="256" frameHeight="229"/>
+	<SubTexture name="rightLaneCoverEnd0004" x="1784" y="200" width="251" height="198" frameX="0" frameY="-22" frameWidth="256" frameHeight="229"/>
+	<SubTexture name="rightLaneCoverEnd0005" x="1" y="399" width="246" height="171" frameX="-10" frameY="-58" frameWidth="256" frameHeight="229"/>
+	<SubTexture name="rightLaneCoverHold0000" x="248" y="399" width="125" height="161"/>
+	<SubTexture name="rightLaneCoverHold0001" x="374" y="399" width="109" height="134" frameX="-12" frameY="-16" frameWidth="125" frameHeight="161"/>
+	<SubTexture name="rightLaneCoverHold0002" x="484" y="399" width="86" height="98" frameX="-18" frameY="-33" frameWidth="125" frameHeight="161"/>
+	<SubTexture name="rightLaneCoverStart0000" x="1058" y="200" width="98" height="98"/>
+	<SubTexture name="upLaneCoverEnd0000" x="571" y="399" width="171" height="151" frameX="-30" frameY="-3" frameWidth="256" frameHeight="229"/>
+	<SubTexture name="upLaneCoverEnd0001" x="743" y="399" width="219" height="190" frameX="-4" frameY="0" frameWidth="256" frameHeight="229"/>
+	<SubTexture name="upLaneCoverEnd0002" x="743" y="399" width="219" height="190" frameX="-4" frameY="0" frameWidth="256" frameHeight="229"/>
+	<SubTexture name="upLaneCoverEnd0003" x="963" y="399" width="234" height="197" frameX="-1" frameY="-6" frameWidth="256" frameHeight="229"/>
+	<SubTexture name="upLaneCoverEnd0004" x="1198" y="399" width="251" height="198" frameX="0" frameY="-22" frameWidth="256" frameHeight="229"/>
+	<SubTexture name="upLaneCoverEnd0005" x="1450" y="399" width="246" height="171" frameX="-10" frameY="-58" frameWidth="256" frameHeight="229"/>
+	<SubTexture name="upLaneCoverHold0000" x="1697" y="399" width="125" height="161"/>
+	<SubTexture name="upLaneCoverHold0001" x="1823" y="399" width="109" height="134" frameX="-12" frameY="-16" frameWidth="125" frameHeight="161"/>
+	<SubTexture name="upLaneCoverHold0002" x="1933" y="399" width="86" height="98" frameX="-18" frameY="-33" frameWidth="125" frameHeight="161"/>
+	<SubTexture name="upLaneCoverStart0000" x="1058" y="200" width="98" height="98"/>
+</TextureAtlas>

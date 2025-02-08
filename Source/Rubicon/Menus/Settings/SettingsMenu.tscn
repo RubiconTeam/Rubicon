@@ -1,6 +1,6 @@
 [gd_scene load_steps=21 format=3 uid="uid://csxrq1ms8awxc"]
 
-[ext_resource type="Script" uid="uid://chvkodg7nb2c4" path="res://Source/Rubicon/Menus/Settings/SettingsMenu.cs" id="1_lotll"]
+[ext_resource type="Script" uid="uid://d33kved5qgcen" path="res://Source/Rubicon/Menus/Settings/SettingsMenu.cs" id="1_lotll"]
 [ext_resource type="Texture2D" uid="uid://qhfv36mgywf6" path="res://Assets/UI/Menus/menuBGDesat.png" id="2_qyjh5"]
 [ext_resource type="PackedScene" uid="uid://dloydyiawkns6" path="res://Source/Rubicon/Menus/Settings/Templates/LeftPanel/SectionButton.tscn" id="2_ynwdk"]
 [ext_resource type="FontFile" uid="uid://ilqa3kmi8s03" path="res://Assets/UI/Fonts/funkin2.ttf" id="3_b8kiq"]
@@ -144,8 +144,8 @@ metadata/_edit_use_anchors_ = true
 layout_mode = 1
 anchor_left = 0.0496689
 anchor_top = 0.479633
-anchor_right = 0.374172
-anchor_bottom = 0.55499
+anchor_right = 0.409492
+anchor_bottom = 0.554989
 metadata/_edit_use_anchors_ = true
 
 [node name="PanelContainer" type="PanelContainer" parent="Main/UI/SectionsControl"]
@@ -170,11 +170,11 @@ alignment = 1
 
 [node name="ButtonsControl" type="Control" parent="Main/UI"]
 layout_mode = 1
-anchor_left = 0.543046
+anchor_left = 0.513797
 anchor_top = 0.130346
 anchor_right = 0.924393
 anchor_bottom = 0.754582
-metadata/_edit_use_anchors_ = true
+rotation = 0.015708
 
 [node name="PanelContainer" type="PanelContainer" parent="Main/UI/ButtonsControl"]
 layout_mode = 1
@@ -187,7 +187,6 @@ offset_right = -8.00092
 offset_bottom = 3.0
 grow_horizontal = 2
 grow_vertical = 2
-rotation = 0.0162759
 theme_override_styles/panel = SubResource("StyleBoxFlat_xs2iu")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="Main/UI/ButtonsControl/PanelContainer"]
@@ -233,7 +232,10 @@ anchor_left = 0.536976
 anchor_top = 0.809572
 anchor_right = 0.913908
 anchor_bottom = 0.923625
-metadata/_edit_use_anchors_ = true
+offset_left = -43.0005
+offset_right = -0.00134277
+offset_bottom = -6.10352e-05
+rotation = 0.015708
 
 [node name="Panel" type="Panel" parent="Main/UI/DescriptionControl"]
 layout_mode = 1
@@ -244,9 +246,7 @@ offset_right = 1.64758
 offset_bottom = -10.4522
 grow_horizontal = 2
 grow_vertical = 2
-rotation = 0.0162759
 theme_override_styles/panel = SubResource("StyleBoxFlat_a0khw")
-metadata/_edit_use_anchors_ = true
 
 [node name="Description" type="Label" parent="Main/UI/DescriptionControl/Panel"]
 layout_mode = 2
@@ -257,7 +257,7 @@ offset_bottom = 100.0
 size_flags_vertical = 1
 theme_override_fonts/font = ExtResource("3_b8kiq")
 theme_override_font_sizes/font_size = 40
-text = "description of whatever ur hovering at"
+text = "this is a problem because i cant just store description data as attributes"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2

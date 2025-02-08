@@ -1,9 +1,8 @@
 using System.Collections.Generic;
 using Rubicon.Core;
-using Rubicon.Core.Data;
+using Rubicon.Core.Chart;
 using Rubicon.Core.Events;
 using Rubicon.Core.Meta;
-using Rubicon.Data;
 using Rubicon.Screens;
 
 namespace Rubicon.Game;
@@ -58,6 +57,33 @@ namespace Rubicon.Game;
 				return;
 
 			RubiconGame.Metadata = meta;
+			
+			// Chart
+			RubiChart chart = meta.GetDifficultyByName(context.Difficulty, context.RuleSet).Chart;
+			List<string> noteTypes = new List<string>();
+			RubiconGame.Chart = chart;
+			for (int i = 0; i < chart.Charts.Length; i++)
+				for (int n = 0; n < chart.Charts[i].Notes.Length; n++)
+					if (chart.Charts[i].Notes[n].Type != "Normal" && !noteTypes.Contains(chart.Charts[i].Notes[n].Type))
+						noteTypes.Add(chart.Charts[i].Notes[n].Type);
+			
+			for (int i = 0; i < noteTypes.Count; i++)
+				if (RubiconEngine.NoteTypePaths.ContainsKey(noteTypes[i]))
+					ResourcesToLoad.AddPath(RubiconEngine.NoteTypePaths[noteTypes[i]]);
+
+			for (int i = 0; i < noteTypes.Count; i++)
+			{	
+				string noteTypePath = $"res://Resources/Game/Notetypes/{noteTypes[i]}";
+				if (ResourceLoader.Exists(noteTypePath + ".tscn") || ResourceLoader.Exists(noteTypePath + ".scn"))
+					ResourcesToLoad.AddScene(noteTypePath);
+				
+				if (ResourceLoader.Exists(noteTypePath + ".gd"))
+					ResourcesToLoad.AddPath(noteTypePath + ".gd");
+				
+				if (ResourceLoader.Exists(noteTypePath + ".cs"))
+					ResourcesToLoad.AddPath(noteTypePath + ".cs");
+			}
+			
 			string uiStylePath = $"res://Resources/UI/Styles/{meta.UiStyle}/Style";
 			if (!PathUtility.ResourceExists(uiStylePath))
 				uiStylePath = $"res://Resources/UI/Styles/{ProjectSettings.GetSetting("rubicon/general/default_ui_style")}/Style";

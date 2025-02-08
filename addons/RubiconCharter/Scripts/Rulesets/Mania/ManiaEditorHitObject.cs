@@ -21,7 +21,7 @@ public partial class ManiaEditorHitObject : EditorHitObject
             return;
         }
 
-        SpriteFrames = NoteSkin.NoteAtlas;
+        SpriteFrames = NoteSkin.Notes;
         Play($"{NoteSkin.GetDirection(Data.Lane)}NoteNeutral");
     }
 }

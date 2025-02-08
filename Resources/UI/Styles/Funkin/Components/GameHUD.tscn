@@ -5,8 +5,8 @@
 [ext_resource type="Script" uid="uid://2ys028hnmlpi" path="res://Scripts/UI/FunkinScorePanel.cs" id="2_ktnhm"]
 [ext_resource type="Script" uid="uid://baj6vb0m41bng" path="res://Scripts/UI/ShaderHealthBar.cs" id="3_8iftt"]
 [ext_resource type="Shader" uid="uid://c70o45m6wr8np" path="res://Resources/Shaders/BarShader.gdshader" id="3_u5q2l"]
-[ext_resource type="SpriteFrames" uid="uid://dd1qyud388qn8" path="res://Assets/Characters/Missing/PlaceholderIcon.tres" id="6_owl4e"]
-[ext_resource type="SpriteFrames" uid="uid://dw06ivs1uhiwa" path="res://Assets/Characters/Bf/BfIcon.tres" id="7_l2r6r"]
+[ext_resource type="SpriteFrames" uid="uid://dd1qyud388qn8" path="res://Assets/Game/Characters/Missing/PlaceholderIcon.tres" id="6_owl4e"]
+[ext_resource type="SpriteFrames" uid="uid://dw06ivs1uhiwa" path="res://Assets/Game/Characters/Bf/BfIcon.tres" id="7_l2r6r"]
 [ext_resource type="Script" uid="uid://bwhl1e5hup1vh" path="res://Scripts/UI/RubiconTimerBar.cs" id="8_baffn"]
 [ext_resource type="Texture2D" uid="uid://c44d31rl7ip3r" path="res://Assets/UI/Styles/Funkin/CircleGradient.png" id="9_72ks0"]
 

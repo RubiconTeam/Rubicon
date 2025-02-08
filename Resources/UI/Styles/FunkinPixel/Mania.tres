@@ -5,9 +5,9 @@
 
 [resource]
 script = ExtResource("4_y1sga")
-NoteAtlas = ExtResource("1_kg536")
-LaneAtlas = ExtResource("1_kg536")
-HoldAtlas = ExtResource("1_kg536")
+Notes = ExtResource("1_kg536")
+Lanes = ExtResource("1_kg536")
+Holds = ExtResource("1_kg536")
 Scale = Vector2(9, 9)
 LaneSize = 160.0
 Filter = 1

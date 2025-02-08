@@ -1,38 +1,33 @@
-[gd_scene load_steps=4 format=3 uid="uid://b1dd6dwh3yhmb"]
+[gd_scene load_steps=5 format=3 uid="uid://b1dd6dwh3yhmb"]
 
-[ext_resource type="Script" uid="uid://dalc86ddoqxav" path="res://Source/Rubicon.Core/Rulesets/Mania/ManiaNoteSkin.cs" id="1_p6u6k"]
+[ext_resource type="SpriteFrames" uid="uid://c8odmp2lgdt5p" path="res://Assets/Game/Notetypes/Mine/Mine.tres" id="1_0pk4b"]
+[ext_resource type="Script" uid="uid://ddude6p581oy2" path="res://Source/Rubicon.Core/Rulesets/Mania/ManiaNoteSkin.cs" id="1_p6u6k"]
 
 [sub_resource type="GDScript" id="GDScript_s26kk"]
 resource_name = "MineNoteType"
 script/source = "extends GDNoteType
 
-@export var type_name : StringName = &\"mine\"
 @export var mine_note_skin : ManiaNoteSkin
 
-func initialize_note(_notes : Array[NoteData], _note_type : StringName):
-	if type_name != _note_type:
-		return
-	
-	for note in _notes:
-		note.ShouldMiss = true
-
 func spawn_note(_note : Note, _note_type : StringName) -> void:
-	if _note_type != type_name or _note is not ManiaNote:
+	if _note_type != name or _note is not ManiaNote:
 		return
 	
 	var mania_note : ManiaNote = _note
 	mania_note.ChangeNoteSkin(mine_note_skin)
 
 func note_hit(_bar_line_name : StringName, _result : NoteResult) -> void:
-	if type_name != _result.Note.Type:
+	if name != _result.Note.Type:
 		return
 	
-	_result.Hit = HitType.MISS
+	_result.Rating = Judgment.MISS if _result.Rating != Judgment.MISS else Judgment.NONE
 	_result.Flags |= NoteResultFlags.SPLASH
 "
 
 [sub_resource type="Resource" id="Resource_h2mhu"]
 script = ExtResource("1_p6u6k")
+NoteAtlas = ExtResource("1_0pk4b")
+HoldAtlas = ExtResource("1_0pk4b")
 Scale = Vector2(1, 1)
 LaneSize = 160.0
 Filter = 2
@@ -45,3 +40,5 @@ metadata/_custom_type_script = ExtResource("1_p6u6k")
 [node name="Mine" type="Node"]
 script = SubResource("GDScript_s26kk")
 mine_note_skin = SubResource("Resource_h2mhu")
+should_miss = true
+counts_toward_score = false

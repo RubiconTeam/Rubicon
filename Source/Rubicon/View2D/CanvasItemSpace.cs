@@ -1,8 +1,6 @@
 using Godot.Collections;
 using Rubicon.Core;
 using Rubicon.Core.Meta;
-using Rubicon.Core.Rulesets;
-using Rubicon.Data;
 
 namespace Rubicon.View2D;
 

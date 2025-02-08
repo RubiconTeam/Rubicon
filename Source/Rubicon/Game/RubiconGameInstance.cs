@@ -1,6 +1,4 @@
 using System.Collections.Generic;
-using System.Data;
-using System.Linq;
 using Rubicon.Core;
 using Rubicon.Core.Audio;
 using Rubicon.Core.Chart;
@@ -8,8 +6,6 @@ using Rubicon.Core.Meta;
 using Rubicon.Core.Data;
 using Rubicon.Core.Events;
 using Rubicon.Core.Rulesets;
-using Rubicon.Data;
-using Rubicon.Screens;
 using Rubicon.View2D;
 
 namespace Rubicon.Game;
@@ -111,6 +107,12 @@ public partial class RubiconGameInstance : CanvasLayer
 		AddChild(BounceBumper);
 		
 		LoadGameScripts();
+
+		/*
+		float SPEED = 1f;
+		PlayField.Music.PitchScale = SPEED;
+		Vocals?.SetPitchScale(SPEED);
+		Conductor.Speed = SPEED;*/
 		
 		// TODO: Countdown
 		PlayField.Start();
@@ -144,6 +146,9 @@ public partial class RubiconGameInstance : CanvasLayer
 
 	protected virtual void NoteHit(StringName name, NoteResult result)
 	{
+		if (result.Rating == Judgment.None)
+			return;
+		
 		if (!result.Flags.HasFlag(NoteResultFlags.Vocals) && Vocals is not null)
 			Vocals.VolumeLinear = result.Rating == Judgment.Miss ? 0f : 1f;
 		
