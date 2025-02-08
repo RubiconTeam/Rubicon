@@ -22,18 +22,15 @@ public class AnimatedLetter(string letter)
     public Rect2 Rect;
     
     /// <summary>
-    /// The region rect for the texture to be sampled from.
-    /// </summary>
-    public Rect2[] SourceRect;
-    
-    /// <summary>
     /// Frames per second of the animation.
-    /// Automatically taken from the SpriteFrames
+    /// Automatically taken from the SpriteFrames.
+    /// Only works if the animation style is set to InstantLoop.
     /// </summary>
-    public double FrameSpeed = 24f;
+    public float FrameSpeed = 24f;
     
     /// <summary>
     /// The frame that should be currently playing.
+    /// Only works if the animation style is set to InstantLoop.
     /// </summary>
     public int FrameIndex = 0;
 }

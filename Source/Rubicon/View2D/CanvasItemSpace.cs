@@ -75,8 +75,7 @@ public partial class CanvasItemSpace : Node2D
 		AddChild(Camera);
 
 		Camera.TargetZoom = Stage.Zoom;
-		if (Stage.SnapZoomOnStart)
-			Camera.Zoom = Stage.Zoom;
+		Camera.Zoom = Stage.Zoom;
 		
 		// Init characters
 		Characters = [];

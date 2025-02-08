@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="AnimatedFont" load_steps=3 format=3 uid="uid://inml74f3v5eu"]
+
+[ext_resource type="SpriteFrames" uid="uid://npljdq44ldva" path="res://Assets/UI/Fonts/AnimatedFonts/Default.tres" id="1_g4l0k"]
+[ext_resource type="Script" uid="uid://cuhh57ugb0f2a" path="res://Scripts/UI/Text/AnimatedFont.cs" id="1_q701o"]
+
+[resource]
+script = ExtResource("1_q701o")
+SpriteFrames = ExtResource("1_g4l0k")
+_characterAliases = Dictionary[String, String]({})
+Offset = Dictionary[String, Vector2]({})
+Advance = Dictionary[String, Vector2]({})
+metadata/_custom_type_script = ExtResource("1_q701o")
