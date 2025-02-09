@@ -4,7 +4,7 @@ namespace Rubicon.View2D;
 #if TOOLS
 [Tool] 
 #endif
-public partial class SyncedSprite2D : AnimatedSprite2D
+[GlobalClass] public partial class SyncedSprite2D : AnimatedSprite2D
 {
 	[Export] public bool Sync { get => GetSync(); set => SetSync(value); }
 

@@ -1,6 +1,7 @@
 using Godot.Collections;
 using Rubicon.Core;
 using Rubicon.Core.Meta;
+using Rubicon.View3D;
 
 namespace Rubicon.View2D;
 
@@ -95,7 +96,7 @@ public partial class CanvasItemSpace : Node2D
 		}
 		else if (!ResourceLoader.Exists(path))
 		{
-			GD.Print($"[CanvasItemSpace] Character {meta.Character} was not found. Falling back to default.");
+			GD.PrintErr($"[CanvasItemSpace] Character {meta.Character} was not found. Falling back to default.");
 			AddFallbackCharacter(meta);
 			return;
 		}
@@ -104,6 +105,14 @@ public partial class CanvasItemSpace : Node2D
 			Resource characterResource = ResourceLoader.LoadThreadedGet(path);
 			if (characterResource is PackedScene packedScene)
 			{
+				Node characterInstance = packedScene.Instantiate();
+				if (characterInstance is Character3D)
+				{
+					GD.PrintErr($"[CanvasItemSpace] Character {meta.Character} is a 3D character. Falling back to default.");
+					AddFallbackCharacter(meta);
+					return;
+				}
+				
 				_characterScenes.Add(meta.Character, packedScene);
 				character = packedScene.Instantiate<Character2D>();
 			}

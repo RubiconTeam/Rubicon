@@ -7,6 +7,7 @@ using Rubicon.Core.Data;
 using Rubicon.Core.Events;
 using Rubicon.Core.Rulesets;
 using Rubicon.View2D;
+using Rubicon.View3D;
 
 namespace Rubicon.Game;
 
@@ -45,6 +46,8 @@ public partial class RubiconGameInstance : CanvasLayer
 	[Export] public Node RootNode;
 
 	[Export] public CanvasItemSpace CanvasItemSpace;
+	
+	[Export] public SpatialSpace SpatialSpace;
 
 	[Export] public SongEventController EventController;
 
@@ -140,6 +143,8 @@ public partial class RubiconGameInstance : CanvasLayer
 		{
 			case GameEnvironment.CanvasItem:
 				CanvasItemSpace.Camera.Zoom += Vector2.One * 0.045f;
+				break;
+			case GameEnvironment.Spatial:
 				break;
 		}
 	}
@@ -249,6 +254,9 @@ public partial class RubiconGameInstance : CanvasLayer
 			case GameEnvironment.CanvasItem:
 				CanvasItemSpace.QueueFree();
 				break;
+			case GameEnvironment.Spatial:
+				SpatialSpace.QueueFree();
+				break;
 		}	
 
 		Metadata = null;
@@ -304,6 +312,12 @@ public partial class RubiconGameInstance : CanvasLayer
 				RootNode.AddChild(CanvasItemSpace);
 				break;
 			}
+			case GameEnvironment.Spatial:
+				SpatialSpace = new SpatialSpace();
+				SpatialSpace.Name = "Space";
+				SpatialSpace.Initialize(songMeta);
+				RootNode.AddChild(SpatialSpace);
+				break;
 		}
 		
 		GD.Print("Space created successfully.");

@@ -10,9 +10,10 @@ namespace Rubicon.View3D;
 	[Export] public CharacterIconData Icon = new();
 	
     /// <summary>
-    /// Determines whether the character is facing left or not.
+    /// Determines which axis is the character facing at,
+    /// and if it should be flipped or not.
     /// </summary>
-    [Export] public bool LeftFacing = false;
+    [Export] public bool FrontFacing;
 
     /// <summary>
     /// Gets added to the start of EVERY animation that plays after this is set. Overridden by  <see cref="CharacterAnimation.CustomSuffix"/> when using <see cref="PlayAnim"/>.
@@ -148,6 +149,15 @@ namespace Rubicon.View3D;
     public override void _Ready()
     {
         base._Ready();
+        
+        // replace Camera3D with Node3D
+        // (its probably fine for performance but you never know)
+        if (CameraPoint is Camera3D cameraPoint)
+        {
+	        CameraPoint = new Node3D();
+	        CameraPoint.Position = cameraPoint.Position;
+	        CameraPoint.Rotation = cameraPoint.Rotation;
+        }
 
         Bumper = new Bumper();
         Bumper.Name = "Bumper";
@@ -263,9 +273,7 @@ namespace Rubicon.View3D;
 
     public Vector3 GetCameraPosition()
     {
-	    // ill finish this tomorrow im sleepy as fuck !
-
-	    return Vector3.Zero;
+	    return CameraPoint.Position;
     }
 
     protected virtual void HandleHoldAnimations()
