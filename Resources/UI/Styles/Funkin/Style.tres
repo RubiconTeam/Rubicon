@@ -6,7 +6,7 @@
 [ext_resource type="Material" uid="uid://c0cgdmxo1vf40" path="res://Resources/UI/Styles/Funkin/Materials/good.tres" id="2_4c21y"]
 [ext_resource type="PackedScene" uid="uid://djgolwf8k2y4" path="res://Resources/UI/Styles/Funkin/Components/FunkinCombo.tscn" id="2_bgkbr"]
 [ext_resource type="Material" uid="uid://b37f4mdn0h8w6" path="res://Resources/UI/Styles/Funkin/Materials/great.tres" id="3_7f7f8"]
-[ext_resource type="PackedScene" uid="uid://cywb2uc8om2ie" path="res://Resources/UI/Styles/Funkin/Components/GameHUD.tscn" id="3_dj2ce"]
+[ext_resource type="PackedScene" uid="uid://cywb2uc8om2ie" path="res://Resources/UI/Styles/Funkin/GameHUD.tscn" id="3_dj2ce"]
 [ext_resource type="Material" uid="uid://bftkqmdktdaqt" path="res://Resources/UI/Styles/Funkin/Materials/bad.tres" id="4_iebmg"]
 [ext_resource type="PackedScene" uid="uid://cynf1ud5pgdr3" path="res://Resources/UI/Styles/FunkLike/Components/DanceHitDistance.tscn" id="5_3rjbs"]
 [ext_resource type="Material" uid="uid://bs8iq3r2cutsu" path="res://Resources/UI/Styles/Funkin/Materials/miss.tres" id="6_g8yvg"]

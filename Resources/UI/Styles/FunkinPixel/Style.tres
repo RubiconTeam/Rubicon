@@ -9,7 +9,7 @@
 [ext_resource type="Material" uid="uid://bs8iq3r2cutsu" path="res://Resources/UI/Styles/Funkin/Materials/miss.tres" id="7_ykaiw"]
 [ext_resource type="Material" uid="uid://clrbqrdp1uiuf" path="res://Resources/UI/Styles/Funkin/Materials/okay.tres" id="8_3xoa1"]
 [ext_resource type="Material" uid="uid://bn4b2kj3ajywl" path="res://Resources/UI/Styles/Funkin/Materials/perfect.tres" id="9_qu2a6"]
-[ext_resource type="PackedScene" uid="uid://cywb2uc8om2ie" path="res://Resources/UI/Styles/Funkin/Components/GameHUD.tscn" id="10_d0iss"]
+[ext_resource type="PackedScene" uid="uid://cywb2uc8om2ie" path="res://Resources/UI/Styles/Funkin/GameHUD.tscn" id="10_d0iss"]
 [ext_resource type="Script" uid="uid://dbn85h7ahlsdp" path="res://Source/Rubicon.Core/UI/UiStyle.cs" id="11_52lf5"]
 
 [resource]
