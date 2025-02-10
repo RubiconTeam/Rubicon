@@ -27,7 +27,7 @@ metadata/_custom_type_script = ExtResource("1_nddvf")
 environment = SubResource("Environment_sfeln")
 
 [node name="Objects" type="Node3D" parent="."]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Objects"]
 mesh = SubResource("PlaneMesh_02fch")
@@ -38,22 +38,21 @@ mesh = SubResource("QuadMesh_ymsbi")
 skeleton = NodePath("../MeshInstance3D")
 
 [node name="Spawns" type="Node3D" parent="."]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
 
 [node name="Speaker" type="Node3D" parent="Spawns"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, 0)
 script = ExtResource("2_ymsbi")
 ValidNicknames = [&"Speaker"]
 metadata/_custom_type_script = ExtResource("2_ymsbi")
 
 [node name="Opponent" type="Node3D" parent="Spawns"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.5)
 script = ExtResource("2_ymsbi")
 ValidNicknames = [&"Opponent"]
 metadata/_custom_type_script = ExtResource("2_ymsbi")
 
 [node name="Player" type="Node3D" parent="Spawns"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.5)
 script = ExtResource("2_ymsbi")
 ValidNicknames = [&"Player"]
 FrontFacing = true

@@ -145,6 +145,7 @@ public partial class RubiconGameInstance : CanvasLayer
 				CanvasItemSpace.Camera.Zoom += Vector2.One * 0.045f;
 				break;
 			case GameEnvironment.Spatial:
+				SpatialSpace.Camera.Fov += 0.045f;
 				break;
 		}
 	}
@@ -166,6 +167,11 @@ public partial class RubiconGameInstance : CanvasLayer
 			case GameEnvironment.CanvasItem: // 2D Space
 			{
 				CanvasItemSpace.GetCharacterGroup(name).Sing(result.Direction, !missed && result.Hit == Hit.Hold, missed);
+				break;
+			}
+			case GameEnvironment.Spatial: // 3D Space
+			{
+				SpatialSpace.GetCharacterGroup(name).Sing(result.Direction, !missed && result.Hit == Hit.Hold, missed);
 				break;
 			}
 		}
@@ -211,6 +217,9 @@ public partial class RubiconGameInstance : CanvasLayer
 		{
 			case GameEnvironment.CanvasItem:
 				CanvasItemSpace.GetCharacterGroup(PlayField.TargetBarLine).SetFreezeSinging(isHolding);
+				break;
+			case GameEnvironment.Spatial:
+				SpatialSpace.GetCharacterGroup(PlayField.TargetBarLine).SetFreezeSinging(isHolding);
 				break;
 		}
 	}

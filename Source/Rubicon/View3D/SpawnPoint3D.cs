@@ -4,7 +4,7 @@ namespace Rubicon.View3D;
 [GlobalClass] public partial class SpawnPoint3D : Node3D
 {
     [Export] public StringName[] ValidNicknames = [];
-    [Export] public bool FrontFacing = false;
+    [Export] public bool FrontFacing;
     [Export] public Array<Character3D> Characters = [];
     public void AddCharacter(Character3D character)
     {

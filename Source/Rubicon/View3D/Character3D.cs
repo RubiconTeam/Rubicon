@@ -154,9 +154,12 @@ namespace Rubicon.View3D;
         // (its probably fine for performance but you never know)
         if (CameraPoint is Camera3D cameraPoint)
         {
-	        CameraPoint = new Node3D();
-	        CameraPoint.Position = cameraPoint.Position;
-	        CameraPoint.Rotation = cameraPoint.Rotation;
+	        Node3D newCameraPoint = new Node3D();
+	        newCameraPoint.Position = cameraPoint.Position;
+	        newCameraPoint.Rotation = cameraPoint.Rotation;
+	        
+	        CameraPoint.Free();
+	        CameraPoint = newCameraPoint;
         }
 
         Bumper = new Bumper();
