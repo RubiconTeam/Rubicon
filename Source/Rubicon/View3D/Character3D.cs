@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using System.Linq;
 using Rubicon.Core;
 using Rubicon.Data;
 
@@ -145,6 +147,7 @@ namespace Rubicon.View3D;
     private float _danceValue = 1f / 2f;
     
     private int _lastStep = -int.MaxValue;
+    private Dictionary<string, bool> _directionsHolding = new();
 
     public override void _Ready()
     {
@@ -217,7 +220,10 @@ namespace Rubicon.View3D;
 			StartTime = 0f
 	    };
 	    
-	    SingWithCustomAnimation(singAnim, holding);
+	    _directionsHolding[direction] = holding;
+	    bool shouldBeHolding = _directionsHolding.Values.Contains(true);
+	    
+	    SingWithCustomAnimation(singAnim, shouldBeHolding);
     }
 
     public void SingWithCustomAnimation(CharacterAnimation anim, bool holding = false)
