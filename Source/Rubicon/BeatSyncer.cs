@@ -7,7 +7,7 @@ namespace Rubicon;
 /// <summary>
 /// A special <see cref="Node"/> that bumps to the beat.
 /// </summary>
-[GlobalClass] public partial class Bumper : Node
+[GlobalClass] public partial class BeatSyncer : Node
 {
     /// <summary>
     /// Whether to allow bumps or not.

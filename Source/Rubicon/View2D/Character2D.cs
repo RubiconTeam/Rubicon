@@ -45,8 +45,8 @@ namespace Rubicon.View2D;
 	    {
 		    _timeType = value;
 
-		    if (Bumper != null)
-			    Bumper.Type = _timeType;
+		    if (BeatSyncer != null)
+			    BeatSyncer.Type = _timeType;
 	    }
     }
     
@@ -57,8 +57,8 @@ namespace Rubicon.View2D;
     {
 	    get
 	    {
-		    if (Bumper != null)
-			    return Bumper.Value;
+		    if (BeatSyncer != null)
+			    return BeatSyncer.Value;
 
 		    return _danceValue;
 	    }
@@ -66,8 +66,8 @@ namespace Rubicon.View2D;
 	    {
 		    _danceValue = value;
 		    
-		    if (Bumper != null)
-			    Bumper.Value = _danceValue;
+		    if (BeatSyncer != null)
+			    BeatSyncer.Value = _danceValue;
 	    }
     }
 
@@ -129,7 +129,7 @@ namespace Rubicon.View2D;
     /// <summary>
     /// The node that helps with dancing to the beat.
     /// </summary>
-    [Export] public Bumper Bumper;
+    [Export] public BeatSyncer BeatSyncer;
 
     /// <summary>
     /// Whether this character is currently singing or not.
@@ -156,13 +156,13 @@ namespace Rubicon.View2D;
     {
         base._Ready();
 
-        Bumper = new Bumper();
-        Bumper.Name = "Bumper";
-        AddChild(Bumper);
+        BeatSyncer = new BeatSyncer();
+        BeatSyncer.Name = "Bumper";
+        AddChild(BeatSyncer);
 
-        Bumper.Type = _timeType;
-        Bumper.Value = _danceValue;
-        Bumper.Bumped += TryDance;
+        BeatSyncer.Type = _timeType;
+        BeatSyncer.Value = _danceValue;
+        BeatSyncer.Bumped += TryDance;
 
         AnimationPlayer.AnimationFinished += AnimationFinished;
         Dance();

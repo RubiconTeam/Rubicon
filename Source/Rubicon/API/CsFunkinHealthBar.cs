@@ -26,8 +26,8 @@ namespace Rubicon.API;
         {
             _timeType = value;
 
-            if (Bumper != null)
-                Bumper.Type = _timeType;
+            if (BeatSyncer != null)
+                BeatSyncer.Type = _timeType;
         }
     }
 
@@ -65,8 +65,8 @@ namespace Rubicon.API;
                     break;
             }
 
-            if (Bumper != null)
-                Bumper.Value = value;
+            if (BeatSyncer != null)
+                BeatSyncer.Value = value;
         }
     }
 
@@ -85,7 +85,7 @@ namespace Rubicon.API;
     /// </summary>
     [Export] public Control IconContainer;
 
-    public Bumper Bumper;
+    public BeatSyncer BeatSyncer;
     
     private SpriteFrames _leftIcon;
     private SpriteFrames _rightIcon;
@@ -100,12 +100,12 @@ namespace Rubicon.API;
     {
         base.Initialize();
 
-        Bumper = new Bumper();
-        Bumper.Type = TimeValue.Measure;
-        Bumper.Value = _bounceMeasure;
-        Bumper.Name = "Bumper";
-        Bumper.Bumped += Bump;
-        AddChild(Bumper);
+        BeatSyncer = new BeatSyncer();
+        BeatSyncer.Type = TimeValue.Measure;
+        BeatSyncer.Value = _bounceMeasure;
+        BeatSyncer.Name = "Bumper";
+        BeatSyncer.Bumped += Bump;
+        AddChild(BeatSyncer);
         
         if (!RubiconGame.Active || RubiconGame.Metadata.Environment == GameEnvironment.None)
         {

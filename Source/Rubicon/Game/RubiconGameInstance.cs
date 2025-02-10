@@ -41,7 +41,7 @@ public partial class RubiconGameInstance : CanvasLayer
 	
 	[Export] public PlayField PlayField;
 
-	[Export] public Bumper BounceBumper;
+	[Export] public BeatSyncer BounceBeatSyncer;
 
 	[Export] public Node RootNode;
 
@@ -103,11 +103,11 @@ public partial class RubiconGameInstance : CanvasLayer
 		for (int i = 0; i < _actionNames.Length; i++)
 			_actionNames[i] = targetBarLine.Managers[i].Action;
 		
-		BounceBumper = new Bumper();
-		BounceBumper.Name = "UI Bumper";
-		BounceBumper.Value = 1f;
-		BounceBumper.Bumped += Bounce;
-		AddChild(BounceBumper);
+		BounceBeatSyncer = new BeatSyncer();
+		BounceBeatSyncer.Name = "UI Bumper";
+		BounceBeatSyncer.Value = 1f;
+		BounceBeatSyncer.Bumped += Bounce;
+		AddChild(BounceBeatSyncer);
 		
 		LoadGameScripts();
 
@@ -253,7 +253,7 @@ public partial class RubiconGameInstance : CanvasLayer
 		AudioManager.Music.RemoveSubPlayer(Vocals);
 		
 		PlayField.QueueFree();
-		BounceBumper.QueueFree();
+		BounceBeatSyncer.QueueFree();
 		
 		RuleSet = null;
 		RootNode = null;
