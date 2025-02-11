@@ -3,7 +3,6 @@
 .import/
 .mono/
 Exclude/
-Export/
 
 # macOS
 .DS_Store
@@ -14,6 +13,17 @@ Export/
 .vscode/
 *DotSettings.user
 /.cr/personal/FavoritesList
+
+# Export releases
+Export/Windows (x64)/
+Export/Windows (x32)/
+Export/Windows (ARM64)/
+Export/macOS (Universal)/
+Export/Linux (x64)/
+Export/Linux (x32)/
+Export/Linux (ARM64)/
+Export/iOS/
+Export/Android/
 
 # Secret songs for testing
 Songs/SecretSongs/
