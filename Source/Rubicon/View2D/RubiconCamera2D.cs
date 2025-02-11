@@ -12,7 +12,7 @@ public partial class RubiconCamera2D : Camera2D
     [Export] public Vector2 TargetZoom = Vector2.One;
     [Export] public Vector2 OffsetZoom = Vector2.Zero;
 
-    [ExportGroup("Settings"), Export] public CameraUpdate PositionUpdateType = CameraUpdate.Interpolation;
+    [ExportGroup("Update Settings"), Export] public CameraUpdate PositionUpdateType = CameraUpdate.Interpolation;
     [Export] public CameraUpdate RotationUpdateType = CameraUpdate.Interpolation;
     [Export] public CameraUpdate ZoomUpdateType = CameraUpdate.Interpolation;
 

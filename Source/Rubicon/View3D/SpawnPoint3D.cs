@@ -11,13 +11,13 @@ namespace Rubicon.View3D;
         if (Characters.Contains(character))
             return;
 
-        if (FrontFacing != character.FrontFacing)
+        if (FrontFacing != character.FacingZAxis)
         {
             Vector3 scale = character.Scale;
             scale.Z *= -1f;
             character.Scale = scale;
 
-            character.FlipAnimations = true;
+            character.FlipAnimations = false;
         }
         
         AddChild(character);

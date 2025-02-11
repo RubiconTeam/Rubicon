@@ -12,10 +12,10 @@ namespace Rubicon.View3D;
 	[Export] public CharacterIconData Icon = new();
 	
     /// <summary>
-    /// Determines which axis is the character facing at,
+    /// Determines if the character is facing north (positive Z),
     /// and if it should be flipped or not.
     /// </summary>
-    [Export] public bool FrontFacing;
+    [Export] public bool FacingZAxis;
 
     /// <summary>
     /// Gets added to the start of EVERY animation that plays after this is set. Overridden by  <see cref="CharacterAnimation.CustomSuffix"/> when using <see cref="PlayAnim"/>.
@@ -101,7 +101,7 @@ namespace Rubicon.View3D;
     /// <summary>
     /// A <see cref="Node3D"/> from which the camera takes its position. Recommended to use <see cref="Camera3D"/>
     /// </summary>
-    [Export] public Node3D CameraPoint;
+    [Export] private Node3D _cameraPoint;
     
     /// <summary>
     /// The index for which dance animation in the <see cref="DanceList"/> should play.
@@ -143,6 +143,8 @@ namespace Rubicon.View3D;
     /// </summary>
     [Export] public bool FreezeSinging;
 
+    public Node3D CameraPoint;
+    
     private TimeValue _timeType = TimeValue.Beat;
     private float _danceValue = 1f / 2f;
     
@@ -155,15 +157,15 @@ namespace Rubicon.View3D;
         
         // replace Camera3D with Node3D
         // (its probably fine for performance but you never know)
-        if (CameraPoint is Camera3D cameraPoint)
+        /*if (_cameraPoint is Camera3D cameraPoint)
         {
-	        Node3D newCameraPoint = new Node3D();
-	        newCameraPoint.Position = cameraPoint.Position;
-	        newCameraPoint.Rotation = cameraPoint.Rotation;
+	        CameraPoint = new Node3D();
+	        CameraPoint.GlobalPosition = cameraPoint.GlobalPosition;
+	        CameraPoint.GlobalRotationDegrees = cameraPoint.GlobalRotationDegrees;
+	        AddChild(CameraPoint);
 	        
-	        CameraPoint.Free();
-	        CameraPoint = newCameraPoint;
-        }
+	        _cameraPoint.QueueFree();
+        }*/
 
         BeatSyncer = new BeatSyncer();
         BeatSyncer.Name = "Bumper";
@@ -282,7 +284,20 @@ namespace Rubicon.View3D;
 
     public Vector3 GetCameraPosition()
     {
-	    return CameraPoint.Position;
+	    Vector3 position = _cameraPoint.GlobalPosition;
+	    if(CameraPoint != null)
+		    position = CameraPoint.GlobalPosition;
+	    
+	    return position;
+    }
+
+    public Vector3 GetCameraRotation()
+    {
+	    Vector3 rotation = _cameraPoint.GlobalRotation;
+	    if(CameraPoint != null)
+		    rotation = CameraPoint.GlobalRotation;
+	    
+	    return rotation;
     }
 
     protected virtual void HandleHoldAnimations()

@@ -67,6 +67,7 @@ public partial class SpatialSpace : Node3D
         
         Camera = new RubiconCamera3D();
         Camera.Name = "Camera";
+        Camera.Current = true;
         AddChild(Camera);
 
         Camera.TargetFov = Stage.Fov;

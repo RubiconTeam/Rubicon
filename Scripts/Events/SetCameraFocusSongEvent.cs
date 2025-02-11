@@ -3,6 +3,7 @@ using Rubicon.Core.API;
 using Rubicon.Core.Meta;
 using Rubicon.Game;
 using Rubicon.View2D;
+using Rubicon.View3D;
 
 namespace Rubicon.Extras.Events;
 
@@ -23,6 +24,14 @@ namespace Rubicon.Extras.Events;
 			case GameEnvironment.CanvasItem:
 				CanvasItemSpace space = RubiconGame.CanvasItemSpace;
 				space.Camera.TargetPosition = space.GetCharacterGroup(focusOn).GetCameraPoint();
+				break;
+			case GameEnvironment.Spatial:
+				SpatialSpace spatialSpace = RubiconGame.SpatialSpace;
+				Vector3 CameraPosition = spatialSpace.GetCharacterGroup(focusOn).GetCameraPosition();
+				Vector3 CameraRotation = spatialSpace.GetCharacterGroup(focusOn).GetCameraRotation();
+				
+				spatialSpace.Camera.TargetPosition = CameraPosition;
+				spatialSpace.Camera.TargetRotation = CameraRotation;
 				break;
 		}
 	}
