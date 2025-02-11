@@ -155,26 +155,44 @@ public partial class RubiconGameInstance : CanvasLayer
 		if (result.Rating == Judgment.None)
 			return;
 		
-		if (!result.Flags.HasFlag(NoteResultFlags.Vocals) && Vocals is not null)
-			Vocals.VolumeLinear = result.Rating == Judgment.Miss ? 0f : 1f;
-		
-		if (result.Flags.HasFlag(NoteResultFlags.Animation))
-			return;
-
 		bool missed = result.Rating == Judgment.Miss;
-		switch (Metadata.Environment)
+		if (!result.Flags.HasFlag(NoteResultFlags.Animation))
 		{
-			case GameEnvironment.CanvasItem: // 2D Space
+			switch (Metadata.Environment)
 			{
-				CanvasItemSpace.GetCharacterGroup(name).Sing(result.Direction, !missed && result.Hit == Hit.Hold, missed);
-				break;
-			}
-			case GameEnvironment.Spatial: // 3D Space
-			{
-				SpatialSpace.GetCharacterGroup(name).Sing(result.Direction, !missed && result.Hit == Hit.Hold, missed);
-				break;
+				case GameEnvironment.CanvasItem: // 2D Space
+				{
+					CharacterGroup2D characterGroup = CanvasItemSpace.GetCharacterGroup(name);
+					characterGroup.Sing(result.Direction, !missed && result.Hit == Hit.Hold, missed);
+					
+					// TODO: Bad code, need to consider other characters
+					bool charactersMissed = false;
+					for (int i = 0; i < characterGroup.Characters.Count; i++)
+						if (characterGroup.Characters[i].Missed)
+							charactersMissed = true;
+
+					missed = charactersMissed;
+					break;
+				}
+				case GameEnvironment.Spatial: // 3D Space
+				{
+					CharacterGroup3D characterGroup = SpatialSpace.GetCharacterGroup(name);
+					characterGroup.Sing(result.Direction, !missed && result.Hit == Hit.Hold, missed);
+					
+					// TODO: Bad code, need to consider other characters
+					bool charactersMissed = false;
+					for (int i = 0; i < characterGroup.Characters.Count; i++)
+						if (characterGroup.Characters[i].Missed)
+							charactersMissed = true;
+
+					missed = charactersMissed;
+					break;
+				}
 			}
 		}
+
+		if (!result.Flags.HasFlag(NoteResultFlags.Vocals) && Vocals is not null)
+			Vocals.VolumeLinear = missed ? 0f : 1f;
 	}
 
 	public override void _Input(InputEvent @event)
