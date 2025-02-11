@@ -145,7 +145,7 @@ public partial class RubiconGameInstance : CanvasLayer
 				CanvasItemSpace.Camera.Zoom += Vector2.One * 0.045f;
 				break;
 			case GameEnvironment.Spatial:
-				SpatialSpace.Camera.Fov -= 3;
+				SpatialSpace.Camera.Fov += 0.045f;
 				break;
 		}
 	}

@@ -30,7 +30,7 @@ namespace Rubicon.View3D;
             Characters[i].CanDance = canDance;
     }
 
-    public Vector3 GetCameraPosition()
+    public Vector3 GetCameraPoint()
     {
         if (Characters.Count < 1)
             return Vector3.Zero;
@@ -53,16 +53,6 @@ namespace Rubicon.View3D;
         }
 		
         return new Vector3(min.X + (max.X - min.X) / 2f, min.Y + (max.Y - min.Y) / 2f, min.Z + (max.Z - min.Z) / 2f);
-    }
-    
-    public Vector3 GetCameraRotation()
-    {
-        if (Characters.Count < 1)
-            return Vector3.Zero;
-
-        Vector3 rotation = Characters[0].GetCameraRotation();
-		
-        return rotation;
     }
 
     public void Dance(bool force = false)

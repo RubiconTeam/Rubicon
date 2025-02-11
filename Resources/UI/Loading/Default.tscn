@@ -12,7 +12,7 @@ func _ready() -> void:
 	
 	ScreenManager.Completed.connect(on_complete)
 
-func _process(_delta: float) -> void:
+func _process(delta: float) -> void:
 	if not completed:
 		loading_bar.anchor_right = ScreenManager.Progress / 100.0
 
