@@ -142,6 +142,11 @@ namespace Rubicon.View2D;
     [Export] public bool Holding = false;
 
     /// <summary>
+    /// Marks whether this character has missed.
+    /// </summary>
+    [Export] public bool Missed = false;
+
+    /// <summary>
     /// Whether this character should freeze after holding (and not go to idle)
     /// </summary>
     [Export] public bool FreezeSinging = false;
@@ -203,16 +208,17 @@ namespace Rubicon.View2D;
     /// <param name="miss">Marks this as a miss animation</param>
     public void Sing(string direction, bool holding = false, bool miss = false)
     {
-	    string animName = $"sing{direction.ToUpper()}" + (miss ? "miss" : "");
-	    CharacterAnimation singAnim = new CharacterAnimation
-	    {
-			Name = animName,
-			Force = true,
-			StartTime = 0f
-	    };
-	    
 	    _directionsHolding[direction] = holding;
 	    bool shouldBeHolding = _directionsHolding.Values.Contains(true);
+	    Missed = miss && !shouldBeHolding;
+	    
+	    string animName = $"sing{direction.ToUpper()}" + (Missed ? "miss" : "");
+	    CharacterAnimation singAnim = new CharacterAnimation
+	    {
+		    Name = animName,
+		    Force = true,
+		    StartTime = 0f
+	    };
 	    
 	    SingWithCustomAnimation(singAnim, shouldBeHolding);
     }
