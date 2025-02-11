@@ -15,14 +15,14 @@ dest_files=["res://.godot/imported/judgments.png-2d66dfc3f90a9179782d92eb661bbd2
 
 [params]
 
-compress/mode=1
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
-compress/normal_map=2
+compress/normal_map=1
 compress/channel_pack=1
 mipmaps/generate=false
-mipmaps/limit=-1
+mipmaps/limit=4
 roughness/mode=1
 roughness/src_normal=""
 process/fix_alpha_border=true

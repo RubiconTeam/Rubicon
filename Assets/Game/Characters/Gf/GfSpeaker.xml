@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="gfSpeaker.png">
+	<!-- Created with Adobe Animate version 24.0.0.305 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="stereo boom instance 10000" x="2" y="2" width="703" height="352"/>
+	<SubTexture name="stereo boom instance 10001" x="2" y="2" width="703" height="352"/>
+	<SubTexture name="stereo boom instance 10002" x="2" y="356" width="699" height="352" frameX="-2" frameY="0" frameWidth="703" frameHeight="352"/>
+	<SubTexture name="stereo boom instance 10003" x="2" y="710" width="699" height="352" frameX="-2" frameY="0" frameWidth="703" frameHeight="352"/>
+	<SubTexture name="stereo boom instance 10004" x="2" y="710" width="699" height="352" frameX="-2" frameY="0" frameWidth="703" frameHeight="352"/>
+	<SubTexture name="stereo boom instance 10005" x="2" y="710" width="699" height="352" frameX="-2" frameY="0" frameWidth="703" frameHeight="352"/>
+	<SubTexture name="stereo boom instance 10006" x="2" y="710" width="699" height="352" frameX="-2" frameY="0" frameWidth="703" frameHeight="352"/>
+	<SubTexture name="stereo boom instance 10007" x="2" y="710" width="699" height="352" frameX="-2" frameY="0" frameWidth="703" frameHeight="352"/>
+	<SubTexture name="stereo boom instance 10008" x="2" y="710" width="699" height="352" frameX="-2" frameY="0" frameWidth="703" frameHeight="352"/>
+	<SubTexture name="stereo boom instance 10009" x="2" y="710" width="699" height="352" frameX="-2" frameY="0" frameWidth="703" frameHeight="352"/>
+	<SubTexture name="stereo boom instance 10010" x="2" y="710" width="699" height="352" frameX="-2" frameY="0" frameWidth="703" frameHeight="352"/>
+	<SubTexture name="stereo boom instance 10011" x="2" y="710" width="699" height="352" frameX="-2" frameY="0" frameWidth="703" frameHeight="352"/>
+	<SubTexture name="stereo boom instance 10012" x="2" y="710" width="699" height="352" frameX="-2" frameY="0" frameWidth="703" frameHeight="352"/>
+	<SubTexture name="stereo boom instance 10013" x="2" y="710" width="699" height="352" frameX="-2" frameY="0" frameWidth="703" frameHeight="352"/>
+	<SubTexture name="stereo boom instance 10014" x="2" y="710" width="699" height="352" frameX="-2" frameY="0" frameWidth="703" frameHeight="352"/>
+	<SubTexture name="stereo boom instance 10015" x="2" y="710" width="699" height="352" frameX="-2" frameY="0" frameWidth="703" frameHeight="352"/>
+	<SubTexture name="stereo boom instance 10016" x="2" y="710" width="699" height="352" frameX="-2" frameY="0" frameWidth="703" frameHeight="352"/>
+	<SubTexture name="stereo boom instance 10017" x="2" y="710" width="699" height="352" frameX="-2" frameY="0" frameWidth="703" frameHeight="352"/>
+	<SubTexture name="stereo boom instance 10018" x="2" y="710" width="699" height="352" frameX="-2" frameY="0" frameWidth="703" frameHeight="352"/>
+	<SubTexture name="stereo boom instance 10019" x="2" y="710" width="699" height="352" frameX="-2" frameY="0" frameWidth="703" frameHeight="352"/>
+	<SubTexture name="stereo boom instance 10020" x="2" y="710" width="699" height="352" frameX="-2" frameY="0" frameWidth="703" frameHeight="352"/>
+	<SubTexture name="stereo boom instance 10021" x="2" y="710" width="699" height="352" frameX="-2" frameY="0" frameWidth="703" frameHeight="352"/>
+	<SubTexture name="stereo boom instance 10022" x="2" y="710" width="699" height="352" frameX="-2" frameY="0" frameWidth="703" frameHeight="352"/>
+	<SubTexture name="stereo boom instance 10023" x="2" y="710" width="699" height="352" frameX="-2" frameY="0" frameWidth="703" frameHeight="352"/>
+	<SubTexture name="stereo boom instance 10024" x="2" y="710" width="699" height="352" frameX="-2" frameY="0" frameWidth="703" frameHeight="352"/>
+</TextureAtlas>

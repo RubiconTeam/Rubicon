@@ -12,6 +12,7 @@ Zoom = Vector2(1.35, 1.35)
 SpawnPoints = [NodePath("Spawns/SpeakerParallax/Speaker"), NodePath("Spawns/Opponent"), NodePath("Spawns/Player")]
 
 [node name="Objects" type="Node2D" parent="."]
+z_index = -5
 
 [node name="BG" type="Parallax2D" parent="Objects"]
 scroll_scale = Vector2(0.9, 0.9)
@@ -28,6 +29,8 @@ texture = ExtResource("3_s41wv")
 centered = false
 
 [node name="Curtains" type="Parallax2D" parent="Objects"]
+z_index = 1
+z_as_relative = false
 scroll_scale = Vector2(1.3, 1.3)
 
 [node name="Sprite" type="Sprite2D" parent="Objects/Curtains"]

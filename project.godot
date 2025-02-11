@@ -78,7 +78,6 @@ texture={
 &"compress/channel_pack": 1,
 &"compress/hdr_compression": 0,
 &"compress/high_quality": true,
-&"compress/mode": 2,
 &"compress/normal_map": 2,
 &"roughness/mode": 1
 }

@@ -3,28 +3,26 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dw3ce5760dt2v"
-path.bptc="res://.godot/imported/cabin.webp-62a1f43021a7531ebb8c27aff74cb305.bptc.ctex"
-path.astc="res://.godot/imported/cabin.webp-62a1f43021a7531ebb8c27aff74cb305.astc.ctex"
+path="res://.godot/imported/cabin.webp-62a1f43021a7531ebb8c27aff74cb305.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc", "etc2_astc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://Assets/Game/Stages/PetalForest/cabin.webp"
-dest_files=["res://.godot/imported/cabin.webp-62a1f43021a7531ebb8c27aff74cb305.bptc.ctex", "res://.godot/imported/cabin.webp-62a1f43021a7531ebb8c27aff74cb305.astc.ctex"]
+dest_files=["res://.godot/imported/cabin.webp-62a1f43021a7531ebb8c27aff74cb305.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=true
 compress/lossy_quality=0.7
 compress/hdr_compression=0
-compress/normal_map=2
+compress/normal_map=1
 compress/channel_pack=1
 mipmaps/generate=false
-mipmaps/limit=-1
+mipmaps/limit=4
 roughness/mode=1
 roughness/src_normal=""
 process/fix_alpha_border=true

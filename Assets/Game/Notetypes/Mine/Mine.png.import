@@ -15,13 +15,13 @@ dest_files=["res://.godot/imported/Mine.png-8bb1283da9d0cce7dda42905690315e2.cte
 
 [params]
 
-compress/mode=1
+compress/mode=0
 compress/high_quality=true
 compress/lossy_quality=0.7
 compress/hdr_compression=0
-compress/normal_map=2
+compress/normal_map=1
 compress/channel_pack=1
-mipmaps/generate=false
+mipmaps/generate=true
 mipmaps/limit=-1
 roughness/mode=1
 roughness/src_normal=""

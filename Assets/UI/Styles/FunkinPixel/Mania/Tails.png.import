@@ -15,14 +15,14 @@ dest_files=["res://.godot/imported/Tails.png-32e8d10deafff6f9e86b69cd71ea5e24.ct
 
 [params]
 
-compress/mode=0
+compress/mode=3
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
-compress/normal_map=0
+compress/normal_map=1
 compress/channel_pack=1
-mipmaps/generate=false
-mipmaps/limit=-1
+mipmaps/generate=true
+mipmaps/limit=4
 roughness/mode=1
 roughness/src_normal=""
 process/fix_alpha_border=true

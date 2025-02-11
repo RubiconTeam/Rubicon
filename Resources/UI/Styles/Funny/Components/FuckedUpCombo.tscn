@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://c2fconcxdg8q2"]
+
+[ext_resource type="Script" uid="uid://bpb8tcj1bsts3" path="res://Resources/UI/Styles/Funkin/Components/FunkinCombo.gd" id="1_xwoab"]
+[ext_resource type="SpriteFrames" uid="uid://c85tnr6y52kqk" path="res://Assets/UI/Styles/Funkin/Combo/combo.tres" id="2_hflyw"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fid2e"]
+radius = 25.0057
+height = 64.0
+
+[node name="ComboDisplay" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xwoab")
+atlas = ExtResource("2_hflyw")
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+position = Vector2(986, 755)
+shape = SubResource("CapsuleShape2D_fid2e")

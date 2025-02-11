@@ -3,28 +3,26 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bwws8pyuywvnx"
-path.s3tc="res://.godot/imported/funkinSustains.png-c5843dc3df1a3d662ac515a8b41f8d7f.s3tc.ctex"
-path.etc2="res://.godot/imported/funkinSustains.png-c5843dc3df1a3d662ac515a8b41f8d7f.etc2.ctex"
+path="res://.godot/imported/funkinSustains.png-c5843dc3df1a3d662ac515a8b41f8d7f.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc", "etc2_astc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://Assets/UI/Styles/Funkin/Mania/funkinSustains.png"
-dest_files=["res://.godot/imported/funkinSustains.png-c5843dc3df1a3d662ac515a8b41f8d7f.s3tc.ctex", "res://.godot/imported/funkinSustains.png-c5843dc3df1a3d662ac515a8b41f8d7f.etc2.ctex"]
+dest_files=["res://.godot/imported/funkinSustains.png-c5843dc3df1a3d662ac515a8b41f8d7f.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
-compress/normal_map=2
+compress/normal_map=1
 compress/channel_pack=1
 mipmaps/generate=false
-mipmaps/limit=-1
+mipmaps/limit=4
 roughness/mode=1
 roughness/src_normal=""
 process/fix_alpha_border=true

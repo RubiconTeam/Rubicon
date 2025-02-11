@@ -3,28 +3,26 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bq5mpvxq6sfuw"
-path.bptc="res://.godot/imported/secondcloud.webp-d4791b6bee3d5d09041496bc6bcc59bc.bptc.ctex"
-path.astc="res://.godot/imported/secondcloud.webp-d4791b6bee3d5d09041496bc6bcc59bc.astc.ctex"
+path="res://.godot/imported/secondcloud.webp-d4791b6bee3d5d09041496bc6bcc59bc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc", "etc2_astc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://Assets/Game/Stages/PetalForest/secondcloud.webp"
-dest_files=["res://.godot/imported/secondcloud.webp-d4791b6bee3d5d09041496bc6bcc59bc.bptc.ctex", "res://.godot/imported/secondcloud.webp-d4791b6bee3d5d09041496bc6bcc59bc.astc.ctex"]
+dest_files=["res://.godot/imported/secondcloud.webp-d4791b6bee3d5d09041496bc6bcc59bc.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=true
 compress/lossy_quality=0.7
 compress/hdr_compression=0
-compress/normal_map=2
+compress/normal_map=1
 compress/channel_pack=1
 mipmaps/generate=false
-mipmaps/limit=-1
+mipmaps/limit=4
 roughness/mode=1
 roughness/src_normal=""
 process/fix_alpha_border=true

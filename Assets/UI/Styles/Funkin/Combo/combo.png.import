@@ -15,11 +15,11 @@ dest_files=["res://.godot/imported/combo.png-8755775b806ad594fb3d71effaef1c5e.ct
 
 [params]
 
-compress/mode=1
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
-compress/normal_map=2
+compress/normal_map=1
 compress/channel_pack=1
 mipmaps/generate=false
 mipmaps/limit=-1

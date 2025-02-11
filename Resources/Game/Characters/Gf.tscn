@@ -1,155 +1,45 @@
-[gd_scene load_steps=20 format=3 uid="uid://53h3lsvw1swp"]
+[gd_scene load_steps=17 format=3 uid="uid://cokn4oe5bkbms"]
 
-[ext_resource type="Script" uid="uid://cqmn2xk4n5fbt" path="res://Source/Rubicon/View2D/Character2D.cs" id="1_gkk3t"]
-[ext_resource type="SpriteFrames" uid="uid://dwqx625sqpkm5" path="res://Assets/Game/Characters/Gf/Icon.tres" id="2_gkk3t"]
-[ext_resource type="Script" uid="uid://bsc6hc1t5s5ry" path="res://Source/Rubicon/Data/CharacterIconData.cs" id="3_8bx5y"]
-[ext_resource type="SpriteFrames" uid="uid://bepsengc7tf5a" path="res://Assets/Game/Characters/Gf/GF_assets.tres" id="3_gkk3t"]
-[ext_resource type="Script" uid="uid://chh5qfxuctxsq" path="res://Source/Rubicon/View2D/SyncedSprite2D.cs" id="4_d3eco"]
+[ext_resource type="Script" uid="uid://cqmn2xk4n5fbt" path="res://Source/Rubicon/View2D/Character2D.cs" id="1_m12d2"]
+[ext_resource type="SpriteFrames" uid="uid://bshwhocvvt46b" path="res://Assets/Game/Characters/Gf/GfSpeaker.tres" id="1_qxx66"]
+[ext_resource type="SpriteFrames" uid="uid://dko1g82nnm8li" path="res://Assets/Game/Characters/Gf/GfNoteAssets.tres" id="2_rx5gn"]
+[ext_resource type="SpriteFrames" uid="uid://dwqx625sqpkm5" path="res://Assets/Game/Characters/Gf/Icon.tres" id="2_y4mqf"]
+[ext_resource type="Script" uid="uid://chh5qfxuctxsq" path="res://Source/Rubicon/View2D/SyncedSprite2D.cs" id="3_amjbp"]
+[ext_resource type="Script" uid="uid://bsc6hc1t5s5ry" path="res://Source/Rubicon/Data/CharacterIconData.cs" id="3_asm0s"]
+[ext_resource type="Texture2D" uid="uid://bl6au38yy5tk1" path="res://Assets/Game/Characters/Gf/GfHair.png" id="3_m12d2"]
 
-[sub_resource type="Resource" id="Resource_y4mqf"]
-script = ExtResource("3_8bx5y")
-Icon = ExtResource("2_gkk3t")
-Offset = Vector2(-65, 0)
-Color = Color(0.643137, 0.0980392, 0.301961, 1)
+[sub_resource type="Resource" id="Resource_jwyij"]
+script = ExtResource("3_asm0s")
+Icon = ExtResource("2_y4mqf")
+Offset = Vector2(0, 10)
+Color = Color(0.662745, 0.0392157, 0.329412, 1)
 Scale = Vector2(1, 1)
 Filter = 2
+metadata/_custom_type_script = ExtResource("3_asm0s")
 
-[sub_resource type="Animation" id="Animation_1tcb8"]
+[sub_resource type="Animation" id="Animation_m12d2"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite:animation")
+tracks/0/path = NodePath(".:Sync")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [&"GF Dancing Beat"]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [13]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite:offset")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, -324)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Sprite:Sync")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
 "values": [true]
 }
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Sprite:FrameOffset")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
 
-[sub_resource type="Animation" id="Animation_hcw44"]
-resource_name = "cheer"
-length = 0.166671
-step = 0.0416667
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite:animation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [&"GF Cheer"]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [13]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite:offset")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, -328.5)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Sprite:Sync")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Sprite:FrameOffset")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-
-[sub_resource type="Animation" id="Animation_gkk3t"]
+[sub_resource type="Animation" id="Animation_tqkwi"]
 resource_name = "danceLeft"
-length = 0.583338
+length = 0.458338
 step = 0.0416667
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite:animation")
+tracks/0/path = NodePath(".:animation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -161,60 +51,72 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite:frame")
+tracks/1/path = NodePath(".:offset")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [13]
+"update": 0,
+"values": [Vector2(0, 0)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite:offset")
+tracks/2/path = NodePath(".:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, -324)]
+"update": 1,
+"values": [0]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Sprite:Sync")
+tracks/3/path = NodePath("Hair:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.0833333, 0.166667, 0.25, 0.291667, 0.416667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2(-17, -56), Vector2(-19, -54), Vector2(-18, -57), Vector2(-20, -59), Vector2(-14, -67), Vector2(-19, -69)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Hair:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.0833333, 0.166667, 0.25, 0.291667, 0.416667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [-0.254811, -0.238657, -0.221669, -0.182499, 0.0471877, 0.109674]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".:Sync")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
 }
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Sprite:FrameOffset")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
 
-[sub_resource type="Animation" id="Animation_wb25p"]
+[sub_resource type="Animation" id="Animation_78cgk"]
 resource_name = "danceRight"
 length = 0.583338
 step = 0.0416667
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite:animation")
+tracks/0/path = NodePath(".:animation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -226,323 +128,70 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite:frame")
+tracks/1/path = NodePath(".:offset")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [13]
+"update": 0,
+"values": [Vector2(0, 0)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite:offset")
+tracks/2/path = NodePath(".:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, -324)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Sprite:Sync")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Sprite:FrameOffset")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [15]
 }
-
-[sub_resource type="Animation" id="Animation_d3eco"]
-resource_name = "hairBlow"
-length = 0.166671
-loop_mode = 1
-step = 0.0416667
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite:animation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [&"GF Dancing Beat Hair blowing"]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite:offset")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-22, -324)]
-}
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Sprite:Sync")
+tracks/3/path = NodePath("Hair:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.0833333, 0.166667, 0.25, 0.291667, 0.416667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2(-13, -62), Vector2(-12, -61), Vector2(-11, -60), Vector2(-10, -60), Vector2(-1, -63), Vector2(-1, -63)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Hair:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.0833333, 0.166667, 0.25, 0.291667, 0.416667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0.234384, 0.224692, 0.194855, 0.143824, -0.117893, -0.143021]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".:Sync")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
 }
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Sprite:FrameOffset")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
 
-[sub_resource type="Animation" id="Animation_fong1"]
-resource_name = "hairFall"
-length = 0.500004
-loop_mode = 1
-step = 0.0416667
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite:animation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [&"GF Dancing Beat Hair Landing"]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite:offset")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0.5, -323.5)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Sprite:Sync")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Sprite:FrameOffset")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-
-[sub_resource type="Animation" id="Animation_aagar"]
-resource_name = "sad"
-length = 0.541671
-step = 0.0416667
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite:animation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [&"gf sad"]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite:offset")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, -318)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Sprite:Sync")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Sprite:FrameOffset")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-
-[sub_resource type="Animation" id="Animation_8ttbc"]
-resource_name = "scared"
-length = 0.166671
-loop_mode = 1
-step = 0.0416667
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite:animation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [&"GF FEAR "]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [13]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite:offset")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, -320)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Sprite:Sync")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Sprite:FrameOffset")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-
-[sub_resource type="Animation" id="Animation_k140m"]
+[sub_resource type="Animation" id="Animation_y1jbg"]
 resource_name = "singDOWN"
-length = 0.166671
-step = 0.0416667
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite:animation")
+tracks/0/path = NodePath(".:animation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -554,31 +203,31 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite:frame")
+tracks/1/path = NodePath(".:offset")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [13]
+"update": 0,
+"values": [Vector2(-5, 25)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite:offset")
+tracks/2/path = NodePath(".:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, -318.5)]
+"update": 1,
+"values": [0]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Sprite:Sync")
+tracks/3/path = NodePath(".:Sync")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -587,63 +236,49 @@ tracks/3/keys = {
 "update": 1,
 "values": [true]
 }
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Sprite:FrameOffset")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
 
-[sub_resource type="Animation" id="Animation_ebl5p"]
+[sub_resource type="Animation" id="Animation_hy45v"]
 resource_name = "singLEFT"
-length = 0.166671
-step = 0.0416667
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite:animation")
+tracks/0/path = NodePath(".:animation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [&"GF left note"]
+"values": [&"GF Left Note"]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite:frame")
+tracks/1/path = NodePath(".:offset")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [13]
+"update": 0,
+"values": [Vector2(-22, 3)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite:offset")
+tracks/2/path = NodePath(".:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-0.5, -319)]
+"update": 1,
+"values": [0]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Sprite:Sync")
+tracks/3/path = NodePath(".:Sync")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -652,27 +287,13 @@ tracks/3/keys = {
 "update": 1,
 "values": [true]
 }
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Sprite:FrameOffset")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
 
-[sub_resource type="Animation" id="Animation_nyndd"]
+[sub_resource type="Animation" id="Animation_jhl85"]
 resource_name = "singRIGHT"
-length = 0.166671
-step = 0.0416667
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite:animation")
+tracks/0/path = NodePath(".:animation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -684,31 +305,31 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite:frame")
+tracks/1/path = NodePath(".:offset")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [13]
+"update": 0,
+"values": [Vector2(44, 3)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite:offset")
+tracks/2/path = NodePath(".:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, -318.5)]
+"update": 1,
+"values": [0]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Sprite:Sync")
+tracks/3/path = NodePath(".:Sync")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -717,27 +338,13 @@ tracks/3/keys = {
 "update": 1,
 "values": [true]
 }
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Sprite:FrameOffset")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
 
-[sub_resource type="Animation" id="Animation_hsnt5"]
+[sub_resource type="Animation" id="Animation_uvlki"]
 resource_name = "singUP"
-length = 0.166671
-step = 0.0416667
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite:animation")
+tracks/0/path = NodePath(".:animation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -749,31 +356,31 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite:frame")
+tracks/1/path = NodePath(".:offset")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [13]
+"update": 0,
+"values": [Vector2(25, -11)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite:offset")
+tracks/2/path = NodePath(".:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-0.5, -330.5)]
+"update": 1,
+"values": [0]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Sprite:Sync")
+tracks/3/path = NodePath(".:Sync")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -782,58 +389,57 @@ tracks/3/keys = {
 "update": 1,
 "values": [true]
 }
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Sprite:FrameOffset")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_3vjhy"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kjdf0"]
 _data = {
-&"RESET": SubResource("Animation_1tcb8"),
-&"cheer": SubResource("Animation_hcw44"),
-&"danceLeft": SubResource("Animation_gkk3t"),
-&"danceRight": SubResource("Animation_wb25p"),
-&"hairBlow": SubResource("Animation_d3eco"),
-&"hairFall": SubResource("Animation_fong1"),
-&"sad": SubResource("Animation_aagar"),
-&"scared": SubResource("Animation_8ttbc"),
-&"singDOWN": SubResource("Animation_k140m"),
-&"singLEFT": SubResource("Animation_ebl5p"),
-&"singRIGHT": SubResource("Animation_nyndd"),
-&"singUP": SubResource("Animation_hsnt5")
+&"RESET": SubResource("Animation_m12d2"),
+&"danceLeft": SubResource("Animation_tqkwi"),
+&"danceRight": SubResource("Animation_78cgk"),
+&"singDOWN": SubResource("Animation_y1jbg"),
+&"singLEFT": SubResource("Animation_hy45v"),
+&"singRIGHT": SubResource("Animation_jhl85"),
+&"singUP": SubResource("Animation_uvlki")
 }
 
-[node name="GF" type="Node2D" node_paths=PackedStringArray("Sprite", "AnimationPlayer", "CameraPoint")]
-script = ExtResource("1_gkk3t")
-Icon = SubResource("Resource_y4mqf")
+[node name="Gf" type="Node2D" node_paths=PackedStringArray("Sprite", "AnimationPlayer", "CameraPoint")]
+script = ExtResource("1_m12d2")
+Icon = SubResource("Resource_jwyij")
 DanceList = PackedStringArray("danceLeft", "danceRight")
 DanceTime = 1.0
-Sprite = NodePath("Sprite")
-AnimationPlayer = NodePath("Sprite/AnimationPlayer")
+Sprite = NodePath("Speaker")
+AnimationPlayer = NodePath("AnimationPlayer")
 CameraPoint = NodePath("CameraPoint")
 
-[node name="Sprite" type="AnimatedSprite2D" parent="." node_paths=PackedStringArray("AnimationPlayer")]
-sprite_frames = ExtResource("3_gkk3t")
-animation = &"GF Dancing Beat"
-frame = 13
-offset = Vector2(0, -324)
-script = ExtResource("4_d3eco")
-Sync = true
-AnimationPlayer = NodePath("AnimationPlayer")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite"]
-root_node = NodePath("../..")
+[node name="Speaker" type="AnimatedSprite2D" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+position = Vector2(0, -176)
+sprite_frames = ExtResource("1_qxx66")
+animation = &"stereo boom instance 1"
+script = ExtResource("3_amjbp")
+
+[node name="Bald Gf" type="AnimatedSprite2D" parent="Speaker"]
+position = Vector2(11, -215)
+sprite_frames = ExtResource("2_rx5gn")
+animation = &"GF Dancing Beat"
+script = ExtResource("3_amjbp")
+Sync = true
+
+[node name="Hair" type="Sprite2D" parent="Speaker/Bald Gf"]
+show_behind_parent = true
+z_index = -1
+position = Vector2(-1, -63)
+rotation = -0.143021
+texture = ExtResource("3_m12d2")
+metadata/_edit_lock_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Speaker/Bald Gf")
 libraries = {
-&"": SubResource("AnimationLibrary_3vjhy")
+&"": SubResource("AnimationLibrary_kjdf0")
 }
+autoplay = "danceLeft"
 
 [node name="CameraPoint" type="Marker2D" parent="."]
 position = Vector2(150, -424)
