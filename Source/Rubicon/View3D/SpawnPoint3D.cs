@@ -17,7 +17,7 @@ namespace Rubicon.View3D;
             scale.Z *= -1f;
             character.Scale = scale;
 
-            character.FlipAnimations = false;
+            character.FlipAnimations = true;
         }
         
         AddChild(character);

@@ -15,55 +15,49 @@ public partial class SpatialSpace : Node3D
     private Dictionary<StringName, Character3D> _namedCharacters;
     private Dictionary<string, PackedScene> _characterScenes;
 
+    public bool Initialized = false;
+
     public void Initialize(SongMeta meta)
     {
+        // Init stage
         string stagePath = PathUtility.GetScenePath($"res://Resources/Game/Stages/{meta.Stage}");
         string fallBackStage = ProjectSettings.GetSetting("rubicon/general/fallback/stage_3d").AsString();
-        
         if (string.IsNullOrWhiteSpace(stagePath))
         {
             if (meta.Stage == fallBackStage)
-            {
-                GD.PrintErr($"[SpatialSpace] Fallback stage was not found. Please define a fallback.");
-                return;
-            }
-			
-            GD.PrintErr($"[SpatialSpace] Stage {meta.Stage} was not found. Falling back to default.");
+                throw new Exception($"Fallback stage was not found. Please define a valid fallback.");
+
+            PrintUtility.PrintError("SpatialSpace", $"Stage \"{meta.Stage}\" was not found. Falling back to default.");
             meta.Stage = fallBackStage;
             Initialize(meta);
             return;
         }
-        
+
         Resource stageResource = ResourceLoader.LoadThreadedGet(stagePath);
         if (stageResource is not PackedScene packedScene)
         {
             if (meta.Stage == fallBackStage)
-            {
-                GD.PrintErr($"[SpatialSpace] Fallback stage was not a PackedScene.");
-                return;
-            }
+                throw new Exception($"Fallback stage \"{fallBackStage}\" was not a PackedScene.");
 			
-            GD.PrintErr($"[SpatialSpace] Stage {meta.Stage} is not a PackedScene. Falling back to default.");
+            PrintUtility.PrintError("SpatialSpace", $"Stage \"{meta.Stage}\" is not a PackedScene. Falling back to default.");
             meta.Stage = fallBackStage;
             Initialize(meta);
             return;
         }
-        
+
         Stage = packedScene.Instantiate<Stage3D>();
         if (Stage == null)
         {
             if (meta.Stage == fallBackStage)
-            {
-                GD.PrintErr($"[SpatialSpace] Fallback stage failed to instantiate.");
-                return;
-            }
+                throw new Exception($"Fallback stage \"{fallBackStage}\" failed to instantiate.");
 			
-            GD.PrintErr($"[SpatialSpace] Stage {meta.Stage} failed to instantiate. Falling back to default.");
+            PrintUtility.PrintError("SpatialSpace", $"Stage \"{meta.Stage}\" failed to instantiate. Falling back to default.");
             meta.Stage = fallBackStage;
             Initialize(meta);
             return;
         }
-        AddChild(Stage);
+        PrintUtility.Print("SpatialSpace", $"Loaded stage: {meta.Stage}.", true);
+        PrintUtility.Print("SpatialSpace", $"Loaded stage: {meta.Stage}.", true);
         
         Camera = new RubiconCamera3D();
         Camera.Name = "Camera";
@@ -79,6 +73,8 @@ public partial class SpatialSpace : Node3D
         _characterScenes = new Dictionary<string, PackedScene>();
         for (int i = 0; i < meta.Characters.Length; i++)
             AddCharacter(meta.Characters[i]);
+        
+        Initialized = true;
     }
 
     public void AddCharacter(CharacterMeta meta)
@@ -92,7 +88,7 @@ public partial class SpatialSpace : Node3D
         }
         else if (!ResourceLoader.Exists(path))
         {
-            GD.PrintErr($"[SpatialSpace] Character {meta.Character} was not found. Falling back to default.");
+            PrintUtility.PrintError("SpatialSpace", $"Character \"{meta.Character}\" was not found. Falling back to default.");
             AddFallbackCharacter(meta);
             return;
         }
@@ -104,17 +100,17 @@ public partial class SpatialSpace : Node3D
                 Node characterInstance = packedScene.Instantiate();
                 if (characterInstance is Character2D)
                 {
-                    GD.PrintErr($"[SpatialSpace] Character {meta.Character} is a 2D character. Falling back to default.");
+                    PrintUtility.PrintError("SpatialSpace", $"Character \"{meta.Character}\" is not a 3D character. Falling back to default.");
                     AddFallbackCharacter(meta);
                     return;
                 }
-
+				
                 _characterScenes.Add(meta.Character, packedScene);
-                character = (Character3D)characterInstance;
+                character = packedScene.Instantiate<Character3D>();
             }
             else
             {
-                GD.PrintErr($"[SpatialSpace] Character {meta.Character} is not inside a PackedScene. Falling back to default.");
+                PrintUtility.PrintError("SpatialSpace", $"Character \"{meta.Character}\" is not inside a PackedScene. Falling back to default.");
                 AddFallbackCharacter(meta);
                 return;
             }
@@ -129,6 +125,7 @@ public partial class SpatialSpace : Node3D
             _characterGroups.Add(meta.BarLine, new CharacterGroup3D());
 		
         _characterGroups[meta.BarLine].Characters.Add(character);
+        PrintUtility.Print("SpatialSpace", $"Added Character: {meta.Character}", true);
     }
     
     public Character3D GetCharacter(StringName nickName) => _namedCharacters[nickName];
@@ -141,7 +138,7 @@ public partial class SpatialSpace : Node3D
         string fallBackPath = PathUtility.GetScenePath($"res://Resources/Game/Characters/{fallBackCharacter}");
         if (!ResourceLoader.Exists(fallBackPath))
         {
-            GD.PrintErr("[SpatialSpace] No character fallback was found. Please check your project settings at \"rubicon/general/fallback/character\". Skipping.");
+            PrintUtility.PrintError("SpatialSpace", "No character fallback was found. Please check your project settings at \"rubicon/general/fallback/character\". Skipping.");
             return;
         }
 			

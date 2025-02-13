@@ -69,7 +69,6 @@ public partial class RubiconGameInstance : CanvasLayer
 		Layer = 16;
 		
 		RootNode = rootNode ?? this;
-		Active = true;
 		
 		// Set up rule set, and check paths too
 		string ruleSetName = Context.RuleSet;
@@ -77,19 +76,24 @@ public partial class RubiconGameInstance : CanvasLayer
 		if (RuleSet is null)
 		{
 			string fallbackName = ProjectSettings.GetSetting("rubicon/rulesets/default_ruleset").AsString();
-			GD.PrintErr($"Rule set \"{ruleSetName}\" was not able to be loaded. Falling back to \"{fallbackName}\".");
+			PrintUtility.PrintError("RubiconGame", $"Rule set \"{ruleSetName}\" was not able to be loaded. Falling back to \"{fallbackName}\".");
 			RuleSet = LoadRuleSet(fallbackName);
 		}
 
 		if (RuleSet is null) // You fucked up again bro
 			throw new Exception("RuleSet is still null. Please check your Project Settings at \"rubicon/rulesets\"");
-
+		PrintUtility.Print("RubiconGame", $"Rule Set \"{RuleSet.Name}\" loaded successfully.", true);
+		
 		string chartPath = $"res://Songs/{Context.Name}/Data/{Context.RuleSet}-{Context.Difficulty}.rbc";
 		Chart = ResourceLoader.LoadThreadedGet(chartPath) as RubiChart;
-		
+		PrintUtility.Print("RubiconGame", $"Chart for song \"{Metadata.Name}\" loaded successfully with difficulty \"{Context.Difficulty}\".", true);
+
 		if (Metadata.Vocals is not null)
-			Vocals = AudioManager.Music.AddSubTrack(Metadata.Vocals, false, false);	
-			
+		{
+			Vocals = AudioManager.Music.AddSubTrack(Metadata.Vocals, false, false);
+			PrintUtility.Print("RubiconGame", $"Vocals loaded", true);
+		}
+
 		LoadSpace(Metadata);
 		
 		// Set up play field
@@ -97,6 +101,7 @@ public partial class RubiconGameInstance : CanvasLayer
 		PlayField.Setup(Metadata, Chart, Context.TargetIndex, Events);
 		PlayField.NoteHit += NoteHit;
 		AddChild(PlayField);
+		PrintUtility.Print("RubiconGame", "PlayField loaded successfully.", true);
 		
 		BarLine targetBarLine = PlayField.BarLines[PlayField.TargetIndex];
 		_actionNames = new string[targetBarLine.Managers.Length];
@@ -298,7 +303,7 @@ public partial class RubiconGameInstance : CanvasLayer
 		string ruleSetResourcePath = PathUtility.GetResourcePath($"res://Resources/Game/Rulesets/{ruleSetName}");
 		if (string.IsNullOrWhiteSpace(ruleSetResourcePath))
 		{
-			GD.PrintErr($"No resource exists at path \"{ruleSetResourcePath}\".");
+			PrintUtility.PrintError("RubiconGame", $"No resource exists at path \"{ruleSetResourcePath}\".");
 			return null;
 		}
 
@@ -319,7 +324,7 @@ public partial class RubiconGameInstance : CanvasLayer
 		GodotObject ruleSetObject = ruleSet.PlayFieldScript.New().AsGodotObject();
 		if (ruleSetObject is not PlayField playField)
 		{
-			GD.PrintErr($"Ruleset at path \"{ruleSet.ResourcePath}\" does not contain a valid PlayField script.");
+			PrintUtility.PrintError("RubiconGame", $"Ruleset at path \"{ruleSet.ResourcePath}\" does not contain a valid PlayField script.");
 			return null;
 		}
 
@@ -328,7 +333,7 @@ public partial class RubiconGameInstance : CanvasLayer
 
 	private void LoadSpace(SongMeta songMeta)
 	{
-		GD.Print("Environment: " + songMeta.Environment);
+		PrintUtility.Print("RubiconGame", "Environment: " + songMeta.Environment, true);
 		switch (songMeta.Environment)
 		{
 			case GameEnvironment.CanvasItem: // 2D Space
@@ -336,6 +341,9 @@ public partial class RubiconGameInstance : CanvasLayer
 				CanvasItemSpace = new CanvasItemSpace();
 				CanvasItemSpace.Name = "Space";
 				CanvasItemSpace.Initialize(songMeta);
+				// Check if CanvasItemSpace was initialized to
+				// not fill the debugger with NullReferenceExceptions
+				Active = CanvasItemSpace.Initialized;
 				RootNode.AddChild(CanvasItemSpace);
 				break;
 			}
@@ -343,11 +351,14 @@ public partial class RubiconGameInstance : CanvasLayer
 				SpatialSpace = new SpatialSpace();
 				SpatialSpace.Name = "Space";
 				SpatialSpace.Initialize(songMeta);
+				// Check if SpatialSpace was initialized to
+				// not fill the debugger with NullReferenceExceptions
+				Active = SpatialSpace.Initialized;
 				RootNode.AddChild(SpatialSpace);
 				break;
 		}
 		
-		GD.Print("Space created successfully.");
+		PrintUtility.Print("RubiconGame", "Space created successfully.", true);
 	}
 
 	private void LoadGameScripts()

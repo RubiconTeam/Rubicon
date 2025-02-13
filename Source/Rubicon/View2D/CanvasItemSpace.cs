@@ -18,6 +18,8 @@ public partial class CanvasItemSpace : Node2D
 	private Dictionary<StringName, Character2D> _namedCharacters;
 	private Dictionary<string, PackedScene> _characterScenes;
 	
+	public bool Initialized = false;
+	
 	public void Initialize(SongMeta meta)
 	{
 		// Init stage
@@ -26,42 +28,47 @@ public partial class CanvasItemSpace : Node2D
 		if (string.IsNullOrWhiteSpace(stagePath))
 		{
 			if (meta.Stage == fallBackStage)
-			{
-				GD.PrintErr($"[CanvasItemSpace] Fallback stage was not found. Please define a fallback.");
-				return;
-			}
+				throw new Exception($"Fallback stage was not found. Please define a valid fallback.");
 			
-			GD.PrintErr($"[CanvasItemSpace] Stage {meta.Stage} was not found. Falling back to default.");
+			PrintUtility.PrintError("CanvasItemSpace", $"Stage was not found. Falling back to default.");
 			meta.Stage = fallBackStage;
 			Initialize(meta);
 			return;
 		}
 
 		Resource stageResource = ResourceLoader.LoadThreadedGet(stagePath);
-		if (stageResource is not PackedScene packedScene)
+		if (stageResource is PackedScene packedScene)
 		{
-			if (meta.Stage == fallBackStage)
+			Node stageInstance = packedScene.Instantiate();
+			if (stageInstance is not Stage2D)
 			{
-				GD.PrintErr($"[CanvasItemSpace] Fallback stage was not a PackedScene.");
+				if (meta.Stage == fallBackStage)
+					throw new Exception($"Fallback stage is not a 2D stage.");
+
+				PrintUtility.PrintError("CanvasItemSpace", $"Stage \"{meta.Stage}\" is not a 2D stage. Falling back to default.");
+				meta.Stage = fallBackStage;
+				Initialize(meta);
 				return;
 			}
-			
-			GD.PrintErr($"[CanvasItemSpace] Stage {meta.Stage} is not a PackedScene. Falling back to default.");
+			Stage = packedScene.Instantiate<Stage2D>();
+		}
+		else
+		{
+			if (meta.Stage == fallBackStage)
+				throw new Exception($"Fallback stage \"{fallBackStage}\" was not a PackedScene.");
+
+			PrintUtility.PrintError("CanvasItemSpace", $"Stage \"{meta.Stage}\" is not a PackedScene. Falling back to default.");
 			meta.Stage = fallBackStage;
 			Initialize(meta);
 			return;
 		}
-
-		Stage = packedScene.Instantiate<Stage2D>();
+		
 		if (Stage == null)
 		{
 			if (meta.Stage == fallBackStage)
-			{
-				GD.PrintErr($"[CanvasItemSpace] Fallback stage failed to instantiate.");
-				return;
-			}
+				throw new Exception($"Fallback stage \"{fallBackStage}\" failed to instantiate.");
 			
-			GD.PrintErr($"[CanvasItemSpace] Stage {meta.Stage} failed to instantiate. Falling back to default.");
+			PrintUtility.PrintError("CanvasItemSpace", $"Stage \"{meta.Stage}\" failed to instantiate. Falling back to default.");
 			meta.Stage = fallBackStage;
 			Initialize(meta);
 			return;
@@ -83,6 +90,8 @@ public partial class CanvasItemSpace : Node2D
 		_characterScenes = new Dictionary<string, PackedScene>();
 		for (int i = 0; i < meta.Characters.Length; i++)
 			AddCharacter(meta.Characters[i]);
+		
+		Initialized = true;
 	}
 
 	public void AddCharacter(CharacterMeta meta)
@@ -96,7 +105,7 @@ public partial class CanvasItemSpace : Node2D
 		}
 		else if (!ResourceLoader.Exists(path))
 		{
-			GD.PrintErr($"[CanvasItemSpace] Character {meta.Character} was not found. Falling back to default.");
+			PrintUtility.PrintError("CanvasItemSpace", $"Character \"{meta.Character}\" was not found. Falling back to default.");
 			AddFallbackCharacter(meta);
 			return;
 		}
@@ -108,7 +117,7 @@ public partial class CanvasItemSpace : Node2D
 				Node characterInstance = packedScene.Instantiate();
 				if (characterInstance is Character3D)
 				{
-					GD.PrintErr($"[CanvasItemSpace] Character {meta.Character} is a 3D character. Falling back to default.");
+					PrintUtility.PrintError("CanvasItemSpace", $"Character \"{meta.Character}\" is a 3D character. Falling back to default.");
 					AddFallbackCharacter(meta);
 					return;
 				}
@@ -118,7 +127,7 @@ public partial class CanvasItemSpace : Node2D
 			}
 			else
 			{
-				GD.PrintErr($"[CanvasItemSpace] Character {meta.Character} is not inside a PackedScene. Falling back to default.");
+				PrintUtility.PrintError("CanvasItemSpace", $"Character \"{meta.Character}\" is not inside a PackedScene. Falling back to default.");
 				AddFallbackCharacter(meta);
 				return;
 			}
@@ -133,6 +142,7 @@ public partial class CanvasItemSpace : Node2D
 			_characterGroups.Add(meta.BarLine, new CharacterGroup2D());
 		
 		_characterGroups[meta.BarLine].Characters.Add(character);
+		PrintUtility.Print("CanvasItemSpace", $"Added Character: {meta.Character}", true);
 	}
 
 	public Character2D GetCharacter(StringName nickName) => _namedCharacters[nickName];
@@ -145,7 +155,7 @@ public partial class CanvasItemSpace : Node2D
 		string fallBackPath = PathUtility.GetScenePath($"res://Resources/Game/Characters/{fallBackCharacter}");
 		if (!ResourceLoader.Exists(fallBackPath)) // Bro
 		{
-			GD.PrintErr("[CanvasItemSpace] No character fallback was found. Please check your project settings at \"rubicon/general/fallback/character\". Skipping.");
+			PrintUtility.PrintError("CanvasItemSpace", "No character fallback was found. Please check your project settings at \"rubicon/general/fallback/character\". Skipping.");
 			return;
 		}
 			
