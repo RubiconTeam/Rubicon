@@ -4,6 +4,10 @@ A Friday Night Funkin' engine built with developers in mind, especially with the
 
 This engine is designed to be as robust as possible while still keeping it as non-complicated as possible towards developers looking forward to using this engine.
 
+
+### [JOIN OUR DISCORD!](https://discord.gg/HMDFMM3ffu)
+
+
 # Status
 
 This engine is in a very Work-In-Progress state at the moment, so not everything may be functional. The moment we feel like this engine is stable enough to be used in actual fan games is when we will remove the W.I.P and bump up the version to v1.0.
