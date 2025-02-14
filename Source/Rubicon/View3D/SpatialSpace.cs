@@ -26,26 +26,40 @@ public partial class SpatialSpace : Node3D
         {
             if (meta.Stage == fallBackStage)
                 throw new Exception($"Fallback stage was not found. Please define a valid fallback.");
-
-            PrintUtility.PrintError("SpatialSpace", $"Stage \"{meta.Stage}\" was not found. Falling back to default.");
+			
+            PrintUtility.PrintError("SpatialSpace", $"Stage was not found. Falling back to default.");
             meta.Stage = fallBackStage;
             Initialize(meta);
             return;
         }
 
         Resource stageResource = ResourceLoader.LoadThreadedGet(stagePath);
-        if (stageResource is not PackedScene packedScene)
+        if (stageResource is PackedScene packedScene)
+        {
+            Node stageInstance = packedScene.Instantiate();
+            if (stageInstance is not Stage3D)
+            {
+                if (meta.Stage == fallBackStage)
+                    throw new Exception($"Fallback stage is not a 3D stage.");
+
+                PrintUtility.PrintError("SpatialSpace", $"Stage \"{meta.Stage}\" is not a 3D stage. Falling back to default.");
+                meta.Stage = fallBackStage;
+                Initialize(meta);
+                return;
+            }
+            Stage = packedScene.Instantiate<Stage3D>();
+        }
+        else
         {
             if (meta.Stage == fallBackStage)
                 throw new Exception($"Fallback stage \"{fallBackStage}\" was not a PackedScene.");
-			
+
             PrintUtility.PrintError("SpatialSpace", $"Stage \"{meta.Stage}\" is not a PackedScene. Falling back to default.");
             meta.Stage = fallBackStage;
             Initialize(meta);
             return;
         }
-
-        Stage = packedScene.Instantiate<Stage3D>();
+		
         if (Stage == null)
         {
             if (meta.Stage == fallBackStage)
@@ -56,7 +70,8 @@ public partial class SpatialSpace : Node3D
             Initialize(meta);
             return;
         }
-        PrintUtility.Print("SpatialSpace", $"Loaded stage: {meta.Stage}.", true);
+		
+        AddChild(Stage);
         PrintUtility.Print("SpatialSpace", $"Loaded stage: {meta.Stage}.", true);
         
         Camera = new RubiconCamera3D();
