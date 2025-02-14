@@ -63,3 +63,4 @@ Rubicon Engine's code is licensed under the [Apache License, Version 2.0](https:
 ## Special Credits
 
 - [firubii](https://github.com/firubii/) - HoloFunk note system and chart format (the base for Rubicon's note system and chart format)
+- [Yakuza / Like A Dragon series](https://en.wikipedia.org/wiki/Yakuza_(franchise)) - No joke, the way Dragon Engine games are structured heavily inspired how Rubicon's scripting system works
