@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://dwi8utcpb73yx"]
 
-[ext_resource type="Script" uid="uid://qskrrkn68tc8" path="res://Source/Rubicon/Debug/DebugInfo.cs" id="1_nl6fn"]
+[ext_resource type="Script" uid="uid://qskrrkn68tc8" path="res://Source/Rubicon/DebugTools.cs" id="1_7ys6r"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8rmx7"]
 bg_color = Color(0.0509804, 0.0509804, 0.0509804, 0.745098)
@@ -31,7 +31,7 @@ expand_margin_right = 5.0
 
 [node name="DebugInfo" type="CanvasLayer" node_paths=PackedStringArray("_fps", "_ram", "_vram", "_allObjects", "_nodeObjects", "_resourceObjects", "_gameVersion", "_rubiconVersion", "_godotVersion", "_currentScene", "_conductorInfo", "_debugInformation")]
 layer = 128
-script = ExtResource("1_nl6fn")
+script = ExtResource("1_7ys6r")
 _fps = NodePath("InfoContainer/MainInformation/FPS")
 _ram = NodePath("InfoContainer/MainInformation/RAM")
 _vram = NodePath("InfoContainer/MainInformation/VRAM")
