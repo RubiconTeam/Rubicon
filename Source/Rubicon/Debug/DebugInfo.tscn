@@ -68,19 +68,19 @@ theme_override_constants/separation = 13
 
 [node name="FPS" type="Label" parent="InfoContainer/MainInformation"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 15
+theme_override_font_sizes/font_size = 24
 theme_override_styles/normal = SubResource("StyleBoxFlat_8rmx7")
 text = "FPS: 0"
 
 [node name="RAM" type="Label" parent="InfoContainer/MainInformation"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 15
+theme_override_font_sizes/font_size = 24
 theme_override_styles/normal = SubResource("StyleBoxFlat_xcq7a")
 text = "RAM: 0 MB [0 MB]"
 
 [node name="VRAM" type="Label" parent="InfoContainer/MainInformation"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 15
+theme_override_font_sizes/font_size = 24
 theme_override_styles/normal = SubResource("StyleBoxFlat_8yvj1")
 text = "VRAM: 0 MB"
 
@@ -98,21 +98,21 @@ theme_override_constants/separation = 13
 [node name="AllObjects" type="Label" parent="InfoContainer/DebugInformation/Objects"]
 layout_mode = 2
 size_flags_horizontal = 0
-theme_override_font_sizes/font_size = 15
+theme_override_font_sizes/font_size = 24
 theme_override_styles/normal = SubResource("StyleBoxFlat_8yvj1")
 text = "All Instantiated Objects: 0"
 
 [node name="NodeObjects" type="Label" parent="InfoContainer/DebugInformation/Objects"]
 layout_mode = 2
 size_flags_horizontal = 0
-theme_override_font_sizes/font_size = 15
+theme_override_font_sizes/font_size = 24
 theme_override_styles/normal = SubResource("StyleBoxFlat_8yvj1")
 text = "Node Objects: 0 (Orphan Nodes: 0)"
 
 [node name="ResourceObjects" type="Label" parent="InfoContainer/DebugInformation/Objects"]
 layout_mode = 2
 size_flags_horizontal = 10
-theme_override_font_sizes/font_size = 15
+theme_override_font_sizes/font_size = 24
 theme_override_styles/normal = SubResource("StyleBoxFlat_8yvj1")
 text = "Resource Objects in Use: 0"
 
@@ -125,35 +125,35 @@ theme_override_constants/separation = 13
 [node name="Game" type="Label" parent="InfoContainer/DebugInformation/Versions"]
 layout_mode = 2
 size_flags_horizontal = 10
-theme_override_font_sizes/font_size = 15
+theme_override_font_sizes/font_size = 24
 theme_override_styles/normal = SubResource("StyleBoxFlat_8rmx7")
 text = "Game Name [Debug]"
 
 [node name="Rubicon" type="Label" parent="InfoContainer/DebugInformation/Versions"]
 layout_mode = 2
 size_flags_horizontal = 10
-theme_override_font_sizes/font_size = 15
+theme_override_font_sizes/font_size = 24
 theme_override_styles/normal = SubResource("StyleBoxFlat_8rmx7")
 text = "Rubicon Engine Pre-Release"
 
 [node name="Godot" type="Label" parent="InfoContainer/DebugInformation/Versions"]
 layout_mode = 2
 size_flags_horizontal = 0
-theme_override_font_sizes/font_size = 15
+theme_override_font_sizes/font_size = 24
 theme_override_styles/normal = SubResource("StyleBoxFlat_8rmx7")
 text = "Godot Engine 4.3 [stable]"
 
 [node name="Scene" type="Label" parent="InfoContainer/DebugInformation"]
 layout_mode = 2
 size_flags_horizontal = 0
-theme_override_font_sizes/font_size = 15
+theme_override_font_sizes/font_size = 24
 theme_override_styles/normal = SubResource("StyleBoxFlat_8rmx7")
 text = "Current Scene: res://src/autoload/debug/DebugInfo.tscn"
 
 [node name="Conductor" type="Label" parent="InfoContainer/DebugInformation"]
 layout_mode = 2
 size_flags_horizontal = 0
-theme_override_font_sizes/font_size = 15
+theme_override_font_sizes/font_size = 24
 theme_override_styles/normal = SubResource("StyleBoxFlat_8rmx7")
 text = "Conductor BPM: 0 --- Song Position: 0  
 CurStep: 0 [Duration: 0] 
