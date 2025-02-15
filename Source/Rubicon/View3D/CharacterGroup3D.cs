@@ -2,8 +2,16 @@ using Rubicon.Data;
 using Godot.Collections;
 
 namespace Rubicon.View3D;
+
+/// <summary>
+/// Group of multiple <see cref="Character3D"/>'s which can be used
+/// to react to the same Sing and Dance calls among other utilities.
+/// </summary>
 [GlobalClass] public partial class CharacterGroup3D : Node3D
 {
+    /// <summary>
+    /// The array of characters in the group.
+    /// </summary>
     [Export] public Array<Character3D> Characters = [];
     
     public void SetGlobalPrefix(string prefix)

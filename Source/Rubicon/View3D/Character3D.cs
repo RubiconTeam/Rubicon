@@ -12,7 +12,7 @@ namespace Rubicon.View3D;
 	[Export] public CharacterIconData Icon = new();
 	
     /// <summary>
-    /// Determines if the character is facing north (positive Z),
+    /// Determines if the character is facing north (Z+ axis),
     /// and if it should be flipped or not.
     /// </summary>
     [Export] public bool FacingZAxis;

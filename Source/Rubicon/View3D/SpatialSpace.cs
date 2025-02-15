@@ -7,16 +7,37 @@ namespace Rubicon.View3D;
 [GlobalClass]
 public partial class SpatialSpace : Node3D
 {
+    /// <summary>
+    /// The <see cref="RubiconCamera3D"/> node inside the space.
+    /// </summary>
     [Export] public RubiconCamera3D Camera;
+    
+    /// <summary>
+    /// An array of 3D characters used in the song.
+    /// Determined by <see cref="SongMeta"/>.
+    /// </summary>
     [Export] public Array<Character3D> Characters;
+    
+    /// <summary>
+    /// The stage used in the song.
+    /// Determined by <see cref="SongMeta"/>.
+    /// </summary>
     [Export] public Stage3D Stage;
     
     private Dictionary<StringName, CharacterGroup3D> _characterGroups;
     private Dictionary<StringName, Character3D> _namedCharacters;
     private Dictionary<string, PackedScene> _characterScenes;
 
+    /// <summary>
+    /// Determines if the environment has been fully loaded.
+    /// Equals <see langword="false"/> if there's any exception while initializing.
+    /// </summary>
     public bool Initialized = false;
 
+    /// <summary>
+    /// Loads all characters and stages found in <see cref="SongMeta"/>.
+    /// If a character or stage was not found, it will load its fallback instead.
+    /// </summary>
     public void Initialize(SongMeta meta)
     {
         // Init stage

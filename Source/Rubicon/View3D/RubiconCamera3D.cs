@@ -2,32 +2,101 @@
 using Rubicon.Data;
 
 namespace Rubicon.View3D;
+
+/// <summary>
+/// <see cref="Camera3D"/> utility that manages smooth positioning, tweening and zooming. 
+/// </summary>
+
 public partial class RubiconCamera3D : Camera3D
 {
+    /// <summary>
+    /// The final position to smoothly move to.
+    /// </summary>
     [Export] public Vector3 TargetPosition = Vector3.Zero;
+    
+    /// <summary>
+    /// Offset added to <see cref="TargetPosition"/> when calculating a new position.
+    /// Similar to <see cref="Camera3D.HOffset"/> and <see cref="Camera3D.VOffset"/>, except it also gets smoothed.
+    /// </summary>
     [Export] public Vector3 OffsetPosition = Vector3.Zero;
     
+    /// <summary>
+    /// The final rotation to smoothly move to.
+    /// </summary>
     [Export] public Vector3 TargetRotation = Vector3.Zero;
+    
+    /// <summary>
+    /// Offset added to <see cref="TargetRotation"/> when calculating a new rotation.
+    /// </summary>
     [Export] public Vector3 OffsetRotation = Vector3.Zero;
     
+    /// <summary>
+    /// The final fov to smoothly move to.
+    /// </summary>
     [Export] public float TargetFov = 45f;
+    
+    /// <summary>
+    /// Offset added to <see cref="TargetFov"/> when calculating a new fov value.
+    /// </summary>
     [Export] public float OffsetFov;
     
+    /// <summary>
+    /// Position update type.
+    /// See <see cref="CameraUpdate"/> for update types.
+    /// </summary>
     [ExportGroup("Update Settings"), Export] public CameraUpdate PositionUpdateType = CameraUpdate.Interpolation;
+    
+    /// <summary>
+    /// Rotation update type.
+    /// See <see cref="CameraUpdate"/> for update types.
+    /// </summary>
     [Export] public CameraUpdate RotationUpdateType = CameraUpdate.Interpolation;
+    
+    /// <summary>
+    /// Fov update type.
+    /// See <see cref="CameraUpdate"/> for update types.
+    /// </summary>
     [Export] public CameraUpdate FovUpdateType = CameraUpdate.Interpolation;
     
+    /// <summary>
+    /// Weight value when calculating position lerp.
+    /// Only affects <see cref="CameraUpdate.Interpolation"/> update type.
+    /// </summary>
     [ExportSubgroup("Interpolation"), Export] public float PositionLerpWeight = 2.4f;
+    
+    /// <summary>
+    /// Weight value when calculating rotation lerp.
+    /// Only affects <see cref="CameraUpdate.Interpolation"/> update type.
+    /// </summary>
     [Export] public float RotationLerpWeight = 2.4f;
+    
+    /// <summary>
+    /// Weight value when calculating fov lerp.
+    /// Only affects <see cref="CameraUpdate.Interpolation"/> update type.
+    /// </summary>
     [Export] public float FovLerpWeight = 3.125f;
     
+    /// <summary>
+    /// Duration of the position tweens.
+    /// Only affects <see cref="CameraUpdate.Tween"/> update type.
+    /// </summary>
     [ExportSubgroup("Tweening"), Export] public float PositionTweenDuration = 1f;
+    
+    /// <summary>
+    /// Duration of the rotation tweens.
+    /// Only affects <see cref="CameraUpdate.Tween"/> update type.
+    /// </summary>
     [Export] public float RotationLerpDuration = 1f;
+    
+    /// <summary>
+    /// Duration of the fov tweens.
+    /// Only affects <see cref="CameraUpdate.Tween"/> update type.
+    /// </summary>
     [Export] public float FovTweenDuration = 1f;
     
     private Vector3 _previousPosition = Vector3.Zero;
     private Vector3 _previousRotation = Vector3.Zero;
-    private float _previousZoom;
+    private float _previousFov;
 
     private Tween _posTween;
     private Tween _rotTween;
@@ -41,6 +110,9 @@ public partial class RubiconCamera3D : Camera3D
         UpdateFov(deltaF);
     }
 
+    /// <summary>
+    /// Updates the camera's position depending on <see cref="PositionUpdateType"/>.
+    /// </summary>
     public virtual void UpdatePosition(float delta)
     {
         Vector3 finalPosition = TargetPosition + OffsetPosition;
@@ -68,6 +140,9 @@ public partial class RubiconCamera3D : Camera3D
         }
     }
     
+    /// <summary>
+    /// Updates the camera's rotation depending on <see cref="RotationUpdateType"/>.
+    /// </summary>
     public virtual void UpdateRotation(float delta)
     {
         Vector3 finalRotation = TargetRotation + OffsetRotation;
@@ -95,6 +170,9 @@ public partial class RubiconCamera3D : Camera3D
         }
     }
     
+    /// <summary>
+    /// Updates the camera's fov depending on <see cref="FovUpdateType"/>.
+    /// </summary>
     public virtual void UpdateFov(float delta)
     {
         float finalFov = TargetFov + OffsetFov;
@@ -108,17 +186,17 @@ public partial class RubiconCamera3D : Camera3D
                 if (Mathf.IsEqualApprox(fov,finalFov))
                     return;
                 
-                float nextZoom = Mathf.Lerp(fov, finalFov, FovLerpWeight * delta);
+                float nextFov = Mathf.Lerp(fov, finalFov, FovLerpWeight * delta);
                 if (Mathf.IsEqualApprox(fov,finalFov))
                 {
                     Fov = finalFov;
                     return;
                 }
 
-                Fov = nextZoom;
+                Fov = nextFov;
                 break;
             case CameraUpdate.Tween:
-                if (_previousZoom != finalFov && !_fovTween.IsRunning())
+                if (_previousFov != finalFov && !_fovTween.IsRunning())
                     TweenFov(finalFov, FovTweenDuration, true);
                 break;
         }

@@ -8,18 +8,37 @@ namespace Rubicon.View2D;
 [GlobalClass]
 public partial class CanvasItemSpace : Node2D
 {
+	/// <summary>
+	/// The <see cref="RubiconCamera2D"/> node inside the space.
+	/// </summary>
 	[Export] public RubiconCamera2D Camera;
 
+	/// <summary>
+	/// An array of 2D characters used in the song.
+	/// Determined by <see cref="SongMeta"/>.
+	/// </summary>
 	[Export] public Array<Character2D> Characters;
 
+	/// <summary>
+	/// The stage used in the song.
+	/// Determined by <see cref="SongMeta"/>.
+	/// </summary>
 	[Export] public Stage2D Stage;
 
 	private Dictionary<StringName, CharacterGroup2D> _characterGroups;
 	private Dictionary<StringName, Character2D> _namedCharacters;
 	private Dictionary<string, PackedScene> _characterScenes;
 	
+	/// <summary>
+	/// Determines if the environment has been fully loaded.
+	/// Equals <see langword="false"/> if there's any exception while initializing.
+	/// </summary>
 	public bool Initialized = false;
 	
+	/// <summary>
+	/// Loads all characters and stages found in <see cref="SongMeta"/>.
+	/// If a character or stage was not found, it will load its fallback instead.
+	/// </summary>
 	public void Initialize(SongMeta meta)
 	{
 		// Init stage

@@ -17,38 +17,88 @@ namespace Rubicon.Game;
 [GlobalClass, StaticAutoloadSingleton("Rubicon.Game", "RubiconGame")]
 public partial class RubiconGameInstance : CanvasLayer
 {
+	/// <summary>
+	/// Disables <see cref="_Process"/> and <see cref="_Input"/> when false.
+	/// </summary>
 	[Export] public bool Active = false;
 	
+	/// <summary>
+	/// The load context of the current song.
+	/// Helps loading songs, charts, metadata and others.
+	/// </summary>
 	[Export] public LoadContext Context;
 	
+	/// <summary>
+	/// The instrumental of the current song and difficulty.
+	/// Obligatory for the song to work.
+	/// </summary>
 	[Export] public AudioStreamPlayer Instrumental
 	{
 		get => PlayField.Music;
 		set => PlayField.Music = value;
 	}
 
+	/// <summary>
+	/// The vocals of the current song.
+	/// Not required for the song to start.
+	/// </summary>
 	[Export] public AudioStreamPlayer Vocals;
 	
 	[ExportGroup("Status"), Export] public bool Paused = false;
 
+	/// <summary>
+	/// The metadata of the current song.
+	/// Obligatory for the song to work.
+	/// </summary>
 	[Export] public SongMeta Metadata;
 
+	/// <summary>
+	/// The chart of the current song.
+	/// Obligatory for the song to work.
+	/// </summary>
 	[Export] public RubiChart Chart;
 
+	/// <summary>
+	/// The events of the current song.
+	/// Not required for the song to start.
+	/// </summary>
 	[Export] public EventMeta Events;
 	
+	/// <summary>
+	/// The RuleSet of the current song.
+	/// The default RuleSet is Mania, found in Project Settings (rubicon/rulesets/default_ruleset).
+	/// </summary>
 	[ExportGroup("References"), Export] public RuleSet RuleSet;
 	
+	/// <summary>
+	/// The PlayField of the current song.
+	/// </summary>
 	[Export] public PlayField PlayField;
 
+	/// <summary>
+	/// Executes <see cref="Bounce"/> depending on the bpm,
+	/// <see cref="TimeValue"/> and step.
+	/// </summary>
 	[Export] public BeatSyncer BounceBeatSyncer;
 
+	/// <summary>
+	/// The Root/Parent node of <see cref="RubiconGameInstance"/>, usually <see cref="RubiconGameScreen"/>
+	/// </summary>
 	[Export] public Node RootNode;
 
+	/// <summary>
+	/// The environment responsible for handling 2D-related nodes (i.e. 2D characters and stages)
+	/// </summary>
 	[Export] public CanvasItemSpace CanvasItemSpace;
 	
+	/// <summary>
+	/// The environment responsible for handling 3D-related nodes (i.e. 3D characters and stages)
+	/// </summary>
 	[Export] public SpatialSpace SpatialSpace;
 
+	/// <summary>
+	/// The class responsible for loading and executing events.
+	/// </summary>
 	[Export] public SongEventController EventController;
 
 	private string[] _actionNames;
@@ -61,6 +111,12 @@ public partial class RubiconGameInstance : CanvasLayer
 		AddChild(EventController);
 	}
 
+	/// <summary>
+	/// Sets up <see cref="RubiconGameInstance"/> for use.
+	/// Loads RuleSets, Charts and Metadata, PlayField 
+	/// </summary>
+	/// <param name="rootNode"></param>
+	/// <exception cref="Exception"></exception>
 	public void Setup(Node rootNode)
 	{
 		if (!Context.IsValid())
@@ -91,7 +147,7 @@ public partial class RubiconGameInstance : CanvasLayer
 		if (Metadata.Vocals is not null)
 		{
 			Vocals = AudioManager.Music.AddSubTrack(Metadata.Vocals, false, false);
-			PrintUtility.Print("RubiconGame", $"Vocals loaded", true);
+			PrintUtility.Print("RubiconGame", $"Vocals found and loaded", true);
 		}
 
 		LoadSpace(Metadata);
@@ -141,6 +197,9 @@ public partial class RubiconGameInstance : CanvasLayer
 		PlayField.PivotOffset = PlayField.Size / 2f;
 	}
 
+	/// <summary>
+	/// Handle camera bouncing set by <see cref="BounceBeatSyncer"/>.
+	/// </summary>
 	public void Bounce()
 	{
 		PlayField.Scale += Vector2.One * 0.015f;
@@ -155,6 +214,12 @@ public partial class RubiconGameInstance : CanvasLayer
 		}
 	}
 
+	/// <summary>
+	/// Gets called every time a note has been hit.
+	/// Handles singing and missing animations for each environment.
+	/// </summary>
+	/// <param name="name">The name for the note type of the hit note.</param>
+	/// <param name="result">The result of the hit note.</param>
 	protected virtual void NoteHit(StringName name, NoteResult result)
 	{
 		if (result.Rating == Judgment.None)
@@ -269,6 +334,9 @@ public partial class RubiconGameInstance : CanvasLayer
 		Vocals?.Play(Conductor.RawTime);
 	}
 
+	/// <summary>
+	/// Resets the song as well as all of its components.
+	/// </summary>
 	public void Reset()
 	{
 		Active = false;
@@ -298,6 +366,12 @@ public partial class RubiconGameInstance : CanvasLayer
 		EventController.Reset();
 	}
 	
+	/// <summary>
+	/// Loads the ruleset provided via the ruleSetName parameter.
+	/// In case of being null, a fallback found in ProjectSettings will be loaded.
+	/// </summary>
+	/// <param name="ruleSetName">The name of the <see cref="RuleSet"/></param>
+	/// <returns>A valid <see cref="RuleSet"/></returns>
 	private RuleSet LoadRuleSet(string ruleSetName)
 	{
 		string ruleSetResourcePath = PathUtility.GetResourcePath($"res://Resources/Game/Rulesets/{ruleSetName}");
@@ -331,11 +405,18 @@ public partial class RubiconGameInstance : CanvasLayer
 		return playField;
 	}
 
+	/// <summary>
+	/// Loads each <see cref="GameEnvironment"/> node and initializes it.
+	/// </summary>
+	/// <param name="songMeta">The metadata of the song.</param>
 	private void LoadSpace(SongMeta songMeta)
 	{
 		PrintUtility.Print("RubiconGame", "Environment: " + songMeta.Environment, true);
 		switch (songMeta.Environment)
 		{
+			case GameEnvironment.None:
+				Active = true;
+				break;
 			case GameEnvironment.CanvasItem: // 2D Space
 			{
 				CanvasItemSpace = new CanvasItemSpace();
@@ -344,6 +425,17 @@ public partial class RubiconGameInstance : CanvasLayer
 				// Check if CanvasItemSpace was initialized to
 				// not fill the debugger with NullReferenceExceptions
 				Active = CanvasItemSpace.Initialized;
+				
+				// This is mostly a fallback for any uncovered exception when loading spaces.
+				// If anything fails and it is not stopped by an exception, you'll end up here
+				if (!CanvasItemSpace.Initialized)
+				{
+					Active = true;
+					songMeta.Environment = GameEnvironment.None; 
+					GD.PushError("An error was found initializing CanvasItemSpace, this does not relate to character or stage loading. Continuing without GameEnvironment");
+					return;
+				}
+				
 				RootNode.AddChild(CanvasItemSpace);
 				break;
 			}
@@ -354,6 +446,17 @@ public partial class RubiconGameInstance : CanvasLayer
 				// Check if SpatialSpace was initialized to
 				// not fill the debugger with NullReferenceExceptions
 				Active = SpatialSpace.Initialized;
+
+				// This is mostly a fallback for any uncovered exception when loading spaces.
+				// If anything fails and it is not stopped by an exception, you'll end up here
+				if (!SpatialSpace.Initialized)
+				{
+					Active = true;
+					songMeta.Environment = GameEnvironment.None; 
+					GD.PushError("An error was found initializing SpatialSpace. Continuing without GameEnvironment");
+					return;
+				}
+
 				RootNode.AddChild(SpatialSpace);
 				break;
 		}
@@ -361,6 +464,9 @@ public partial class RubiconGameInstance : CanvasLayer
 		PrintUtility.Print("RubiconGame", "Space created successfully.", true);
 	}
 
+	/// <summary>
+	/// Loads each song script, as well as global/common scripts.
+	/// </summary>
 	private void LoadGameScripts()
 	{
 		List<string> scriptPaths = [];

@@ -3,8 +3,15 @@ using Rubicon.Data;
 
 namespace Rubicon.View2D;
 
+/// <summary>
+/// Group of multiple <see cref="Character2D"/>'s which can be used
+/// to react to the same Sing and Dance calls among other utilities.
+/// </summary>
 [GlobalClass] public partial class CharacterGroup2D : Node2D
 {
+    /// <summary>
+    /// The array of characters in the group
+    /// </summary>
     [Export] public Array<Character2D> Characters = [];
     
     public void SetGlobalPrefix(string prefix)

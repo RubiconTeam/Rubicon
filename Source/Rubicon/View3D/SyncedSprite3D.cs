@@ -1,5 +1,10 @@
 namespace Rubicon.View3D;
 
+/// <summary>
+/// <see cref="AnimatedSprite3D"/> utility that synchronizes the animation
+/// with the provided <see cref="Godot.AnimationPlayer"/>.
+/// </summary>
+
 #if TOOLS
 [Tool] 
 #endif
@@ -9,6 +14,9 @@ namespace Rubicon.View3D;
 
     [Export] public int FrameOffset = 0;
 
+    /// <summary>
+    /// <see cref="Godot.AnimationPlayer"/> to sync with.
+    /// </summary>
     [ExportGroup("Sync With"), Export] public AnimationPlayer AnimationPlayer;
 	
     private double _time = 0.0;
