@@ -16,6 +16,10 @@ run/main_scene="uid://cuuuxjlonwxhn"
 config/use_custom_user_dir=true
 config/features=PackedStringArray("4.4", "C#", "Forward Plus")
 run/delta_smoothing=false
+boot_splash/bg_color=Color(0, 0, 0, 1)
+boot_splash/show_image=false
+boot_splash/fullsize=false
+boot_splash/use_filter=false
 config/icon="res://Assets/UI/Misc/fnf.png"
 
 [audio]
@@ -28,7 +32,7 @@ RubiconEngine="*res://Source/Rubicon.Core/RubiconEngineInstance.cs"
 Conductor="*res://Source/Rubicon.Core/ConductorInstance.cs"
 UserSettings="*res://Source/Rubicon.Core/Settings/UserSettingsInstance.cs"
 ScreenManager="*res://Source/Rubicon/Screens/ScreenManagerInstance.cs"
-DebugInfo="*res://Source/Rubicon.Core/UI/DebugInfo.tscn"
+DebugInfo="*res://Source/Rubicon/Debug/DebugInfo.tscn"
 StoryMode="*res://Source/Rubicon/Story/StoryModeInstance.cs"
 RubiconGame="*res://Source/Rubicon/Game/RubiconGameInstance.cs"
 AudioManager="*res://Source/Rubicon.Core/Audio/AudioManagerInstance.cs"
@@ -58,7 +62,6 @@ enabled=PackedStringArray("res://addons/rubichart_converter/plugin.cfg", "res://
 [file_customization]
 
 folder_colors={
-"res://Source/Rubicon/API/": "orange",
 "res://Source/Rubicon/Core/": "orange",
 "res://Source/Rubicon/Core/Autoload/": "green",
 "res://Source/Rubicon/Rulesets/Mania/": "teal"
@@ -172,8 +175,8 @@ general/settings_save_path="user://settings.cfg"
 bindings/customizable=PackedStringArray("MANIA_4K_0", "MANIA_4K_1", "MANIA_4K_2", "MANIA_4K_3", "GAME_PAUSE", "DEBUG_INFO", "VOL_UP", "VOL_DOWN", "VOL_MUTE")
 general/fallback/song="Test"
 general/fallback/difficulty="Normal"
-general/fallback/stage_2d="FallbackStage2D"
-general/fallback/stage_3d="FallbackStage3D"
+general/fallback/stage_2d="Stage"
+general/fallback/stage_3d="Stage3D"
 general/fallback/character_2d="Bf"
 general/fallback/character_3d="Bf3D"
 general/minimum_aspect_ratio=1.333
