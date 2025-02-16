@@ -40,8 +40,6 @@
     <Content Include="addons\rubichart_importer\rubichart_res_loader.gd" />
     <Content Include="addons\rubichart_importer\rubichart_res_saver.gd" />
     <Content Include="addons\rubichart_importer\savers\rbc.gd" />
-    <Content Include="Resources\UI\Funkin\Mania.tres" />
-    <Content Include="Resources\UI\Funkin\Style.tres" />
     <Content Include="Songs\Test\Data\Mania-Normal.rbc" />
     <Content Include="Songs\Test\Data\Mania-Normal.tres" />
     <Content Include="Songs\Test\Data\Meta.tres" />
@@ -74,5 +72,8 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Source\Rubicon.SourceGenerators\Rubicon.SourceGenerators.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\UI\" />
   </ItemGroup>
 </Project>
