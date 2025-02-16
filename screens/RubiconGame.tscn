@@ -11,5 +11,4 @@ _paths = Array[String]([])
 script = ExtResource("1_yp47r")
 SongName = "roses_erect"
 Difficulty = "Nightmare"
-RuleSet = "mania"
 ResourcesToLoad = SubResource("Resource_a6wna")

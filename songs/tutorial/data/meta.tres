@@ -19,13 +19,13 @@ TimeSignatureDenominator = 4
 
 [sub_resource type="Resource" id="Resource_nj7kg"]
 script = ExtResource("2_05uxy")
-Character = "Gf"
+Character = "gf"
 Nickname = &"Speaker"
 BarLine = &"Speaker"
 
 [sub_resource type="Resource" id="Resource_7lao4"]
 script = ExtResource("2_05uxy")
-Character = "Bf"
+Character = "bf"
 Nickname = &"Player"
 BarLine = &"Player"
 
@@ -33,7 +33,7 @@ BarLine = &"Player"
 script = ExtResource("4_0cqit")
 Name = "Easy"
 Chart = ExtResource("3_k4xhn")
-RuleSet = "Mania"
+RuleSet = "mania"
 Color = Color(0.576471, 0.439216, 0.858824, 1)
 metadata/_custom_type_script = ExtResource("4_0cqit")
 
@@ -41,7 +41,7 @@ metadata/_custom_type_script = ExtResource("4_0cqit")
 script = ExtResource("4_0cqit")
 Name = "Normal"
 Chart = ExtResource("5_rs53b")
-RuleSet = "Mania"
+RuleSet = "mania"
 Color = Color(0.576471, 0.439216, 0.858824, 1)
 metadata/_custom_type_script = ExtResource("4_0cqit")
 
@@ -49,7 +49,7 @@ metadata/_custom_type_script = ExtResource("4_0cqit")
 script = ExtResource("4_0cqit")
 Name = "Hard"
 Chart = ExtResource("6_5xocb")
-RuleSet = "Mania"
+RuleSet = "mania"
 Color = Color(0.576471, 0.439216, 0.858824, 1)
 metadata/_custom_type_script = ExtResource("4_0cqit")
 
@@ -62,10 +62,10 @@ Instrumental = ExtResource("4_oaj7u")
 Difficulties = [SubResource("Resource_5enkt"), SubResource("Resource_c18an"), SubResource("Resource_o1fin")]
 BpmInfo = [SubResource("Resource_rfcaf")]
 UiStyle = "Funkin"
-NoteSkin = "Funkin"
+NoteSkin = "funkin"
 Environment = 1
 Stage = "stage"
 Characters = [SubResource("Resource_nj7kg"), SubResource("Resource_7lao4")]
 Offset = 0.0
-DefaultRuleset = "Mania"
+DefaultRuleset = "mania"
 PlayableCharts = [&"Player", &"Opponent"]

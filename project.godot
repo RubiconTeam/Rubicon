@@ -159,8 +159,8 @@ textures/vram_compression/import_etc2_astc=true
 [rubicon]
 
 general/default_ui_style="Funkin"
-rulesets/default_ruleset="Mania"
-rulesets/mania/default_note_skin="Funkin"
+rulesets/default_ruleset="mania"
+rulesets/mania/default_note_skin="funkin"
 judgments/perfect_hit_window=20.0
 judgments/great_hit_window=45.0
 judgments/good_hit_window=75.0

@@ -17,19 +17,19 @@ TimeSignatureDenominator = 4
 
 [sub_resource type="Resource" id="Resource_12cs3"]
 script = ExtResource("2_0eumu")
-Character = "BfPixel"
+Character = "bf_pixel"
 Nickname = &"Opponent"
 BarLine = &"Opponent"
 
 [sub_resource type="Resource" id="Resource_fgly4"]
 script = ExtResource("2_0eumu")
-Character = "Bf"
+Character = "bf"
 Nickname = &"Player"
 BarLine = &"Player"
 
 [sub_resource type="Resource" id="Resource_64a8n"]
 script = ExtResource("2_0eumu")
-Character = "Gf"
+Character = "gf"
 Nickname = &"Speaker"
 BarLine = &"Speaker"
 
@@ -37,7 +37,7 @@ BarLine = &"Speaker"
 script = ExtResource("4_arryy")
 Name = "Normal"
 Chart = ExtResource("3_ihpik")
-RuleSet = "Mania"
+RuleSet = "mania"
 Color = Color(0.576471, 0.439216, 0.858824, 1)
 metadata/_custom_type_script = ExtResource("4_arryy")
 
