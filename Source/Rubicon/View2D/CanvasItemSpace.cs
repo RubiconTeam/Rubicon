@@ -42,7 +42,7 @@ public partial class CanvasItemSpace : Node2D
 	public void Initialize(SongMeta meta)
 	{
 		// Init stage
-		string stagePath = PathUtility.GetScenePath($"res://Resources/Game/Stages/{meta.Stage}");
+		string stagePath = PathUtility.GetScenePath($"res://resources/game/stages/{meta.Stage}");
 		string fallBackStage = ProjectSettings.GetSetting("rubicon/general/fallback/stage_2d").AsString();
 		if (string.IsNullOrWhiteSpace(stagePath))
 		{
@@ -116,7 +116,7 @@ public partial class CanvasItemSpace : Node2D
 
 	public void AddCharacter(CharacterMeta meta)
 	{
-		string path = PathUtility.GetScenePath($"res://Resources/Game/Characters/{meta.Character}");
+		string path = PathUtility.GetScenePath($"res://resources/game/characters/{meta.Character}");
 		Character2D character = null;
 		
 		if (_characterScenes.ContainsKey(meta.Character))
@@ -172,7 +172,7 @@ public partial class CanvasItemSpace : Node2D
 	private void AddFallbackCharacter(CharacterMeta meta)
 	{
 		string fallBackCharacter = ProjectSettings.GetSetting("rubicon/general/fallback/character_2d").AsString();
-		string fallBackPath = PathUtility.GetScenePath($"res://Resources/Game/Characters/{fallBackCharacter}");
+		string fallBackPath = PathUtility.GetScenePath($"res://resources/game/characters/{fallBackCharacter}");
 		if (!ResourceLoader.Exists(fallBackPath)) // Bro
 		{
 			PrintUtility.PrintError("CanvasItemSpace", "No character fallback was found. Please check your project settings at \"rubicon/general/fallback/character\". Skipping.");

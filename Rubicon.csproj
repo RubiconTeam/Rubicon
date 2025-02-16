@@ -26,4 +26,10 @@
   <ItemGroup>
     <Folder Include="Resources\UI\" />
   </ItemGroup>
+	<ItemGroup Label="GodotSharp.Utilities">
+		<ProjectReference Include="addons\GodotSharp.Utilities\GodotSharp.Utilities.SourceGenerators\GodotSharp.Utilities.SourceGenerators.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
+		<EmbeddedResource Remove="addons\GodotSharp.Utilities\GodotSharp.Utilities.SourceGenerators\**" />
+		<Compile Remove="addons\GodotSharp.Utilities\GodotSharp.Utilities.SourceGenerators\**" />
+		<Compile Remove="addons\GodotSharp.Utilities\UserSettingsData.cs" />
+	</ItemGroup>
 </Project>

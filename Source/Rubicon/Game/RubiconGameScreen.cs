@@ -25,16 +25,16 @@ namespace Rubicon.Game;
 		
 		// Just load the song meta for now, we'll wait until it's loaded.
 		LoadContext context = RubiconGame.Context;
-		ResourcesToLoad.AddResource($"res://Songs/{context.Name}/Data/Meta");
-		ResourcesToLoad.AddPath($"res://Songs/{context.Name}/Data/{context.RuleSet}-{context.Difficulty}.rbc");
+		ResourcesToLoad.AddResource($"res://songs/{context.Name}/data/meta");
+		ResourcesToLoad.AddPath($"res://songs/{context.Name}/data/{context.RuleSet}-{context.Difficulty}.rbc");
 
-		string eventsPath = $"res://Songs/{context.Name}/Data/Events";
+		string eventsPath = $"res://songs/{context.Name}/data/events";
 		if (PathUtility.ResourceExists(eventsPath))
-			ResourcesToLoad.AddResource($"res://Songs/{context.Name}/Data/Events");
+			ResourcesToLoad.AddResource($"res://songs/{context.Name}/data/events");
 
 		List<string> scriptPaths = [];
-		scriptPaths.AddRange(PathUtility.GetAbsoluteFilePathsAt("res://Resources/Game/Common/", true));
-		scriptPaths.AddRange(PathUtility.GetAbsoluteFilePathsAt($"res://Songs/{context.Name}/Scripts/", true));
+		scriptPaths.AddRange(PathUtility.GetAbsoluteFilePathsAt("res://resources/game/common/", true));
+		scriptPaths.AddRange(PathUtility.GetAbsoluteFilePathsAt($"res://songs/{context.Name}/scripts/", true));
 		for (int i = 0; i < scriptPaths.Count; i++)
 		{
 			string path = scriptPaths[i];
@@ -49,7 +49,7 @@ namespace Rubicon.Game;
 	public override void OnPreload(string path)
 	{
 		LoadContext context = RubiconGame.Context;
-		string metaPath = ResourcesToLoad.GetResourcePath($"res://Songs/{context.Name}/Data/Meta");
+		string metaPath = ResourcesToLoad.GetResourcePath($"res://songs/{context.Name}/data/meta");
 		if (path == metaPath) // Meta loaded
 		{
 			Resource metaResource = ResourceLoader.LoadThreadedGet(metaPath);
@@ -73,7 +73,7 @@ namespace Rubicon.Game;
 			
 			for (int i = 0; i < noteTypes.Count; i++)
 			{	
-				string noteTypePath = $"res://Resources/Game/Notetypes/{noteTypes[i]}";
+				string noteTypePath = $"res://resources/game/notetypes/{noteTypes[i]}";
 				if (ResourceLoader.Exists(noteTypePath + ".tscn") || ResourceLoader.Exists(noteTypePath + ".scn"))
 					ResourcesToLoad.AddScene(noteTypePath);
 				
@@ -84,17 +84,17 @@ namespace Rubicon.Game;
 					ResourcesToLoad.AddPath(noteTypePath + ".cs");
 			}
 			
-			string uiStylePath = $"res://Resources/UI/Styles/{meta.UiStyle}/Style";
+			string uiStylePath = $"res://resources/ui/styles/{meta.UiStyle}/style";
 			if (!PathUtility.ResourceExists(uiStylePath))
-				uiStylePath = $"res://Resources/UI/Styles/{ProjectSettings.GetSetting("rubicon/general/default_ui_style")}/Style";
+				uiStylePath = $"res://resources/ui/styles/{ProjectSettings.GetSetting("rubicon/general/default_ui_style")}/style";
 				
 			ResourcesToLoad.AddResource(uiStylePath);
 			
-			string ruleSetLoadPath = $"res://Resources/Game/Rulesets/{context.RuleSet}";
+			string ruleSetLoadPath = $"res://resources/game/rulesets/{context.RuleSet}";
 			if (!PathUtility.ResourceExists(ruleSetLoadPath))
 			{
 				context.RuleSet = ProjectSettings.GetSetting("rubicon/rulesets/default_ruleset").AsString();
-				ruleSetLoadPath = $"res://Resources/Game/Rulesets/{context.RuleSet}";
+				ruleSetLoadPath = $"res://resources/game/rulesets/{context.RuleSet}";
 			}
 			
 			ResourcesToLoad.AddResource(ruleSetLoadPath);
@@ -103,11 +103,11 @@ namespace Rubicon.Game;
 				return;
 			
 			string envSuffix = meta.Environment == GameEnvironment.CanvasItem ? "2d" : "3d";
-			string stagePath = $"res://Resources/Game/Stages/{meta.Stage}";
+			string stagePath = $"res://resources/game/stages/{meta.Stage}";
 			if (!PathUtility.SceneExists(stagePath)) // Stage Fallback
 			{
 				string fallBackStage = ProjectSettings.GetSetting("rubicon/general/fallback/stage_" + envSuffix).AsString();
-				stagePath = $"res://Resources/Game/Stages/{fallBackStage}";
+				stagePath = $"res://resources/game/stages/{fallBackStage}";
 				if (!PathUtility.SceneExists(stagePath)) // Dude
 					return;
 			}
@@ -121,11 +121,11 @@ namespace Rubicon.Game;
 				if (loadedCharacters.Contains(curCharacter))
 					continue;
 
-				string charaPath = $"res://Resources/Game/Characters/{curCharacter}";
+				string charaPath = $"res://resources/game/characters/{curCharacter}";
 				if (!PathUtility.SceneExists(charaPath)) // Fallback
 				{
 					curCharacter = ProjectSettings.GetSetting("rubicon/general/fallback/character_" + envSuffix).AsString();	
-					charaPath = $"res://Resources/Game/Characters/{curCharacter}";
+					charaPath = $"res://resources/game/characters/{curCharacter}";
 					
 					if (!PathUtility.SceneExists(charaPath))
 						continue;
@@ -141,7 +141,7 @@ namespace Rubicon.Game;
 			return;
 		}
 		
-		string eventsPath = ResourcesToLoad.GetResourcePath($"res://Songs/{context.Name}/Data/Events");
+		string eventsPath = ResourcesToLoad.GetResourcePath($"res://songs/{context.Name}/data/events");
 		if (path == eventsPath)
 		{
 			Resource eventsResource = ResourceLoader.LoadThreadedGet(eventsPath);
@@ -158,18 +158,18 @@ namespace Rubicon.Game;
 					continue;
 				
 				eventsPassed.Add(eventName);
-				ResourcesToLoad.AddScene($"res://Resources/Game/Events/{eventName}");
+				ResourcesToLoad.AddScene($"res://resources/game/events/{eventName}");
 			}
 
 			return;
 		}
 		
-		string ruleSetPath = PathUtility.GetResourcePath($"res://Resources/Game/Rulesets/{context.RuleSet}");
+		string ruleSetPath = PathUtility.GetResourcePath($"res://resources/game/rulesets/{context.RuleSet}");
 		if (path == ruleSetPath)
 		{
-			string noteSkinPath = $"res://Resources/UI/Styles/{RubiconGame.Metadata.NoteSkin}/{context.RuleSet}";
+			string noteSkinPath = $"res://resources/ui/styles/{RubiconGame.Metadata.NoteSkin}/{context.RuleSet}";
 			if (!PathUtility.ResourceExists(noteSkinPath))
-				noteSkinPath = $"res://Resources/UI/Styles/{ProjectSettings.GetSetting($"rubicon/rulesets/{context.RuleSet.ToLower()}/default_note_skin")}/{RubiconGame.Context.RuleSet}";
+				noteSkinPath = $"res://resources/ui/styles/{ProjectSettings.GetSetting($"rubicon/rulesets/{context.RuleSet.ToLower()}/default_note_skin")}/{RubiconGame.Context.RuleSet}";
 
 			ResourcesToLoad.AddResource(noteSkinPath);
 		}
@@ -187,7 +187,7 @@ namespace Rubicon.Game;
 		
 		if (!_preloaded)
 		{
-			ScreenManager.SwitchScreen(GetSceneFilePath(), "Default");
+			ScreenManager.SwitchScreen(GetSceneFilePath(), "default");
 			return;
 		}
 		

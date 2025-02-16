@@ -1,3 +1,4 @@
+using GodotSharp.Utilities;
 using Rubicon.Core;
 using Array = Godot.Collections.Array;
 using ThreadLoadStatus = Godot.ResourceLoader.ThreadLoadStatus;
@@ -7,7 +8,7 @@ namespace Rubicon.Screens;
 /// <summary>
 /// Handles switching screens as well as preloading the next screen's assets.
 /// </summary>
-[GlobalClass, StaticAutoloadSingleton("Rubicon.Screens", "ScreenManager")]
+[GlobalClass, Autoload("ScreenManager")]
 public partial class ScreenManagerInstance : CanvasLayer
 {
     /// <summary>
@@ -187,8 +188,8 @@ public partial class ScreenManagerInstance : CanvasLayer
         Reset();
         _screenPath = path;
 
-        string tscnPath = $"res://Resources/UI/Loading/{loadingScreen}.tscn";
-        string scnPath = $"res://Resources/UI/Loading/{loadingScreen}.scn";
+        string tscnPath = $"res://resources/ui/loading/{loadingScreen}.tscn";
+        string scnPath = $"res://resources/ui/loading/{loadingScreen}.scn";
         
         bool tscnExists = ResourceLoader.Exists(tscnPath);
         bool scnExists = ResourceLoader.Exists(scnPath);

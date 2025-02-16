@@ -34,6 +34,7 @@ public partial class LoadContext : RefCounted
     /// <returns>Whether the context is fully valid.</returns>
     public bool IsValid()
     {
+        /*
         if (!DirAccess.DirExistsAbsolute($"res://Songs/{Name}/"))
         {
             GD.Print($"Song {Name} does not exist. Falling back to default.");
@@ -68,6 +69,7 @@ public partial class LoadContext : RefCounted
             Difficulty = fallBackDiff;
             RuleSet = fallBackSet;
         }
+        */
 
         return true;
     }

@@ -24,13 +24,13 @@ BarLine = &"Opponent"
 
 [sub_resource type="Resource" id="Resource_dtb5c"]
 script = ExtResource("2_c8k8s")
-Character = "BfPixel"
+Character = "bf_pixel"
 Nickname = &"Player"
 BarLine = &"Player"
 
 [sub_resource type="Resource" id="Resource_l18a3"]
 script = ExtResource("2_c8k8s")
-Character = "Gf"
+Character = "gf"
 Nickname = &"Speaker"
 BarLine = &""
 
@@ -38,7 +38,7 @@ BarLine = &""
 script = ExtResource("4_tdojd")
 Name = "Erect"
 Chart = ExtResource("3_jtkd3")
-RuleSet = "Mania"
+RuleSet = "mania"
 Color = Color(0.576471, 0.439216, 0.858824, 1)
 metadata/_custom_type_script = ExtResource("4_tdojd")
 
@@ -46,7 +46,7 @@ metadata/_custom_type_script = ExtResource("4_tdojd")
 script = ExtResource("4_tdojd")
 Name = "Nightmare"
 Chart = ExtResource("5_tdojd")
-RuleSet = "Mania"
+RuleSet = "mania"
 Color = Color(0.576471, 0.439216, 0.858824, 1)
 metadata/_custom_type_script = ExtResource("4_tdojd")
 
@@ -58,8 +58,8 @@ Instrumental = ExtResource("3_8vwn7")
 Vocals = ExtResource("4_5ymvw")
 Difficulties = [SubResource("Resource_nbxbr"), SubResource("Resource_r08mx")]
 BpmInfo = [SubResource("Resource_ua2i7")]
-UiStyle = "FunkLike"
-NoteSkin = "Pixel"
+UiStyle = "funkin_pixel"
+NoteSkin = "funkin_pixel"
 Environment = 1
 Stage = "school"
 Characters = [SubResource("Resource_vq6fb"), SubResource("Resource_dtb5c"), SubResource("Resource_l18a3")]

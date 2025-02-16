@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using GodotSharp.Utilities;
 using Rubicon.Core;
 using Rubicon.Core.Audio;
 using Rubicon.Core.Chart;
@@ -14,7 +15,7 @@ namespace Rubicon.Game;
 /// <summary>
 /// The main node that brings characters, stages, and ruleset gameplay together. Serves as "PlayState" in other Funkin' engines.
 /// </summary>
-[GlobalClass, StaticAutoloadSingleton("Rubicon.Game", "RubiconGame")]
+[GlobalClass, Autoload("RubiconGame")]
 public partial class RubiconGameInstance : CanvasLayer
 {
 	/// <summary>
@@ -140,10 +141,6 @@ public partial class RubiconGameInstance : CanvasLayer
 			throw new Exception("RuleSet is still null. Please check your Project Settings at \"rubicon/rulesets\"");
 		PrintUtility.Print("RubiconGame", $"Rule Set \"{RuleSet.Name}\" loaded successfully.", true);
 		
-		string chartPath = $"res://Songs/{Context.Name}/Data/{Context.RuleSet}-{Context.Difficulty}.rbc";
-		Chart = ResourceLoader.LoadThreadedGet(chartPath) as RubiChart;
-		PrintUtility.Print("RubiconGame", $"Chart for song \"{Metadata.Name}\" loaded successfully with difficulty \"{Context.Difficulty}\".", true);
-
 		if (Metadata.Vocals is not null)
 		{
 			Vocals = AudioManager.Music.AddSubTrack(Metadata.Vocals, false, false);
@@ -374,7 +371,7 @@ public partial class RubiconGameInstance : CanvasLayer
 	/// <returns>A valid <see cref="RuleSet"/></returns>
 	private RuleSet LoadRuleSet(string ruleSetName)
 	{
-		string ruleSetResourcePath = PathUtility.GetResourcePath($"res://Resources/Game/Rulesets/{ruleSetName}");
+		string ruleSetResourcePath = PathUtility.GetResourcePath($"res://resources/game/rulesets/{ruleSetName}");
 		if (string.IsNullOrWhiteSpace(ruleSetResourcePath))
 		{
 			PrintUtility.PrintError("RubiconGame", $"No resource exists at path \"{ruleSetResourcePath}\".");
@@ -470,8 +467,8 @@ public partial class RubiconGameInstance : CanvasLayer
 	private void LoadGameScripts()
 	{
 		List<string> scriptPaths = [];
-		scriptPaths.AddRange(PathUtility.GetAbsoluteFilePathsAt("res://Resources/Game/Common/", true));
-		scriptPaths.AddRange(PathUtility.GetAbsoluteFilePathsAt($"res://Songs/{Context.Name}/Scripts/", true));
+		scriptPaths.AddRange(PathUtility.GetAbsoluteFilePathsAt("res://resources/game/common/", true));
+		scriptPaths.AddRange(PathUtility.GetAbsoluteFilePathsAt($"res://songs/{Context.Name}/scripts/", true));
 		for (int i = 0; i < scriptPaths.Count; i++)
 		{
 			string path = scriptPaths[i];

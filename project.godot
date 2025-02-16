@@ -30,9 +30,8 @@ buses/default_bus_layout="uid://8f826qwop1rs"
 
 RubiconEngine="*res://addons/Rubicon.Core/RubiconEngineInstance.cs"
 Conductor="*res://addons/Rubicon.Core/ConductorInstance.cs"
-UserSettings="*res://addons/Rubicon.Core/Settings/UserSettingsInstance.cs"
+UserSettings="*res://addons/GodotSharp.Utilities/UserSettingsInstance.cs"
 ScreenManager="*res://Source/Rubicon/Screens/ScreenManagerInstance.cs"
-DebugInfo="*res://Source/Rubicon/Debug/DebugInfo.tscn"
 StoryMode="*res://Source/Rubicon/Story/StoryModeInstance.cs"
 RubiconGame="*res://Source/Rubicon/Game/RubiconGameInstance.cs"
 AudioManager="*res://addons/Rubicon.Core/Audio/AudioManagerInstance.cs"
@@ -53,7 +52,7 @@ project/assembly_name="Rubicon"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/rubichart_converter/plugin.cfg", "res://addons/rubichart_importer/plugin.cfg", "res://addons/rubicon_helper/plugin.cfg", "res://addons/sprite_importer/plugin.cfg")
+enabled=PackedStringArray("res://addons/GodotSharp.Utilities/plugin.cfg", "res://addons/rubichart_converter/plugin.cfg", "res://addons/rubichart_importer/plugin.cfg", "res://addons/rubicon_helper/plugin.cfg", "res://addons/sprite_importer/plugin.cfg")
 
 [file_customization]
 

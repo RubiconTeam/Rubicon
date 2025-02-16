@@ -1,3 +1,4 @@
+using GodotSharp.Utilities;
 using Rubicon.Core;
 
 namespace Rubicon.Story;
@@ -6,7 +7,7 @@ namespace Rubicon.Story;
 /// Meant to control story mode related sequences here. Contains only songs for now, but should contain
 /// things such as dialogue and video playing too.
 /// </summary>
-[GlobalClass, StaticAutoloadSingleton("Rubicon.Story", "StoryMode")]
+[GlobalClass, Autoload("StoryMode")]
 public partial class StoryModeInstance : Node
 {
     [Export] public int Index = 0;

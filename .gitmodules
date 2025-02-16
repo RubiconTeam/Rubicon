@@ -7,3 +7,9 @@
 [submodule "addons/rubichart_importer"]
 	path = addons/rubichart_importer
 	url = https://github.com/RubiconTeam/rubichart_importer.git
+[submodule "addons/Rubicon.Core"]
+	path = addons/Rubicon.Core
+	url = https://github.com/RubiconTeam/Rubicon.Core.git
+[submodule "addons/GodotSharp.Utilities"]
+	path = addons/GodotSharp.Utilities
+	url = https://github.com/Binpuki/GodotSharp.Utilities.git

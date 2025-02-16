@@ -9,6 +9,7 @@ _paths = Array[String]([])
 
 [node name="RubiconGame" type="Node"]
 script = ExtResource("1_yp47r")
-SongName = "Roses-Erect"
+SongName = "roses_erect"
 Difficulty = "Nightmare"
+RuleSet = "mania"
 ResourcesToLoad = SubResource("Resource_a6wna")

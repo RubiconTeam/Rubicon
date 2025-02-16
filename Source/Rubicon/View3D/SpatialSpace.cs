@@ -41,7 +41,7 @@ public partial class SpatialSpace : Node3D
     public void Initialize(SongMeta meta)
     {
         // Init stage
-        string stagePath = PathUtility.GetScenePath($"res://Resources/Game/Stages/{meta.Stage}");
+        string stagePath = PathUtility.GetScenePath($"res://resources/game/stages/{meta.Stage}");
         string fallBackStage = ProjectSettings.GetSetting("rubicon/general/fallback/stage_3d").AsString();
         if (string.IsNullOrWhiteSpace(stagePath))
         {
@@ -116,7 +116,7 @@ public partial class SpatialSpace : Node3D
 
     public void AddCharacter(CharacterMeta meta)
     {
-        string path = PathUtility.GetScenePath($"res://Resources/Game/Characters/{meta.Character}");
+        string path = PathUtility.GetScenePath($"res://resources/game/characters/{meta.Character}");
         Character3D character = null;
 		
         if (_characterScenes.ContainsKey(meta.Character))
@@ -172,7 +172,7 @@ public partial class SpatialSpace : Node3D
     private void AddFallbackCharacter(CharacterMeta meta)
     {
         string fallBackCharacter = ProjectSettings.GetSetting("rubicon/general/fallback/character_3d").AsString();
-        string fallBackPath = PathUtility.GetScenePath($"res://Resources/Game/Characters/{fallBackCharacter}");
+        string fallBackPath = PathUtility.GetScenePath($"res://resources/game/characters/{fallBackCharacter}");
         if (!ResourceLoader.Exists(fallBackPath))
         {
             PrintUtility.PrintError("SpatialSpace", "No character fallback was found. Please check your project settings at \"rubicon/general/fallback/character\". Skipping.");
