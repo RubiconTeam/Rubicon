@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="RuleSet" load_steps=5 format=3 uid="uid://csd0vxh528fwj"]
 
-[ext_resource type="Script" uid="uid://cdgmawt7hguee" path="res://Source/Rubicon.Core/Rulesets/Mania/ManiaPlayField.cs" id="1_fjyah"]
-[ext_resource type="Script" uid="uid://cs0yh6goo3bcm" path="res://Source/Rubicon.Core/Data/VersionInfo.cs" id="1_x7inc"]
-[ext_resource type="Script" uid="uid://bjge7lly63ebk" path="res://Source/Rubicon.Core/Rulesets/RuleSet.cs" id="2_ig8b5"]
+[ext_resource type="Script" uid="uid://cdgmawt7hguee" path="res://addons/Rubicon.Core/Rulesets/Mania/ManiaPlayField.cs" id="1_fjyah"]
+[ext_resource type="Script" uid="uid://cs0yh6goo3bcm" path="res://addons/Rubicon.Core/Data/VersionInfo.cs" id="1_x7inc"]
+[ext_resource type="Script" uid="uid://bjge7lly63ebk" path="res://addons/Rubicon.Core/Rulesets/RuleSet.cs" id="2_ig8b5"]
 
 [sub_resource type="Resource" id="Resource_bi0c7"]
 script = ExtResource("1_x7inc")

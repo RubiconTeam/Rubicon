@@ -1,10 +1,10 @@
 [gd_scene load_steps=17 format=3 uid="uid://n5doqlwgdwqn"]
 
-[ext_resource type="Script" uid="uid://dy380qfn6dw5y" path="res://Source/Rubicon.Core/UI/PlayHud.cs" id="1_6ohps"]
+[ext_resource type="Script" uid="uid://dy380qfn6dw5y" path="res://addons/Rubicon.Core/UI/PlayHud.cs" id="1_6ohps"]
 [ext_resource type="FontFile" uid="uid://bqc4pbm6jidbr" path="res://assets/ui/fonts/vcr.ttf" id="2_5rd11"]
 [ext_resource type="Script" uid="uid://2ys028hnmlpi" path="res://scripts/ui/FunkinScorePanel.cs" id="3_012vw"]
 [ext_resource type="Script" uid="uid://baj6vb0m41bng" path="res://scripts/ui/ShaderHealthBar.cs" id="4_0hvyv"]
-[ext_resource type="Shader" uid="uid://c70o45m6wr8np" path="res://Resources/Shaders/BarShader.gdshader" id="5_8njoi"]
+[ext_resource type="Shader" uid="uid://c70o45m6wr8np" path="res://resources/shaders/BarShader.gdshader" id="5_8njoi"]
 [ext_resource type="SpriteFrames" uid="uid://dd1qyud388qn8" path="res://assets/game/characters/missing/PlaceholderIcon.tres" id="6_yet2c"]
 [ext_resource type="SpriteFrames" uid="uid://dw06ivs1uhiwa" path="res://assets/game/characters/bf/BfIcon.tres" id="7_7rvd2"]
 [ext_resource type="Script" uid="uid://bwhl1e5hup1vh" path="res://scripts/ui/RubiconTimerBar.cs" id="8_p0678"]

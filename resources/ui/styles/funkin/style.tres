@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="UiStyle" load_steps=12 format=3 uid="uid://bumud17n0nyt2"]
 
-[ext_resource type="Script" uid="uid://dbn85h7ahlsdp" path="res://Source/Rubicon.Core/UI/UiStyle.cs" id="1_363r5"]
+[ext_resource type="Script" uid="uid://dbn85h7ahlsdp" path="res://addons/Rubicon.Core/UI/UiStyle.cs" id="1_363r5"]
 [ext_resource type="Material" uid="uid://clrbqrdp1uiuf" path="res://resources/ui/styles/funkin/materials/okay.tres" id="1_ncot3"]
 [ext_resource type="PackedScene" uid="uid://wg70s5307qtw" path="res://resources/ui/styles/funkin/components/FunkinJudgment.tscn" id="1_w5fd1"]
 [ext_resource type="Material" uid="uid://c0cgdmxo1vf40" path="res://resources/ui/styles/funkin/materials/good.tres" id="2_4c21y"]
@@ -8,7 +8,7 @@
 [ext_resource type="Material" uid="uid://b37f4mdn0h8w6" path="res://resources/ui/styles/funkin/materials/great.tres" id="3_7f7f8"]
 [ext_resource type="PackedScene" uid="uid://cywb2uc8om2ie" path="res://resources/ui/styles/funkin/game_hud.tscn" id="3_dj2ce"]
 [ext_resource type="Material" uid="uid://bftkqmdktdaqt" path="res://resources/ui/styles/funkin/materials/bad.tres" id="4_iebmg"]
-[ext_resource type="PackedScene" uid="uid://cynf1ud5pgdr3" path="res://resources/ui/styles/FunkLike/Components/DanceHitDistance.tscn" id="5_3rjbs"]
+[ext_resource type="PackedScene" uid="uid://cynf1ud5pgdr3" path="res://resources/ui/styles/funklike/components/DanceHitDistance.tscn" id="5_3rjbs"]
 [ext_resource type="Material" uid="uid://bs8iq3r2cutsu" path="res://resources/ui/styles/funkin/materials/miss.tres" id="6_g8yvg"]
 [ext_resource type="Material" uid="uid://bn4b2kj3ajywl" path="res://resources/ui/styles/funkin/materials/perfect.tres" id="6_uiim7"]
 

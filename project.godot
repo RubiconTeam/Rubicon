@@ -28,14 +28,14 @@ buses/default_bus_layout="uid://8f826qwop1rs"
 
 [autoload]
 
-RubiconEngine="*res://Source/Rubicon.Core/RubiconEngineInstance.cs"
-Conductor="*res://Source/Rubicon.Core/ConductorInstance.cs"
-UserSettings="*res://Source/Rubicon.Core/Settings/UserSettingsInstance.cs"
+RubiconEngine="*res://addons/Rubicon.Core/RubiconEngineInstance.cs"
+Conductor="*res://addons/Rubicon.Core/ConductorInstance.cs"
+UserSettings="*res://addons/Rubicon.Core/Settings/UserSettingsInstance.cs"
 ScreenManager="*res://Source/Rubicon/Screens/ScreenManagerInstance.cs"
 DebugInfo="*res://Source/Rubicon/Debug/DebugInfo.tscn"
 StoryMode="*res://Source/Rubicon/Story/StoryModeInstance.cs"
 RubiconGame="*res://Source/Rubicon/Game/RubiconGameInstance.cs"
-AudioManager="*res://Source/Rubicon.Core/Audio/AudioManagerInstance.cs"
+AudioManager="*res://addons/Rubicon.Core/Audio/AudioManagerInstance.cs"
 
 [display]
 
