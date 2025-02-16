@@ -22,6 +22,8 @@
     <EmbeddedResource Remove="Source\Rubicon.SourceGenerators\**" />
     <Compile Remove="Templates\**" />
     <EmbeddedResource Remove="Templates\**" />
+    <Compile Remove="script_templates\**" />
+    <EmbeddedResource Remove="script_templates\**" />
   </ItemGroup>
   <ItemGroup>
     <!-- Root the assemblies to avoid trimming. -->

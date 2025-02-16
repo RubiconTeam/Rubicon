@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b7gai8q85aiks"
-path="res://.godot/imported/GF_assets.png-eff49075d1ab5610f53b4f1b5fdfe88b.ctex"
+uid="uid://bikdphbqwh1eb"
+path="res://.godot/imported/GfNoteAssets.png-92625019d7f990bec8cae38051743e29.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/game/characters/Gf/GF_assets.png"
-dest_files=["res://.godot/imported/GF_assets.png-eff49075d1ab5610f53b4f1b5fdfe88b.ctex"]
+source_file="res://assets/game/characters/gf/GfNoteAssets.png"
+dest_files=["res://.godot/imported/GfNoteAssets.png-92625019d7f990bec8cae38051743e29.ctex"]
 
 [params]
 

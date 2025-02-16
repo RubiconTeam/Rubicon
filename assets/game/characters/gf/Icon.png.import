@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dypv8cgridkht"
-path="res://.godot/imported/Mine.png-5425c8ef91827433f6db8dd5da1575bb.ctex"
+uid="uid://wuwgfug56fmw"
+path="res://.godot/imported/Icon.png-ad9d8501c679cc0a9d7e92b201f683df.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/game/notetypes/Mine/Mine.png"
-dest_files=["res://.godot/imported/Mine.png-5425c8ef91827433f6db8dd5da1575bb.ctex"]
+source_file="res://assets/game/characters/gf/Icon.png"
+dest_files=["res://.godot/imported/Icon.png-ad9d8501c679cc0a9d7e92b201f683df.ctex"]
 
 [params]
 
@@ -21,8 +21,8 @@ compress/lossy_quality=0.7
 compress/hdr_compression=0
 compress/normal_map=1
 compress/channel_pack=1
-mipmaps/generate=true
-mipmaps/limit=-1
+mipmaps/generate=false
+mipmaps/limit=4
 roughness/mode=1
 roughness/src_normal=""
 process/fix_alpha_border=true
@@ -31,4 +31,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=1
+detect_3d/compress_to=0

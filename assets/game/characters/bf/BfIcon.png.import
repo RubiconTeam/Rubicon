@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://uk42vvwkkofl"
-path="res://.godot/imported/BfIcon.png-8a44a54da685573ae7f4fadd5f84b11e.ctex"
+path="res://.godot/imported/BfIcon.png-824c9bbaa8623e98ec7e41977cbc6562.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/game/characters/Bf/BfIcon.png"
-dest_files=["res://.godot/imported/BfIcon.png-8a44a54da685573ae7f4fadd5f84b11e.ctex"]
+source_file="res://assets/game/characters/bf/BfIcon.png"
+dest_files=["res://.godot/imported/BfIcon.png-824c9bbaa8623e98ec7e41977cbc6562.ctex"]
 
 [params]
 

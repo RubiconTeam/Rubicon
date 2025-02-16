@@ -55,5 +55,4 @@ metadata/_custom_type_script = ExtResource("2_ymsbi")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.5)
 script = ExtResource("2_ymsbi")
 ValidNicknames = [&"Player"]
-FrontFacing = true
 metadata/_custom_type_script = ExtResource("2_ymsbi")

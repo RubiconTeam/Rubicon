@@ -1,6 +1,6 @@
 [gd_resource type="SpriteFrames" load_steps=34 format=3 uid="uid://dw0mwghu6dt7g"]
 
-[ext_resource type="Texture2D" uid="uid://di2vhk7ksm8vf" path="res://Assets/UI/Styles/Funkin/Mania/noteSplashes.png" id="1_b263i"]
+[ext_resource type="Texture2D" uid="uid://di2vhk7ksm8vf" path="res://assets/ui/styles/funkin/mania/noteSplashes.png" id="1_b263i"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wyidp"]
 atlas = ExtResource("1_b263i")

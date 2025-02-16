@@ -1,8 +1,8 @@
 [gd_scene load_steps=21 format=3 uid="uid://ch42nuiw15uh6"]
 
 [ext_resource type="Script" uid="uid://cqmn2xk4n5fbt" path="res://Source/Rubicon/View2D/Character2D.cs" id="1_deaeb"]
-[ext_resource type="SpriteFrames" uid="uid://bf1b5h0jdi2y4" path="res://Assets/Game/Characters/Bf/boyfriend.tres" id="2_7sbxo"]
-[ext_resource type="SpriteFrames" uid="uid://dw06ivs1uhiwa" path="res://Assets/Game/Characters/Bf/BfIcon.tres" id="2_o37gp"]
+[ext_resource type="SpriteFrames" uid="uid://bf1b5h0jdi2y4" path="res://assets/game/characters/bf/boyfriend.tres" id="2_7sbxo"]
+[ext_resource type="SpriteFrames" uid="uid://dw06ivs1uhiwa" path="res://assets/game/characters/bf/BfIcon.tres" id="2_o37gp"]
 [ext_resource type="Script" uid="uid://chh5qfxuctxsq" path="res://Source/Rubicon/View2D/SyncedSprite2D.cs" id="3_1tcb8"]
 [ext_resource type="Script" uid="uid://bsc6hc1t5s5ry" path="res://Source/Rubicon/Data/CharacterIconData.cs" id="3_jt35w"]
 

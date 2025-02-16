@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://clg1lhiqfj0nk" path="res://Source/Rubicon.Core/Meta/CharacterMeta.cs" id="2_05uxy"]
 [ext_resource type="Script" uid="uid://b87l817pyjjsp" path="res://Source/Rubicon.Core/Meta/SongMeta.cs" id="3_cny2d"]
 [ext_resource type="Resource" uid="uid://bbbf147r84446" path="res://songs/tutorial/data/mania_easy.rbc" id="3_k4xhn"]
-[ext_resource type="Texture2D" uid="uid://wuwgfug56fmw" path="res://assets/game/characters/Gf/Icon.png" id="3_tprrc"]
+[ext_resource type="Texture2D" uid="uid://wuwgfug56fmw" path="res://assets/game/characters/gf/Icon.png" id="3_tprrc"]
 [ext_resource type="Script" uid="uid://13r6ekkfj72o" path="res://Source/Rubicon.Core/Meta/SongDifficulty.cs" id="4_0cqit"]
 [ext_resource type="AudioStream" uid="uid://r4ua5fah2p3w" path="res://songs/tutorial/Inst.ogg" id="4_oaj7u"]
 [ext_resource type="Resource" uid="uid://c7ol76r737wjb" path="res://songs/tutorial/data/mania_normal.rbc" id="5_rs53b"]
@@ -33,6 +33,7 @@ BarLine = &"Player"
 script = ExtResource("4_0cqit")
 Name = "Easy"
 Chart = ExtResource("3_k4xhn")
+RuleSet = "Mania"
 Color = Color(0.576471, 0.439216, 0.858824, 1)
 metadata/_custom_type_script = ExtResource("4_0cqit")
 
@@ -40,6 +41,7 @@ metadata/_custom_type_script = ExtResource("4_0cqit")
 script = ExtResource("4_0cqit")
 Name = "Normal"
 Chart = ExtResource("5_rs53b")
+RuleSet = "Mania"
 Color = Color(0.576471, 0.439216, 0.858824, 1)
 metadata/_custom_type_script = ExtResource("4_0cqit")
 
@@ -47,6 +49,7 @@ metadata/_custom_type_script = ExtResource("4_0cqit")
 script = ExtResource("4_0cqit")
 Name = "Hard"
 Chart = ExtResource("6_5xocb")
+RuleSet = "Mania"
 Color = Color(0.576471, 0.439216, 0.858824, 1)
 metadata/_custom_type_script = ExtResource("4_0cqit")
 

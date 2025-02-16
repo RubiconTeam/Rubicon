@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://ct85hayoei4a1"]
 
-[ext_resource type="Script" uid="uid://bghuftl483o8" path="res://Resources/UI/Styles/FunkLike/Components/DanceJudgment.gd" id="1_0bf4f"]
-[ext_resource type="SpriteFrames" uid="uid://dfu73x2lu7p1f" path="res://Assets/UI/Styles/Funkin/Judgment/judgments.tres" id="2_1slhe"]
+[ext_resource type="Script" uid="uid://bghuftl483o8" path="res://resources/ui/styles/funklike/components/DanceJudgment.gd" id="1_0bf4f"]
+[ext_resource type="SpriteFrames" uid="uid://dfu73x2lu7p1f" path="res://assets/ui/styles/funkin/judgment/judgments.tres" id="2_1slhe"]
 
 [node name="Judgment" type="Control"]
 layout_mode = 3

@@ -2,28 +2,28 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://wuwgfug56fmw"
-path="res://.godot/imported/Icon.png-f8af2b7eaecf4c6ee0d1893f40e3e5b4.ctex"
+uid="uid://c8ip3a48ueggc"
+path="res://.godot/imported/PlaceholderIcon.png-6b2bf61f665dc0fd213000c99edf52d4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/game/characters/Gf/Icon.png"
-dest_files=["res://.godot/imported/Icon.png-f8af2b7eaecf4c6ee0d1893f40e3e5b4.ctex"]
+source_file="res://assets/game/characters/missing/PlaceholderIcon.png"
+dest_files=["res://.godot/imported/PlaceholderIcon.png-6b2bf61f665dc0fd213000c99edf52d4.ctex"]
 
 [params]
 
 compress/mode=0
-compress/high_quality=true
+compress/high_quality=false
 compress/lossy_quality=0.7
-compress/hdr_compression=0
+compress/hdr_compression=1
 compress/normal_map=1
-compress/channel_pack=1
+compress/channel_pack=0
 mipmaps/generate=false
 mipmaps/limit=4
-roughness/mode=1
+roughness/mode=0
 roughness/src_normal=""
 process/fix_alpha_border=true
 process/premult_alpha=false
@@ -31,4 +31,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=0
+detect_3d/compress_to=1

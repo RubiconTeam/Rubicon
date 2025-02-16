@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bic4dinndchwv"]
 
-[ext_resource type="Script" uid="uid://bpb8tcj1bsts3" path="res://Resources/UI/Styles/Funkin/Components/FunkinCombo.gd" id="1_bnpcs"]
-[ext_resource type="SpriteFrames" uid="uid://cjlqf6eui62wb" path="res://assets/ui/styles/funkin_pixel/Combo/combo.tres" id="2_puky5"]
+[ext_resource type="Script" uid="uid://bpb8tcj1bsts3" path="res://resources/ui/styles/funkin/components/FunkinCombo.gd" id="1_bnpcs"]
+[ext_resource type="SpriteFrames" uid="uid://cjlqf6eui62wb" path="res://assets/ui/styles/funkin_pixel/combo/combo.tres" id="2_puky5"]
 
 [node name="ComboDisplay" type="Control"]
 texture_filter = 1

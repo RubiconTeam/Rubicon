@@ -2,28 +2,28 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bfaoprs1uqg86"
-path="res://.godot/imported/GfSpeaker.png-d4ebb13c4423bb27d3c60b2d33c351ff.ctex"
+uid="uid://cgusn4rt5hvas"
+path="res://.godot/imported/bfPixel.png-7363d8fbf8d2a1b803179eb4378b2c52.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/game/characters/Gf/GfSpeaker.png"
-dest_files=["res://.godot/imported/GfSpeaker.png-d4ebb13c4423bb27d3c60b2d33c351ff.ctex"]
+source_file="res://assets/game/characters/bf_pixel/bfPixel.png"
+dest_files=["res://.godot/imported/bfPixel.png-7363d8fbf8d2a1b803179eb4378b2c52.ctex"]
 
 [params]
 
 compress/mode=0
-compress/high_quality=true
+compress/high_quality=false
 compress/lossy_quality=0.7
-compress/hdr_compression=0
+compress/hdr_compression=1
 compress/normal_map=1
-compress/channel_pack=1
+compress/channel_pack=0
 mipmaps/generate=false
 mipmaps/limit=4
-roughness/mode=1
+roughness/mode=0
 roughness/src_normal=""
 process/fix_alpha_border=true
 process/premult_alpha=false

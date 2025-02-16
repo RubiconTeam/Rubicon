@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="EventMeta" load_steps=35 format=3 uid="uid://hfrre0tnk7kg"]
+[gd_resource type="Resource" script_class="EventMeta" load_steps=35 format=3 uid="uid://cyi745qna55b4"]
 
 [ext_resource type="Script" uid="uid://b2vtxqusme7by" path="res://Source/Rubicon.Core/Events/EventData.cs" id="1_v7l0f"]
 [ext_resource type="Script" uid="uid://by45gtac0cw1n" path="res://Source/Rubicon.Core/Events/EventMeta.cs" id="2_2yeh6"]

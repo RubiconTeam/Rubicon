@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="SongMeta" load_steps=13 format=3 uid="uid://prkhykiiiewc"]
+[gd_resource type="Resource" script_class="SongMeta" load_steps=13 format=3 uid="uid://5fiv3wet0boj"]
 
 [ext_resource type="Script" uid="uid://crgqugtqe2m3y" path="res://Source/Rubicon.Core/Chart/BpmInfo.cs" id="1_ycdkm"]
 [ext_resource type="Script" uid="uid://clg1lhiqfj0nk" path="res://Source/Rubicon.Core/Meta/CharacterMeta.cs" id="2_0eumu"]

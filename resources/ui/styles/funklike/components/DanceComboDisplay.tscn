@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://q5yhhc5khh8u"]
 
-[ext_resource type="Script" uid="uid://hotn4hy5dh1g" path="res://Resources/UI/Styles/FunkLike/Components/DanceComboDisplay.gd" id="1_mlt5q"]
-[ext_resource type="SpriteFrames" uid="uid://c85tnr6y52kqk" path="res://Assets/UI/Styles/Funkin/Combo/combo.tres" id="2_7svyy"]
+[ext_resource type="Script" uid="uid://hotn4hy5dh1g" path="res://resources/ui/styles/funklike/components/DanceComboDisplay.gd" id="1_mlt5q"]
+[ext_resource type="SpriteFrames" uid="uid://c85tnr6y52kqk" path="res://assets/ui/styles/funkin/combo/combo.tres" id="2_7svyy"]
 
 [node name="ComboDisplay" type="Control"]
 layout_mode = 3

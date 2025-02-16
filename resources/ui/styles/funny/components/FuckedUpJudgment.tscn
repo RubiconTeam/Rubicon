@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://8mtc55isoma5"]
 
-[ext_resource type="Script" uid="uid://wbsmykkoxowf" path="res://Resources/UI/Styles/Funny/Components/FuckedUpJudgment.gd" id="1_17mys"]
+[ext_resource type="Script" uid="uid://wbsmykkoxowf" path="res://resources/ui/styles/funny/components/FuckedUpJudgment.gd" id="1_17mys"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_romoo"]
 radius = 32.0

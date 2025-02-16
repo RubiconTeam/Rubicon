@@ -1,8 +1,8 @@
 [gd_scene load_steps=13 format=3 uid="uid://drttpksyyhjnf"]
 
-[ext_resource type="Texture2D" uid="uid://cy7tsup6gbx7t" path="res://Assets/UI/Misc/icon.svg" id="1_3kfjx"]
+[ext_resource type="Texture2D" uid="uid://cy7tsup6gbx7t" path="res://assets/ui/misc/icon.svg" id="1_3kfjx"]
 [ext_resource type="Script" uid="uid://cqmn2xk4n5fbt" path="res://Source/Rubicon/View2D/Character2D.cs" id="1_lj1lb"]
-[ext_resource type="SpriteFrames" uid="uid://dd1qyud388qn8" path="res://Assets/Game/Characters/Missing/PlaceholderIcon.tres" id="2_egl44"]
+[ext_resource type="SpriteFrames" uid="uid://dd1qyud388qn8" path="res://assets/game/characters/missing/PlaceholderIcon.tres" id="2_egl44"]
 [ext_resource type="Script" uid="uid://bsc6hc1t5s5ry" path="res://Source/Rubicon/Data/CharacterIconData.cs" id="3_3xftl"]
 
 [sub_resource type="Resource" id="Resource_3nlgg"]

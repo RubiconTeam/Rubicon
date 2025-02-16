@@ -1,6 +1,6 @@
 [gd_resource type="SpriteFrames" load_steps=2 format=3 uid="uid://bdbxe08wiehwd"]
 
-[ext_resource type="Texture2D" uid="uid://c81i73x6lfj1e" path="res://Assets/Game/Characters/BfPixel/icon.png" id="1_fkfda"]
+[ext_resource type="Texture2D" uid="uid://c81i73x6lfj1e" path="res://assets/game/characters/bf_pixel/icon.png" id="1_fkfda"]
 
 [resource]
 animations = [{
