@@ -1,0 +1,192 @@
+[gd_resource type="Resource" script_class="EventMeta" load_steps=26 format=3 uid="uid://fcvum6pwxme"]
+
+[ext_resource type="Script" uid="uid://b2vtxqusme7by" path="res://Source/Rubicon.Core/Events/EventData.cs" id="1_w2m88"]
+[ext_resource type="Script" uid="uid://by45gtac0cw1n" path="res://Source/Rubicon.Core/Events/EventMeta.cs" id="2_sw7ps"]
+
+[sub_resource type="Resource" id="Resource_w2m88"]
+script = ExtResource("1_w2m88")
+Time = 0.0
+Name = &"SetCameraFocus"
+Arguments = Dictionary[StringName, Variant]({
+&"Focus": &"Player"
+})
+
+[sub_resource type="Resource" id="Resource_sw7ps"]
+script = ExtResource("1_w2m88")
+Time = 2.0
+Name = &"SetCameraFocus"
+Arguments = Dictionary[StringName, Variant]({
+&"Focus": &"Opponent"
+})
+
+[sub_resource type="Resource" id="Resource_euvtc"]
+script = ExtResource("1_w2m88")
+Time = 6.0
+Name = &"SetCameraFocus"
+Arguments = Dictionary[StringName, Variant]({
+&"Focus": &"Player"
+})
+
+[sub_resource type="Resource" id="Resource_hactb"]
+script = ExtResource("1_w2m88")
+Time = 10.0
+Name = &"SetCameraFocus"
+Arguments = Dictionary[StringName, Variant]({
+&"Focus": &"Opponent"
+})
+
+[sub_resource type="Resource" id="Resource_hknvn"]
+script = ExtResource("1_w2m88")
+Time = 14.0
+Name = &"SetCameraFocus"
+Arguments = Dictionary[StringName, Variant]({
+&"Focus": &"Player"
+})
+
+[sub_resource type="Resource" id="Resource_lpqhv"]
+script = ExtResource("1_w2m88")
+Time = 18.0
+Name = &"SetCameraFocus"
+Arguments = Dictionary[StringName, Variant]({
+&"Focus": &"Opponent"
+})
+
+[sub_resource type="Resource" id="Resource_kkv7j"]
+script = ExtResource("1_w2m88")
+Time = 22.0
+Name = &"SetCameraFocus"
+Arguments = Dictionary[StringName, Variant]({
+&"Focus": &"Player"
+})
+
+[sub_resource type="Resource" id="Resource_20hst"]
+script = ExtResource("1_w2m88")
+Time = 26.0
+Name = &"SetCameraFocus"
+Arguments = Dictionary[StringName, Variant]({
+&"Focus": &"Opponent"
+})
+
+[sub_resource type="Resource" id="Resource_q1yjc"]
+script = ExtResource("1_w2m88")
+Time = 30.0
+Name = &"SetCameraFocus"
+Arguments = Dictionary[StringName, Variant]({
+&"Focus": &"Player"
+})
+
+[sub_resource type="Resource" id="Resource_xjbin"]
+script = ExtResource("1_w2m88")
+Time = 34.0
+Name = &"SetCameraFocus"
+Arguments = Dictionary[StringName, Variant]({
+&"Focus": &"Opponent"
+})
+
+[sub_resource type="Resource" id="Resource_b1oa7"]
+script = ExtResource("1_w2m88")
+Time = 38.0
+Name = &"SetCameraFocus"
+Arguments = Dictionary[StringName, Variant]({
+&"Focus": &"Player"
+})
+
+[sub_resource type="Resource" id="Resource_b2hhs"]
+script = ExtResource("1_w2m88")
+Time = 42.0
+Name = &"SetCameraFocus"
+Arguments = Dictionary[StringName, Variant]({
+&"Focus": &"Opponent"
+})
+
+[sub_resource type="Resource" id="Resource_i8pen"]
+script = ExtResource("1_w2m88")
+Time = 46.0
+Name = &"SetCameraFocus"
+Arguments = Dictionary[StringName, Variant]({
+&"Focus": &"Player"
+})
+
+[sub_resource type="Resource" id="Resource_ttu8c"]
+script = ExtResource("1_w2m88")
+Time = 50.0
+Name = &"SetCameraFocus"
+Arguments = Dictionary[StringName, Variant]({
+&"Focus": &"Opponent"
+})
+
+[sub_resource type="Resource" id="Resource_7kspr"]
+script = ExtResource("1_w2m88")
+Time = 54.0
+Name = &"SetCameraFocus"
+Arguments = Dictionary[StringName, Variant]({
+&"Focus": &"Player"
+})
+
+[sub_resource type="Resource" id="Resource_6qjkb"]
+script = ExtResource("1_w2m88")
+Time = 58.0
+Name = &"SetCameraFocus"
+Arguments = Dictionary[StringName, Variant]({
+&"Focus": &"Opponent"
+})
+
+[sub_resource type="Resource" id="Resource_gxtfd"]
+script = ExtResource("1_w2m88")
+Time = 65.0
+Name = &"SetCameraFocus"
+Arguments = Dictionary[StringName, Variant]({
+&"Focus": &"Player"
+})
+
+[sub_resource type="Resource" id="Resource_ufy7b"]
+script = ExtResource("1_w2m88")
+Time = 66.0
+Name = &"SetCameraFocus"
+Arguments = Dictionary[StringName, Variant]({
+&"Focus": &"Opponent"
+})
+
+[sub_resource type="Resource" id="Resource_fwy44"]
+script = ExtResource("1_w2m88")
+Time = 70.0
+Name = &"SetCameraFocus"
+Arguments = Dictionary[StringName, Variant]({
+&"Focus": &"Player"
+})
+
+[sub_resource type="Resource" id="Resource_ec84i"]
+script = ExtResource("1_w2m88")
+Time = 74.0
+Name = &"SetCameraFocus"
+Arguments = Dictionary[StringName, Variant]({
+&"Focus": &"Opponent"
+})
+
+[sub_resource type="Resource" id="Resource_l81i4"]
+script = ExtResource("1_w2m88")
+Time = 78.0
+Name = &"SetCameraFocus"
+Arguments = Dictionary[StringName, Variant]({
+&"Focus": &"Player"
+})
+
+[sub_resource type="Resource" id="Resource_yn4ea"]
+script = ExtResource("1_w2m88")
+Time = 82.0
+Name = &"SetCameraFocus"
+Arguments = Dictionary[StringName, Variant]({
+&"Focus": &"Opponent"
+})
+
+[sub_resource type="Resource" id="Resource_hmujq"]
+script = ExtResource("1_w2m88")
+Time = 86.0
+Name = &"SetCameraFocus"
+Arguments = Dictionary[StringName, Variant]({
+&"Focus": &"Player"
+})
+
+[resource]
+script = ExtResource("2_sw7ps")
+Events = [SubResource("Resource_w2m88"), SubResource("Resource_sw7ps"), SubResource("Resource_euvtc"), SubResource("Resource_hactb"), SubResource("Resource_hknvn"), SubResource("Resource_lpqhv"), SubResource("Resource_kkv7j"), SubResource("Resource_20hst"), SubResource("Resource_q1yjc"), SubResource("Resource_xjbin"), SubResource("Resource_b1oa7"), SubResource("Resource_b2hhs"), SubResource("Resource_i8pen"), SubResource("Resource_ttu8c"), SubResource("Resource_7kspr"), SubResource("Resource_6qjkb"), SubResource("Resource_gxtfd"), SubResource("Resource_ufy7b"), SubResource("Resource_fwy44"), SubResource("Resource_ec84i"), SubResource("Resource_l81i4"), SubResource("Resource_yn4ea"), SubResource("Resource_hmujq")]

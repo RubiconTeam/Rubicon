@@ -1,0 +1,59 @@
+[gd_resource type="Resource" script_class="SongMeta" load_steps=13 format=3 uid="uid://ctlgkrpa7u5er"]
+
+[ext_resource type="Script" uid="uid://clg1lhiqfj0nk" path="res://Source/Rubicon.Core/Meta/CharacterMeta.cs" id="1_g6yev"]
+[ext_resource type="Script" uid="uid://crgqugtqe2m3y" path="res://Source/Rubicon.Core/Chart/BpmInfo.cs" id="1_qkhdv"]
+[ext_resource type="Script" uid="uid://b87l817pyjjsp" path="res://Source/Rubicon.Core/Meta/SongMeta.cs" id="2_qkhdv"]
+[ext_resource type="AudioStream" uid="uid://cwtjsj18bggik" path="res://songs/milf/Inst.ogg" id="3_rhv4t"]
+[ext_resource type="Script" uid="uid://13r6ekkfj72o" path="res://Source/Rubicon.Core/Meta/SongDifficulty.cs" id="3_tga5g"]
+[ext_resource type="AudioStream" uid="uid://capkxulsrkbd6" path="res://songs/milf/Vocals.ogg" id="3_u6l60"]
+[ext_resource type="Resource" uid="uid://b1irmwksoeq2b" path="res://songs/milf/data/mania_hard.rbc" id="3_xm64d"]
+
+[sub_resource type="Resource" id="Resource_qkhdv"]
+script = ExtResource("1_qkhdv")
+Time = 0.0
+Bpm = 180.0
+TimeSignatureNumerator = 4
+TimeSignatureDenominator = 4
+
+[sub_resource type="Resource" id="Resource_3oghc"]
+script = ExtResource("1_g6yev")
+Character = "mom-car"
+Nickname = &"Opponent"
+BarLine = &"Opponent"
+
+[sub_resource type="Resource" id="Resource_ob138"]
+script = ExtResource("1_g6yev")
+Character = "Bf"
+Nickname = &"Player"
+BarLine = &"Player"
+
+[sub_resource type="Resource" id="Resource_tvvk7"]
+script = ExtResource("1_g6yev")
+Character = "Gf"
+Nickname = &"Speaker"
+BarLine = &""
+
+[sub_resource type="Resource" id="Resource_xm64d"]
+script = ExtResource("3_tga5g")
+Name = "Hard"
+Chart = ExtResource("3_xm64d")
+RuleSet = "Mania"
+Color = Color(0.576471, 0.439216, 0.858824, 1)
+metadata/_custom_type_script = ExtResource("3_tga5g")
+
+[resource]
+script = ExtResource("2_qkhdv")
+Name = "MILF"
+Artist = "kawaisprite"
+Instrumental = ExtResource("3_rhv4t")
+Vocals = ExtResource("3_u6l60")
+Difficulties = [SubResource("Resource_xm64d")]
+BpmInfo = [SubResource("Resource_qkhdv")]
+UiStyle = "Funkin"
+NoteSkin = "Funkin"
+Environment = 1
+Stage = "limo"
+Characters = [SubResource("Resource_3oghc"), SubResource("Resource_ob138"), SubResource("Resource_tvvk7")]
+Offset = 0.0
+DefaultRuleset = "Mania"
+PlayableCharts = [&"Player", &"Opponent"]
