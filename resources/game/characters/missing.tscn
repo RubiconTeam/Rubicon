@@ -1,0 +1,87 @@
+[gd_scene load_steps=13 format=3 uid="uid://drttpksyyhjnf"]
+
+[ext_resource type="Texture2D" uid="uid://cy7tsup6gbx7t" path="res://Assets/UI/Misc/icon.svg" id="1_3kfjx"]
+[ext_resource type="Script" uid="uid://cqmn2xk4n5fbt" path="res://Source/Rubicon/View2D/Character2D.cs" id="1_lj1lb"]
+[ext_resource type="SpriteFrames" uid="uid://dd1qyud388qn8" path="res://Assets/Game/Characters/Missing/PlaceholderIcon.tres" id="2_egl44"]
+[ext_resource type="Script" uid="uid://bsc6hc1t5s5ry" path="res://Source/Rubicon/Data/CharacterIconData.cs" id="3_3xftl"]
+
+[sub_resource type="Resource" id="Resource_3nlgg"]
+script = ExtResource("3_3xftl")
+Icon = ExtResource("2_egl44")
+Offset = Vector2(-65, 0)
+Color = Color(0.631373, 0.631373, 0.631373, 1)
+Scale = Vector2(1, 1)
+Filter = 2
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lb378"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_3kfjx")
+}],
+"loop": false,
+"name": &"default",
+"speed": 1.0
+}]
+
+[sub_resource type="Animation" id="Animation_ylsds"]
+resource_name = "idle"
+
+[sub_resource type="Animation" id="Animation_a1bfv"]
+resource_name = "singDOWN"
+
+[sub_resource type="Animation" id="Animation_igel0"]
+resource_name = "singLEFT"
+
+[sub_resource type="Animation" id="Animation_bw28c"]
+resource_name = "singRIGHT"
+
+[sub_resource type="Animation" id="Animation_elppf"]
+resource_name = "singUP"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3vjhy"]
+_data = {
+&"idle": SubResource("Animation_ylsds"),
+&"singDOWN": SubResource("Animation_a1bfv"),
+&"singLEFT": SubResource("Animation_igel0"),
+&"singRIGHT": SubResource("Animation_bw28c"),
+&"singUP": SubResource("Animation_elppf")
+}
+
+[node name="Missing" type="Node2D" node_paths=PackedStringArray("Sprite", "AnimationPlayer", "CameraPoint")]
+script = ExtResource("1_lj1lb")
+Icon = SubResource("Resource_3nlgg")
+Sprite = NodePath("AnimatedSprite2D")
+AnimationPlayer = NodePath("AnimatedSprite2D/AnimationPlayer")
+CameraPoint = NodePath("CameraPoint")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(1.12891, 0.355469)
+sprite_frames = SubResource("SpriteFrames_lb378")
+autoplay = "default"
+
+[node name="Label" type="Label" parent="AnimatedSprite2D"]
+modulate = Color(1, 1, 0, 1)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -125.121
+offset_top = -83.6923
+offset_right = -3.12091
+offset_bottom = -66.6923
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.005, 1.975)
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 12
+text = "MISSING CHARACTER"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="AnimatedSprite2D"]
+root_node = NodePath("../..")
+libraries = {
+&"": SubResource("AnimationLibrary_3vjhy")
+}
+
+[node name="CameraPoint" type="Marker2D" parent="."]
