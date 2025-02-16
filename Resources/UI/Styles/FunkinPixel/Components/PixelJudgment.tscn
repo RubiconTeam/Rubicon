@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://enva5q07ux6f"]
 
 [ext_resource type="Script" uid="uid://bssfjdvr0ukgd" path="res://Resources/UI/Styles/Funkin/Components/FunkinJudgment.gd" id="1_p0p7g"]
-[ext_resource type="SpriteFrames" uid="uid://rdraxcrlb2wp" path="res://Assets/UI/Styles/FunkinPixel/Judgment/judgments.tres" id="2_6eks2"]
+[ext_resource type="SpriteFrames" uid="uid://rdraxcrlb2wp" path="res://assets/ui/styles/funkin_pixel/Judgment/judgments.tres" id="2_6eks2"]
 
 [node name="Judgment" type="Control"]
 texture_filter = 1

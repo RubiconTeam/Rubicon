@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="ManiaNoteSkin" load_steps=3 format=3 uid="uid://bagkd17pscis0"]
 
-[ext_resource type="SpriteFrames" uid="uid://bwn0tovd1xctw" path="res://Assets/UI/Styles/FunkinPixel/Mania/NoteSkin.tres" id="1_kg536"]
+[ext_resource type="SpriteFrames" uid="uid://bwn0tovd1xctw" path="res://assets/ui/styles/funkin_pixel/Mania/NoteSkin.tres" id="1_kg536"]
 [ext_resource type="Script" uid="uid://ddude6p581oy2" path="res://Source/Rubicon.Core/Rulesets/Mania/ManiaNoteSkin.cs" id="4_y1sga"]
 
 [resource]

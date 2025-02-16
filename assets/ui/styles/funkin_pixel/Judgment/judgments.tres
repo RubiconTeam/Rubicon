@@ -1,0 +1,57 @@
+[gd_resource type="SpriteFrames" load_steps=5 format=3 uid="uid://rdraxcrlb2wp"]
+
+[ext_resource type="Texture2D" uid="uid://b7hxp3q32dftc" path="res://assets/ui/styles/funkin_pixel/Judgment/shit.png" id="1_2n7ir"]
+[ext_resource type="Texture2D" uid="uid://djajkia1lmmwr" path="res://assets/ui/styles/funkin_pixel/Judgment/good.png" id="2_miljw"]
+[ext_resource type="Texture2D" uid="uid://cf8ek8okou1c5" path="res://assets/ui/styles/funkin_pixel/Judgment/sick.png" id="3_mjxbr"]
+[ext_resource type="Texture2D" uid="uid://dn5cjy6ut70i" path="res://assets/ui/styles/funkin_pixel/Judgment/bad.png" id="4_bo7tf"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_2n7ir")
+}],
+"loop": true,
+"name": &"Bad",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_miljw")
+}],
+"loop": true,
+"name": &"Good",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_mjxbr")
+}],
+"loop": true,
+"name": &"Great",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_2n7ir")
+}],
+"loop": true,
+"name": &"Miss",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_bo7tf")
+}],
+"loop": true,
+"name": &"Okay",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_mjxbr")
+}],
+"loop": true,
+"name": &"Perfect",
+"speed": 5.0
+}]
