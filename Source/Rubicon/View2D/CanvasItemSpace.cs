@@ -101,6 +101,7 @@ public partial class CanvasItemSpace : Node2D
 
 		Camera.TargetZoom = Stage.Zoom;
 		Camera.Zoom = Stage.Zoom;
+		Camera.ZoomMotionData.LerpWeight = 3.125f;
 		
 		// Init characters
 		Characters = [];

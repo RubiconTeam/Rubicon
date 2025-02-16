@@ -39,226 +39,152 @@ public partial class RubiconCamera2D : Camera2D
     /// Offset added to <see cref="TargetZoom"/> when calculating a new zoom value.
     /// </summary>
     [Export] public Vector2 OffsetZoom = Vector2.Zero;
-
-    /// <summary>
-    /// Position update type.
-    /// See <see cref="CameraUpdate"/> for update types.
-    /// </summary>
-    [ExportGroup("Update Settings"), Export] public CameraUpdate PositionUpdateType = CameraUpdate.Interpolation;
     
     /// <summary>
-    /// Rotation update type.
-    /// See <see cref="CameraUpdate"/> for update types.
+    /// Values used when updating the camera's position.
     /// </summary>
-    [Export] public CameraUpdate RotationUpdateType = CameraUpdate.Interpolation;
+    [ExportGroup("Motion Settings"), Export] public CameraMotionData PositionMotionData = new();
     
     /// <summary>
-    /// Zoom update type.
-    /// See <see cref="CameraUpdate"/> for update types.
+    /// Values used when updating the camera's rotation.
     /// </summary>
-    [Export] public CameraUpdate ZoomUpdateType = CameraUpdate.Interpolation;
-
-    /// <summary>
-    /// Weight value when calculating position lerp.
-    /// Only affects <see cref="CameraUpdate.Interpolation"/> update type.
-    /// </summary>
-    [ExportSubgroup("Interpolation"), Export] public float PositionLerpWeight = 2.4f;
+    [Export] public CameraMotionData RotationMotionData = new();
     
     /// <summary>
-    /// Weight value when calculating rotation lerp.
-    /// Only affects <see cref="CameraUpdate.Interpolation"/> update type.
+    /// Values used when updating the camera's zoom.
     /// </summary>
-    [Export] public float RotationLerpWeight = 2.4f;
-    
-    /// <summary>
-    /// Weight value when calculating zoom lerp.
-    /// Only affects <see cref="CameraUpdate.Interpolation"/> update type.
-    /// </summary>
-    [Export] public float ZoomLerpWeight = 3.125f;
-
-    /// <summary>
-    /// Duration of the position tweens.
-    /// Only affects <see cref="CameraUpdate.Tween"/> update type.
-    /// </summary>
-    [ExportSubgroup("Tweening"), Export] public float PositionTweenDuration = 1f;
-    
-    /// <summary>
-    /// Duration of the rotation tweens.
-    /// Only affects <see cref="CameraUpdate.Tween"/> update type.
-    /// </summary>
-    [Export] public float RotationTweenDuration = 1f;
-    
-    /// <summary>
-    /// Duration of the zoom tweens.
-    /// Only affects <see cref="CameraUpdate.Tween"/> update type.
-    /// </summary>
-    [Export] public float ZoomTweenDuration = 1f;
+    [Export] public CameraMotionData ZoomMotionData = new();
     
     private Vector2 _previousPosition = Vector2.Zero;
     private float _previousRotation = 0;
     private Vector2 _previousZoom = Vector2.Zero;
-    
-    private Tween _posTween;
-    private Tween _rotTween;
-    private Tween _zoomTween;
 
     public override void _Process(double delta)
     {
-        PositionSmoothingEnabled = PositionUpdateType == CameraUpdate.Smoothing;
+        if (PositionMotionData == null && RotationMotionData == null && ZoomMotionData == null)
+            return;
+        
+        PositionSmoothingEnabled = PositionMotionData.UpdateType == CameraUpdate.Smoothing;
         
         float deltaF = (float)delta;
         UpdatePosition(deltaF);
+        UpdateRotation(deltaF);
         UpdateZoom(deltaF);
     }
-
+    
     /// <summary>
-    /// Updates the camera's position depending on <see cref="PositionUpdateType"/>.
+    /// Updates the camera's position depending on the position's <see cref="CameraMotionData"/>.
     /// </summary>
     public virtual void UpdatePosition(float delta)
     {
         Vector2 finalPosition = TargetPosition + OffsetPosition;
-        switch (PositionUpdateType)
+        switch (PositionMotionData.UpdateType)
         {
             case CameraUpdate.Instant:
             case CameraUpdate.Smoothing:
                 GlobalPosition = finalPosition;
                 break;
             case CameraUpdate.Tween:
-                if (_previousPosition != finalPosition && !_posTween.IsRunning())
-                    TweenPosition(finalPosition, PositionTweenDuration, true);
+                _previousPosition = GlobalPosition;
+                if (!_previousPosition.IsEqualApprox(finalPosition))
+                    MotionTween("global_position", finalPosition, PositionMotionData, false);
                 break;
             case CameraUpdate.Interpolation:
-                Vector2 pos = GlobalPosition;
-                if (pos.IsEqualApprox(finalPosition))
-                    return;
-                
-                Vector2 nextPos = pos.Lerp(finalPosition, PositionLerpWeight * delta);
-                if (nextPos.IsEqualApprox(finalPosition))
-                {
-                    GlobalPosition = finalPosition;
-                    return;
-                }
-
-                GlobalPosition = nextPos;
+                GlobalPosition = MotionInterpolation(GlobalPosition, finalPosition, PositionMotionData.LerpWeight, delta);
                 break;
         }
     }
     
     /// <summary>
-    /// Updates the camera's rotation depending on <see cref="RotationUpdateType"/>.
+    /// Updates the camera's rotation depending on the rotation's <see cref="CameraMotionData"/>.
     /// </summary>
     public virtual void UpdateRotation(float delta)
     {
         float finalRotation = TargetRotation + OffsetRotation;
-        switch (PositionUpdateType)
+        switch (RotationMotionData.UpdateType)
         {
             case CameraUpdate.Instant:
             case CameraUpdate.Smoothing:
-                GlobalRotation = finalRotation;
+                RotationMotionData.UpdateType = CameraUpdate.Interpolation;
                 break;
             case CameraUpdate.Tween:
-                if (!Mathf.IsEqualApprox(_previousRotation, finalRotation) && !_rotTween.IsRunning())
-                    TweenRotation(finalRotation, RotationTweenDuration, true);
+                _previousRotation = GlobalRotation;
+                if (!Mathf.IsEqualApprox(_previousRotation, finalRotation))
+                    MotionTween("global_rotation", finalRotation, RotationMotionData, false);
                 break;
             case CameraUpdate.Interpolation:
-                float rot = GlobalRotation;
-                if (Mathf.IsEqualApprox(rot, finalRotation))
-                    return;
-                
-                float nextPos = Mathf.Lerp(rot, finalRotation, RotationLerpWeight * delta);
-                if (Mathf.IsEqualApprox(nextPos, finalRotation))
-                {
-                    GlobalRotation = finalRotation;
-                    return;
-                }
-
-                GlobalRotation = nextPos;
+                GlobalRotation = MotionInterpolation(GlobalRotation, finalRotation, RotationMotionData.LerpWeight, delta);
                 break;
         }
     }
     
     /// <summary>
-    /// Updates the camera's zoom depending on <see cref="ZoomUpdateType"/>.
+    /// Updates the camera's zoom depending on the zoom's <see cref="CameraMotionData"/>.
     /// </summary>
     public virtual void UpdateZoom(float delta)
     {
-        //Vector2 combinedZoom = TargetZoom + OffsetZoom;
         Vector2 finalZoom = TargetZoom + OffsetZoom;
-        switch (ZoomUpdateType)
+        switch (ZoomMotionData.UpdateType)
         {
             case CameraUpdate.Instant:
-                Zoom = finalZoom;
-                break;
-            case CameraUpdate.Interpolation:
-                Vector2 zoom = Zoom;
-                if (zoom.IsEqualApprox(finalZoom))
-                    return;
-                
-                Vector2 nextZoom = zoom.Lerp(finalZoom, ZoomLerpWeight * delta);
-                if (nextZoom.IsEqualApprox(finalZoom))
-                {
-                    Zoom = finalZoom;
-                    return;
-                }
-
-                Zoom = nextZoom;
+            case CameraUpdate.Smoothing:
+                ZoomMotionData.UpdateType = CameraUpdate.Interpolation;
                 break;
             case CameraUpdate.Tween:
-                if (_previousZoom != finalZoom && !_zoomTween.IsRunning())
-                    TweenZoom(finalZoom, ZoomTweenDuration, true);
+                _previousZoom = Zoom;
+                if (!_previousZoom.IsEqualApprox(finalZoom))
+                    MotionTween("zoom", finalZoom, ZoomMotionData, false);
+                break;
+            case CameraUpdate.Interpolation:
+                Zoom = MotionInterpolation(Zoom, finalZoom, ZoomMotionData.LerpWeight, delta);
                 break;
         }
     }
-    
-    /// <summary>
-    /// Tween the position of this camera to the final position.
-    /// </summary>
-    /// <param name="position">The final position</param>
-    /// <param name="duration">How long the tween will last</param>
-    /// <param name="force">Setting this to true will immediately kill the previous, otherwise this will queue this tween so that it is ran when the previous one is finished.</param>
-    public void TweenPosition(Vector2 position, double duration, bool force = false)
+
+    public Vector2 MotionInterpolation(Vector2 motionStart, Vector2 motionTarget, float motionWeight, float delta)
     {
-        if (_posTween == null || (_posTween != null && _posTween.IsRunning() && force))
-        {
-            _posTween?.Kill();
-            _posTween = CreateTween();
-        }
-        
-        _posTween.TweenProperty(this, property: "global_position", position, duration);
+        if (motionStart.IsEqualApprox(motionTarget))
+            return motionStart;
+                
+        Vector2 nextValue = motionStart.Lerp(motionTarget, motionWeight * delta);
+        if (nextValue.IsEqualApprox(motionTarget))
+            return motionTarget;
+
+        return nextValue;
+    }
+    
+    public float MotionInterpolation(float motionStart, float motionTarget, float motionWeight, float delta)
+    {
+        if (Mathf.IsEqualApprox(motionStart, motionTarget))
+            return motionStart;
+                
+        float nextValue = Mathf.Lerp(motionStart, motionTarget, motionWeight * delta);
+        if (Mathf.IsEqualApprox(nextValue, motionTarget))
+            return motionTarget;
+
+        return nextValue;
     }
 
-    /// <summary>
-    /// Tween the rotation of this camera to the final rotation.
-    /// </summary>
-    /// <param name="rotation">The final rotation</param>
-    /// <param name="duration">How long the tween will last</param>
-    /// <param name="force">Setting this to true will immediately kill the previous, otherwise this will queue this tween so that it is ran when the previous one is finished.</param>
-    public void TweenRotation(float rotation, double duration, bool force = false)
+    // still gotta figure out whats wrong with this
+    // at least it doesnt make new tweens every second now
+    // - legole0
+    public void MotionTween(string propertyName, Variant motionTarget, CameraMotionData motionData, bool force = false)
     {
-        if (_rotTween == null || (_rotTween != null && _rotTween.IsRunning() && force))
+        if (motionData.RunningTween && !force)
+            return;
+        
+        Tween tween = motionData.MotionTween;
+        if (tween == null || (tween != null && tween.IsRunning() && force))
         {
-            _rotTween?.Kill();
-            _rotTween = CreateTween();
+            tween?.Kill();
+            tween = CreateTween().SetParallel();
+            motionData.RunningTween = true;
+            GD.Print($"tween {propertyName} created");
         }
         
-        _rotTween.TweenProperty(this, property: "global_rotation", rotation, duration);
-    }
-
-    
-    /// <summary>
-    /// Tween the zoom of this camera to the zoom specified.
-    /// </summary>
-    /// <param name="zoom">The zoom specified</param>
-    /// <param name="duration">How long the tween will last</param>
-    /// <param name="force">Setting this to true will immediately kill the previous, otherwise this will queue this tween so that it is ran when the previous one is finished.</param>
-    public void TweenZoom(Vector2 zoom, double duration, bool force = false)
-    {
-        if (_zoomTween == null || (_zoomTween != null && _zoomTween.IsRunning() && force))
-        {
-            _zoomTween?.Kill();
-            _zoomTween = CreateTween();
-        }
-        
-        _zoomTween.TweenProperty(this, property: "zoom", zoom, duration);
+        tween.TweenProperty(this, property: propertyName, motionTarget, motionData.TweenDuration)
+            .SetTrans(motionData.TweenTrans)
+            .SetEase(motionData.TweenEase);
+        tween.Finished += () => motionData.RunningTween = false;
     }
 }

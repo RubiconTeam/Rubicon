@@ -4,7 +4,7 @@ using Rubicon.Data;
 namespace Rubicon.View3D;
 
 /// <summary>
-/// <see cref="Camera3D"/> utility that manages smooth positioning, tweening and zooming. 
+/// <see cref="Camera3D"/> utility that manages smooth positioning, tweening and fov changes. 
 /// </summary>
 
 public partial class RubiconCamera3D : Camera3D
@@ -16,7 +16,7 @@ public partial class RubiconCamera3D : Camera3D
     
     /// <summary>
     /// Offset added to <see cref="TargetPosition"/> when calculating a new position.
-    /// Similar to <see cref="Camera3D.HOffset"/> and <see cref="Camera3D.VOffset"/>, except it also gets smoothed.
+    /// Similar to <see cref="Camera2D.Offset"/>, except it also gets smoothed.
     /// </summary>
     [Export] public Vector3 OffsetPosition = Vector3.Zero;
     
@@ -33,70 +33,31 @@ public partial class RubiconCamera3D : Camera3D
     /// <summary>
     /// The final fov to smoothly move to.
     /// </summary>
-    [Export] public float TargetFov = 45f;
+    [Export] public float TargetFov = 0f;
     
     /// <summary>
     /// Offset added to <see cref="TargetFov"/> when calculating a new fov value.
     /// </summary>
-    [Export] public float OffsetFov;
+    [Export] public float OffsetFov = 0f;
     
     /// <summary>
-    /// Position update type.
-    /// See <see cref="CameraUpdate"/> for update types.
+    /// Values used when updating the camera's position.
     /// </summary>
-    [ExportGroup("Update Settings"), Export] public CameraUpdate PositionUpdateType = CameraUpdate.Interpolation;
+    [ExportGroup("Motion Settings"), Export] public CameraMotionData PositionMotionData = new();
     
     /// <summary>
-    /// Rotation update type.
-    /// See <see cref="CameraUpdate"/> for update types.
+    /// Values used when updating the camera's rotation.
     /// </summary>
-    [Export] public CameraUpdate RotationUpdateType = CameraUpdate.Interpolation;
+    [Export] public CameraMotionData RotationMotionData = new();
     
     /// <summary>
-    /// Fov update type.
-    /// See <see cref="CameraUpdate"/> for update types.
+    /// Values used when updating the camera's fov.
     /// </summary>
-    [Export] public CameraUpdate FovUpdateType = CameraUpdate.Interpolation;
-    
-    /// <summary>
-    /// Weight value when calculating position lerp.
-    /// Only affects <see cref="CameraUpdate.Interpolation"/> update type.
-    /// </summary>
-    [ExportSubgroup("Interpolation"), Export] public float PositionLerpWeight = 2.4f;
-    
-    /// <summary>
-    /// Weight value when calculating rotation lerp.
-    /// Only affects <see cref="CameraUpdate.Interpolation"/> update type.
-    /// </summary>
-    [Export] public float RotationLerpWeight = 2.4f;
-    
-    /// <summary>
-    /// Weight value when calculating fov lerp.
-    /// Only affects <see cref="CameraUpdate.Interpolation"/> update type.
-    /// </summary>
-    [Export] public float FovLerpWeight = 3.125f;
-    
-    /// <summary>
-    /// Duration of the position tweens.
-    /// Only affects <see cref="CameraUpdate.Tween"/> update type.
-    /// </summary>
-    [ExportSubgroup("Tweening"), Export] public float PositionTweenDuration = 1f;
-    
-    /// <summary>
-    /// Duration of the rotation tweens.
-    /// Only affects <see cref="CameraUpdate.Tween"/> update type.
-    /// </summary>
-    [Export] public float RotationLerpDuration = 1f;
-    
-    /// <summary>
-    /// Duration of the fov tweens.
-    /// Only affects <see cref="CameraUpdate.Tween"/> update type.
-    /// </summary>
-    [Export] public float FovTweenDuration = 1f;
+    [Export] public CameraMotionData FovMotionData = new();
     
     private Vector3 _previousPosition = Vector3.Zero;
     private Vector3 _previousRotation = Vector3.Zero;
-    private float _previousFov;
+    private float _previousFov = 0;
 
     private Tween _posTween;
     private Tween _rotTween;
@@ -104,152 +65,115 @@ public partial class RubiconCamera3D : Camera3D
 
     public override void _Process(double delta)
     {
+        if (PositionMotionData == null && RotationMotionData == null && FovMotionData == null)
+            return;
+        
         float deltaF = (float)delta;
         UpdatePosition(deltaF);
         UpdateRotation(deltaF);
         UpdateFov(deltaF);
     }
-
+    
     /// <summary>
-    /// Updates the camera's position depending on <see cref="PositionUpdateType"/>.
+    /// Updates the camera's position depending on the position's <see cref="CameraMotionData"/>.
     /// </summary>
     public virtual void UpdatePosition(float delta)
     {
         Vector3 finalPosition = TargetPosition + OffsetPosition;
-        switch (PositionUpdateType)
+        switch (PositionMotionData.UpdateType)
         {
             case CameraUpdate.Instant:
+            case CameraUpdate.Smoothing:
+                GlobalPosition = finalPosition;
+                break;
             case CameraUpdate.Tween:
                 if (_previousPosition != finalPosition && !_posTween.IsRunning())
-                    TweenPosition(finalPosition, PositionTweenDuration, true);
+                    MotionTween(ref _posTween, "global_position", finalPosition, PositionMotionData, true);
                 break;
             case CameraUpdate.Interpolation:
-                Vector3 pos = GlobalPosition;
-                if (pos.IsEqualApprox(finalPosition))
-                    return;
-                
-                Vector3 nextPos = pos.Lerp(finalPosition, PositionLerpWeight * delta);
-                if (nextPos.IsEqualApprox(finalPosition))
-                {
-                    GlobalPosition = finalPosition;
-                    return;
-                }
-
-                GlobalPosition = nextPos;
+                GlobalPosition = MotionInterpolation(GlobalPosition, finalPosition, PositionMotionData.LerpWeight, delta);
                 break;
         }
     }
     
     /// <summary>
-    /// Updates the camera's rotation depending on <see cref="RotationUpdateType"/>.
+    /// Updates the camera's rotation depending on the rotation's <see cref="CameraMotionData"/>.
     /// </summary>
     public virtual void UpdateRotation(float delta)
     {
         Vector3 finalRotation = TargetRotation + OffsetRotation;
-        switch (RotationUpdateType)
+        switch (RotationMotionData.UpdateType)
         {
             case CameraUpdate.Instant:
+            case CameraUpdate.Smoothing:
+                RotationMotionData.UpdateType = CameraUpdate.Interpolation;
+                break;
             case CameraUpdate.Tween:
-                if (_previousPosition != finalRotation && !_posTween.IsRunning())
-                    TweenRotation(finalRotation, PositionTweenDuration, true);
+                if (_previousRotation != finalRotation && !_rotTween.IsRunning())
+                    MotionTween(ref _rotTween, "global_rotation", finalRotation, RotationMotionData, true);
                 break;
             case CameraUpdate.Interpolation:
-                Vector3 rot = GlobalRotation;
-                if (rot.IsEqualApprox(finalRotation))
-                    return;
-                
-                Vector3 nextRot = rot.Lerp(finalRotation, RotationLerpWeight * delta);
-                if (nextRot.IsEqualApprox(finalRotation))
-                {
-                    GlobalRotation = finalRotation;
-                    return;
-                }
-
-                GlobalRotation = nextRot;
+                GlobalRotation = MotionInterpolation(GlobalRotation, finalRotation, RotationMotionData.LerpWeight, delta);
                 break;
         }
     }
     
     /// <summary>
-    /// Updates the camera's fov depending on <see cref="FovUpdateType"/>.
+    /// Updates the camera's fov depending on the fov's <see cref="CameraMotionData"/>.
     /// </summary>
     public virtual void UpdateFov(float delta)
     {
         float finalFov = TargetFov + OffsetFov;
-        switch (FovUpdateType)
+        switch (FovMotionData.UpdateType)
         {
             case CameraUpdate.Instant:
-                Fov = finalFov;
-                break;
-            case CameraUpdate.Interpolation:
-                float fov = Fov;
-                if (Mathf.IsEqualApprox(fov,finalFov))
-                    return;
-                
-                float nextFov = Mathf.Lerp(fov, finalFov, FovLerpWeight * delta);
-                if (Mathf.IsEqualApprox(fov,finalFov))
-                {
-                    Fov = finalFov;
-                    return;
-                }
-
-                Fov = nextFov;
+            case CameraUpdate.Smoothing:
+                FovMotionData.UpdateType = CameraUpdate.Interpolation;
                 break;
             case CameraUpdate.Tween:
-                if (_previousFov != finalFov && !_fovTween.IsRunning())
-                    TweenFov(finalFov, FovTweenDuration, true);
+                if (!Mathf.IsEqualApprox(_previousFov, finalFov) && !_fovTween.IsRunning())
+                    MotionTween(ref _fovTween, "fov", finalFov, FovMotionData, true);
+                break;
+            case CameraUpdate.Interpolation:
+                Fov = MotionInterpolation(Fov, finalFov, FovMotionData.LerpWeight, delta);
                 break;
         }
     }
-    
-    /// <summary>
-    /// Tween the position of this camera to the final position.
-    /// </summary>
-    /// <param name="position">The final position</param>
-    /// <param name="duration">How long the tween will last</param>
-    /// <param name="force">Setting this to true will immediately kill the previous, otherwise this will queue this tween so that it is ran when the previous one is finished.</param>
-    public void TweenPosition(Vector3 position, double duration, bool force = false)
+
+    public Vector3 MotionInterpolation(Vector3 motionStart, Vector3 motionTarget, float motionWeight, float delta)
     {
-        if (_posTween == null || (_posTween != null && _posTween.IsRunning() && force))
-        {
-            _posTween?.Kill();
-            _posTween = CreateTween();
-        }
-        
-        _posTween.TweenProperty(this, property: "global_position", position, duration);
+        if (motionStart.IsEqualApprox(motionTarget))
+            return motionStart;
+                
+        Vector3 nextValue = motionStart.Lerp(motionTarget, motionWeight * delta);
+        if (nextValue.IsEqualApprox(motionTarget))
+            return motionTarget;
+
+        return nextValue;
     }
     
-    /// <summary>
-    /// Tween the position of this camera to the final position.
-    /// </summary>
-    /// <param name="rotation">The final position</param>
-    /// <param name="duration">How long the tween will last</param>
-    /// <param name="force">Setting this to true will immediately kill the previous, otherwise this will queue this tween so that it is ran when the previous one is finished.</param>
-    public void TweenRotation(Vector3 rotation, double duration, bool force = false)
+    public float MotionInterpolation(float motionStart, float motionTarget, float motionWeight, float delta)
     {
-        if (_rotTween == null || (_rotTween != null && _rotTween.IsRunning() && force))
-        {
-            _rotTween?.Kill();
-            _rotTween = CreateTween();
-        }
-        
-        _rotTween.TweenProperty(this, property: "global_rotation", rotation, duration);
+        if (Mathf.IsEqualApprox(motionStart, motionTarget))
+            return motionStart;
+                
+        float nextValue = Mathf.Lerp(motionStart, motionTarget, motionWeight * delta);
+        if (Mathf.IsEqualApprox(nextValue, motionTarget))
+            return motionTarget;
+
+        return nextValue;
     }
 
-    /// <summary>
-    /// Tween the fov of this camera to the fov specified.
-    /// </summary>
-    /// <param name="fov">The fov specified</param>
-    /// <param name="duration">How long the tween will last</param>
-    /// <param name="force">Setting this to true will immediately kill the previous, otherwise this will queue this tween so that it is ran when the previous one is finished.</param>
-    public void TweenFov(float fov, double duration, bool force = false)
+    public void MotionTween(ref Tween tween, string propertyName, Variant motionTarget, CameraMotionData motionData, bool force = false)
     {
-        if (_fovTween == null || (_fovTween != null && _fovTween.IsRunning() && force))
+        if (tween == null || (tween != null && tween.IsRunning() && force))
         {
-            _fovTween?.Kill();
-            _fovTween = CreateTween();
+            tween?.Kill();
+            tween = CreateTween();
         }
         
-        _fovTween.TweenProperty(this, property: "fov", fov, duration);
+        tween.TweenProperty(this, property: propertyName, motionTarget, motionData.TweenDuration)
+            .SetTrans(motionData.TweenTrans)
+            .SetEase(motionData.TweenEase);
     }
 }

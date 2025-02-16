@@ -5,7 +5,7 @@ using Rubicon.Core.Chart;
 
 namespace Rubicon.Debug;
 
-public partial class DebugInfo : CanvasLayer
+public partial class DebugTools : CanvasLayer
 {
 	/*Main Info (Always Visible)*/
 	//Performance

@@ -102,6 +102,7 @@ public partial class SpatialSpace : Node3D
 
         Camera.TargetFov = Stage.Fov;
         Camera.Fov = Stage.Fov;
+        Camera.FovMotionData.LerpWeight = 3.125f;
         
         Characters = [];
         _namedCharacters = new Dictionary<StringName, Character3D>();
