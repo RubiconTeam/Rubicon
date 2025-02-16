@@ -166,7 +166,6 @@ judgments/great_hit_window=45.0
 judgments/good_hit_window=75.0
 judgments/okay_hit_window=105.0
 judgments/bad_hit_window=130.0
-general/settings_save_path="user://settings.cfg"
 bindings/customizable=PackedStringArray("MANIA_4K_0", "MANIA_4K_1", "MANIA_4K_2", "MANIA_4K_3", "GAME_PAUSE", "DEBUG_INFO", "VOL_UP", "VOL_DOWN", "VOL_MUTE")
 general/fallback/song="test"
 general/fallback/difficulty="normal"
@@ -180,3 +179,7 @@ general/starting_window_size=Vector2i(1366, 768)
 general/verbose=true
 general/resources_folder="res://resources"
 general/songs_folder="res://songs"
+
+[user_settings]
+
+save_path="user://settings.cfg"
