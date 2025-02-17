@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://blsjfh0b0nrk7"]
 
-[ext_resource type="Theme" uid="uid://dsa45ne22xeld" path="res://Source/Rubicon/Menus/Settings/SettingsMenu.tres" id="1_7bb5p"]
+[ext_resource type="Theme" uid="uid://dsa45ne22xeld" path="res://source/Rubicon/Menus/Settings/SettingsMenu.tres" id="1_7bb5p"]
 [ext_resource type="FontFile" uid="uid://ilqa3kmi8s03" path="res://Assets/UI/Fonts/funkin2.ttf" id="2_km6rs"]
 
 [node name="Slider" type="Label"]

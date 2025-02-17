@@ -25,7 +25,7 @@ public partial class TitleMenu : BaseMenu
 			case "Debug":
 			case "Settings":
 			{
-				GetTree().ChangeSceneToFile($"res://Source/Rubicon/Menus/{buttonName}/{buttonName}Menu.tscn");
+				GetTree().ChangeSceneToFile($"res://source/Rubicon/Menus/{buttonName}/{buttonName}Menu.tscn");
 				break;
 			}
 			default:

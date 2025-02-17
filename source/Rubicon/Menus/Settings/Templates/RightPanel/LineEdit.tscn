@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://toeixfft3esk"]
 
-[ext_resource type="Theme" uid="uid://dsa45ne22xeld" path="res://Source/Rubicon/Menus/Settings/SettingsMenu.tres" id="1_o5otv"]
+[ext_resource type="Theme" uid="uid://dsa45ne22xeld" path="res://source/Rubicon/Menus/Settings/SettingsMenu.tres" id="1_o5otv"]
 [ext_resource type="FontFile" uid="uid://ilqa3kmi8s03" path="res://Assets/UI/Fonts/funkin2.ttf" id="2_qwxwx"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rdqll"]

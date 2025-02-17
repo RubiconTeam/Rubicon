@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cjf0xti25akun"
-path="res://.godot/imported/Vignette.png-715c0eca9a2b697d913739fc71a83360.ctex"
+uid="uid://dqeyh2blc4vhc"
+path="res://.godot/imported/Rubicon.png-b5ac99a35daeb0ab355b5ef8745eb25a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Source/Rubicon/Menus/Title/Assets/Vignette.png"
-dest_files=["res://.godot/imported/Vignette.png-715c0eca9a2b697d913739fc71a83360.ctex"]
+source_file="res://source/Rubicon/Menus/Title/Assets/Rubicon.png"
+dest_files=["res://.godot/imported/Rubicon.png-b5ac99a35daeb0ab355b5ef8745eb25a.ctex"]
 
 [params]
 

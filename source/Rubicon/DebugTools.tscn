@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://dwi8utcpb73yx"]
 
-[ext_resource type="Script" uid="uid://qskrrkn68tc8" path="res://Source/Rubicon/DebugTools.cs" id="1_7ys6r"]
+[ext_resource type="Script" uid="uid://qskrrkn68tc8" path="res://source/Rubicon/DebugTools.cs" id="1_7ys6r"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8rmx7"]
 bg_color = Color(0.0509804, 0.0509804, 0.0509804, 0.745098)

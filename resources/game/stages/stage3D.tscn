@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://brtrkltjjlf1"]
 
-[ext_resource type="Script" uid="uid://c4fw0uq7lxbqq" path="res://Source/Rubicon/View3D/Stage3D.cs" id="1_nddvf"]
-[ext_resource type="Script" uid="uid://dtp7600w3c5mr" path="res://Source/Rubicon/View3D/SpawnPoint3D.cs" id="2_ymsbi"]
+[ext_resource type="Script" uid="uid://c4fw0uq7lxbqq" path="res://source/Rubicon/View3D/Stage3D.cs" id="1_nddvf"]
+[ext_resource type="Script" uid="uid://dtp7600w3c5mr" path="res://source/Rubicon/View3D/SpawnPoint3D.cs" id="2_ymsbi"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ymsbi"]
 

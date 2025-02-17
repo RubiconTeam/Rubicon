@@ -4,7 +4,7 @@ using Godot.Collections;
 
 namespace Rubicon.Extras.UI;
 #if TOOLS
-[Tool, Icon("res://Assets/UI/Misc/AnimatedLabel.svg")]
+[Tool, Icon("res://assets/ui/misc/AnimatedLabel.svg")]
 #endif
 [GlobalClass] public partial class AnimatedLabel : ReferenceRect
 {

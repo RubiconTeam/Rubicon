@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dntwwyddihbu3"
-path="res://.godot/imported/vuzi.png-2f9b096c3c13056119255c4ca3016cac.ctex"
+uid="uid://c8orlamkpjw3m"
+path="res://.godot/imported/Particle.png-0f605f06fbc4391a2c43cd763b4ae91c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Source/Rubicon/Menus/Settings/vuzi.png"
-dest_files=["res://.godot/imported/vuzi.png-2f9b096c3c13056119255c4ca3016cac.ctex"]
+source_file="res://source/Rubicon/Menus/Title/Assets/Particle.png"
+dest_files=["res://.godot/imported/Particle.png-0f605f06fbc4391a2c43cd763b4ae91c.ctex"]
 
 [params]
 

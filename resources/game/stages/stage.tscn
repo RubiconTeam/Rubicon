@@ -1,10 +1,10 @@
 [gd_scene load_steps=6 format=3 uid="uid://c6bvhxnwtjffo"]
 
-[ext_resource type="Script" uid="uid://dxmj5v2b38sw8" path="res://Source/Rubicon/View2D/Stage2D.cs" id="1_q6g61"]
+[ext_resource type="Script" uid="uid://dxmj5v2b38sw8" path="res://source/Rubicon/View2D/Stage2D.cs" id="1_q6g61"]
 [ext_resource type="Texture2D" uid="uid://be8jtey655hmj" path="res://assets/game/stages/stage/stageback.png" id="2_bbiw8"]
 [ext_resource type="Texture2D" uid="uid://byh1wn4us8dni" path="res://assets/game/stages/stage/stagefront.png" id="3_s41wv"]
 [ext_resource type="Texture2D" uid="uid://87bp34u36d1w" path="res://assets/game/stages/stage/stagecurtains.png" id="4_yq1i0"]
-[ext_resource type="Script" uid="uid://bc06g0ycrwvf6" path="res://Source/Rubicon/View2D/SpawnPoint2D.cs" id="5_ol4oh"]
+[ext_resource type="Script" uid="uid://bc06g0ycrwvf6" path="res://source/Rubicon/View2D/SpawnPoint2D.cs" id="5_ol4oh"]
 
 [node name="Stage" type="Node2D" node_paths=PackedStringArray("SpawnPoints")]
 script = ExtResource("1_q6g61")

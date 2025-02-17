@@ -1,11 +1,11 @@
 [gd_scene load_steps=17 format=3 uid="uid://mumq3jg5xrxs"]
 
-[ext_resource type="Script" uid="uid://cqmn2xk4n5fbt" path="res://Source/Rubicon/View2D/Character2D.cs" id="1_m12d2"]
+[ext_resource type="Script" uid="uid://cqmn2xk4n5fbt" path="res://source/Rubicon/View2D/Character2D.cs" id="1_m12d2"]
 [ext_resource type="SpriteFrames" uid="uid://bshwhocvvt46b" path="res://assets/game/characters/gf/GfSpeaker.tres" id="1_qxx66"]
 [ext_resource type="SpriteFrames" uid="uid://dko1g82nnm8li" path="res://assets/game/characters/gf/GfNoteAssets.tres" id="2_rx5gn"]
 [ext_resource type="SpriteFrames" uid="uid://dwqx625sqpkm5" path="res://assets/game/characters/gf/Icon.tres" id="2_y4mqf"]
-[ext_resource type="Script" uid="uid://chh5qfxuctxsq" path="res://Source/Rubicon/View2D/SyncedSprite2D.cs" id="3_amjbp"]
-[ext_resource type="Script" uid="uid://bsc6hc1t5s5ry" path="res://Source/Rubicon/Data/CharacterIconData.cs" id="3_asm0s"]
+[ext_resource type="Script" uid="uid://chh5qfxuctxsq" path="res://source/Rubicon/View2D/SyncedSprite2D.cs" id="3_amjbp"]
+[ext_resource type="Script" uid="uid://bsc6hc1t5s5ry" path="res://source/Rubicon/Data/CharacterIconData.cs" id="3_asm0s"]
 [ext_resource type="Texture2D" uid="uid://bl6au38yy5tk1" path="res://assets/game/characters/gf/GfHair.png" id="3_m12d2"]
 
 [sub_resource type="Resource" id="Resource_jwyij"]

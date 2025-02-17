@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://2tqim1nji4fc"]
 
-[ext_resource type="Theme" uid="uid://dsa45ne22xeld" path="res://Source/Rubicon/Menus/Settings/SettingsMenu.tres" id="1_1bx7i"]
+[ext_resource type="Theme" uid="uid://dsa45ne22xeld" path="res://source/Rubicon/Menus/Settings/SettingsMenu.tres" id="1_1bx7i"]
 
 [node name="CheckButton" type="CheckButton"]
 theme = ExtResource("1_1bx7i")
