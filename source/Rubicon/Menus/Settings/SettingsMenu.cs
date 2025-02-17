@@ -6,7 +6,7 @@ namespace Rubicon.Menus.Settings;
 
 public partial class SettingsMenu : BaseSettingsMenu
 {
-	private const string DefaultIconPath = "res://Assets/UI/Menus/Settings/Gameplay.png";
+	private const string DefaultIconPath = "res://assets/ui/menus/settings/gameplay.png";
 
 	[Export] private VBoxContainer _sectionButtonContainer;
 	[Export] private ScrollContainer _settingsSectionContainer;

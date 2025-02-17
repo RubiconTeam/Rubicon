@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://df6tbau2acvyi"]
 
-[ext_resource type="Script" uid="uid://cr10ndskk25ov" path="res://Scripts/UI/Text/AnimatedLabel.cs" id="1_ix2cu"]
-[ext_resource type="Resource" uid="uid://inml74f3v5eu" path="res://Resources/UI/Fonts/Default.tres" id="2_jdjbw"]
+[ext_resource type="Script" uid="uid://cr10ndskk25ov" path="res://scripts/ui/Text/AnimatedLabel.cs" id="1_ix2cu"]
+[ext_resource type="Resource" uid="uid://inml74f3v5eu" path="res://resources/ui/fonts/Default.tres" id="2_jdjbw"]
 
 [node name="Control" type="Control"]
 layout_mode = 3

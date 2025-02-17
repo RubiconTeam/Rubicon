@@ -4,7 +4,7 @@ using Rubicon.Core.Data;
 namespace Rubicon.Extras.UI;
 
 /// <summary>
-/// A health bar specifically to be worked with the shader in res://Resources/Shaders/BarShader.gdshader
+/// A health bar specifically to be worked with the shader in res://resources/shaders/BarShader.gdshader
 /// </summary>
 public partial class ShaderHealthBar : CsFunkinHealthBar
 {

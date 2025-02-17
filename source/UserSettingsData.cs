@@ -58,7 +58,7 @@ public partial class UserSettingsData
     public partial UserSettingAttributeData[] GetAttributesForSetting(string key);
 }
 
-[RubiconSettingsSection(name: "Gameplay", generateInMenu: true, iconPath: "res://Assets/UI/Menus/Settings/Gameplay.png", sectionName: "Gameplay")]
+[RubiconSettingsSection(name: "Gameplay", generateInMenu: true, iconPath: "res://assets/ui/menus/settings/gameplay.png", sectionName: "Gameplay")]
 public class GameplaySection
 {
     [StepValue(0.01f, 1f, 1f)] 
@@ -77,7 +77,7 @@ public class GameplaySection
     public bool Autoplay = false;
 }
 
-[RubiconSettingsSection(name: "Video", generateInMenu: true, iconPath: "res://Assets/UI/Menus/Settings/Video.png", sectionName: "Video")]
+[RubiconSettingsSection(name: "Video", generateInMenu: true, iconPath: "res://assets/ui/menus/settings/video.png", sectionName: "Video")]
 public class VideoSection
 {
     [ProjectSetting("display/window/size/mode")] 
@@ -105,7 +105,7 @@ public class VideoSection
     }
 }
 
-[RubiconSettingsSection(name: "Audio", generateInMenu: true, iconPath: "res://Assets/UI/Menus/Settings/Audio.png", sectionName: "Audio")]
+[RubiconSettingsSection(name: "Audio", generateInMenu: true, iconPath: "res://assets/ui/menus/settings/audio.png", sectionName: "Audio")]
 public class AudioSection
 {
     [StepValue(1, 0f, 100f)] 
@@ -118,13 +118,13 @@ public class AudioSection
     public double SfxVolume = 1.0;
 }
 
-[RubiconSettingsSection(name: "Miscellaneous", generateInMenu: true, iconPath: "res://Assets/UI/Menus/Settings/Miscellaneous.png", sectionName: "Miscellaneous")]
+[RubiconSettingsSection(name: "Miscellaneous", generateInMenu: true, iconPath: "res://assets/ui/menus/settings/Miscellaneous.png", sectionName: "Miscellaneous")]
 public class MiscSection
 {
     public bool PrintErrorsOnScreen = false;
 }
 
-[RubiconSettingsSection(name: "Keybinds", generateInMenu: true, iconPath: "res://Assets/UI/Menus/Settings/Keybinds.png", sectionName: "Keybinds")]
+[RubiconSettingsSection(name: "Keybinds", generateInMenu: true, iconPath: "res://assets/ui/menus/settings/Keybinds.png", sectionName: "Keybinds")]
 public class InputMapSection
 {
     public Dictionary<string, Array<InputEvent>> Map;

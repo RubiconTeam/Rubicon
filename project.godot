@@ -20,7 +20,11 @@ boot_splash/bg_color=Color(0, 0, 0, 1)
 boot_splash/show_image=false
 boot_splash/fullsize=false
 boot_splash/use_filter=false
-config/icon="res://Assets/UI/Misc/fnf.png"
+config/icon="uid://dhvjpq5u6n18h"
+
+[audio]
+
+buses/default_bus_layout="uid://8f826qwop1rs"
 
 [autoload]
 
