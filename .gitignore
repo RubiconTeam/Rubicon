@@ -2,7 +2,7 @@
 .godot/
 .import/
 .mono/
-Exclude/
+[Ee]xclude/
 
 # macOS
 .DS_Store
@@ -15,15 +15,16 @@ Exclude/
 /.cr/personal/FavoritesList
 
 # Export releases
-Export/Windows (x64)/
-Export/Windows (x32)/
-Export/Windows (ARM64)/
-Export/macOS (Universal)/
-Export/Linux (x64)/
-Export/Linux (x32)/
-Export/Linux (ARM64)/
-Export/iOS/
-Export/Android/
+[Ee]xport/Windows (x64)/
+[Ee]xport/Windows (x32)/
+[Ee]xport/Windows (ARM64)/
+[Ee]xport/macOS (Universal)/
+[Ee]xport/Linux (x64)/
+[Ee]xport/Linux (x32)/
+[Ee]xport/Linux (ARM64)/
+[Ee]xport/iOS/
+[Ee]xport/Android/
 
 # Secret songs for testing
-Songs/SecretSongs/
+[Ss]ongs/SecretSongs/
+[Ss]ongs/secret_songs/
