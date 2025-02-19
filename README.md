@@ -5,7 +5,9 @@ A Friday Night Funkin' engine built with developers in mind, especially with the
 This engine is designed to be as robust as possible while still keeping it as non-complicated as possible towards developers looking forward to using this engine.
 
 
-### [JOIN OUR DISCORD!](https://discord.gg/HMDFMM3ffu)
+## Links
+### [Discord](https://discord.gg/HMDFMM3ffu)
+### [Trello](https://trello.com/b/s1utaWER/%E2%A8%82-rubicon-engine)
 
 
 # Status
