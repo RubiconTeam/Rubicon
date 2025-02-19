@@ -1,0 +1,59 @@
+[gd_resource type="Resource" script_class="SongMeta" load_steps=13 format=3 uid="uid://5fiv3wet0boj"]
+
+[ext_resource type="Script" uid="uid://crgqugtqe2m3y" path="res://addons/Rubicon.Core/Chart/BpmInfo.cs" id="1_ycdkm"]
+[ext_resource type="Script" uid="uid://clg1lhiqfj0nk" path="res://addons/Rubicon.Core/Meta/CharacterMeta.cs" id="2_0eumu"]
+[ext_resource type="Script" uid="uid://b87l817pyjjsp" path="res://addons/Rubicon.Core/Meta/SongMeta.cs" id="3_ejhfw"]
+[ext_resource type="Resource" uid="uid://ce7mhmnd5hfss" path="res://songs/test/data/ManiaNormal.rbc" id="3_ihpik"]
+[ext_resource type="AudioStream" uid="uid://dpn1k0iwt43dk" path="res://songs/test/Inst.ogg" id="3_t8k4v"]
+[ext_resource type="Script" uid="uid://13r6ekkfj72o" path="res://addons/Rubicon.Core/Meta/SongDifficulty.cs" id="4_arryy"]
+[ext_resource type="AudioStream" uid="uid://bw5jtofolwx3o" path="res://songs/test/Voices.ogg" id="4_jr5xt"]
+
+[sub_resource type="Resource" id="Resource_kw1yv"]
+script = ExtResource("1_ycdkm")
+Time = 0.0
+Bpm = 150.0
+TimeSignatureNumerator = 4
+TimeSignatureDenominator = 4
+
+[sub_resource type="Resource" id="Resource_12cs3"]
+script = ExtResource("2_0eumu")
+Character = "bf_pixel"
+Nickname = &"Opponent"
+BarLine = &"Opponent"
+
+[sub_resource type="Resource" id="Resource_fgly4"]
+script = ExtResource("2_0eumu")
+Character = "bf"
+Nickname = &"Player"
+BarLine = &"Player"
+
+[sub_resource type="Resource" id="Resource_64a8n"]
+script = ExtResource("2_0eumu")
+Character = "gf"
+Nickname = &"Speaker"
+BarLine = &"Speaker"
+
+[sub_resource type="Resource" id="Resource_uy2iq"]
+script = ExtResource("4_arryy")
+Name = "Normal"
+Chart = ExtResource("3_ihpik")
+RuleSet = "mania"
+Color = Color(0.576471, 0.439216, 0.858824, 1)
+metadata/_custom_type_script = ExtResource("4_arryy")
+
+[resource]
+script = ExtResource("3_ejhfw")
+Name = "Test"
+Artist = "Hideo Kojima"
+Instrumental = ExtResource("3_t8k4v")
+Vocals = ExtResource("4_jr5xt")
+Difficulties = [SubResource("Resource_uy2iq")]
+BpmInfo = [SubResource("Resource_kw1yv")]
+UiStyle = "Funkin"
+NoteSkin = "Funkin"
+Environment = 1
+Stage = "stage"
+Characters = [SubResource("Resource_12cs3"), SubResource("Resource_fgly4"), SubResource("Resource_64a8n")]
+Offset = 0.0
+DefaultRuleset = "Mania"
+PlayableCharts = [&"Player", &"Opponent"]

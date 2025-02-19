@@ -1,0 +1,68 @@
+[gd_resource type="Resource" script_class="SongMeta" load_steps=15 format=3 uid="uid://0sicht7fwxwj"]
+
+[ext_resource type="Script" uid="uid://crgqugtqe2m3y" path="res://addons/Rubicon.Core/Chart/BpmInfo.cs" id="1_stuxm"]
+[ext_resource type="Script" uid="uid://clg1lhiqfj0nk" path="res://addons/Rubicon.Core/Meta/CharacterMeta.cs" id="2_c8k8s"]
+[ext_resource type="AudioStream" uid="uid://dj1upuwj3757r" path="res://songs/roses_erect/Inst.ogg" id="3_8vwn7"]
+[ext_resource type="Resource" uid="uid://bmp6am6migmkm" path="res://songs/roses_erect/data/ManiaErect.rbc" id="3_jtkd3"]
+[ext_resource type="Script" uid="uid://b87l817pyjjsp" path="res://addons/Rubicon.Core/Meta/SongMeta.cs" id="3_vivve"]
+[ext_resource type="AudioStream" uid="uid://c0e7nq0kh2apw" path="res://songs/roses_erect/Vocals.ogg" id="4_5ymvw"]
+[ext_resource type="Script" uid="uid://13r6ekkfj72o" path="res://addons/Rubicon.Core/Meta/SongDifficulty.cs" id="4_tdojd"]
+[ext_resource type="Resource" uid="uid://crut254ffx4ui" path="res://songs/roses_erect/data/ManiaNightmare.rbc" id="5_tdojd"]
+
+[sub_resource type="Resource" id="Resource_ua2i7"]
+script = ExtResource("1_stuxm")
+Time = 0.0
+Bpm = 128.0
+TimeSignatureNumerator = 4
+TimeSignatureDenominator = 4
+
+[sub_resource type="Resource" id="Resource_vq6fb"]
+script = ExtResource("2_c8k8s")
+Character = "senpai-angry"
+Nickname = &"Opponent"
+BarLine = &"Opponent"
+
+[sub_resource type="Resource" id="Resource_dtb5c"]
+script = ExtResource("2_c8k8s")
+Character = "bf_pixel"
+Nickname = &"Player"
+BarLine = &"Player"
+
+[sub_resource type="Resource" id="Resource_l18a3"]
+script = ExtResource("2_c8k8s")
+Character = "gf"
+Nickname = &"Speaker"
+BarLine = &""
+
+[sub_resource type="Resource" id="Resource_nbxbr"]
+script = ExtResource("4_tdojd")
+Name = "Erect"
+Chart = ExtResource("3_jtkd3")
+RuleSet = "mania"
+Color = Color(0.576471, 0.439216, 0.858824, 1)
+metadata/_custom_type_script = ExtResource("4_tdojd")
+
+[sub_resource type="Resource" id="Resource_r08mx"]
+script = ExtResource("4_tdojd")
+Name = "Nightmare"
+Chart = ExtResource("5_tdojd")
+RuleSet = "mania"
+Color = Color(0.576471, 0.439216, 0.858824, 1)
+metadata/_custom_type_script = ExtResource("4_tdojd")
+
+[resource]
+script = ExtResource("3_vivve")
+Name = "Roses Erect"
+Artist = "kawaisprite"
+Instrumental = ExtResource("3_8vwn7")
+Vocals = ExtResource("4_5ymvw")
+Difficulties = [SubResource("Resource_nbxbr"), SubResource("Resource_r08mx")]
+BpmInfo = [SubResource("Resource_ua2i7")]
+UiStyle = "funkin_pixel"
+NoteSkin = "funkin_pixel"
+Environment = 1
+Stage = "school"
+Characters = [SubResource("Resource_vq6fb"), SubResource("Resource_dtb5c"), SubResource("Resource_l18a3")]
+Offset = 0.0
+DefaultRuleset = "Mania"
+PlayableCharts = [&"Player"]

@@ -1,0 +1,96 @@
+[gd_resource type="Resource" script_class="EventMeta" load_steps=14 format=3 uid="uid://b3ggt21723v0p"]
+
+[ext_resource type="Script" uid="uid://b2vtxqusme7by" path="res://addons/Rubicon.Core/Events/EventData.cs" id="1_iovse"]
+[ext_resource type="Script" uid="uid://by45gtac0cw1n" path="res://addons/Rubicon.Core/Events/EventMeta.cs" id="2_ghyj8"]
+
+[sub_resource type="Resource" id="Resource_bw814"]
+script = ExtResource("1_iovse")
+Time = 0.0
+Name = &"SetCameraFocus"
+Arguments = Dictionary[StringName, Variant]({
+&"Focus": &"Player"
+})
+
+[sub_resource type="Resource" id="Resource_smia5"]
+script = ExtResource("1_iovse")
+Time = 4.0
+Name = &"SetCameraFocus"
+Arguments = Dictionary[StringName, Variant]({
+&"Focus": &"Speaker"
+})
+
+[sub_resource type="Resource" id="Resource_otktp"]
+script = ExtResource("1_iovse")
+Time = 6.0
+Name = &"SetCameraFocus"
+Arguments = Dictionary[StringName, Variant]({
+&"Focus": &"Player"
+})
+
+[sub_resource type="Resource" id="Resource_mreft"]
+script = ExtResource("1_iovse")
+Time = 8.0
+Name = &"SetCameraFocus"
+Arguments = Dictionary[StringName, Variant]({
+&"Focus": &"Speaker"
+})
+
+[sub_resource type="Resource" id="Resource_475n0"]
+script = ExtResource("1_iovse")
+Time = 10.0
+Name = &"SetCameraFocus"
+Arguments = Dictionary[StringName, Variant]({
+&"Focus": &"Player"
+})
+
+[sub_resource type="Resource" id="Resource_4851s"]
+script = ExtResource("1_iovse")
+Time = 12.0
+Name = &"SetCameraFocus"
+Arguments = Dictionary[StringName, Variant]({
+&"Focus": &"Speaker"
+})
+
+[sub_resource type="Resource" id="Resource_57t1t"]
+script = ExtResource("1_iovse")
+Time = 14.0
+Name = &"SetCameraFocus"
+Arguments = Dictionary[StringName, Variant]({
+&"Focus": &"Player"
+})
+
+[sub_resource type="Resource" id="Resource_vjey5"]
+script = ExtResource("1_iovse")
+Time = 16.0
+Name = &"SetCameraFocus"
+Arguments = Dictionary[StringName, Variant]({
+&"Focus": &"Speaker"
+})
+
+[sub_resource type="Resource" id="Resource_10esr"]
+script = ExtResource("1_iovse")
+Time = 18.0
+Name = &"SetCameraFocus"
+Arguments = Dictionary[StringName, Variant]({
+&"Focus": &"Player"
+})
+
+[sub_resource type="Resource" id="Resource_ptad1"]
+script = ExtResource("1_iovse")
+Time = 20.0
+Name = &"SetCameraFocus"
+Arguments = Dictionary[StringName, Variant]({
+&"Focus": &"Speaker"
+})
+
+[sub_resource type="Resource" id="Resource_s2fnu"]
+script = ExtResource("1_iovse")
+Time = 21.0
+Name = &"SetCameraFocus"
+Arguments = Dictionary[StringName, Variant]({
+&"Focus": &"Player"
+})
+
+[resource]
+script = ExtResource("2_ghyj8")
+Events = [SubResource("Resource_bw814"), SubResource("Resource_smia5"), SubResource("Resource_otktp"), SubResource("Resource_mreft"), SubResource("Resource_475n0"), SubResource("Resource_4851s"), SubResource("Resource_57t1t"), SubResource("Resource_vjey5"), SubResource("Resource_10esr"), SubResource("Resource_ptad1"), SubResource("Resource_s2fnu")]
