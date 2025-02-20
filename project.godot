@@ -159,8 +159,7 @@ textures/vram_compression/import_etc2_astc=true
 [rubicon]
 
 general/default_ui_style="Funkin"
-rulesets/default_ruleset="mania"
-rulesets/mania/default_note_skin="funkin"
+rulesets/default_ruleset="Mania"
 judgments/perfect_hit_window=20.0
 judgments/great_hit_window=45.0
 judgments/good_hit_window=75.0
@@ -169,16 +168,17 @@ judgments/bad_hit_window=130.0
 bindings/customizable=PackedStringArray("MANIA_4K_0", "MANIA_4K_1", "MANIA_4K_2", "MANIA_4K_3", "GAME_PAUSE", "DEBUG_INFO", "VOL_UP", "VOL_DOWN", "VOL_MUTE")
 general/fallback/song="test"
 general/fallback/difficulty="normal"
-general/fallback/stage_2d="stage"
-general/fallback/stage_3d="stage3D"
-general/fallback/character_2d="bf"
-general/fallback/character_3d="bf_3d"
+general/fallback/stage_2d="Stage"
+general/fallback/stage_3d="Stage3D"
+general/fallback/character_2d="Bf"
+general/fallback/character_3d="Bf3D"
 general/minimum_aspect_ratio=1.333
 general/maximum_aspect_ratio=1.85
 general/starting_window_size=Vector2i(1366, 768)
 general/verbose=true
 general/resources_folder="res://resources"
 general/songs_folder="res://songs"
+rulesets/mania/default_note_skin="funkin"
 
 [user_settings]
 

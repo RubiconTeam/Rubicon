@@ -6,7 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://cwtjsj18bggik" path="res://songs/milf/Inst.ogg" id="3_rhv4t"]
 [ext_resource type="Script" uid="uid://13r6ekkfj72o" path="res://addons/Rubicon.Core/Meta/SongDifficulty.cs" id="3_tga5g"]
 [ext_resource type="AudioStream" uid="uid://capkxulsrkbd6" path="res://songs/milf/Vocals.ogg" id="3_u6l60"]
-[ext_resource type="Resource" uid="uid://b1irmwksoeq2b" path="res://songs/milf/data/Mania_hard.rbc" id="3_xm64d"]
+[ext_resource type="Resource" uid="uid://b1irmwksoeq2b" path="res://songs/milf/data/Mania-Hard.rbc" id="3_xm64d"]
 
 [sub_resource type="Resource" id="Resource_qkhdv"]
 script = ExtResource("1_qkhdv")

@@ -25,12 +25,12 @@ namespace Rubicon.Game;
 		
 		// Just load the song meta for now, we'll wait until it's loaded.
 		LoadContext context = RubiconGame.Context;
-		ResourcesToLoad.AddResource($"res://songs/{context.Name}/data/meta");
+		ResourcesToLoad.AddResource($"res://songs/{context.Name}/data/Meta");
 		ResourcesToLoad.AddPath($"res://songs/{context.Name}/data/{context.RuleSet}-{context.Difficulty}.rbc");
 
-		string eventsPath = $"res://songs/{context.Name}/data/events";
+		string eventsPath = $"res://songs/{context.Name}/data/Events";
 		if (PathUtility.ResourceExists(eventsPath))
-			ResourcesToLoad.AddResource($"res://songs/{context.Name}/data/events");
+			ResourcesToLoad.AddResource($"res://songs/{context.Name}/data/Events");
 
 		List<string> scriptPaths = [];
 		scriptPaths.AddRange(PathUtility.GetAbsoluteFilePathsAt("res://resources/game/common/", true));
@@ -49,7 +49,7 @@ namespace Rubicon.Game;
 	public override void OnPreload(string path)
 	{
 		LoadContext context = RubiconGame.Context;
-		string metaPath = ResourcesToLoad.GetResourcePath($"res://songs/{context.Name}/data/meta");
+		string metaPath = ResourcesToLoad.GetResourcePath($"res://songs/{context.Name}/data/Meta");
 		if (path == metaPath) // Meta loaded
 		{
 			Resource metaResource = ResourceLoader.LoadThreadedGet(metaPath);
@@ -84,9 +84,9 @@ namespace Rubicon.Game;
 					ResourcesToLoad.AddPath(noteTypePath + ".cs");
 			}
 			
-			string uiStylePath = $"res://resources/ui/styles/{meta.UiStyle}/style";
+			string uiStylePath = $"res://resources/ui/styles/{meta.UiStyle}/Style";
 			if (!PathUtility.ResourceExists(uiStylePath))
-				uiStylePath = $"res://resources/ui/styles/{ProjectSettings.GetSetting("rubicon/general/default_ui_style")}/style";
+				uiStylePath = $"res://resources/ui/styles/{ProjectSettings.GetSetting("rubicon/general/default_ui_style")}/Style";
 				
 			ResourcesToLoad.AddResource(uiStylePath);
 			
@@ -141,7 +141,7 @@ namespace Rubicon.Game;
 			return;
 		}
 		
-		string eventsPath = ResourcesToLoad.GetResourcePath($"res://songs/{context.Name}/data/events");
+		string eventsPath = ResourcesToLoad.GetResourcePath($"res://songs/{context.Name}/data/Events");
 		if (path == eventsPath)
 		{
 			Resource eventsResource = ResourceLoader.LoadThreadedGet(eventsPath);
