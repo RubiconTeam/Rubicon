@@ -1,7 +1,7 @@
 using Godot.Collections;
 using Rubicon;
 
-namespace GodotSharp.Utilities;
+namespace PukiTools.GodotSharp;
 
 public partial class UserSettingsData
 {

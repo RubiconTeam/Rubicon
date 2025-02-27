@@ -23,4 +23,10 @@
   <ItemGroup>
     <PackageReference Include="DiscordRichPresence" Version="1.2.1.24" />
   </ItemGroup>
+	<ItemGroup Label="PukiTools.GodotSharp">
+		<ProjectReference Include="addons\PukiTools.GodotSharp\PukiTools.GodotSharp.SourceGenerators\PukiTools.GodotSharp.SourceGenerators.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
+		<EmbeddedResource Remove="addons\PukiTools.GodotSharp\PukiTools.GodotSharp.SourceGenerators\**" />
+		<Compile Remove="addons\PukiTools.GodotSharp\PukiTools.GodotSharp.SourceGenerators\**" />
+		<Compile Remove="addons\PukiTools.GodotSharp\UserSettingsData.cs" />
+	</ItemGroup>
 </Project>
