@@ -152,6 +152,10 @@ volume_mute={
 
 buffering/agile_event_flushing=true
 
+[puki_tools]
+
+general/settings_path="user://settings.cfg"
+
 [rendering]
 
 textures/vram_compression/import_etc2_astc=true
@@ -179,7 +183,3 @@ general/verbose=true
 general/resources_folder="res://resources"
 general/songs_folder="res://songs"
 rulesets/mania/default_note_skin="funkin"
-
-[user_settings]
-
-save_path="user://settings.cfg"

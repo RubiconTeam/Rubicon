@@ -112,9 +112,12 @@ public partial class ScreenManagerInstance : CanvasLayer
             CallReadyPreload();
             UpdateResourcePaths();
             _preloadIndex = 0;
-            
+
             if (_preloadList.Count != 0)
+            {
                 ResourceLoader.LoadThreadedRequest(_preloadList[_preloadIndex]);
+                GD.Print($"[ScreenManager] Started preloading extra asset: {_preloadList[_preloadIndex]}");
+            }
         }
 
         // Continue processing preloading here
@@ -145,7 +148,9 @@ public partial class ScreenManagerInstance : CanvasLayer
                 case ThreadLoadStatus.Loaded:
                     NotifyResourceLoaded(currentPath);
                     UpdateResourcePaths();
+                    
                     _preloadIndex++;
+                    GD.Print($"[ScreenManager] Started preloading extra asset: {_preloadList[_preloadIndex]}");
                     
                     progress += Mathf.FloorToInt(1f / _preloadList.Count * _progressArray[0].AsSingle() * 50f);
                     break;
