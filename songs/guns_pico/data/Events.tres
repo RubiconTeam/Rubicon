@@ -1,0 +1,873 @@
+[gd_resource type="Resource" script_class="EventMeta" load_steps=93 format=3 uid="uid://dkleyobqcei1i"]
+
+[ext_resource type="Script" uid="uid://b2vtxqusme7by" path="res://addons/Rubicon.Core/Events/EventData.cs" id="1_qv5vh"]
+[ext_resource type="Script" uid="uid://by45gtac0cw1n" path="res://addons/Rubicon.Core/Events/EventMeta.cs" id="2_fifuk"]
+
+[sub_resource type="Resource" id="Resource_h0438"]
+script = ExtResource("1_qv5vh")
+Time = 0.0
+Name = &"SetCameraFocus"
+Arguments = Dictionary[StringName, Variant]({
+&"Focus": &"Opponent"
+})
+
+[sub_resource type="Resource" id="Resource_dl8ov"]
+script = ExtResource("1_qv5vh")
+Time = 0.0308333
+Name = &"ZoomCamera"
+Arguments = Dictionary[StringName, Variant]({
+&"duration": 32.0,
+&"ease": "expoOut",
+&"mode": "stage",
+&"zoom": 1.05
+})
+
+[sub_resource type="Resource" id="Resource_4awf6"]
+script = ExtResource("1_qv5vh")
+Time = 0.0933958
+Name = &"SetCameraBop"
+Arguments = Dictionary[StringName, Variant]({
+&"intensity": 0.5,
+&"rate": 1.0
+})
+
+[sub_resource type="Resource" id="Resource_q03a6"]
+script = ExtResource("1_qv5vh")
+Time = 1.99954
+Name = &"SetCameraFocus"
+Arguments = Dictionary[StringName, Variant]({
+&"Focus": &"Player"
+})
+
+[sub_resource type="Resource" id="Resource_jkn54"]
+script = ExtResource("1_qv5vh")
+Time = 3.99985
+Name = &"SetCameraFocus"
+Arguments = Dictionary[StringName, Variant]({
+&"Focus": &"Opponent"
+})
+
+[sub_resource type="Resource" id="Resource_bmq7s"]
+script = ExtResource("1_qv5vh")
+Time = 5.9994
+Name = &"SetCameraFocus"
+Arguments = Dictionary[StringName, Variant]({
+&"Focus": &"Player"
+})
+
+[sub_resource type="Resource" id="Resource_ffa7k"]
+script = ExtResource("1_qv5vh")
+Time = 7.46928
+Name = &"PlayAnimation"
+Arguments = Dictionary[StringName, Variant]({
+&"anim": "burpSmile",
+&"force": false,
+&"target": "boyfriend"
+})
+
+[sub_resource type="Resource" id="Resource_gk2yn"]
+script = ExtResource("1_qv5vh")
+Time = 7.49944
+Name = &"ZoomCamera"
+Arguments = Dictionary[StringName, Variant]({
+&"duration": 32.0,
+&"ease": "expoOut",
+&"mode": "stage",
+&"zoom": 1.1
+})
+
+[sub_resource type="Resource" id="Resource_t1tmf"]
+script = ExtResource("1_qv5vh")
+Time = 7.9374
+Name = &"SetCameraBop"
+Arguments = Dictionary[StringName, Variant]({
+&"intensity": 1.0,
+&"rate": 2.0
+})
+
+[sub_resource type="Resource" id="Resource_uadhf"]
+script = ExtResource("1_qv5vh")
+Time = 7.99971
+Name = &"SetCameraFocus"
+Arguments = Dictionary[StringName, Variant]({
+&"Focus": &"Opponent"
+})
+
+[sub_resource type="Resource" id="Resource_yxpxm"]
+script = ExtResource("1_qv5vh")
+Time = 8.03054
+Name = &"ZoomCamera"
+Arguments = Dictionary[StringName, Variant]({
+&"duration": 32.0,
+&"ease": "expoOut",
+&"mode": "stage",
+&"zoom": 1.05
+})
+
+[sub_resource type="Resource" id="Resource_2k8gi"]
+script = ExtResource("1_qv5vh")
+Time = 11.9996
+Name = &"SetCameraFocus"
+Arguments = Dictionary[StringName, Variant]({
+&"Focus": &"Player"
+})
+
+[sub_resource type="Resource" id="Resource_w7hr1"]
+script = ExtResource("1_qv5vh")
+Time = 15.9371
+Name = &"SetCameraBop"
+Arguments = Dictionary[StringName, Variant]({
+&"intensity": 0.0,
+&"rate": 2.0
+})
+
+[sub_resource type="Resource" id="Resource_om607"]
+script = ExtResource("1_qv5vh")
+Time = 15.9994
+Name = &"SetCameraFocus"
+Arguments = Dictionary[StringName, Variant]({
+&"Focus": &"Opponent"
+})
+
+[sub_resource type="Resource" id="Resource_lr508"]
+script = ExtResource("1_qv5vh")
+Time = 16.6871
+Name = &"SetCameraBop"
+Arguments = Dictionary[StringName, Variant]({
+&"intensity": 1.4,
+&"rate": 1.0
+})
+
+[sub_resource type="Resource" id="Resource_7few0"]
+script = ExtResource("1_qv5vh")
+Time = 16.812
+Name = &"SetCameraBop"
+Arguments = Dictionary[StringName, Variant]({
+&"intensity": 0.0,
+&"rate": 1.0
+})
+
+[sub_resource type="Resource" id="Resource_0iujc"]
+script = ExtResource("1_qv5vh")
+Time = 17.1874
+Name = &"SetCameraBop"
+Arguments = Dictionary[StringName, Variant]({
+&"intensity": 1.4,
+&"rate": 1.0
+})
+
+[sub_resource type="Resource" id="Resource_h8bkt"]
+script = ExtResource("1_qv5vh")
+Time = 17.3123
+Name = &"SetCameraBop"
+Arguments = Dictionary[StringName, Variant]({
+&"intensity": 0.0,
+&"rate": 1.0
+})
+
+[sub_resource type="Resource" id="Resource_lare3"]
+script = ExtResource("1_qv5vh")
+Time = 17.9374
+Name = &"SetCameraBop"
+Arguments = Dictionary[StringName, Variant]({
+&"intensity": 1.4,
+&"rate": 1.0
+})
+
+[sub_resource type="Resource" id="Resource_mfyu8"]
+script = ExtResource("1_qv5vh")
+Time = 18.0623
+Name = &"SetCameraBop"
+Arguments = Dictionary[StringName, Variant]({
+&"intensity": 0.0,
+&"rate": 1.0
+})
+
+[sub_resource type="Resource" id="Resource_rf5rx"]
+script = ExtResource("1_qv5vh")
+Time = 18.4369
+Name = &"SetCameraBop"
+Arguments = Dictionary[StringName, Variant]({
+&"intensity": 0.8,
+&"rate": 1.0
+})
+
+[sub_resource type="Resource" id="Resource_lhqfw"]
+script = ExtResource("1_qv5vh")
+Time = 18.8123
+Name = &"SetCameraBop"
+Arguments = Dictionary[StringName, Variant]({
+&"intensity": 0.0,
+&"rate": 1.0
+})
+
+[sub_resource type="Resource" id="Resource_iqo4p"]
+script = ExtResource("1_qv5vh")
+Time = 19.1869
+Name = &"SetCameraBop"
+Arguments = Dictionary[StringName, Variant]({
+&"intensity": 1.4,
+&"rate": 1.0
+})
+
+[sub_resource type="Resource" id="Resource_fy66w"]
+script = ExtResource("1_qv5vh")
+Time = 19.5932
+Name = &"SetCameraBop"
+Arguments = Dictionary[StringName, Variant]({
+&"intensity": 0.0,
+&"rate": 1.0
+})
+
+[sub_resource type="Resource" id="Resource_5u3k5"]
+script = ExtResource("1_qv5vh")
+Time = 19.937
+Name = &"SetCameraBop"
+Arguments = Dictionary[StringName, Variant]({
+&"intensity": 1.0,
+&"rate": 2.0
+})
+
+[sub_resource type="Resource" id="Resource_n6m1s"]
+script = ExtResource("1_qv5vh")
+Time = 19.9993
+Name = &"SetCameraFocus"
+Arguments = Dictionary[StringName, Variant]({
+&"Focus": &"Player"
+})
+
+[sub_resource type="Resource" id="Resource_588k8"]
+script = ExtResource("1_qv5vh")
+Time = 21.9996
+Name = &"ZoomCamera"
+Arguments = Dictionary[StringName, Variant]({
+&"duration": 32.0,
+&"ease": "expoOut",
+&"mode": "stage",
+&"zoom": 1.1
+})
+
+[sub_resource type="Resource" id="Resource_6s42d"]
+script = ExtResource("1_qv5vh")
+Time = 23.9999
+Name = &"SetCameraFocus"
+Arguments = Dictionary[StringName, Variant]({
+&"Focus": &"Opponent"
+})
+
+[sub_resource type="Resource" id="Resource_57cyj"]
+script = ExtResource("1_qv5vh")
+Time = 24.0307
+Name = &"ZoomCamera"
+Arguments = Dictionary[StringName, Variant]({
+&"duration": 32.0,
+&"ease": "expoOut",
+&"mode": "stage",
+&"zoom": 1.05
+})
+
+[sub_resource type="Resource" id="Resource_ioqcy"]
+script = ExtResource("1_qv5vh")
+Time = 27.9998
+Name = &"SetCameraFocus"
+Arguments = Dictionary[StringName, Variant]({
+&"Focus": &"Player"
+})
+
+[sub_resource type="Resource" id="Resource_0o5b7"]
+script = ExtResource("1_qv5vh")
+Time = 29.7495
+Name = &"ZoomCamera"
+Arguments = Dictionary[StringName, Variant]({
+&"duration": 32.0,
+&"ease": "expoOut",
+&"mode": "stage",
+&"zoom": 1.1
+})
+
+[sub_resource type="Resource" id="Resource_qkd22"]
+script = ExtResource("1_qv5vh")
+Time = 29.9993
+Name = &"ZoomCamera"
+Arguments = Dictionary[StringName, Variant]({
+&"duration": 32.0,
+&"ease": "expoOut",
+&"mode": "stage",
+&"zoom": 1.05
+})
+
+[sub_resource type="Resource" id="Resource_8xlbl"]
+script = ExtResource("1_qv5vh")
+Time = 31.9996
+Name = &"SetCameraFocus"
+Arguments = Dictionary[StringName, Variant]({
+&"Focus": &"Opponent"
+})
+
+[sub_resource type="Resource" id="Resource_xlt3h"]
+script = ExtResource("1_qv5vh")
+Time = 35.9995
+Name = &"SetCameraFocus"
+Arguments = Dictionary[StringName, Variant]({
+&"Focus": &"Player"
+})
+
+[sub_resource type="Resource" id="Resource_rkr51"]
+script = ExtResource("1_qv5vh")
+Time = 36.6246
+Name = &"ZoomCamera"
+Arguments = Dictionary[StringName, Variant]({
+&"duration": 32.0,
+&"ease": "expoOut",
+&"mode": "stage",
+&"zoom": 1.1
+})
+
+[sub_resource type="Resource" id="Resource_mmc4e"]
+script = ExtResource("1_qv5vh")
+Time = 37.4995
+Name = &"ZoomCamera"
+Arguments = Dictionary[StringName, Variant]({
+&"duration": 32.0,
+&"ease": "expoOut",
+&"mode": "stage",
+&"zoom": 1.15
+})
+
+[sub_resource type="Resource" id="Resource_0rjxm"]
+script = ExtResource("1_qv5vh")
+Time = 38.9372
+Name = &"SetCameraBop"
+Arguments = Dictionary[StringName, Variant]({
+&"intensity": 1.0,
+&"rate": 4.0
+})
+
+[sub_resource type="Resource" id="Resource_rovcx"]
+script = ExtResource("1_qv5vh")
+Time = 39.4998
+Name = &"ZoomCamera"
+Arguments = Dictionary[StringName, Variant]({
+&"duration": 32.0,
+&"ease": "expoOut",
+&"mode": "stage",
+&"zoom": 1.1
+})
+
+[sub_resource type="Resource" id="Resource_m3gkw"]
+script = ExtResource("1_qv5vh")
+Time = 39.9993
+Name = &"SetCameraFocus"
+Arguments = Dictionary[StringName, Variant]({
+&"Focus": &"Opponent"
+})
+
+[sub_resource type="Resource" id="Resource_sfc0y"]
+script = ExtResource("1_qv5vh")
+Time = 40.0309
+Name = &"ZoomCamera"
+Arguments = Dictionary[StringName, Variant]({
+&"duration": 32.0,
+&"ease": "expoOut",
+&"mode": "stage",
+&"zoom": 1.0
+})
+
+[sub_resource type="Resource" id="Resource_mo1d8"]
+script = ExtResource("1_qv5vh")
+Time = 43.9999
+Name = &"SetCameraFocus"
+Arguments = Dictionary[StringName, Variant]({
+&"Focus": &"Player"
+})
+
+[sub_resource type="Resource" id="Resource_efiq7"]
+script = ExtResource("1_qv5vh")
+Time = 44.0308
+Name = &"ZoomCamera"
+Arguments = Dictionary[StringName, Variant]({
+&"duration": 32.0,
+&"ease": "expoOut",
+&"mode": "stage",
+&"zoom": 1.05
+})
+
+[sub_resource type="Resource" id="Resource_vp8yv"]
+script = ExtResource("1_qv5vh")
+Time = 45.9995
+Name = &"ZoomCamera"
+Arguments = Dictionary[StringName, Variant]({
+&"duration": 32.0,
+&"ease": "expoOut",
+&"mode": "stage",
+&"zoom": 1.1
+})
+
+[sub_resource type="Resource" id="Resource_rsqf0"]
+script = ExtResource("1_qv5vh")
+Time = 47.9375
+Name = &"SetCameraBop"
+Arguments = Dictionary[StringName, Variant]({
+&"intensity": 0.8,
+&"rate": 2.0
+})
+
+[sub_resource type="Resource" id="Resource_oewur"]
+script = ExtResource("1_qv5vh")
+Time = 47.9998
+Name = &"SetCameraFocus"
+Arguments = Dictionary[StringName, Variant]({
+&"Focus": &"Opponent"
+})
+
+[sub_resource type="Resource" id="Resource_e2grr"]
+script = ExtResource("1_qv5vh")
+Time = 48.0306
+Name = &"ZoomCamera"
+Arguments = Dictionary[StringName, Variant]({
+&"duration": 32.0,
+&"ease": "expoOut",
+&"mode": "stage",
+&"zoom": 1.05
+})
+
+[sub_resource type="Resource" id="Resource_7lpxt"]
+script = ExtResource("1_qv5vh")
+Time = 49.9993
+Name = &"ZoomCamera"
+Arguments = Dictionary[StringName, Variant]({
+&"duration": 32.0,
+&"ease": "expoOut",
+&"mode": "stage",
+&"zoom": 1.1
+})
+
+[sub_resource type="Resource" id="Resource_c24g0"]
+script = ExtResource("1_qv5vh")
+Time = 50.9999
+Name = &"ZoomCamera"
+Arguments = Dictionary[StringName, Variant]({
+&"duration": 32.0,
+&"ease": "expoOut",
+&"mode": "stage",
+&"zoom": 1.15
+})
+
+[sub_resource type="Resource" id="Resource_l0hi4"]
+script = ExtResource("1_qv5vh")
+Time = 51.9996
+Name = &"SetCameraFocus"
+Arguments = Dictionary[StringName, Variant]({
+&"Focus": &"Player"
+})
+
+[sub_resource type="Resource" id="Resource_q1sb8"]
+script = ExtResource("1_qv5vh")
+Time = 52.0312
+Name = &"ZoomCamera"
+Arguments = Dictionary[StringName, Variant]({
+&"duration": 32.0,
+&"ease": "expoOut",
+&"mode": "stage",
+&"zoom": 1.05
+})
+
+[sub_resource type="Resource" id="Resource_j8dfa"]
+script = ExtResource("1_qv5vh")
+Time = 55.9372
+Name = &"SetCameraBop"
+Arguments = Dictionary[StringName, Variant]({
+&"intensity": 1.0,
+&"rate": 4.0
+})
+
+[sub_resource type="Resource" id="Resource_htc85"]
+script = ExtResource("1_qv5vh")
+Time = 55.9995
+Name = &"Set Camera Position"
+Arguments = Dictionary[StringName, Variant]({
+&"X": 150.0,
+&"Y": -10.0
+})
+
+[sub_resource type="Resource" id="Resource_0jvmw"]
+script = ExtResource("1_qv5vh")
+Time = 56.0311
+Name = &"ZoomCamera"
+Arguments = Dictionary[StringName, Variant]({
+&"duration": 32.0,
+&"ease": "expoOut",
+&"mode": "stage",
+&"zoom": 1.0
+})
+
+[sub_resource type="Resource" id="Resource_565w3"]
+script = ExtResource("1_qv5vh")
+Time = 57.9375
+Name = &"SetCameraBop"
+Arguments = Dictionary[StringName, Variant]({
+&"intensity": 1.4,
+&"rate": 2.0
+})
+
+[sub_resource type="Resource" id="Resource_xmncs"]
+script = ExtResource("1_qv5vh")
+Time = 59.9994
+Name = &"SetCameraFocus"
+Arguments = Dictionary[StringName, Variant]({
+&"Focus": &"Opponent"
+})
+
+[sub_resource type="Resource" id="Resource_2aap4"]
+script = ExtResource("1_qv5vh")
+Time = 60.031
+Name = &"ZoomCamera"
+Arguments = Dictionary[StringName, Variant]({
+&"duration": 32.0,
+&"ease": "expoOut",
+&"mode": "stage",
+&"zoom": 1.05
+})
+
+[sub_resource type="Resource" id="Resource_yxbwl"]
+script = ExtResource("1_qv5vh")
+Time = 63.9369
+Name = &"SetCameraBop"
+Arguments = Dictionary[StringName, Variant]({
+&"intensity": 0.0,
+&"rate": 4.0
+})
+
+[sub_resource type="Resource" id="Resource_o1bb8"]
+script = ExtResource("1_qv5vh")
+Time = 64.0
+Name = &"SetCameraFocus"
+Arguments = Dictionary[StringName, Variant]({
+&"Focus": &"Player"
+})
+
+[sub_resource type="Resource" id="Resource_igxmq"]
+script = ExtResource("1_qv5vh")
+Time = 64.0308
+Name = &"ZoomCamera"
+Arguments = Dictionary[StringName, Variant]({
+&"duration": 32.0,
+&"ease": "expoOut",
+&"mode": "stage",
+&"zoom": 1.1
+})
+
+[sub_resource type="Resource" id="Resource_cqd0k"]
+script = ExtResource("1_qv5vh")
+Time = 65.9372
+Name = &"SetCameraBop"
+Arguments = Dictionary[StringName, Variant]({
+&"intensity": 1.7,
+&"rate": 2.0
+})
+
+[sub_resource type="Resource" id="Resource_gotko"]
+script = ExtResource("1_qv5vh")
+Time = 65.9995
+Name = &"ZoomCamera"
+Arguments = Dictionary[StringName, Variant]({
+&"duration": 32.0,
+&"ease": "expoOut",
+&"mode": "stage",
+&"zoom": 1.05
+})
+
+[sub_resource type="Resource" id="Resource_w8cth"]
+script = ExtResource("1_qv5vh")
+Time = 68.4993
+Name = &"ZoomCamera"
+Arguments = Dictionary[StringName, Variant]({
+&"duration": 32.0,
+&"ease": "expoOut",
+&"mode": "stage",
+&"zoom": 1.1
+})
+
+[sub_resource type="Resource" id="Resource_xir2s"]
+script = ExtResource("1_qv5vh")
+Time = 69.4999
+Name = &"ZoomCamera"
+Arguments = Dictionary[StringName, Variant]({
+&"duration": 32.0,
+&"ease": "expoOut",
+&"mode": "stage",
+&"zoom": 1.15
+})
+
+[sub_resource type="Resource" id="Resource_l4m6c"]
+script = ExtResource("1_qv5vh")
+Time = 70.4996
+Name = &"ZoomCamera"
+Arguments = Dictionary[StringName, Variant]({
+&"duration": 32.0,
+&"ease": "expoOut",
+&"mode": "stage",
+&"zoom": 1.2
+})
+
+[sub_resource type="Resource" id="Resource_sb1p0"]
+script = ExtResource("1_qv5vh")
+Time = 70.9376
+Name = &"SetCameraBop"
+Arguments = Dictionary[StringName, Variant]({
+&"intensity": 0.0,
+&"rate": 4.0
+})
+
+[sub_resource type="Resource" id="Resource_bdi5f"]
+script = ExtResource("1_qv5vh")
+Time = 71.4994
+Name = &"ZoomCamera"
+Arguments = Dictionary[StringName, Variant]({
+&"duration": 32.0,
+&"ease": "expoOut",
+&"mode": "stage",
+&"zoom": 1.15
+})
+
+[sub_resource type="Resource" id="Resource_8yg33"]
+script = ExtResource("1_qv5vh")
+Time = 71.9374
+Name = &"SetCameraBop"
+Arguments = Dictionary[StringName, Variant]({
+&"intensity": 1.7,
+&"rate": 2.0
+})
+
+[sub_resource type="Resource" id="Resource_b3bc4"]
+script = ExtResource("1_qv5vh")
+Time = 71.9997
+Name = &"SetCameraFocus"
+Arguments = Dictionary[StringName, Variant]({
+&"Focus": &"Opponent"
+})
+
+[sub_resource type="Resource" id="Resource_6hly6"]
+script = ExtResource("1_qv5vh")
+Time = 72.0305
+Name = &"ZoomCamera"
+Arguments = Dictionary[StringName, Variant]({
+&"duration": 32.0,
+&"ease": "expoOut",
+&"mode": "stage",
+&"zoom": 1.05
+})
+
+[sub_resource type="Resource" id="Resource_4ssg3"]
+script = ExtResource("1_qv5vh")
+Time = 75.8747
+Name = &"ZoomCamera"
+Arguments = Dictionary[StringName, Variant]({
+&"duration": 32.0,
+&"ease": "expoOut",
+&"mode": "stage",
+&"zoom": 1.1
+})
+
+[sub_resource type="Resource" id="Resource_npqnb"]
+script = ExtResource("1_qv5vh")
+Time = 76.1244
+Name = &"ZoomCamera"
+Arguments = Dictionary[StringName, Variant]({
+&"duration": 32.0,
+&"ease": "expoOut",
+&"mode": "stage",
+&"zoom": 1.05
+})
+
+[sub_resource type="Resource" id="Resource_un2d6"]
+script = ExtResource("1_qv5vh")
+Time = 79.9371
+Name = &"SetCameraBop"
+Arguments = Dictionary[StringName, Variant]({
+&"intensity": 0.0,
+&"rate": 4.0
+})
+
+[sub_resource type="Resource" id="Resource_7dqws"]
+script = ExtResource("1_qv5vh")
+Time = 79.9994
+Name = &"SetCameraFocus"
+Arguments = Dictionary[StringName, Variant]({
+&"Focus": &"Player"
+})
+
+[sub_resource type="Resource" id="Resource_1q7g5"]
+script = ExtResource("1_qv5vh")
+Time = 80.031
+Name = &"ZoomCamera"
+Arguments = Dictionary[StringName, Variant]({
+&"duration": 32.0,
+&"ease": "expoOut",
+&"mode": "stage",
+&"zoom": 1.0
+})
+
+[sub_resource type="Resource" id="Resource_26dky"]
+script = ExtResource("1_qv5vh")
+Time = 81.9374
+Name = &"SetCameraBop"
+Arguments = Dictionary[StringName, Variant]({
+&"intensity": 1.7,
+&"rate": 2.0
+})
+
+[sub_resource type="Resource" id="Resource_oi500"]
+script = ExtResource("1_qv5vh")
+Time = 81.9997
+Name = &"ZoomCamera"
+Arguments = Dictionary[StringName, Variant]({
+&"duration": 32.0,
+&"ease": "expoOut",
+&"mode": "stage",
+&"zoom": 1.05
+})
+
+[sub_resource type="Resource" id="Resource_efxj1"]
+script = ExtResource("1_qv5vh")
+Time = 86.937
+Name = &"SetCameraBop"
+Arguments = Dictionary[StringName, Variant]({
+&"intensity": 0.0,
+&"rate": 4.0
+})
+
+[sub_resource type="Resource" id="Resource_f4ljc"]
+script = ExtResource("1_qv5vh")
+Time = 86.9993
+Name = &"ZoomCamera"
+Arguments = Dictionary[StringName, Variant]({
+&"duration": 32.0,
+&"ease": "expoOut",
+&"mode": "stage",
+&"zoom": 1.1
+})
+
+[sub_resource type="Resource" id="Resource_aftg7"]
+script = ExtResource("1_qv5vh")
+Time = 87.9376
+Name = &"SetCameraBop"
+Arguments = Dictionary[StringName, Variant]({
+&"intensity": 1.5,
+&"rate": 2.0
+})
+
+[sub_resource type="Resource" id="Resource_51n0l"]
+script = ExtResource("1_qv5vh")
+Time = 87.9999
+Name = &"SetCameraFocus"
+Arguments = Dictionary[StringName, Variant]({
+&"Focus": &"Opponent"
+})
+
+[sub_resource type="Resource" id="Resource_ffup2"]
+script = ExtResource("1_qv5vh")
+Time = 88.0307
+Name = &"ZoomCamera"
+Arguments = Dictionary[StringName, Variant]({
+&"duration": 32.0,
+&"ease": "expoOut",
+&"mode": "stage",
+&"zoom": 1.05
+})
+
+[sub_resource type="Resource" id="Resource_mp21g"]
+script = ExtResource("1_qv5vh")
+Time = 89.9994
+Name = &"ZoomCamera"
+Arguments = Dictionary[StringName, Variant]({
+&"duration": 32.0,
+&"ease": "expoOut",
+&"mode": "stage",
+&"zoom": 1.1
+})
+
+[sub_resource type="Resource" id="Resource_pxdly"]
+script = ExtResource("1_qv5vh")
+Time = 91.9997
+Name = &"ZoomCamera"
+Arguments = Dictionary[StringName, Variant]({
+&"duration": 32.0,
+&"ease": "expoOut",
+&"mode": "stage",
+&"zoom": 1.05
+})
+
+[sub_resource type="Resource" id="Resource_vpf8c"]
+script = ExtResource("1_qv5vh")
+Time = 93.9993
+Name = &"ZoomCamera"
+Arguments = Dictionary[StringName, Variant]({
+&"duration": 32.0,
+&"ease": "expoOut",
+&"mode": "stage",
+&"zoom": 1.1
+})
+
+[sub_resource type="Resource" id="Resource_142qv"]
+script = ExtResource("1_qv5vh")
+Time = 94.9998
+Name = &"ZoomCamera"
+Arguments = Dictionary[StringName, Variant]({
+&"duration": 32.0,
+&"ease": "expoOut",
+&"mode": "stage",
+&"zoom": 1.15
+})
+
+[sub_resource type="Resource" id="Resource_ch6r3"]
+script = ExtResource("1_qv5vh")
+Time = 95.9373
+Name = &"SetCameraBop"
+Arguments = Dictionary[StringName, Variant]({
+&"intensity": 1.0,
+&"rate": 4.0
+})
+
+[sub_resource type="Resource" id="Resource_tkepv"]
+script = ExtResource("1_qv5vh")
+Time = 95.9996
+Name = &"SetCameraFocus"
+Arguments = Dictionary[StringName, Variant]({
+&"Focus": &"Player"
+})
+
+[sub_resource type="Resource" id="Resource_gj8x0"]
+script = ExtResource("1_qv5vh")
+Time = 96.0312
+Name = &"ZoomCamera"
+Arguments = Dictionary[StringName, Variant]({
+&"duration": 32.0,
+&"ease": "expoOut",
+&"mode": "stage",
+&"zoom": 1.05
+})
+
+[sub_resource type="Resource" id="Resource_6vdfk"]
+script = ExtResource("1_qv5vh")
+Time = 103.0
+Name = &"ZoomCamera"
+Arguments = Dictionary[StringName, Variant]({
+&"duration": 32.0,
+&"ease": "expoOut",
+&"mode": "stage",
+&"zoom": 1.1
+})
+
+[sub_resource type="Resource" id="Resource_jgkjy"]
+script = ExtResource("1_qv5vh")
+Time = 103.999
+Name = &"SetCameraBop"
+Arguments = Dictionary[StringName, Variant]({
+&"intensity": 1.0,
+&"rate": 4.0
+})
+
+[resource]
+script = ExtResource("2_fifuk")
+Events = [SubResource("Resource_h0438"), SubResource("Resource_dl8ov"), SubResource("Resource_4awf6"), SubResource("Resource_q03a6"), SubResource("Resource_jkn54"), SubResource("Resource_bmq7s"), SubResource("Resource_ffa7k"), SubResource("Resource_gk2yn"), SubResource("Resource_t1tmf"), SubResource("Resource_uadhf"), SubResource("Resource_yxpxm"), SubResource("Resource_2k8gi"), SubResource("Resource_w7hr1"), SubResource("Resource_om607"), SubResource("Resource_lr508"), SubResource("Resource_7few0"), SubResource("Resource_0iujc"), SubResource("Resource_h8bkt"), SubResource("Resource_lare3"), SubResource("Resource_mfyu8"), SubResource("Resource_rf5rx"), SubResource("Resource_lhqfw"), SubResource("Resource_iqo4p"), SubResource("Resource_fy66w"), SubResource("Resource_5u3k5"), SubResource("Resource_n6m1s"), SubResource("Resource_588k8"), SubResource("Resource_6s42d"), SubResource("Resource_57cyj"), SubResource("Resource_ioqcy"), SubResource("Resource_0o5b7"), SubResource("Resource_qkd22"), SubResource("Resource_8xlbl"), SubResource("Resource_xlt3h"), SubResource("Resource_rkr51"), SubResource("Resource_mmc4e"), SubResource("Resource_0rjxm"), SubResource("Resource_rovcx"), SubResource("Resource_m3gkw"), SubResource("Resource_sfc0y"), SubResource("Resource_mo1d8"), SubResource("Resource_efiq7"), SubResource("Resource_vp8yv"), SubResource("Resource_rsqf0"), SubResource("Resource_oewur"), SubResource("Resource_e2grr"), SubResource("Resource_7lpxt"), SubResource("Resource_c24g0"), SubResource("Resource_l0hi4"), SubResource("Resource_q1sb8"), SubResource("Resource_j8dfa"), SubResource("Resource_htc85"), SubResource("Resource_0jvmw"), SubResource("Resource_565w3"), SubResource("Resource_xmncs"), SubResource("Resource_2aap4"), SubResource("Resource_yxbwl"), SubResource("Resource_o1bb8"), SubResource("Resource_igxmq"), SubResource("Resource_cqd0k"), SubResource("Resource_gotko"), SubResource("Resource_w8cth"), SubResource("Resource_xir2s"), SubResource("Resource_l4m6c"), SubResource("Resource_sb1p0"), SubResource("Resource_bdi5f"), SubResource("Resource_8yg33"), SubResource("Resource_b3bc4"), SubResource("Resource_6hly6"), SubResource("Resource_4ssg3"), SubResource("Resource_npqnb"), SubResource("Resource_un2d6"), SubResource("Resource_7dqws"), SubResource("Resource_1q7g5"), SubResource("Resource_26dky"), SubResource("Resource_oi500"), SubResource("Resource_efxj1"), SubResource("Resource_f4ljc"), SubResource("Resource_aftg7"), SubResource("Resource_51n0l"), SubResource("Resource_ffup2"), SubResource("Resource_mp21g"), SubResource("Resource_pxdly"), SubResource("Resource_vpf8c"), SubResource("Resource_142qv"), SubResource("Resource_ch6r3"), SubResource("Resource_tkepv"), SubResource("Resource_gj8x0"), SubResource("Resource_6vdfk"), SubResource("Resource_jgkjy")]

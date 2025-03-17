@@ -1,5 +1,6 @@
 namespace Rubicon.Editor;
 
+#if TOOLS
 [Tool]
 public partial class ChartEditor : Control
 {
@@ -78,3 +79,4 @@ public partial class ChartEditor : Control
 		//preferenceManager.Save();
 	}
 }
+#endif

@@ -13,13 +13,11 @@ grow_vertical = 2
 metadata/_edit_lock_ = true
 
 [node name="AnimatedLabel" type="ReferenceRect" parent="."]
-custom_minimum_size = Vector2(122.585, 19.365)
+custom_minimum_size = Vector2(120, 24)
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("1_ix2cu")
 Text = "asdi"
 AnimatedFont = ExtResource("2_jdjbw")
-Separation = 25.805
-FontSize = 19.365
-metadata/_custom_type_script = ExtResource("1_ix2cu")
+metadata/_custom_type_script = "uid://cr10ndskk25ov"

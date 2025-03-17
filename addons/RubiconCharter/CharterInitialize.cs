@@ -1,5 +1,6 @@
 namespace Rubicon.Editor;
 
+#if TOOLS
 [Tool] public partial class CharterInitialize : EditorPlugin
 {
 	ChartEditor ChartEditorInstance = ResourceLoader.Load<PackedScene>("res://addons/RubiconCharter/ChartEditor.tscn").Instantiate<ChartEditor>();
@@ -53,3 +54,4 @@ namespace Rubicon.Editor;
 		return EditorInterface.Singleton.GetEditorTheme().GetIcon("Node", "EditorIcons");
 	}
 }
+#endif

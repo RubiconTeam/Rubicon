@@ -150,7 +150,8 @@ public partial class ScreenManagerInstance : CanvasLayer
                     UpdateResourcePaths();
                     
                     _preloadIndex++;
-                    GD.Print($"[ScreenManager] Started preloading extra asset: {_preloadList[_preloadIndex]}");
+                    if (_preloadIndex < _preloadList.Count)
+                        GD.Print($"[ScreenManager] Started preloading extra asset: {_preloadList[_preloadIndex]}");
                     
                     progress += Mathf.FloorToInt(1f / _preloadList.Count * _progressArray[0].AsSingle() * 50f);
                     break;
