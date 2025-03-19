@@ -680,7 +680,6 @@ root_node = NodePath("../Speaker/Bald Gf")
 libraries = {
 &"": SubResource("AnimationLibrary_kjdf0")
 }
-autoplay = "danceLeft"
 
 [node name="CameraPoint" type="Marker2D" parent="."]
 position = Vector2(150, -424)
