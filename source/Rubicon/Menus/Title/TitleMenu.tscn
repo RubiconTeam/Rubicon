@@ -3,10 +3,9 @@
 [ext_resource type="Script" uid="uid://dl72xjnnhtt47" path="res://source/Rubicon/Menus/Title/TitleMenu.cs" id="1_kvdrp"]
 [ext_resource type="Texture2D" uid="uid://c8orlamkpjw3m" path="res://source/Rubicon/Menus/Title/Assets/Particle.png" id="3_jfuxy"]
 [ext_resource type="Texture2D" uid="uid://dqeyh2blc4vhc" path="res://source/Rubicon/Menus/Title/Assets/Rubicon.png" id="3_v08up"]
-[ext_resource type="FontFile" uid="uid://ccukgoph618vn" path="res://Assets/UI/Fonts/Balthazar-Regular.ttf" id="4_wrtbe"]
+[ext_resource type="FontFile" uid="uid://ccukgoph618vn" path="res://assets/ui/fonts/Balthazar-Regular.ttf" id="4_wrtbe"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_cs7ts"]
-load_path = "res://.godot/imported/Vignette.png-715c0eca9a2b697d913739fc71a83360.ctex"
 
 [sub_resource type="Animation" id="Animation_o0mwm"]
 resource_name = "Flicker"
@@ -285,10 +284,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 621.0
-offset_top = 477.0
-offset_right = 1319.0
-offset_bottom = 613.0
+offset_left = -339.0
+offset_top = -63.0
+offset_right = 359.0
+offset_bottom = 73.0
 grow_horizontal = 2
 grow_vertical = 2
 

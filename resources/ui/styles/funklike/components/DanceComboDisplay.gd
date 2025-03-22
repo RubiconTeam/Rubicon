@@ -90,7 +90,7 @@ func update_stats(_combo : int, _hit : int, _distance : float) -> void:
 			combo_spr.anchor_left = anchor_left
 			combo_spr.anchor_right = anchor_right
 		
-		var start_pos : Vector2 = bar_line.global_position + (offset * (-1.0 if (UserSettings.GetSetting("Gameplay/DownScroll") as bool) else 1.0)) if bar_line != null else Vector2.ZERO
+		var start_pos : Vector2 = bar_line.global_position + (offset * (-1.0 if (UserSettings.GetSetting("Rubicon/Mania/DownScroll") as bool) else 1.0)) if bar_line != null else Vector2.ZERO
 		combo_spr.global_position = start_pos + Vector2(i * spacing - ((split_digits.size() - 1) * spacing / 2.0), 0) - combo_spr.pivot_offset
 		
 		var graphic : AnimatedSprite2D = combo_spr.get_child(0)
@@ -122,7 +122,7 @@ func update_position() -> void:
 	if bar_line == null:
 		return
 	
-	var start_pos : Vector2 = bar_line.global_position + (offset * (-1.0 if (UserSettings.GetSetting("Gameplay/DownScroll") as bool) else 1.0))
+	var start_pos : Vector2 = bar_line.global_position + (offset * (-1.0 if (UserSettings.GetSetting("Rubicon/Mania/DownScroll") as bool) else 1.0))
 	
 	var combo_count : int = graphics.filter(func(c:Control)->bool:return c.modulate.a > 0.0).size()
 	for i in combo_count:

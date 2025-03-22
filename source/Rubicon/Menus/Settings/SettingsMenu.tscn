@@ -1,9 +1,9 @@
 [gd_scene load_steps=21 format=3 uid="uid://csxrq1ms8awxc"]
 
 [ext_resource type="Script" uid="uid://d33kved5qgcen" path="res://source/Rubicon/Menus/Settings/SettingsMenu.cs" id="1_lotll"]
-[ext_resource type="Texture2D" uid="uid://qhfv36mgywf6" path="res://Assets/UI/Menus/menuBGDesat.png" id="2_qyjh5"]
+[ext_resource type="Texture2D" uid="uid://qhfv36mgywf6" path="res://assets/ui/menus/menuBGDesat.png" id="2_qyjh5"]
 [ext_resource type="PackedScene" uid="uid://dloydyiawkns6" path="res://source/Rubicon/Menus/Settings/Templates/LeftPanel/SectionButton.tscn" id="2_ynwdk"]
-[ext_resource type="FontFile" uid="uid://ilqa3kmi8s03" path="res://Assets/UI/Fonts/funkin2.ttf" id="3_b8kiq"]
+[ext_resource type="FontFile" uid="uid://ilqa3kmi8s03" path="res://assets/ui/fonts/funkin2.ttf" id="3_b8kiq"]
 [ext_resource type="Texture2D" uid="uid://dntwwyddihbu3" path="res://source/Rubicon/Menus/Settings/vuzi.png" id="3_jwce3"]
 [ext_resource type="PackedScene" uid="uid://daaaww4g34j1r" path="res://source/Rubicon/Menus/Settings/Templates/RightPanel/Misc/GroupSeparator.tscn" id="6_ynwdk"]
 [ext_resource type="PackedScene" uid="uid://bu2vkjvea1yub" path="res://source/Rubicon/Menus/Settings/Templates/RightPanel/Button.tscn" id="10_oijno"]

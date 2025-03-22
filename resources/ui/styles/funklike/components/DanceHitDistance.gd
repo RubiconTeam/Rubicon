@@ -53,4 +53,4 @@ func update_position() -> void:
 	label.anchor_left = bar_line.anchor_left
 	label.anchor_right = bar_line.anchor_right
 	
-	label.global_position = bar_line.global_position + (offset * (-1.0 if (UserSettings.GetSetting("Gameplay/DownScroll") as bool) else 1.0)) - label.pivot_offset
+	label.global_position = bar_line.global_position + (offset * (-1.0 if (UserSettings.GetSetting("Rubicon/Mania/DownScroll") as bool) else 1.0)) - label.pivot_offset

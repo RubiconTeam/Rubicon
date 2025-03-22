@@ -66,4 +66,4 @@ func update_position() -> void:
 	container.anchor_left = bar_line.anchor_left
 	container.anchor_right = bar_line.anchor_right
 	
-	container.global_position = bar_line.global_position + (offset * (-1.0 if (UserSettings.GetSetting("Gameplay/DownScroll") as bool) else 1.0))
+	container.global_position = bar_line.global_position + (offset * (-1.0 if (UserSettings.GetSetting("Rubicon/Mania/DownScroll") as bool) else 1.0))

@@ -5,7 +5,7 @@ namespace PukiTools.GodotSharp;
 
 public partial class UserSettingsData
 {
-    public GameplaySection Gameplay;
+    public RubiconSection Rubicon;
     public VideoSection Video;
     public AudioSection Audio;
     public MiscSection Misc;
@@ -58,8 +58,8 @@ public partial class UserSettingsData
     public partial UserSettingAttributeData[] GetAttributesForSetting(string key);
 }
 
-[RubiconSettingsSection(name: "Gameplay", generateInMenu: true, iconPath: "res://assets/ui/menus/settings/gameplay.png", sectionName: "Gameplay")]
-public class GameplaySection
+[RubiconSettingsSection(name: "Rubicon", generateInMenu: true, iconPath: "res://assets/ui/menus/settings/gameplay.png", sectionName: "Rubicon")]
+public class RubiconSection
 {
     [StepValue(0.01f, 1f, 1f)] 
     public double Offset = 0d;
@@ -67,14 +67,21 @@ public class GameplaySection
     [StepValue(0.01f, 1f, 1f)] 
     public double VisualOffset = 0d;
     
-    [StepValue(0.01f, 1f, 1f)] 
-    public double SpeedMultiplier = 1d;
-    
-    public bool DownScroll = false;
-    public bool CenterBarLine = false;
-    public bool GhostTapping = false;
     public bool FlashingLights = true;
     public bool Autoplay = false;
+    
+    [RubiconSettingsGroup("Mania")]
+    public ManiaGameplaySection Mania;
+    
+    public class ManiaGameplaySection
+    {
+        [StepValue(0.01f, 1f, 1f)] 
+        public double SpeedMultiplier = 1d;
+    
+        public bool DownScroll = false;
+        public bool CenterBarLine = false;
+        public bool GhostTapping = false;
+    }
 }
 
 [RubiconSettingsSection(name: "Video", generateInMenu: true, iconPath: "res://assets/ui/menus/settings/video.png", sectionName: "Video")]

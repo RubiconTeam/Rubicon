@@ -1,6 +1,6 @@
 [gd_resource type="Theme" load_steps=27 format=3 uid="uid://dsa45ne22xeld"]
 
-[ext_resource type="FontFile" uid="uid://ilqa3kmi8s03" path="res://Assets/UI/Fonts/funkin2.ttf" id="2_6toy8"]
+[ext_resource type="FontFile" uid="uid://ilqa3kmi8s03" path="res://assets/ui/fonts/funkin2.ttf" id="2_6toy8"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b3tli"]
 content_margin_top = 5.0
