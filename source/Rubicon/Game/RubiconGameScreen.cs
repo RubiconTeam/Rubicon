@@ -68,8 +68,8 @@ namespace Rubicon.Game;
 						noteTypes.Add(chart.Charts[i].Notes[n].Type);
 			
 			for (int i = 0; i < noteTypes.Count; i++)
-				if (RubiconEngine.NoteTypePaths.ContainsKey(noteTypes[i]))
-					ResourcesToLoad.AddPath(RubiconEngine.NoteTypePaths[noteTypes[i]]);
+				if (RubiconCore.NoteTypePaths.ContainsKey(noteTypes[i]))
+					ResourcesToLoad.AddPath(RubiconCore.NoteTypePaths[noteTypes[i]]);
 			
 			for (int i = 0; i < noteTypes.Count; i++)
 			{	

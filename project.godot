@@ -28,8 +28,9 @@ buses/default_bus_layout="uid://8f826qwop1rs"
 
 [autoload]
 
-RubiconEngine="*res://addons/Rubicon.Core/RubiconEngineInstance.cs"
 Conductor="*res://addons/Rubicon.Core/ConductorInstance.cs"
+RubiconCore="*res://addons/Rubicon.Core/RubiconCoreInstance.cs"
+RubiconEngine="*res://source/Rubicon/RubiconEngineInstance.cs"
 UserSettings="*res://addons/PukiTools.GodotSharp/UserSettingsInstance.cs"
 ScreenManager="*res://source/Rubicon/Screens/ScreenManagerInstance.cs"
 StoryMode="*res://source/Rubicon/Story/StoryModeInstance.cs"
