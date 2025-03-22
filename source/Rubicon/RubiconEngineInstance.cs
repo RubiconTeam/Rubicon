@@ -62,6 +62,9 @@ public partial class RubiconEngineInstance : Node
 		Array<StringName> actionNames = InputMap.GetActions();
 		foreach (string actionName in actionNames) 
 			DefaultInputMap[actionName] = InputMap.ActionGetEvents(actionName);
+
+		UserSettings.SettingsChanged += UpdateSettings;
+		UpdateSettings();
 	}
 
 	public override void _Process(double delta)
@@ -78,4 +81,24 @@ public partial class RubiconEngineInstance : Node
 
 	/// <inheritdoc cref="Version"/>
 	public VersionInfo GetVersion() => Version;
+
+	/// <summary>
+	/// Updates engine-related things based on <see cref="UserSettingsInstance"/>.
+	/// </summary>
+	public void UpdateSettings()
+	{
+		// Video
+		_mainWindow.Size = UserSettings.Video.Resolution;
+		DisplayServer.WindowSetVsyncMode(UserSettings.Video.VSync);
+		Engine.MaxFps = UserSettings.Video.MaxFps;
+		_mainWindow.Scaling3DMode = UserSettings.Video.Settings3D.Scaling3DMode;
+		_mainWindow.FsrSharpness = UserSettings.Video.Settings3D.FsrSharpness;
+		
+		// Audio
+		AudioServer.SetBusVolumeLinear(0, (float)UserSettings.Audio.MasterVolume);
+		AudioServer.SetBusVolumeLinear(1, (float)UserSettings.Audio.MusicVolume);
+		AudioServer.SetBusVolumeLinear(2, (float)UserSettings.Audio.SfxVolume);
+		
+		GD.Print("Change settings ! " + Engine.MaxFps + " FPS");
+	}
 }

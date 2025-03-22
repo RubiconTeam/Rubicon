@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using PukiTools.GodotSharp;
+using PukiTools.GodotSharp.Audio;
 using Rubicon.Core;
-using Rubicon.Core.Audio;
 using Rubicon.Core.Chart;
 using Rubicon.Core.Meta;
 using Rubicon.Core.Data;
@@ -143,7 +143,7 @@ public partial class RubiconGameInstance : CanvasLayer
 		
 		if (Metadata.Vocals is not null)
 		{
-			Vocals = AudioManager.Music.AddSubTrack(Metadata.Vocals, false, false);
+			Vocals = AudioManager.GetGroup("Music").Play(Metadata.Vocals, false);
 			PrintUtility.Print("RubiconGame", $"Vocals found and loaded", true);
 		}
 
@@ -337,8 +337,11 @@ public partial class RubiconGameInstance : CanvasLayer
 	public void Reset()
 	{
 		Active = false;
-		AudioManager.Music.Stop();
-		AudioManager.Music.RemoveSubPlayer(Vocals);
+			
+		AudioPlayerGroup musicGroup = AudioManager.GetGroup("Music");
+		musicGroup.Stop();
+		musicGroup.DestroyPlayer(Instrumental);
+		musicGroup.DestroyPlayer(Vocals);
 		
 		PlayField.QueueFree();
 		BounceBeatSyncer.QueueFree();

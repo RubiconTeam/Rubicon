@@ -15,6 +15,7 @@ config/version="v1.0.0"
 run/main_scene="uid://cuuuxjlonwxhn"
 config/use_custom_user_dir=true
 config/features=PackedStringArray("4.4", "C#", "Forward Plus")
+run/max_fps=60
 run/delta_smoothing=false
 boot_splash/bg_color=Color(0, 0, 0, 1)
 boot_splash/show_image=false
@@ -28,14 +29,14 @@ buses/default_bus_layout="uid://8f826qwop1rs"
 
 [autoload]
 
-Conductor="*res://addons/Rubicon.Core/ConductorInstance.cs"
-RubiconCore="*res://addons/Rubicon.Core/RubiconCoreInstance.cs"
 RubiconEngine="*res://source/Rubicon/RubiconEngineInstance.cs"
+Conductor="*res://addons/Rubicon.Core/ConductorInstance.cs"
 UserSettings="*res://addons/PukiTools.GodotSharp/UserSettingsInstance.cs"
-ScreenManager="*res://source/Rubicon/Screens/ScreenManagerInstance.cs"
+ScreenManager="*res://addons/PukiTools.GodotSharp/Screens/ScreenManagerInstance.cs"
 StoryMode="*res://source/Rubicon/Story/StoryModeInstance.cs"
 RubiconGame="*res://source/Rubicon/Game/RubiconGameInstance.cs"
-AudioManager="*res://addons/Rubicon.Core/Audio/AudioManagerInstance.cs"
+AudioManager="*res://addons/PukiTools.GodotSharp/Audio/AudioManagerInstance.cs"
+RubiconCore="*res://addons/Rubicon.Core/RubiconCoreInstance.cs"
 
 [display]
 
