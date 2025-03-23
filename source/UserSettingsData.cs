@@ -6,6 +6,7 @@ namespace PukiTools.GodotSharp;
 public partial class UserSettingsData
 {
     public RubiconSection Rubicon;
+    
     public VideoSection Video;
     public AudioSection Audio;
     public MiscSection Misc;
@@ -58,7 +59,7 @@ public partial class UserSettingsData
     public partial UserSettingAttributeData[] GetAttributesForSetting(string key);
 }
 
-[RubiconSettingsSection(name: "Rubicon", generateInMenu: true, iconPath: "res://assets/ui/menus/settings/gameplay.png", sectionName: "Rubicon")]
+[RubiconSettingsSection(name: "General", generateInMenu: true, iconPath: "res://assets/ui/menus/settings/gameplay.png", sectionName: "General")]
 public class RubiconSection
 {
     [StepValue(0.01f, 1f, 1f)] 

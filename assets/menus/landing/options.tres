@@ -1,0 +1,114 @@
+[gd_resource type="SpriteFrames" load_steps=14 format=3 uid="uid://clhprqwidfle2"]
+
+[ext_resource type="Texture2D" uid="uid://byv0qmu4em6l8" path="res://assets/menus/landing/options.png" id="1_lll36"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xjrsu"]
+atlas = ExtResource("1_lll36")
+region = Rect2(0, 488, 487, 111)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6wtmy"]
+atlas = ExtResource("1_lll36")
+region = Rect2(0, 488, 487, 111)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hmy5q"]
+atlas = ExtResource("1_lll36")
+region = Rect2(0, 488, 487, 111)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_30geu"]
+atlas = ExtResource("1_lll36")
+region = Rect2(0, 603, 487, 111)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v6w5f"]
+atlas = ExtResource("1_lll36")
+region = Rect2(0, 603, 487, 111)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tfsq7"]
+atlas = ExtResource("1_lll36")
+region = Rect2(0, 603, 487, 111)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o68qw"]
+atlas = ExtResource("1_lll36")
+region = Rect2(0, 718, 487, 111)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iss3p"]
+atlas = ExtResource("1_lll36")
+region = Rect2(0, 718, 487, 111)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u23nd"]
+atlas = ExtResource("1_lll36")
+region = Rect2(0, 718, 487, 111)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h7681"]
+atlas = ExtResource("1_lll36")
+region = Rect2(0, 329, 606, 155)
+margin = Rect2(2, 1, 4, 8)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xhodr"]
+atlas = ExtResource("1_lll36")
+region = Rect2(0, 167, 607, 158)
+margin = Rect2(3, 1, 3, 5)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5frjj"]
+atlas = ExtResource("1_lll36")
+region = Rect2(0, 0, 610, 163)
+filter_clip = true
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xjrsu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6wtmy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hmy5q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_30geu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v6w5f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tfsq7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o68qw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iss3p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u23nd")
+}],
+"loop": true,
+"name": &"options idle",
+"speed": 24.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h7681")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xhodr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5frjj")
+}],
+"loop": true,
+"name": &"options selected",
+"speed": 24.0
+}]

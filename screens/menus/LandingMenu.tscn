@@ -1,0 +1,244 @@
+[gd_scene load_steps=20 format=3 uid="uid://c5x3qhwg37emd"]
+
+[ext_resource type="Script" uid="uid://cp4j8p6ip8dtr" path="res://source/Rubicon/Menus/LandingMenu.cs" id="1_br3v8"]
+[ext_resource type="Script" uid="uid://df26buj3twqy8" path="res://addons/PukiTools.GodotSharp/Screens/ResourceLoadList.cs" id="2_sod86"]
+[ext_resource type="Texture2D" uid="uid://c03laoui8ijce" path="res://assets/menus/menuBG.png" id="3_uqcxr"]
+[ext_resource type="SpriteFrames" uid="uid://d0tp24abkg4fu" path="res://assets/menus/landing/storymode.tres" id="4_kktfg"]
+[ext_resource type="SpriteFrames" uid="uid://d35rkhbhearcp" path="res://assets/menus/landing/freeplay.tres" id="5_tyorg"]
+[ext_resource type="SpriteFrames" uid="uid://cotshr5dehse3" path="res://assets/menus/landing/credits.tres" id="6_lqd5g"]
+[ext_resource type="SpriteFrames" uid="uid://clhprqwidfle2" path="res://assets/menus/landing/options.tres" id="7_iso2x"]
+
+[sub_resource type="Resource" id="Resource_jcuwk"]
+script = ExtResource("2_sod86")
+_paths = Array[String]([])
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ve1cq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fd3ag"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6rv18"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fg4p7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jcuwk"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_637ao"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_n0324"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_x3mxr"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_c3ya7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_k0djk"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gdy8a"]
+
+[node name="LandingMenu" type="Control" node_paths=PackedStringArray("InitialFocus")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_br3v8")
+InitialFocus = NodePath("Buttons/Story")
+ResourcesToLoad = SubResource("Resource_jcuwk")
+
+[node name="BGContainer" type="AspectRatioContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+ratio = 1.7778
+stretch_mode = 3
+
+[node name="BG" type="TextureRect" parent="BGContainer"]
+layout_mode = 2
+texture = ExtResource("3_uqcxr")
+
+[node name="Buttons" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+grow_horizontal = 2
+
+[node name="Story" type="Button" parent="Buttons"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -502.5
+offset_top = 92.0
+offset_right = 502.5
+offset_bottom = 264.0
+grow_horizontal = 2
+focus_neighbor_top = NodePath("../Options")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ve1cq")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_fd3ag")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_6rv18")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_fg4p7")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_jcuwk")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_637ao")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_n0324")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_x3mxr")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_c3ya7")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_k0djk")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_gdy8a")
+flat = true
+
+[node name="SpriteContainer" type="Control" parent="Buttons/Story"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Internal" type="AnimatedSprite2D" parent="Buttons/Story/SpriteContainer"]
+scale = Vector2(1.5, 1.5)
+sprite_frames = ExtResource("4_kktfg")
+animation = &"storymode idle"
+autoplay = "storymode idle"
+
+[node name="Freeplay" type="Button" parent="Buttons"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -398.0
+offset_top = 332.0
+offset_right = 398.0
+offset_bottom = 504.0
+grow_horizontal = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ve1cq")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_fd3ag")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_6rv18")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_fg4p7")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_jcuwk")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_637ao")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_n0324")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_x3mxr")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_c3ya7")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_k0djk")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_gdy8a")
+flat = true
+
+[node name="SpriteContainer" type="Control" parent="Buttons/Freeplay"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Internal" type="AnimatedSprite2D" parent="Buttons/Freeplay/SpriteContainer"]
+scale = Vector2(1.5, 1.5)
+sprite_frames = ExtResource("5_tyorg")
+animation = &"freeplay idle"
+autoplay = "freeplay idle"
+
+[node name="Credits" type="Button" parent="Buttons"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -398.0
+offset_top = 572.0
+offset_right = 398.0
+offset_bottom = 744.0
+grow_horizontal = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ve1cq")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_fd3ag")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_6rv18")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_fg4p7")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_jcuwk")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_637ao")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_n0324")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_x3mxr")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_c3ya7")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_k0djk")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_gdy8a")
+flat = true
+
+[node name="SpriteContainer" type="Control" parent="Buttons/Credits"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Internal" type="AnimatedSprite2D" parent="Buttons/Credits/SpriteContainer"]
+scale = Vector2(1.5, 1.5)
+sprite_frames = ExtResource("6_lqd5g")
+animation = &"credits idle"
+autoplay = "credits idle"
+
+[node name="Options" type="Button" parent="Buttons"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -398.0
+offset_top = 812.0
+offset_right = 398.0
+offset_bottom = 984.0
+grow_horizontal = 2
+focus_neighbor_bottom = NodePath("../Story")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ve1cq")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_fd3ag")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_6rv18")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_fg4p7")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_jcuwk")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_637ao")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_n0324")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_x3mxr")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_c3ya7")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_k0djk")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_gdy8a")
+flat = true
+
+[node name="SpriteContainer" type="Control" parent="Buttons/Options"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Internal" type="AnimatedSprite2D" parent="Buttons/Options/SpriteContainer"]
+scale = Vector2(1.5, 1.5)
+sprite_frames = ExtResource("7_iso2x")
+animation = &"options idle"
+autoplay = "options idle"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Buttons"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 720.0
+theme_override_constants/separation = 240
+
+[connection signal="focus_entered" from="Buttons/Story" to="Buttons/Story/SpriteContainer/Internal" method="play" binds= [&"storymode selected"]]
+[connection signal="focus_exited" from="Buttons/Story" to="Buttons/Story/SpriteContainer/Internal" method="play" binds= [&"storymode idle"]]
+[connection signal="mouse_entered" from="Buttons/Story" to="Buttons/Story" method="grab_focus"]
+[connection signal="focus_entered" from="Buttons/Freeplay" to="Buttons/Freeplay/SpriteContainer/Internal" method="play" binds= [&"freeplay selected"]]
+[connection signal="focus_exited" from="Buttons/Freeplay" to="Buttons/Freeplay/SpriteContainer/Internal" method="play" binds= [&"freeplay idle"]]
+[connection signal="mouse_entered" from="Buttons/Freeplay" to="Buttons/Freeplay" method="grab_focus"]
+[connection signal="focus_entered" from="Buttons/Credits" to="Buttons/Credits/SpriteContainer/Internal" method="play" binds= [&"credits selected"]]
+[connection signal="focus_exited" from="Buttons/Credits" to="Buttons/Credits/SpriteContainer/Internal" method="play" binds= [&"credits idle"]]
+[connection signal="mouse_entered" from="Buttons/Credits" to="Buttons/Credits" method="grab_focus"]
+[connection signal="focus_entered" from="Buttons/Options" to="Buttons/Options/SpriteContainer/Internal" method="play" binds= [&"options selected"]]
+[connection signal="focus_exited" from="Buttons/Options" to="Buttons/Options/SpriteContainer/Internal" method="play" binds= [&"options idle"]]
+[connection signal="mouse_entered" from="Buttons/Options" to="Buttons/Options" method="grab_focus"]

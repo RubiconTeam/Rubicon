@@ -1,0 +1,115 @@
+[gd_resource type="SpriteFrames" load_steps=14 format=3 uid="uid://d0tp24abkg4fu"]
+
+[ext_resource type="Texture2D" uid="uid://c425elreuq84u" path="res://assets/menus/landing/storymode.png" id="1_51giq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3bbct"]
+atlas = ExtResource("1_51giq")
+region = Rect2(0, 540, 615, 122)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2fc70"]
+atlas = ExtResource("1_51giq")
+region = Rect2(0, 540, 615, 122)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dgvpt"]
+atlas = ExtResource("1_51giq")
+region = Rect2(0, 540, 615, 122)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yyxf4"]
+atlas = ExtResource("1_51giq")
+region = Rect2(0, 666, 615, 122)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8i0sg"]
+atlas = ExtResource("1_51giq")
+region = Rect2(0, 666, 615, 122)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p0cvv"]
+atlas = ExtResource("1_51giq")
+region = Rect2(0, 666, 615, 122)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dc38x"]
+atlas = ExtResource("1_51giq")
+region = Rect2(0, 792, 615, 122)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m6vv1"]
+atlas = ExtResource("1_51giq")
+region = Rect2(0, 792, 615, 122)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bxt70"]
+atlas = ExtResource("1_51giq")
+region = Rect2(0, 792, 615, 122)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jjtbs"]
+atlas = ExtResource("1_51giq")
+region = Rect2(0, 363, 796, 173)
+margin = Rect2(0, 3, 0, 8)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5j2bx"]
+atlas = ExtResource("1_51giq")
+region = Rect2(0, 185, 794, 174)
+margin = Rect2(2, 2, 2, 7)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1nol3"]
+atlas = ExtResource("1_51giq")
+region = Rect2(0, 0, 794, 181)
+margin = Rect2(0, 0, 2, 0)
+filter_clip = true
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3bbct")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2fc70")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dgvpt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yyxf4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8i0sg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p0cvv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dc38x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m6vv1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bxt70")
+}],
+"loop": true,
+"name": &"storymode idle",
+"speed": 24.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jjtbs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5j2bx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1nol3")
+}],
+"loop": true,
+"name": &"storymode selected",
+"speed": 24.0
+}]

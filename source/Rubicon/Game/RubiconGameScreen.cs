@@ -16,12 +16,10 @@ namespace Rubicon.Game;
 	
 	[Export] public string RuleSet = ProjectSettings.GetSetting("rubicon/rulesets/default_ruleset").AsString();
 #endif
-	
-    private bool _preloaded = false;
     
     public override void ReadyPreload()
 	{
-		_preloaded = true;
+		base.ReadyPreload();
 		
 		// Just load the song meta for now, we'll wait until it's loaded.
 		LoadContext context = RubiconGame.Context;
@@ -184,12 +182,11 @@ namespace Rubicon.Game;
 		if (RubiconGame.Context == null)
 			RubiconGame.Context = new LoadContext() { Name = SongName, Difficulty = Difficulty, RuleSet = RuleSet };
 		#endif
+
+		base._Ready();
 		
-		if (!_preloaded)
-		{
-			ScreenManager.SwitchScreen(GetSceneFilePath(), "default");
+		if (!IsPreloaded())
 			return;
-		}
 		
 		RubiconGame.Setup(this);
 	}

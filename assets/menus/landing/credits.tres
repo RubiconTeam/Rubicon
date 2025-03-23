@@ -1,0 +1,115 @@
+[gd_resource type="SpriteFrames" load_steps=14 format=3 uid="uid://cotshr5dehse3"]
+
+[ext_resource type="Texture2D" uid="uid://dij2iby10wghv" path="res://assets/menus/landing/credits.png" id="1_r6od3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4iydw"]
+atlas = ExtResource("1_r6od3")
+region = Rect2(0, 516, 439, 124)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2gxrn"]
+atlas = ExtResource("1_r6od3")
+region = Rect2(0, 516, 439, 124)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_67c63"]
+atlas = ExtResource("1_r6od3")
+region = Rect2(0, 516, 439, 124)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ekgh"]
+atlas = ExtResource("1_r6od3")
+region = Rect2(0, 640, 439, 124)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bvoe2"]
+atlas = ExtResource("1_r6od3")
+region = Rect2(0, 640, 439, 124)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8kr6g"]
+atlas = ExtResource("1_r6od3")
+region = Rect2(0, 640, 439, 124)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6nv7d"]
+atlas = ExtResource("1_r6od3")
+region = Rect2(0, 764, 439, 124)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2k24t"]
+atlas = ExtResource("1_r6od3")
+region = Rect2(0, 764, 439, 124)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cnadl"]
+atlas = ExtResource("1_r6od3")
+region = Rect2(0, 764, 439, 124)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_047tb"]
+atlas = ExtResource("1_r6od3")
+region = Rect2(0, 0, 520, 172)
+margin = Rect2(2, 0, 2, 0)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_amfbs"]
+atlas = ExtResource("1_r6od3")
+region = Rect2(0, 172, 520, 172)
+margin = Rect2(0, 0, 2, 0)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_chuma"]
+atlas = ExtResource("1_r6od3")
+region = Rect2(0, 344, 519, 172)
+margin = Rect2(2, 0, 3, 0)
+filter_clip = true
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4iydw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2gxrn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_67c63")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7ekgh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bvoe2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8kr6g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6nv7d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2k24t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cnadl")
+}],
+"loop": true,
+"name": &"credits idle",
+"speed": 24.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_047tb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_amfbs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_chuma")
+}],
+"loop": true,
+"name": &"credits selected",
+"speed": 24.0
+}]
