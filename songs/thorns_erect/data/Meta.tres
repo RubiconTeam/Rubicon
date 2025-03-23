@@ -6,7 +6,7 @@
 [ext_resource type="Script" uid="uid://13r6ekkfj72o" path="res://addons/Rubicon.Core/Meta/SongDifficulty.cs" id="4_f3wpy"]
 [ext_resource type="Resource" uid="uid://crut254ffx4ui" path="res://songs/roses_erect/data/Mania-Nightmare.rbc" id="5_j5sk3"]
 [ext_resource type="AudioStream" uid="uid://bau7e8kxijfrl" path="res://songs/thorns_erect/Inst.ogg" id="6_xoep2"]
-[ext_resource type="AudioStream" uid="uid://kcut3gvjecco" path="res://songs/thorns_erect/Voices.ogg" id="7_2ltfo"]
+[ext_resource type="AudioStream" uid="uid://kcut3gvjecco" path="res://songs/thorns_erect/Vocals.ogg" id="7_2ltfo"]
 [ext_resource type="Script" uid="uid://b87l817pyjjsp" path="res://addons/Rubicon.Core/Meta/SongMeta.cs" id="8_qucts"]
 
 [sub_resource type="Resource" id="Resource_ua2i7"]

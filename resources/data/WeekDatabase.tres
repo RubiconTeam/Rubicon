@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="WeekDatabase" load_steps=5 format=3 uid="uid://d03u6jkxsltum"]
+
+[ext_resource type="Resource" uid="uid://5fiv3wet0boj" path="res://songs/test/data/Meta.tres" id="1_j8k4l"]
+[ext_resource type="Script" uid="uid://dgvdmsdmng2jw" path="res://source/Rubicon/Data/WeekDatabase.cs" id="1_y4oow"]
+[ext_resource type="Script" uid="uid://vp4c50lhotw2" path="res://source/Rubicon/Data/WeekData.cs" id="2_wmnhb"]
+
+[sub_resource type="Resource" id="Resource_2x2rp"]
+script = ExtResource("2_wmnhb")
+Name = "Smth idk lol"
+Songs = Array[Object]([ExtResource("1_j8k4l")])
+metadata/_custom_type_script = "uid://vp4c50lhotw2"
+
+[resource]
+script = ExtResource("1_y4oow")
+Weeks = [SubResource("Resource_2x2rp")]
+metadata/_custom_type_script = "uid://dgvdmsdmng2jw"

@@ -6,7 +6,7 @@
 [ext_resource type="Resource" uid="uid://ce7mhmnd5hfss" path="res://songs/test/data/Mania-Normal.rbc" id="3_ihpik"]
 [ext_resource type="AudioStream" uid="uid://dpn1k0iwt43dk" path="res://songs/test/Inst.ogg" id="3_t8k4v"]
 [ext_resource type="Script" uid="uid://13r6ekkfj72o" path="res://addons/Rubicon.Core/Meta/SongDifficulty.cs" id="4_arryy"]
-[ext_resource type="AudioStream" uid="uid://bw5jtofolwx3o" path="res://songs/test/Voices.ogg" id="4_jr5xt"]
+[ext_resource type="AudioStream" uid="uid://bw5jtofolwx3o" path="res://songs/test/Vocals.ogg" id="6_gdb3v"]
 
 [sub_resource type="Resource" id="Resource_kw1yv"]
 script = ExtResource("1_ycdkm")
@@ -46,7 +46,7 @@ script = ExtResource("3_ejhfw")
 Name = "Test"
 Artist = "Hideo Kojima"
 Instrumental = ExtResource("3_t8k4v")
-Vocals = ExtResource("4_jr5xt")
+Vocals = ExtResource("6_gdb3v")
 Difficulties = [SubResource("Resource_uy2iq")]
 BpmInfo = [SubResource("Resource_kw1yv")]
 UiStyle = "Funkin"
