@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="ManiaNoteSkin" load_steps=3 format=3 uid="uid://evrsgocsl11y"]
 
 [ext_resource type="SpriteFrames" uid="uid://bwn0tovd1xctw" path="res://assets/ui/styles/funkin_pixel/mania/NoteSkin.tres" id="1_kg536"]
-[ext_resource type="Script" uid="uid://ddude6p581oy2" path="res://addons/Rubicon.Core/source/Rulesets/Mania/ManiaNoteSkin.cs" id="4_y1sga"]
+[ext_resource type="Script" uid="uid://ddude6p581oy2" path="res://addons/Rubicon.Core.Rulesets.Mania/source/ManiaNoteSkin.cs" id="4_y1sga"]
 
 [resource]
 script = ExtResource("4_y1sga")

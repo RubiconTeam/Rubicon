@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://clmodkdjll5kc"]
 
-[ext_resource type="Script" uid="uid://ddude6p581oy2" path="res://addons/Rubicon.Core/source/Rulesets/Mania/ManiaNoteSkin.cs" id="1_p6u6k"]
+[ext_resource type="Script" uid="uid://ddude6p581oy2" path="res://addons/Rubicon.Core.Rulesets.Mania/source/ManiaNoteSkin.cs" id="1_p6u6k"]
 
 [sub_resource type="GDScript" id="GDScript_s26kk"]
 resource_name = "MineNoteType"
