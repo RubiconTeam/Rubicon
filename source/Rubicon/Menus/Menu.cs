@@ -7,16 +7,21 @@ namespace Rubicon.Menus;
     [Export] public Control InitialFocus;
 
     [Export] public Control[] Focusable = [];
-    
-    public abstract void UpdateSelection();
 
     public override void _Ready()
     {
         base._Ready();
 
-        if (!IsPreloaded())
+        if (!IsLoaded())
             return;
         
         InitialFocus?.GrabFocus();
+        for (int i = 0; i < Focusable.Length; i++)
+        {
+            Control cur = Focusable[i];
+            cur.FocusEntered += () => UpdateSelection(cur);
+        }
     }
+    
+    public abstract void UpdateSelection(Control focused);
 }

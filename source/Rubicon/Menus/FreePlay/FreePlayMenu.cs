@@ -13,7 +13,7 @@ public partial class FreePlayMenu : Menu
         
     }
 
-    public override void UpdateSelection()
+    public override void UpdateSelection(Control focused)
     {
         
     }

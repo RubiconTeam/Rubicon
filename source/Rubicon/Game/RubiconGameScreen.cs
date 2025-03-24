@@ -184,7 +184,7 @@ namespace Rubicon.Game;
 
 		base._Ready();
 		
-		if (!IsPreloaded())
+		if (!IsLoaded())
 			return;
 		
 		RubiconGame.Setup(this);

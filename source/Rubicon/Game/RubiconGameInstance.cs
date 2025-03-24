@@ -266,6 +266,9 @@ public partial class RubiconGameInstance : CanvasLayer
 	{
 		base._Input(@event);
 
+		if (!Active || @event.IsEcho())
+			return;
+		
 		// Temporary
 		if (@event.IsActionPressed("game_pause"))
 		{
@@ -274,9 +277,6 @@ public partial class RubiconGameInstance : CanvasLayer
 			else
 				Resume();
 		}
-
-		if (!Active || @event.IsEcho())
-			return;
 
 		// Freeze singing
 		bool isAction = false;

@@ -55,7 +55,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [false]
+"values": [true]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -115,7 +115,7 @@ tracks/7/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [0]
+"values": [11]
 }
 
 [sub_resource type="Animation" id="Animation_tqkwi"]
@@ -749,8 +749,9 @@ animation = &"stereo boom instance 1"
 position = Vector2(11, -222)
 sprite_frames = ExtResource("2_rx5gn")
 animation = &"GF Dancing Beat"
-frame = 11
 script = ExtResource("6_6p7p4")
+sync = true
+frame_offset = 11
 animation_player = NodePath("../../AnimationPlayer")
 
 [node name="Hair" type="Sprite2D" parent="Speaker/Bald Gf"]

@@ -1,12 +1,15 @@
-[gd_scene load_steps=20 format=3 uid="uid://c5x3qhwg37emd"]
+[gd_scene load_steps=24 format=3 uid="uid://c5x3qhwg37emd"]
 
 [ext_resource type="Script" uid="uid://cp4j8p6ip8dtr" path="res://source/Rubicon/Menus/LandingMenu.cs" id="1_br3v8"]
 [ext_resource type="Script" uid="uid://df26buj3twqy8" path="res://addons/PukiTools.GodotSharp/Screens/ResourceLoadList.cs" id="2_sod86"]
+[ext_resource type="AudioStream" uid="uid://c3kcg36qwoj4o" path="res://resources/audio/sfx/scrollMenu.ogg" id="2_uqcxr"]
+[ext_resource type="AudioStream" uid="uid://bgh2o6efcuchk" path="res://resources/audio/sfx/confirmMenu.ogg" id="3_kktfg"]
 [ext_resource type="Texture2D" uid="uid://c03laoui8ijce" path="res://assets/menus/menuBG.png" id="3_uqcxr"]
 [ext_resource type="SpriteFrames" uid="uid://d0tp24abkg4fu" path="res://assets/menus/landing/storymode.tres" id="4_kktfg"]
 [ext_resource type="SpriteFrames" uid="uid://d35rkhbhearcp" path="res://assets/menus/landing/freeplay.tres" id="5_tyorg"]
 [ext_resource type="SpriteFrames" uid="uid://cotshr5dehse3" path="res://assets/menus/landing/credits.tres" id="6_lqd5g"]
 [ext_resource type="SpriteFrames" uid="uid://clhprqwidfle2" path="res://assets/menus/landing/options.tres" id="7_iso2x"]
+[ext_resource type="FontFile" uid="uid://gk0tkvl4wnv2" path="res://assets/ui/fonts/funkin.ttf" id="10_kktfg"]
 
 [sub_resource type="Resource" id="Resource_jcuwk"]
 script = ExtResource("2_sod86")
@@ -34,7 +37,13 @@ _paths = Array[String]([])
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gdy8a"]
 
-[node name="LandingMenu" type="Control" node_paths=PackedStringArray("InitialFocus")]
+[sub_resource type="LabelSettings" id="LabelSettings_tyorg"]
+font = ExtResource("10_kktfg")
+font_size = 24
+outline_size = 8
+outline_color = Color(0, 0, 0, 1)
+
+[node name="LandingMenu" type="Control" node_paths=PackedStringArray("Background", "InitialFocus", "Focusable")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -42,7 +51,13 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_br3v8")
+Background = NodePath("BGContainer")
+StartingBackgroundY = 100.0
+Spacing = -30.6
+MoveSound = ExtResource("2_uqcxr")
+ConfirmSound = ExtResource("3_kktfg")
 InitialFocus = NodePath("Buttons/Story")
+Focusable = [NodePath("Buttons/Story"), NodePath("Buttons/Freeplay"), NodePath("Buttons/Credits"), NodePath("Buttons/Options")]
 ResourcesToLoad = SubResource("Resource_jcuwk")
 
 [node name="BGContainer" type="AspectRatioContainer" parent="."]
@@ -52,6 +67,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(1.2, 1.2)
+pivot_offset = Vector2(1152, 648)
 ratio = 1.7778
 stretch_mode = 3
 
@@ -230,15 +247,47 @@ offset_right = 40.0
 offset_bottom = 720.0
 theme_override_constants/separation = 240
 
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -28.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Watermarks" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Version" type="Label" parent="MarginContainer/Watermarks"]
+layout_mode = 2
+text = "Rubicon Engine 0.2"
+label_settings = SubResource("LabelSettings_tyorg")
+
+[node name="Disclaimer" type="Label" parent="MarginContainer/Watermarks"]
+layout_mode = 2
+size_flags_horizontal = 10
+text = "Dislcaimer: This engine is NOT affliated with the Funkin' Crew."
+label_settings = SubResource("LabelSettings_tyorg")
+
 [connection signal="focus_entered" from="Buttons/Story" to="Buttons/Story/SpriteContainer/Internal" method="play" binds= [&"storymode selected"]]
 [connection signal="focus_exited" from="Buttons/Story" to="Buttons/Story/SpriteContainer/Internal" method="play" binds= [&"storymode idle"]]
 [connection signal="mouse_entered" from="Buttons/Story" to="Buttons/Story" method="grab_focus"]
+[connection signal="pressed" from="Buttons/Story" to="." method="Confirm"]
 [connection signal="focus_entered" from="Buttons/Freeplay" to="Buttons/Freeplay/SpriteContainer/Internal" method="play" binds= [&"freeplay selected"]]
 [connection signal="focus_exited" from="Buttons/Freeplay" to="Buttons/Freeplay/SpriteContainer/Internal" method="play" binds= [&"freeplay idle"]]
 [connection signal="mouse_entered" from="Buttons/Freeplay" to="Buttons/Freeplay" method="grab_focus"]
+[connection signal="pressed" from="Buttons/Freeplay" to="." method="Confirm"]
 [connection signal="focus_entered" from="Buttons/Credits" to="Buttons/Credits/SpriteContainer/Internal" method="play" binds= [&"credits selected"]]
 [connection signal="focus_exited" from="Buttons/Credits" to="Buttons/Credits/SpriteContainer/Internal" method="play" binds= [&"credits idle"]]
 [connection signal="mouse_entered" from="Buttons/Credits" to="Buttons/Credits" method="grab_focus"]
+[connection signal="pressed" from="Buttons/Credits" to="." method="Confirm"]
 [connection signal="focus_entered" from="Buttons/Options" to="Buttons/Options/SpriteContainer/Internal" method="play" binds= [&"options selected"]]
 [connection signal="focus_exited" from="Buttons/Options" to="Buttons/Options/SpriteContainer/Internal" method="play" binds= [&"options idle"]]
 [connection signal="mouse_entered" from="Buttons/Options" to="Buttons/Options" method="grab_focus"]
+[connection signal="pressed" from="Buttons/Options" to="." method="Confirm"]
