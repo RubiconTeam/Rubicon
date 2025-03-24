@@ -1,0 +1,78 @@
+[gd_scene load_steps=6 format=3 uid="uid://bqe66b35i3et3"]
+
+[ext_resource type="Texture2D" uid="uid://bfj64lmna5iew" path="res://assets/menus/menuBGBlue.png" id="1_0aepf"]
+[ext_resource type="SpriteFrames" uid="uid://dvi6aj4lv7yu" path="res://assets/menus/freeplay/capsule/freeplayCapsule.tres" id="2_tdqag"]
+[ext_resource type="FontFile" uid="uid://cmj7w716nine6" path="res://assets/menus/freeplay/bignumbers.png" id="3_7erph"]
+[ext_resource type="Texture2D" uid="uid://dhg88njm3yipt" path="res://assets/menus/freeplay/ref.png" id="4_2dhrr"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_7erph"]
+font = ExtResource("3_7erph")
+font_size = 67
+
+[node name="FreePlayMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BGContainer" type="AspectRatioContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+ratio = 1.7778
+stretch_mode = 3
+
+[node name="BG" type="TextureRect" parent="BGContainer"]
+layout_mode = 2
+texture = ExtResource("1_0aepf")
+
+[node name="FreePlayTemplate" type="Control" parent="."]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="BG" type="AnimatedSprite2D" parent="FreePlayTemplate"]
+sprite_frames = ExtResource("2_tdqag")
+animation = &"mp3 capsule w backing"
+autoplay = "mp3 capsule w backing NOT SELECTED"
+centered = false
+
+[node name="Label" type="Label" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 516.0
+offset_top = 30.0
+offset_right = 926.0
+offset_bottom = 97.0
+label_settings = SubResource("LabelSettings_7erph")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(499.625, 112.5)
+scale = Vector2(1.25, 1.25)
+texture = ExtResource("4_2dhrr")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(577.625, 309.5)
+scale = Vector2(1.25, 1.25)
+texture = ExtResource("4_2dhrr")
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+position = Vector2(624.625, 516.5)
+scale = Vector2(1.25, 1.25)
+texture = ExtResource("4_2dhrr")
+
+[node name="Sprite2D4" type="Sprite2D" parent="."]
+position = Vector2(596.625, 718.5)
+scale = Vector2(1.25, 1.25)
+texture = ExtResource("4_2dhrr")
+
+[node name="Sprite2D5" type="Sprite2D" parent="."]
+position = Vector2(463.625, 944.5)
+scale = Vector2(1.25, 1.25)
+texture = ExtResource("4_2dhrr")

@@ -1,0 +1,160 @@
+[gd_resource type="SpriteFrames" load_steps=18 format=3 uid="uid://dvi6aj4lv7yu"]
+
+[ext_resource type="Texture2D" uid="uid://dl3alhwksuax0" path="res://assets/menus/freeplay/capsule/freeplayCapsule.png" id="1_33run"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pgokv"]
+atlas = ExtResource("1_33run")
+region = Rect2(0, 544, 585, 131)
+margin = Rect2(14, 1, 27, 1)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1b1en"]
+atlas = ExtResource("1_33run")
+region = Rect2(585, 0, 585, 131)
+margin = Rect2(14, 1, 27, 1)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_by4on"]
+atlas = ExtResource("1_33run")
+region = Rect2(0, 0, 581, 132)
+margin = Rect2(18, 0, 31, 0)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mn23g"]
+atlas = ExtResource("1_33run")
+region = Rect2(0, 136, 581, 132)
+margin = Rect2(18, 0, 31, 0)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pji81"]
+atlas = ExtResource("1_33run")
+region = Rect2(585, 405, 612, 125)
+margin = Rect2(0, 7, 0, 7)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ks8yp"]
+atlas = ExtResource("1_33run")
+region = Rect2(1174, 0, 612, 125)
+margin = Rect2(0, 7, 0, 7)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y8set"]
+atlas = ExtResource("1_33run")
+region = Rect2(1174, 129, 590, 128)
+margin = Rect2(11, 4, 22, 4)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dngqs"]
+atlas = ExtResource("1_33run")
+region = Rect2(1174, 261, 590, 128)
+margin = Rect2(11, 4, 22, 4)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1s7w7"]
+atlas = ExtResource("1_33run")
+region = Rect2(585, 135, 585, 131)
+margin = Rect2(9, 1, 17, 1)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c3f14"]
+atlas = ExtResource("1_33run")
+region = Rect2(585, 270, 585, 131)
+margin = Rect2(9, 1, 17, 1)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mtiji"]
+atlas = ExtResource("1_33run")
+region = Rect2(0, 272, 581, 132)
+margin = Rect2(13, 0, 21, 0)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w0aca"]
+atlas = ExtResource("1_33run")
+region = Rect2(0, 408, 581, 132)
+margin = Rect2(13, 0, 21, 0)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v1g08"]
+atlas = ExtResource("1_33run")
+region = Rect2(1183, 534, 602, 124)
+margin = Rect2(0, 8, 0, 8)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l6c8k"]
+atlas = ExtResource("1_33run")
+region = Rect2(1201, 393, 602, 124)
+margin = Rect2(0, 8, 0, 8)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_71w1h"]
+atlas = ExtResource("1_33run")
+region = Rect2(589, 534, 590, 128)
+margin = Rect2(6, 4, 12, 4)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dwj2d"]
+atlas = ExtResource("1_33run")
+region = Rect2(589, 666, 590, 128)
+margin = Rect2(6, 4, 12, 4)
+filter_clip = true
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pgokv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1b1en")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_by4on")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mn23g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pji81")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ks8yp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y8set")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dngqs")
+}],
+"loop": true,
+"name": &"mp3 capsule w backing",
+"speed": 24.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1s7w7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c3f14")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mtiji")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w0aca")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v1g08")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l6c8k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_71w1h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dwj2d")
+}],
+"loop": true,
+"name": &"mp3 capsule w backing NOT SELECTED",
+"speed": 24.0
+}]

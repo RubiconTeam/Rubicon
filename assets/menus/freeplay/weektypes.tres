@@ -1,0 +1,32 @@
+[gd_resource type="SpriteFrames" load_steps=4 format=3 uid="uid://jhn08c0cxuap"]
+
+[ext_resource type="Texture2D" uid="uid://d0blid2v3sn4t" path="res://assets/menus/freeplay/weektypes.png" id="1_om7ht"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7vb2w"]
+atlas = ExtResource("1_om7ht")
+region = Rect2(0, 0, 107, 29)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4tc7b"]
+atlas = ExtResource("1_om7ht")
+region = Rect2(107, 0, 107, 29)
+filter_clip = true
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7vb2w")
+}],
+"loop": false,
+"name": &"WEEK text instance 1",
+"speed": 24.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4tc7b")
+}],
+"loop": false,
+"name": &"WEEKEND text instance 1",
+"speed": 24.0
+}]
