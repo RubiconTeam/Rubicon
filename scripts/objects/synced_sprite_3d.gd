@@ -1,6 +1,6 @@
 @tool
 
-class_name SyncedSprite2D extends AnimatedSprite3D
+class_name SyncedSprite3D extends AnimatedSprite3D
 
 ## [AnimatedSprite3D] utility that synchronizes the animation with the provided [AnimationPlayer]
 
