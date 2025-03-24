@@ -4,9 +4,9 @@
 [ext_resource type="SpriteFrames" uid="uid://bshwhocvvt46b" path="res://assets/game/characters/gf/GfSpeaker.tres" id="1_qxx66"]
 [ext_resource type="SpriteFrames" uid="uid://dko1g82nnm8li" path="res://assets/game/characters/gf/GfNoteAssets.tres" id="2_rx5gn"]
 [ext_resource type="SpriteFrames" uid="uid://dwqx625sqpkm5" path="res://assets/game/characters/gf/Icon.tres" id="2_y4mqf"]
-[ext_resource type="Script" uid="uid://chh5qfxuctxsq" path="res://source/Rubicon/View2D/SyncedSprite2D.cs" id="3_amjbp"]
 [ext_resource type="Script" uid="uid://bsc6hc1t5s5ry" path="res://source/Rubicon/Data/CharacterIconData.cs" id="3_asm0s"]
 [ext_resource type="Texture2D" uid="uid://bl6au38yy5tk1" path="res://assets/game/characters/gf/GfHair.png" id="3_m12d2"]
+[ext_resource type="Script" uid="uid://desx3mgib42mp" path="res://scripts/objects/synced_sprite_2d.gd" id="6_6p7p4"]
 
 [sub_resource type="Resource" id="Resource_jwyij"]
 script = ExtResource("3_asm0s")
@@ -19,6 +19,7 @@ metadata/_custom_type_script = ExtResource("3_asm0s")
 
 [sub_resource type="Animation" id="Animation_asm0s"]
 resource_name = "RESET"
+length = 0.001
 step = 0.0416667
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -47,7 +48,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath(".:Sync")
+tracks/2/path = NodePath(".:sync")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -103,6 +104,18 @@ tracks/6/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(1, 1)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath(".:frame_offset")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
 }
 
 [sub_resource type="Animation" id="Animation_tqkwi"]
@@ -172,14 +185,14 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath(".:Sync")
+tracks/5/path = NodePath(".:sync")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0, 0.458333),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [true, false]
+"values": [true]
 }
 tracks/6/type = "value"
 tracks/6/imported = false
@@ -192,6 +205,18 @@ tracks/6/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(1, 1)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath(".:frame_offset")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
 }
 
 [sub_resource type="Animation" id="Animation_78cgk"]
@@ -261,14 +286,14 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath(".:Sync")
+tracks/5/path = NodePath(".:sync")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0, 0.458333),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [true, false]
+"values": [true]
 }
 tracks/6/type = "value"
 tracks/6/imported = false
@@ -281,6 +306,18 @@ tracks/6/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(1, 1)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath(".:frame_offset")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [15]
 }
 
 [sub_resource type="Animation" id="Animation_y1jbg"]
@@ -324,7 +361,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath(".:Sync")
+tracks/3/path = NodePath(".:sync")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -369,6 +406,18 @@ tracks/6/keys = {
 "update": 1,
 "values": [Vector2(1.02409, 0.987169), Vector2(1.01446, 0.98815)]
 }
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath(".:frame_offset")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
 
 [sub_resource type="Animation" id="Animation_jwyij"]
 resource_name = "singLEFT"
@@ -399,7 +448,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath(".:Sync")
+tracks/2/path = NodePath(".:sync")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -456,6 +505,18 @@ tracks/6/keys = {
 "update": 1,
 "values": [0]
 }
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath(".:frame_offset")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
 
 [sub_resource type="Animation" id="Animation_ldnqh"]
 resource_name = "singRIGHT"
@@ -487,7 +548,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath(".:Sync")
+tracks/2/path = NodePath(".:sync")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -544,6 +605,18 @@ tracks/6/keys = {
 "update": 1,
 "values": [0]
 }
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath(".:frame_offset")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
 
 [sub_resource type="Animation" id="Animation_a8qwb"]
 resource_name = "singUP"
@@ -575,7 +648,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath(".:Sync")
+tracks/2/path = NodePath(".:sync")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -632,6 +705,18 @@ tracks/6/keys = {
 "update": 1,
 "values": [0]
 }
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath(".:frame_offset")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_kjdf0"]
 _data = {
@@ -659,14 +744,14 @@ metadata/_edit_vertical_guides_ = [1420.0, 1420.0, 1420.0]
 position = Vector2(0, -176)
 sprite_frames = ExtResource("1_qxx66")
 animation = &"stereo boom instance 1"
-script = ExtResource("3_amjbp")
 
-[node name="Bald Gf" type="AnimatedSprite2D" parent="Speaker"]
+[node name="Bald Gf" type="AnimatedSprite2D" parent="Speaker" node_paths=PackedStringArray("animation_player")]
 position = Vector2(11, -222)
 sprite_frames = ExtResource("2_rx5gn")
 animation = &"GF Dancing Beat"
 frame = 11
-script = ExtResource("3_amjbp")
+script = ExtResource("6_6p7p4")
+animation_player = NodePath("../../AnimationPlayer")
 
 [node name="Hair" type="Sprite2D" parent="Speaker/Bald Gf"]
 show_behind_parent = true

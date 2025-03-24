@@ -1,10 +1,10 @@
 [gd_scene load_steps=21 format=3 uid="uid://ch42nuiw15uh6"]
 
-[ext_resource type="Script" uid="uid://cqmn2xk4n5fbt" path="res://Source/Rubicon/View2D/Character2D.cs" id="1_deaeb"]
+[ext_resource type="Script" uid="uid://cqmn2xk4n5fbt" path="res://source/Rubicon/View2D/Character2D.cs" id="1_deaeb"]
 [ext_resource type="SpriteFrames" uid="uid://bf1b5h0jdi2y4" path="res://assets/game/characters/bf/boyfriend.tres" id="2_7sbxo"]
 [ext_resource type="SpriteFrames" uid="uid://dw06ivs1uhiwa" path="res://assets/game/characters/bf/BfIcon.tres" id="2_o37gp"]
-[ext_resource type="Script" uid="uid://chh5qfxuctxsq" path="res://Source/Rubicon/View2D/SyncedSprite2D.cs" id="3_1tcb8"]
-[ext_resource type="Script" uid="uid://bsc6hc1t5s5ry" path="res://Source/Rubicon/Data/CharacterIconData.cs" id="3_jt35w"]
+[ext_resource type="Script" uid="uid://bsc6hc1t5s5ry" path="res://source/Rubicon/Data/CharacterIconData.cs" id="3_jt35w"]
+[ext_resource type="Script" uid="uid://desx3mgib42mp" path="res://scripts/objects/synced_sprite_2d.gd" id="5_s2e1f"]
 
 [sub_resource type="Resource" id="Resource_grh58"]
 script = ExtResource("3_jt35w")
@@ -55,7 +55,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Sprite:Sync")
+tracks/3/path = NodePath("Sprite:sync")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -108,7 +108,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Sprite:Sync")
+tracks/3/path = NodePath("Sprite:sync")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -161,7 +161,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Sprite:Sync")
+tracks/3/path = NodePath("Sprite:sync")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -214,7 +214,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Sprite:Sync")
+tracks/3/path = NodePath("Sprite:sync")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -268,7 +268,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Sprite:Sync")
+tracks/3/path = NodePath("Sprite:sync")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -321,7 +321,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Sprite:Sync")
+tracks/3/path = NodePath("Sprite:sync")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -374,7 +374,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Sprite:Sync")
+tracks/3/path = NodePath("Sprite:sync")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -427,7 +427,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Sprite:Sync")
+tracks/3/path = NodePath("Sprite:sync")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -480,7 +480,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Sprite:Sync")
+tracks/3/path = NodePath("Sprite:sync")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -533,7 +533,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Sprite:Sync")
+tracks/3/path = NodePath("Sprite:sync")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -586,7 +586,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Sprite:Sync")
+tracks/3/path = NodePath("Sprite:sync")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -639,7 +639,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Sprite:Sync")
+tracks/3/path = NodePath("Sprite:sync")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -692,7 +692,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Sprite:Sync")
+tracks/3/path = NodePath("Sprite:sync")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -729,14 +729,13 @@ Sprite = NodePath("Sprite")
 AnimationPlayer = NodePath("Sprite/AnimationPlayer")
 CameraPoint = NodePath("CameraPoint")
 
-[node name="Sprite" type="AnimatedSprite2D" parent="." node_paths=PackedStringArray("AnimationPlayer")]
+[node name="Sprite" type="AnimatedSprite2D" parent="." node_paths=PackedStringArray("animation_player")]
 sprite_frames = ExtResource("2_7sbxo")
 animation = &"BF idle dance"
-frame = 13
 offset = Vector2(0, -207)
-script = ExtResource("3_1tcb8")
-Sync = true
-AnimationPlayer = NodePath("AnimationPlayer")
+script = ExtResource("5_s2e1f")
+sync = true
+animation_player = NodePath("AnimationPlayer")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite"]
 root_node = NodePath("../..")
