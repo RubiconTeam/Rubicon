@@ -5,7 +5,7 @@
     <PublishAOT>true</PublishAOT>
     <Version>0.1.0.0-alpha</Version>
     <Title>Rubicon</Title>
-    <Authors>DuoNineXcore, legole0, Binpuki</Authors>
+    <Authors>RubiconTeam</Authors>
     <Description>A Friday Night Funkin' engine based primarily on C# and Godot Engine!</Description>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
