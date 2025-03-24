@@ -38,7 +38,7 @@ BarLine = &""
 script = ExtResource("4_f3wpy")
 Name = "Erect"
 Chart = ExtResource("3_km00y")
-RuleSet = "mania"
+RuleSet = "Mania"
 Color = Color(0.576471, 0.439216, 0.858824, 1)
 metadata/_custom_type_script = ExtResource("4_f3wpy")
 
@@ -46,7 +46,7 @@ metadata/_custom_type_script = ExtResource("4_f3wpy")
 script = ExtResource("4_f3wpy")
 Name = "Nightmare"
 Chart = ExtResource("5_j5sk3")
-RuleSet = "mania"
+RuleSet = "Mania"
 Color = Color(0.576471, 0.439216, 0.858824, 1)
 metadata/_custom_type_script = ExtResource("4_f3wpy")
 

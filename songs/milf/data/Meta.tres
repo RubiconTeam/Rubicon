@@ -37,7 +37,7 @@ BarLine = &""
 script = ExtResource("3_tga5g")
 Name = "Hard"
 Chart = ExtResource("3_xm64d")
-RuleSet = "mania"
+RuleSet = "Mania"
 Color = Color(0.576471, 0.439216, 0.858824, 1)
 metadata/_custom_type_script = ExtResource("3_tga5g")
 

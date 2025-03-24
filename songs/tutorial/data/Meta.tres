@@ -33,7 +33,7 @@ BarLine = &"Player"
 script = ExtResource("4_0cqit")
 Name = "Easy"
 Chart = ExtResource("3_k4xhn")
-RuleSet = "mania"
+RuleSet = "Mania"
 Color = Color(0.576471, 0.439216, 0.858824, 1)
 metadata/_custom_type_script = ExtResource("4_0cqit")
 
@@ -41,7 +41,7 @@ metadata/_custom_type_script = ExtResource("4_0cqit")
 script = ExtResource("4_0cqit")
 Name = "Normal"
 Chart = ExtResource("5_rs53b")
-RuleSet = "mania"
+RuleSet = "Mania"
 Color = Color(0.576471, 0.439216, 0.858824, 1)
 metadata/_custom_type_script = ExtResource("4_0cqit")
 
@@ -49,7 +49,7 @@ metadata/_custom_type_script = ExtResource("4_0cqit")
 script = ExtResource("4_0cqit")
 Name = "Hard"
 Chart = ExtResource("6_5xocb")
-RuleSet = "mania"
+RuleSet = "Mania"
 Color = Color(0.576471, 0.439216, 0.858824, 1)
 metadata/_custom_type_script = ExtResource("4_0cqit")
 
