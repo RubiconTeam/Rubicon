@@ -54,7 +54,7 @@ project/assembly_name="Rubicon"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/PukiTools.GodotSharp/plugin.cfg", "res://addons/rubichart_converter/plugin.cfg", "res://addons/rubichart_importer/plugin.cfg", "res://addons/rubicon_helper/plugin.cfg", "res://addons/sprite_importer/plugin.cfg")
+enabled=PackedStringArray("res://addons/PukiTools.GodotSharp/plugin.cfg", "res://addons/gdanimate/plugin.cfg", "res://addons/rubichart_converter/plugin.cfg", "res://addons/rubichart_importer/plugin.cfg", "res://addons/rubicon_helper/plugin.cfg", "res://addons/sprite_importer/plugin.cfg")
 
 [file_customization]
 
