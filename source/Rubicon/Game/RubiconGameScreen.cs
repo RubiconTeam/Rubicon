@@ -175,7 +175,6 @@ namespace Rubicon.Game;
 
 	public override void _Ready()
 	{
-		base._Ready();
 		Name = "RubiconGameScreen";
 		
 		#if TOOLS
