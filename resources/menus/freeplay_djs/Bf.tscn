@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dugrpklpm37ny"]
+
+[ext_resource type="Script" uid="uid://cqmn2xk4n5fbt" path="res://source/Rubicon/View2D/Character2D.cs" id="1_77dtf"]
+
+[node name="Bf" type="Node2D"]
+script = ExtResource("1_77dtf")

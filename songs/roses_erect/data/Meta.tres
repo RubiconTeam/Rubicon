@@ -1,12 +1,12 @@
 [gd_resource type="Resource" script_class="SongMeta" load_steps=15 format=3 uid="uid://0sicht7fwxwj"]
 
-[ext_resource type="Script" uid="uid://crgqugtqe2m3y" path="res://addons/Rubicon.Core/Chart/BpmInfo.cs" id="1_stuxm"]
-[ext_resource type="Script" uid="uid://clg1lhiqfj0nk" path="res://addons/Rubicon.Core/Meta/CharacterMeta.cs" id="2_c8k8s"]
+[ext_resource type="Script" uid="uid://crgqugtqe2m3y" path="res://addons/Rubicon.Core/source/Chart/BpmInfo.cs" id="1_stuxm"]
+[ext_resource type="Script" uid="uid://clg1lhiqfj0nk" path="res://addons/Rubicon.Core/source/Meta/CharacterMeta.cs" id="2_c8k8s"]
 [ext_resource type="AudioStream" uid="uid://dj1upuwj3757r" path="res://songs/roses_erect/Inst.ogg" id="3_8vwn7"]
 [ext_resource type="Resource" uid="uid://bmp6am6migmkm" path="res://songs/roses_erect/data/Mania-Erect.rbc" id="3_jtkd3"]
-[ext_resource type="Script" uid="uid://b87l817pyjjsp" path="res://addons/Rubicon.Core/Meta/SongMeta.cs" id="3_vivve"]
+[ext_resource type="Script" uid="uid://b87l817pyjjsp" path="res://addons/Rubicon.Core/source/Meta/SongMeta.cs" id="3_vivve"]
 [ext_resource type="AudioStream" uid="uid://c0e7nq0kh2apw" path="res://songs/roses_erect/Vocals.ogg" id="4_5ymvw"]
-[ext_resource type="Script" uid="uid://13r6ekkfj72o" path="res://addons/Rubicon.Core/Meta/SongDifficulty.cs" id="4_tdojd"]
+[ext_resource type="Script" uid="uid://13r6ekkfj72o" path="res://addons/Rubicon.Core/source/Meta/SongDifficulty.cs" id="4_tdojd"]
 [ext_resource type="Resource" uid="uid://crut254ffx4ui" path="res://songs/roses_erect/data/Mania-Nightmare.rbc" id="5_tdojd"]
 
 [sub_resource type="Resource" id="Resource_ua2i7"]

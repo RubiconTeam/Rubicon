@@ -31,8 +31,19 @@ stretch_mode = 3
 layout_mode = 2
 texture = ExtResource("1_0aepf")
 
+[node name="Character" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+
 [node name="FreePlayTemplate" type="Control" parent="."]
-visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -44,7 +55,6 @@ autoplay = "mp3 capsule w backing NOT SELECTED"
 centered = false
 
 [node name="Label" type="Label" parent="."]
-visible = false
 layout_mode = 0
 offset_left = 516.0
 offset_top = 30.0
@@ -53,26 +63,31 @@ offset_bottom = 97.0
 label_settings = SubResource("LabelSettings_7erph")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(499.625, 112.5)
 scale = Vector2(1.25, 1.25)
 texture = ExtResource("4_2dhrr")
 
 [node name="Sprite2D2" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(577.625, 309.5)
 scale = Vector2(1.25, 1.25)
 texture = ExtResource("4_2dhrr")
 
 [node name="Sprite2D3" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(624.625, 516.5)
 scale = Vector2(1.25, 1.25)
 texture = ExtResource("4_2dhrr")
 
 [node name="Sprite2D4" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(596.625, 718.5)
 scale = Vector2(1.25, 1.25)
 texture = ExtResource("4_2dhrr")
 
 [node name="Sprite2D5" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(463.625, 944.5)
 scale = Vector2(1.25, 1.25)
 texture = ExtResource("4_2dhrr")

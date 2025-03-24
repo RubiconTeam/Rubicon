@@ -1,6 +1,6 @@
 [gd_scene load_steps=17 format=3 uid="uid://n5doqlwgdwqn"]
 
-[ext_resource type="Script" uid="uid://dy380qfn6dw5y" path="res://addons/Rubicon.Core/UI/PlayHud.cs" id="1_6ohps"]
+[ext_resource type="Script" uid="uid://dy380qfn6dw5y" path="res://addons/Rubicon.Core/source/UI/PlayHud.cs" id="1_6ohps"]
 [ext_resource type="FontFile" uid="uid://bqc4pbm6jidbr" path="res://assets/ui/fonts/vcr.ttf" id="2_5rd11"]
 [ext_resource type="Script" uid="uid://2ys028hnmlpi" path="res://scripts/ui/FunkinScorePanel.cs" id="3_012vw"]
 [ext_resource type="Script" uid="uid://baj6vb0m41bng" path="res://scripts/ui/ShaderHealthBar.cs" id="4_0hvyv"]

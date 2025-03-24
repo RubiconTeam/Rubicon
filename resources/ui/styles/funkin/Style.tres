@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="UiStyle" load_steps=12 format=3 uid="uid://bumud17n0nyt2"]
 
-[ext_resource type="Script" uid="uid://dbn85h7ahlsdp" path="res://addons/Rubicon.Core/UI/UiStyle.cs" id="1_363r5"]
+[ext_resource type="Script" uid="uid://dbn85h7ahlsdp" path="res://addons/Rubicon.Core/source/UI/UiStyle.cs" id="1_363r5"]
 [ext_resource type="Material" uid="uid://clrbqrdp1uiuf" path="res://resources/ui/styles/funkin/materials/Okay.tres" id="1_ncot3"]
 [ext_resource type="PackedScene" uid="uid://wg70s5307qtw" path="res://resources/ui/styles/funkin/components/FunkinJudgment.tscn" id="1_w5fd1"]
 [ext_resource type="Material" uid="uid://c0cgdmxo1vf40" path="res://resources/ui/styles/funkin/materials/Good.tres" id="2_4c21y"]

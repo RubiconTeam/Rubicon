@@ -10,7 +10,7 @@
 [ext_resource type="Material" uid="uid://clrbqrdp1uiuf" path="res://resources/ui/styles/funkin/materials/Okay.tres" id="8_3xoa1"]
 [ext_resource type="Material" uid="uid://bn4b2kj3ajywl" path="res://resources/ui/styles/funkin/materials/Perfect.tres" id="9_qu2a6"]
 [ext_resource type="PackedScene" uid="uid://cywb2uc8om2ie" path="res://resources/ui/styles/funkin/GameHud.tscn" id="10_d0iss"]
-[ext_resource type="Script" uid="uid://dbn85h7ahlsdp" path="res://addons/Rubicon.Core/UI/UiStyle.cs" id="11_52lf5"]
+[ext_resource type="Script" uid="uid://dbn85h7ahlsdp" path="res://addons/Rubicon.Core/source/UI/UiStyle.cs" id="11_52lf5"]
 
 [resource]
 script = ExtResource("11_52lf5")

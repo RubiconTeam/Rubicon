@@ -1,10 +1,10 @@
 [gd_resource type="Resource" script_class="SongMeta" load_steps=13 format=3 uid="uid://qamhkagvb376"]
 
-[ext_resource type="Script" uid="uid://clg1lhiqfj0nk" path="res://addons/Rubicon.Core/Meta/CharacterMeta.cs" id="1_g6yev"]
-[ext_resource type="Script" uid="uid://crgqugtqe2m3y" path="res://addons/Rubicon.Core/Chart/BpmInfo.cs" id="1_qkhdv"]
-[ext_resource type="Script" uid="uid://b87l817pyjjsp" path="res://addons/Rubicon.Core/Meta/SongMeta.cs" id="2_qkhdv"]
+[ext_resource type="Script" uid="uid://clg1lhiqfj0nk" path="res://addons/Rubicon.Core/source/Meta/CharacterMeta.cs" id="1_g6yev"]
+[ext_resource type="Script" uid="uid://crgqugtqe2m3y" path="res://addons/Rubicon.Core/source/Chart/BpmInfo.cs" id="1_qkhdv"]
+[ext_resource type="Script" uid="uid://b87l817pyjjsp" path="res://addons/Rubicon.Core/source/Meta/SongMeta.cs" id="2_qkhdv"]
 [ext_resource type="AudioStream" uid="uid://cwtjsj18bggik" path="res://songs/milf/Inst.ogg" id="3_rhv4t"]
-[ext_resource type="Script" uid="uid://13r6ekkfj72o" path="res://addons/Rubicon.Core/Meta/SongDifficulty.cs" id="3_tga5g"]
+[ext_resource type="Script" uid="uid://13r6ekkfj72o" path="res://addons/Rubicon.Core/source/Meta/SongDifficulty.cs" id="3_tga5g"]
 [ext_resource type="AudioStream" uid="uid://capkxulsrkbd6" path="res://songs/milf/Vocals.ogg" id="3_u6l60"]
 [ext_resource type="Resource" uid="uid://b1irmwksoeq2b" path="res://songs/milf/data/Mania-Hard.rbc" id="3_xm64d"]
 

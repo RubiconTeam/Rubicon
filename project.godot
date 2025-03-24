@@ -31,12 +31,12 @@ buses/default_bus_layout="uid://8f826qwop1rs"
 
 UserSettings="*res://addons/PukiTools.GodotSharp/UserSettingsInstance.cs"
 RubiconEngine="*res://source/Rubicon/RubiconEngineInstance.cs"
-Conductor="*res://addons/Rubicon.Core/ConductorInstance.cs"
+Conductor="*res://addons/Rubicon.Core/source/ConductorInstance.cs"
 ScreenManager="*res://addons/PukiTools.GodotSharp/Screens/ScreenManagerInstance.cs"
 StoryMode="*res://source/Rubicon/Story/StoryModeInstance.cs"
 RubiconGame="*res://source/Rubicon/Game/RubiconGameInstance.cs"
 AudioManager="*res://addons/PukiTools.GodotSharp/Audio/AudioManagerInstance.cs"
-RubiconCore="*res://addons/Rubicon.Core/RubiconCoreInstance.cs"
+RubiconCore="*res://addons/Rubicon.Core/source/RubiconCoreInstance.cs"
 
 [display]
 
