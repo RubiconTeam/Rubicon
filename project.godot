@@ -54,7 +54,7 @@ project/assembly_name="Rubicon"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/PukiTools.GodotSharp/plugin.cfg", "res://addons/gdanimate/plugin.cfg", "res://addons/rubichart_converter/plugin.cfg", "res://addons/rubichart_importer/plugin.cfg", "res://addons/rubicon_helper/plugin.cfg", "res://addons/sprite_importer/plugin.cfg")
+enabled=PackedStringArray("res://addons/PukiTools.GodotSharp/plugin.cfg", "res://addons/gdanimate/plugin.cfg", "res://addons/rubichart_converter/plugin.cfg", "res://addons/rubicon_helper/plugin.cfg", "res://addons/sprite_importer/plugin.cfg")
 
 [file_customization]
 
@@ -185,3 +185,13 @@ general/verbose=true
 general/resources_folder="res://resources"
 general/songs_folder="res://songs"
 rulesets/mania/default_note_skin="funkin"
+
+[rubicon_core]
+
+general/default_ui_style="funkin"
+rulesets/mania/default_note_skin="funkin"
+judgments/mania/perfect=20.0
+judgments/mania/great=45.0
+judgments/mania/good=75.0
+judgments/mania/okay=105.0
+judgments/mania/bad=130.0
