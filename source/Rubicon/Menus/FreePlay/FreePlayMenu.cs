@@ -2,16 +2,11 @@ using Rubicon.Data;
 
 namespace Rubicon.Menus.FreePlay;
 
-public partial class FreePlayMenu : Menu
+public partial class FreePlayMenu : SubMenu
 {
     [Export] public WeekDatabase Database;
 
     [Export] public PackedScene SongTemplate;
-    
-    public override void OnPreload(string path)
-    {
-        
-    }
 
     public override void UpdateSelection(Control focused)
     {
