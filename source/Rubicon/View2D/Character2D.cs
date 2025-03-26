@@ -328,7 +328,9 @@ namespace Rubicon.View2D;
 			    _lastStep = curStep;
 			    break;
 		    case CharacterHold.Jitter:
-			    if (AnimationPlayer.CurrentAnimationPosition < 0.125)
+			    double normalizedTime =
+				    AnimationPlayer.CurrentAnimationPosition / AnimationPlayer.CurrentAnimationLength;
+			    if (normalizedTime < 0.125)
 				    break;
 			    
 			    AnimationPlayer.Seek(0f);
