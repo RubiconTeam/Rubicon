@@ -17,6 +17,8 @@ HoldCovers = ExtResource("1_s64wa")
 Scale = Vector2(1, 1)
 LaneSize = 160.0
 StrobeHold = true
+HoldsBehindLanes = false
+HoldsBehindNotes = true
 Filter = 2
 Directions = Dictionary[int, PackedStringArray]({
 4: PackedStringArray("left", "down", "up", "right")
