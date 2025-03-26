@@ -1,6 +1,4 @@
-class_name FunkinJudgment
-
-extends GDStatDisplay
+class_name GDFunkinJudgment extends GDHitMaterialStatDisplay
 
 @export var atlas : SpriteFrames
 @export var graphic_scale : Vector2 = Vector2.ONE

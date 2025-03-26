@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://bdhctmpgm4j2v"]
+
+[ext_resource type="PackedScene" uid="uid://cynf1ud5pgdr3" path="res://resources/ui/styles/funklike/components/DanceHitDistance.tscn" id="1_5ijy6"]
+[ext_resource type="Script" uid="uid://qndddbbm4b34" path="res://addons/Rubicon.Core/source/UI/BarLineHud.cs" id="1_vo7nx"]
+[ext_resource type="PackedScene" uid="uid://q5yhhc5khh8u" path="res://resources/ui/styles/funklike/components/DanceComboDisplay.tscn" id="2_vo7nx"]
+[ext_resource type="PackedScene" uid="uid://ct85hayoei4a1" path="res://resources/ui/styles/funklike/components/DanceJudgment.tscn" id="3_q8yeb"]
+
+[node name="BarLineHud" type="Control" node_paths=PackedStringArray("Judgment", "Combo", "HitDistance")]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_vo7nx")
+Judgment = NodePath("Judgment")
+Combo = NodePath("ComboDisplay")
+HitDistance = NodePath("HitDistance")
+
+[node name="HitDistance" parent="." instance=ExtResource("1_5ijy6")]
+layout_mode = 1
+offset_top = 80.667
+offset_bottom = 109.334
+
+[node name="ComboDisplay" parent="." instance=ExtResource("2_vo7nx")]
+modulate = Color(1, 1, 1, 0.501961)
+layout_mode = 1
+offset_top = 160.0
+offset_bottom = 160.0
+scale = Vector2(0.667, 0.667)
+
+[node name="Judgment" parent="." instance=ExtResource("3_q8yeb")]
+modulate = Color(1, 1, 1, 0.501961)
+layout_mode = 1
+offset_top = 255.0
+offset_bottom = 255.0
+scale = Vector2(0.667, 0.667)

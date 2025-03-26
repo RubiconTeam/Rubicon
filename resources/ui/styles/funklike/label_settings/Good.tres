@@ -1,0 +1,10 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://cbb7qlq4u3h2i"]
+
+[ext_resource type="FontFile" uid="uid://bqc4pbm6jidbr" path="res://assets/ui/fonts/vcr.ttf" id="1_nhi7g"]
+
+[resource]
+font = ExtResource("1_nhi7g")
+font_size = 32
+font_color = Color(0.152941, 0.713726, 0.917647, 1)
+outline_size = 12
+outline_color = Color(0.101961, 0.145098, 0.447059, 1)

@@ -11,7 +11,7 @@ script = ExtResource("2_34v78")
 Icon = ExtResource("2_4dxf5")
 Offset = Vector2(-12, -3)
 Color = Color(0.482353, 0.839216, 0.964706, 1)
-Scale = Vector2(4.688, 4.688)
+Scale = Vector2(7.032, 7.032)
 Filter = 1
 metadata/_custom_type_script = ExtResource("2_34v78")
 

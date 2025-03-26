@@ -11,7 +11,7 @@ script = ExtResource("3_jt35w")
 Icon = ExtResource("2_o37gp")
 Offset = Vector2(-65, 0)
 Color = Color(0.192, 0.69, 0.82, 1)
-Scale = Vector2(1, 1)
+Scale = Vector2(1.5, 1.5)
 Filter = 2
 
 [sub_resource type="Animation" id="Animation_1tcb8"]
@@ -724,7 +724,7 @@ script = ExtResource("1_deaeb")
 Icon = SubResource("Resource_grh58")
 LeftFacing = true
 DanceTime = 2.0
-HoldType = 2
+HoldType = 1
 Sprite = NodePath("Sprite")
 AnimationPlayer = NodePath("Sprite/AnimationPlayer")
 CameraPoint = NodePath("CameraPoint")

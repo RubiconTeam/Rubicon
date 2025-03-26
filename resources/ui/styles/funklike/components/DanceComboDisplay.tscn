@@ -1,7 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://q5yhhc5khh8u"]
+[gd_scene load_steps=9 format=3 uid="uid://q5yhhc5khh8u"]
 
-[ext_resource type="Script" uid="uid://hotn4hy5dh1g" path="res://resources/ui/styles/funklike/components/DanceComboDisplay.gd" id="1_mlt5q"]
+[ext_resource type="Script" uid="uid://hotn4hy5dh1g" path="res://scripts/ui/scoring/GDDanceComboDisplay.gd" id="1_mlt5q"]
 [ext_resource type="SpriteFrames" uid="uid://c85tnr6y52kqk" path="res://assets/ui/styles/funkin/combo/combo.tres" id="2_7svyy"]
+[ext_resource type="Material" uid="uid://bn4b2kj3ajywl" path="res://resources/ui/styles/funkin/materials/Perfect.tres" id="3_ft37j"]
+[ext_resource type="Material" uid="uid://b37f4mdn0h8w6" path="res://resources/ui/styles/funkin/materials/Great.tres" id="4_qpkvf"]
+[ext_resource type="Material" uid="uid://c0cgdmxo1vf40" path="res://resources/ui/styles/funkin/materials/Good.tres" id="5_7comv"]
+[ext_resource type="Material" uid="uid://clrbqrdp1uiuf" path="res://resources/ui/styles/funkin/materials/Okay.tres" id="6_1ixtw"]
+[ext_resource type="Material" uid="uid://bftkqmdktdaqt" path="res://resources/ui/styles/funkin/materials/Bad.tres" id="7_eedsj"]
+[ext_resource type="Material" uid="uid://bs8iq3r2cutsu" path="res://resources/ui/styles/funkin/materials/Miss.tres" id="8_efgcg"]
 
 [node name="ComboDisplay" type="Control"]
 layout_mode = 3
@@ -12,3 +18,9 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_mlt5q")
 atlas = ExtResource("2_7svyy")
+perfect_material = ExtResource("3_ft37j")
+great_material = ExtResource("4_qpkvf")
+good_material = ExtResource("5_7comv")
+okay_material = ExtResource("6_1ixtw")
+bad_material = ExtResource("7_eedsj")
+miss_material = ExtResource("8_efgcg")

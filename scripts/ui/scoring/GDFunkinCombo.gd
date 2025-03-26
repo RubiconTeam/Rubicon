@@ -1,6 +1,4 @@
-class_name FunkinCombo
-
-extends GDStatDisplay
+class_name GDFunkinCombo extends GDHitMaterialStatDisplay
 
 @export var atlas : SpriteFrames
 @export var spacing : float = 54.0

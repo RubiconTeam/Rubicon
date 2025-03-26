@@ -4,20 +4,31 @@ using Rubicon.Core.Rulesets;
 
 namespace Rubicon.Extras.UI;
 
-[GlobalClass] public partial class FunkinScorePanel : Label, IPlayElement
+/// <summary>
+/// Score panel that imitates something you would find in a typical FNF mod.
+/// </summary>
+[GlobalClass] public partial class CsFunkinScorePanel : CsHudElement
 {
+    /// <summary>
+    /// The label to set the score text on.
+    /// </summary>
     [Export] public Label TextLabel;
 
-    public PlayField PlayField { get; set; }
-    
-    public void Initialize() { }
+    /// <summary>
+    /// The seperator for the text.
+    /// </summary>
+    [Export] public string Divider = " / ";
 
+    public override void Initialize() { }
+
+    public override void OptionsUpdated() { }
+    
     public override void _Process(double delta)
     {
         base._Process(delta);
 
         ScoreTracker scoreTracker = PlayField.ScoreTracker;
-        TextLabel.Text = $"Score: {scoreTracker.Score} / Accuracy: {scoreTracker.Accuracy:n2}% / Misses: {scoreTracker.Misses} / Rank: {scoreTracker.Rank.ToString().ToUpper()} ({GetClearText(scoreTracker.Clear)})";
+        TextLabel.Text = $"Score: {scoreTracker.Score}{Divider}Accuracy: {scoreTracker.Accuracy:n2}%{Divider}Misses: {scoreTracker.Misses}{Divider}Rank: {scoreTracker.Rank.ToString().ToUpper()} ({GetClearText(scoreTracker.Clear)})";
     }
 
     private string GetClearText(ClearRank clear)

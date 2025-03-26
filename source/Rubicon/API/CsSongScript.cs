@@ -4,7 +4,7 @@ using Rubicon.Game;
 
 namespace Rubicon.API;
 
-[GlobalClass] public partial class CsModChart : Node
+[GlobalClass] public partial class CsSongScript : Node
 {
     public override void _Ready()
     {

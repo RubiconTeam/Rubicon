@@ -21,12 +21,12 @@ namespace Rubicon.View2D;
     [Export] public bool LeftFacing = false;
 
     /// <summary>
-    /// Gets added to the start of EVERY animation that plays after this is set. Overridden by  <see cref="CharacterAnimation.CustomSuffix"/> when using <see cref="PlayAnim"/>.
+    /// Gets added to the start of EVERY animation that plays after this is set. Overridden by  <see cref="SpecialAnimation.CustomSuffix"/> when using <see cref="PlayAnim"/>.
     /// </summary>
     [Export] public string GlobalPrefix;
 
     /// <summary>
-    /// Gets added to the end of EVERY animation that plays after this is set. Overridden by  <see cref="CharacterAnimation.CustomSuffix"/> when using <see cref="PlayAnim"/>.
+    /// Gets added to the end of EVERY animation that plays after this is set. Overridden by  <see cref="SpecialAnimation.CustomSuffix"/> when using <see cref="PlayAnim"/>.
     /// </summary>
     [Export] public string GlobalSuffix;
     
@@ -87,12 +87,7 @@ namespace Rubicon.View2D;
     [Export] public float SingTimer;
 
     /// <summary>
-    /// Turning this to false will prevent this character from dancing, unless manually called.
-    /// </summary>
-    [Export] public bool CanDance = true;
-
-    /// <summary>
-    /// The reference visual node. Usually a <see cref="SyncedSprite2D"/>.
+    /// The reference visual node.
     /// </summary>
     [ExportGroup("References"), Export] public Node2D Sprite;
 
@@ -115,16 +110,11 @@ namespace Rubicon.View2D;
     /// Flips left and right animations depending on if <see cref="LeftFacing"/> != <see cref="SpawnPoint2D"/>'s <see cref="SpawnPoint2D.LeftFacing"/>
     /// </summary>
     [Export] public bool FlipAnimations = false;
-    
+
     /// <summary>
     /// The animation that is currently being played.
     /// </summary>
-    [Export] public CharacterAnimation CurrentAnim = null;
-
-    /// <summary>
-    /// The animation that was last played.
-    /// </summary>
-    [Export] public CharacterAnimation LastAnim = null;
+    [Export] public SpecialAnimation CurrentSpecialParameters = null;
     
     /// <summary>
     /// The node that helps with dancing to the beat.
@@ -145,6 +135,11 @@ namespace Rubicon.View2D;
     /// Marks whether this character has missed.
     /// </summary>
     [Export] public bool Missed = false;
+    
+    /// <summary>
+    /// Turning this to false will prevent this character from dancing, unless manually called.
+    /// </summary>
+    [Export] public bool FreezeDance = false;
 
     /// <summary>
     /// Whether this character should freeze after holding (and not go to idle)
@@ -168,8 +163,8 @@ namespace Rubicon.View2D;
         BeatSyncer.Type = _timeType;
         BeatSyncer.Value = _danceValue;
         BeatSyncer.Bumped += TryDance;
-
-        AnimationPlayer.AnimationFinished += AnimationFinished;
+        
+		AnimationPlayer.AnimationFinished += AnimationFinished;
         Dance();
     }
 
@@ -184,19 +179,28 @@ namespace Rubicon.View2D;
 
 	    SingTimer += (float)delta;
 	    _lastStep = curStep;
+
+	    if (CurrentSpecialParameters == null)
+		    return;
+
+	    if (AnimationPlayer.CurrentAnimationPosition > AnimationPlayer.CurrentAnimationLength)
+		    CurrentSpecialParameters = null;
     }
 
     /// <summary>
     /// Plays a dance animation for this character.
     /// </summary>
-    /// <param name="force">Force this animation to play</param>
-    public void Dance(bool force = false)
+    /// <param name="customPrefix">An optional prefix to put in before the dance animation. Will be <see cref="GlobalPrefix"/> by default.</param>
+    /// <param name="customSuffix">An optional suffix to put in after the dance animation. Will be <see cref="GlobalSuffix"/> by default.</param>
+    public void Dance(string customPrefix = null, string customSuffix = null)
     {
-	    if (!force && AnimationPlayer.IsPlaying() && AnimationPlayer.CurrentAnimationPosition < AnimationPlayer.CurrentAnimationLength) 
-		    return;
+	    string prefix = customPrefix ?? GlobalPrefix;
+	    string suffix = customSuffix ?? GlobalSuffix;
 
 	    Singing = false;
-	    PlayAnimation(new CharacterAnimation { Name = DanceList[DanceIndex], Force = true, StartTime = 0});
+	    AnimationPlayer.Play(prefix + DanceList[DanceIndex] + suffix);
+	    AnimationPlayer.Seek(0f, true);
+	    
 	    DanceIndex = (DanceIndex + 1) % DanceList.Length;
     }
 
@@ -206,75 +210,35 @@ namespace Rubicon.View2D;
     /// <param name="direction">Marks the direction to sing at</param>
     /// <param name="holding">Marks this as a holding animation</param>
     /// <param name="miss">Marks this as a miss animation</param>
-    public void Sing(string direction, bool holding = false, bool miss = false)
+    /// <param name="customPrefix">An optional prefix to put in before the sing animation. Will be <see cref="GlobalPrefix"/> by default.</param>
+    /// <param name="customSuffix">An optional suffix to put in after the sing animation. Will be <see cref="GlobalSuffix"/> by default.</param>
+    public void Sing(string direction, bool holding = false, bool miss = false, string customPrefix = null, string customSuffix = null)
     {
+	    if (CurrentSpecialParameters != null && CurrentSpecialParameters.OverrideSing)
+		    return;
+	    
 	    _directionsHolding[direction] = holding;
 	    bool shouldBeHolding = _directionsHolding.Values.Contains(true);
-	    Missed = miss && !shouldBeHolding;
 	    
 	    string animName = $"sing{direction.ToUpper()}" + (Missed ? "miss" : "");
-	    CharacterAnimation singAnim = new CharacterAnimation
-	    {
-		    Name = animName,
-		    Force = true,
-		    StartTime = 0f
-	    };
-	    
-	    SingWithCustomAnimation(singAnim, shouldBeHolding);
-    }
-
-    public void SingWithCustomAnimation(CharacterAnimation anim, bool holding = false)
-    {
 	    SingTimer = 0f;
 	    Singing = true;
-	    Holding = holding;
+	    Holding = shouldBeHolding;
+	    Missed = miss && !shouldBeHolding;
 	    
-	    PlayAnimation(anim);
+	    string prefix = customPrefix ?? GlobalPrefix;
+	    string suffix = customSuffix ?? GlobalSuffix;
+	    
+	    AnimationPlayer.Play(prefix + animName + suffix);
+	    AnimationPlayer.Seek(0f, true);
     }
 
-    /// <summary>
-    /// Plays an animation for this character.
-    /// </summary>
-    /// <param name="anim">Animation data</param>
-    public void PlayAnimation(CharacterAnimation anim)
+    public void PlaySpecialAnimation(SpecialAnimation anim)
     {
-	    if (!anim.Force && AnimationPlayer.IsPlaying() && AnimationPlayer.CurrentAnimationPosition >= AnimationPlayer.CurrentAnimationLength)
-		    return;
-
-	    string originalName = anim.Name; 
-	    if (FlipAnimations) 
-		    anim.Name = anim.Name.Contains("LEFT") ? anim.Name.Replace("LEFT", "RIGHT") : anim.Name.Replace("RIGHT", "LEFT");
-
-	    string prefix = !string.IsNullOrEmpty(anim.CustomPrefix) ? anim.CustomPrefix : GlobalPrefix;
-	    string suffix = !string.IsNullOrEmpty(anim.CustomSuffix) ? anim.CustomSuffix : GlobalSuffix;
+	    CurrentSpecialParameters = anim;
 	    
-	    anim.Name = $"{prefix}{anim.Name}{suffix}";
-	    if (!AnimationPlayer.HasAnimation(anim.Name))
-	    {
-		    GD.PushWarning($"There is no animation in AnimationPlayer called {anim.Name}. (Original Animation: {originalName})");
-		    return;
-	    }
-	    
-	    LastAnim = CurrentAnim;
-	    CurrentAnim = anim;
-	    
-	    if (LastAnim == null || (LastAnim != null && anim.Name != LastAnim.Name)) 
-		    AnimationPlayer.Play(anim.Name);
-	    
-	    AnimationPlayer.Seek(anim.StartTime, true);
 	    AnimationPlayer.Play(anim.Name);
-    }
-
-    public void PlayAnimationWithName(string animName, bool force = false, float startTime = 0f)
-    {
-	    CharacterAnimation anim = new CharacterAnimation
-	    {
-			Name = animName,
-			Force = force,
-			StartTime = startTime
-	    };
-	    
-	    PlayAnimation(anim);
+	    AnimationPlayer.Seek(anim.StartTime, true);
     }
 
     public Vector2 GetCameraPosition()
@@ -303,7 +267,6 @@ namespace Rubicon.View2D;
 			    posAdd *= controlParent.Scale;
 
 		    pos += posAdd;
-
 		    curNode = parent;
 	    }
 
@@ -345,13 +308,13 @@ namespace Rubicon.View2D;
     
     private void TryDance()
     {
-	    if (CanDance && CurrentAnim != null && (Singing && !FreezeSinging && SingTimer >= Conductor.StepValue * 0.001f * SingDuration || !CurrentAnim.Name.StartsWith("sing")))
-		    Dance(true);
+	    bool overrideDancing = CurrentSpecialParameters != null && CurrentSpecialParameters.OverrideDance;
+	    if (!FreezeDance && !overrideDancing && (!Singing || (Singing && !FreezeSinging && SingTimer >= Conductor.StepValue * 0.001f * SingDuration)))
+		    Dance();
     }
 
-    private void AnimationFinished(StringName anim) 
+    private void AnimationFinished(StringName anim)
     {
-        if (CurrentAnim.PostAnimation != null)
-            PlayAnimation(CurrentAnim.PostAnimation);
+	    CurrentSpecialParameters = null;
     }
 }

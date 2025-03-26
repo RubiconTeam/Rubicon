@@ -1,7 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://wg70s5307qtw"]
+[gd_scene load_steps=9 format=3 uid="uid://wg70s5307qtw"]
 
-[ext_resource type="Script" uid="uid://bssfjdvr0ukgd" path="res://resources/ui/styles/funkin/components/FunkinJudgment.gd" id="1_4cu30"]
+[ext_resource type="Script" uid="uid://bssfjdvr0ukgd" path="res://scripts/ui/scoring/GDFunkinJudgment.gd" id="1_4cu30"]
 [ext_resource type="SpriteFrames" uid="uid://dfu73x2lu7p1f" path="res://assets/ui/styles/funkin/judgment/judgments.tres" id="2_vsu3a"]
+[ext_resource type="Material" uid="uid://bn4b2kj3ajywl" path="res://resources/ui/styles/funkin/materials/Perfect.tres" id="3_va6t5"]
+[ext_resource type="Material" uid="uid://b37f4mdn0h8w6" path="res://resources/ui/styles/funkin/materials/Great.tres" id="4_pc3b7"]
+[ext_resource type="Material" uid="uid://c0cgdmxo1vf40" path="res://resources/ui/styles/funkin/materials/Good.tres" id="5_ddymu"]
+[ext_resource type="Material" uid="uid://clrbqrdp1uiuf" path="res://resources/ui/styles/funkin/materials/Okay.tres" id="6_c4akg"]
+[ext_resource type="Material" uid="uid://bftkqmdktdaqt" path="res://resources/ui/styles/funkin/materials/Bad.tres" id="7_xbbnf"]
+[ext_resource type="Material" uid="uid://bs8iq3r2cutsu" path="res://resources/ui/styles/funkin/materials/Miss.tres" id="8_4eh6y"]
 
 [node name="Judgment" type="Control"]
 layout_mode = 3
@@ -12,3 +18,9 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_4cu30")
 atlas = ExtResource("2_vsu3a")
+perfect_material = ExtResource("3_va6t5")
+great_material = ExtResource("4_pc3b7")
+good_material = ExtResource("5_ddymu")
+okay_material = ExtResource("6_c4akg")
+bad_material = ExtResource("7_xbbnf")
+miss_material = ExtResource("8_4eh6y")

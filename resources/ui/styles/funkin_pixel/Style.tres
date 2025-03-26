@@ -1,29 +1,9 @@
-[gd_resource type="Resource" script_class="UiStyle" load_steps=12 format=3 uid="uid://c64f7b48famai"]
+[gd_resource type="Resource" script_class="UiStyle" load_steps=3 format=3 uid="uid://c64f7b48famai"]
 
-[ext_resource type="Material" uid="uid://bftkqmdktdaqt" path="res://resources/ui/styles/funkin/materials/Bad.tres" id="1_fstve"]
-[ext_resource type="PackedScene" uid="uid://bic4dinndchwv" path="res://resources/ui/styles/funkin_pixel/components/PixelCombo.tscn" id="2_epnrf"]
-[ext_resource type="Material" uid="uid://c0cgdmxo1vf40" path="res://resources/ui/styles/funkin/materials/Good.tres" id="3_swje2"]
-[ext_resource type="Material" uid="uid://b37f4mdn0h8w6" path="res://resources/ui/styles/funkin/materials/Great.tres" id="4_lpkeh"]
-[ext_resource type="PackedScene" uid="uid://cynf1ud5pgdr3" path="res://resources/ui/styles/funklike/components/DanceHitDistance.tscn" id="5_ggnvb"]
-[ext_resource type="PackedScene" uid="uid://enva5q07ux6f" path="res://resources/ui/styles/funkin_pixel/components/PixelJudgment.tscn" id="6_8h0du"]
-[ext_resource type="Material" uid="uid://bs8iq3r2cutsu" path="res://resources/ui/styles/funkin/materials/Miss.tres" id="7_ykaiw"]
-[ext_resource type="Material" uid="uid://clrbqrdp1uiuf" path="res://resources/ui/styles/funkin/materials/Okay.tres" id="8_3xoa1"]
-[ext_resource type="Material" uid="uid://bn4b2kj3ajywl" path="res://resources/ui/styles/funkin/materials/Perfect.tres" id="9_qu2a6"]
 [ext_resource type="PackedScene" uid="uid://cywb2uc8om2ie" path="res://resources/ui/styles/funkin/GameHud.tscn" id="10_d0iss"]
 [ext_resource type="Script" uid="uid://dbn85h7ahlsdp" path="res://addons/Rubicon.Core/source/UI/UiStyle.cs" id="11_52lf5"]
 
 [resource]
 script = ExtResource("11_52lf5")
-PlayHud = ExtResource("10_d0iss")
-Judgment = ExtResource("6_8h0du")
-JudgmentOffset = Vector2(0, 0)
-Combo = ExtResource("2_epnrf")
-ComboOffset = Vector2(0, 0)
-HitDistance = ExtResource("5_ggnvb")
-HitDistanceOffset = Vector2(0, 95)
-PerfectMaterial = ExtResource("9_qu2a6")
-GreatMaterial = ExtResource("4_lpkeh")
-GoodMaterial = ExtResource("3_swje2")
-OkayMaterial = ExtResource("8_3xoa1")
-BadMaterial = ExtResource("1_fstve")
-MissMaterial = ExtResource("7_ykaiw")
+MainHud = ExtResource("10_d0iss")
+BarLineElements = []

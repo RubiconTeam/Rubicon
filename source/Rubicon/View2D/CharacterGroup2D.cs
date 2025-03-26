@@ -35,7 +35,7 @@ namespace Rubicon.View2D;
     public void SetCanDance(bool canDance)
     {
         for (int i = 0; i < Characters.Count; i++)
-            Characters[i].CanDance = canDance;
+            Characters[i].FreezeDance = canDance;
     }
 
     public Vector2 GetCameraPoint()
@@ -60,33 +60,21 @@ namespace Rubicon.View2D;
         return new Vector2(min.X + (max.X - min.X) / 2f, min.Y + (max.Y - min.Y) / 2f);
     }
 
-    public void Dance(bool force = false)
+    public void Dance(string customPrefix = null, string customSuffix = null)
     {
         for (int i = 0; i < Characters.Count; i++)
-            Characters[i].Dance(force);
+            Characters[i].Dance(customPrefix, customSuffix);
     }
 
-    public void Sing(string direction, bool holding = false, bool miss = false)
+    public void Sing(string direction, bool holding = false, bool miss = false, string customPrefix = null, string customSuffix = null)
     {
         for (int i = 0; i < Characters.Count; i++)
-            Characters[i].Sing(direction, holding, miss);
+            Characters[i].Sing(direction, holding, miss, customPrefix, customSuffix);
     }
-
-    public void SingWithCustomAnimation(CharacterAnimation anim, bool holding = false)
+    
+    public void PlaySpecialAnimation(SpecialAnimation anim)
     {
         for (int i = 0; i < Characters.Count; i++)
-            Characters[i].SingWithCustomAnimation(anim, holding);
-    }
-
-    public void PlayAnimation(CharacterAnimation anim)
-    {
-        for (int i = 0; i < Characters.Count; i++)
-            Characters[i].PlayAnimation(anim);
-    }
-
-    public void PlayAnimationWithName(string animName, bool force = false, float startTime = 0f)
-    {
-        for (int i = 0; i < Characters.Count; i++)
-            Characters[i].PlayAnimationWithName(animName, force, startTime);
+            Characters[i].PlaySpecialAnimation(anim);
     }
 }

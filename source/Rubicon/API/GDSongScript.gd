@@ -1,6 +1,4 @@
-class_name GDModChart
-
-extends Node
+class_name GDSongScript extends Node
 
 func _ready() -> void:
 	Conductor.MeasureHit.connect(measure_hit)

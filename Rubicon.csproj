@@ -29,4 +29,35 @@
 		<Compile Remove="addons\PukiTools.GodotSharp\PukiTools.GodotSharp.SourceGenerators\**" />
 		<Compile Remove="addons\PukiTools.GodotSharp\UserSettingsData.cs" />
 	</ItemGroup>
+	<ItemGroup>
+	  <Content Include="addons\Rubicon.Core\source\API\GDCustomBar.gd" />
+	  <Content Include="addons\Rubicon.Core\source\API\GDHealthBar.gd" />
+	  <Content Include="addons\Rubicon.Core\source\API\GDHudElement.gd" />
+	  <Content Include="addons\Rubicon.Core\source\API\GDNoteType.gd" />
+	  <Content Include="addons\Rubicon.Core\source\API\GDSongEvent.gd" />
+	  <Content Include="addons\Rubicon.Core\source\API\GDStatDisplay.gd" />
+	  <Content Include="addons\Rubicon.Core\source\API\GDTimerBar.gd" />
+	  <Content Include="addons\Rubicon.Core\source\Data\BarDirection.gd" />
+	  <Content Include="addons\Rubicon.Core\source\Data\ClearRank.gd" />
+	  <Content Include="addons\Rubicon.Core\source\Data\Hit.gd" />
+	  <Content Include="addons\Rubicon.Core\source\Data\Judgment.gd" />
+	  <Content Include="addons\Rubicon.Core\source\Data\ScoreRank.gd" />
+	  <Content Include="scripts\ui\GDFunkinScorePanel.gd" />
+	  <Content Include="scripts\ui\GDProgressFunkinHealthBar.gd" />
+	  <Content Include="scripts\ui\GDProgressFunkinTimerBar.gd" />
+	  <Content Include="scripts\ui\GDShaderFunkinHealthBar.gd" />
+	  <Content Include="scripts\ui\GDShaderFunkinTimerBar.gd" />
+	  <Content Include="scripts\ui\GDTextureProgressFunkinHealthBar.gd" />
+	  <Content Include="scripts\ui\GDTextureProgressFunkinTimerBar.gd" />
+	  <Content Include="scripts\ui\scoring\GDDanceComboDisplay.gd" />
+	  <Content Include="scripts\ui\scoring\GDDanceHitDistance.gd" />
+	  <Content Include="scripts\ui\scoring\GDDanceJudgment.gd" />
+	  <Content Include="scripts\ui\scoring\GDFunkinCombo.gd" />
+	  <Content Include="scripts\ui\scoring\GDFunkinJudgment.gd" />
+	  <Content Include="scripts\ui\scoring\GDHitMaterialStatDisplay.gd" />
+	  <Content Include="source\Rubicon\API\GDFunkinHealthBar.gd" />
+	  <Content Include="source\Rubicon\API\GDFunkinTimerBar.gd" />
+	  <Content Include="source\Rubicon\API\GDSongScript.gd" />
+	  <Content Include="source\Rubicon\Data\TimeValue.gd" />
+	</ItemGroup>
 </Project>

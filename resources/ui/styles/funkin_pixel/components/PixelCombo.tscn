@@ -1,7 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://bic4dinndchwv"]
+[gd_scene load_steps=9 format=3 uid="uid://bic4dinndchwv"]
 
-[ext_resource type="Script" uid="uid://bpb8tcj1bsts3" path="res://resources/ui/styles/funkin/components/FunkinCombo.gd" id="1_bnpcs"]
+[ext_resource type="Script" uid="uid://bpb8tcj1bsts3" path="res://scripts/ui/scoring/GDFunkinCombo.gd" id="1_bnpcs"]
 [ext_resource type="SpriteFrames" uid="uid://cjlqf6eui62wb" path="res://assets/ui/styles/funkin_pixel/combo/combo.tres" id="2_puky5"]
+[ext_resource type="Material" uid="uid://bn4b2kj3ajywl" path="res://resources/ui/styles/funkin/materials/Perfect.tres" id="3_fdwpw"]
+[ext_resource type="Material" uid="uid://b37f4mdn0h8w6" path="res://resources/ui/styles/funkin/materials/Great.tres" id="4_yfadh"]
+[ext_resource type="Material" uid="uid://c0cgdmxo1vf40" path="res://resources/ui/styles/funkin/materials/Good.tres" id="5_ju36k"]
+[ext_resource type="Material" uid="uid://clrbqrdp1uiuf" path="res://resources/ui/styles/funkin/materials/Okay.tres" id="6_qng21"]
+[ext_resource type="Material" uid="uid://bftkqmdktdaqt" path="res://resources/ui/styles/funkin/materials/Bad.tres" id="7_ojwwq"]
+[ext_resource type="Material" uid="uid://bs8iq3r2cutsu" path="res://resources/ui/styles/funkin/materials/Miss.tres" id="8_eflux"]
 
 [node name="ComboDisplay" type="Control"]
 texture_filter = 1
@@ -14,3 +20,9 @@ grow_vertical = 2
 script = ExtResource("1_bnpcs")
 atlas = ExtResource("2_puky5")
 graphic_scale = Vector2(6.075, 6.075)
+perfect_material = ExtResource("3_fdwpw")
+great_material = ExtResource("4_yfadh")
+good_material = ExtResource("5_ju36k")
+okay_material = ExtResource("6_qng21")
+bad_material = ExtResource("7_ojwwq")
+miss_material = ExtResource("8_eflux")

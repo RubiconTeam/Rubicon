@@ -151,7 +151,7 @@ public partial class RubiconGameInstance : CanvasLayer
 		
 		// Set up play field
 		PlayField = LoadPlayField(RuleSet);
-		PlayField.Setup(Metadata, Chart, Context.TargetIndex, Events);
+		PlayField.Setup(RuleSet, Metadata, Chart, Context.TargetIndex, Events);
 		PlayField.NoteHit += NoteHit;
 		AddChild(PlayField);
 		PrintUtility.Print("RubiconGame", "PlayField loaded successfully.", true);

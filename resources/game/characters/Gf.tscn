@@ -13,7 +13,7 @@ script = ExtResource("3_asm0s")
 Icon = ExtResource("2_y4mqf")
 Offset = Vector2(0, 10)
 Color = Color(0.662745, 0.0392157, 0.329412, 1)
-Scale = Vector2(1, 1)
+Scale = Vector2(1.5, 1.5)
 Filter = 2
 metadata/_custom_type_script = ExtResource("3_asm0s")
 
