@@ -1,9 +1,9 @@
 using Rubicon.API;
 using Rubicon.Core.Rulesets;
 
-// This is a template for a modchart in C#.
+// This is a template for a song script in C#.
 // This can also act as a Node! So yes, you will have access to such things like _Process(delta).
-public partial class NewModChart : CsModChart
+public partial class NewSongScript : CsSongScript
 {
 	// Triggers every measure.
 	public override void MeasureHit(int measure)
