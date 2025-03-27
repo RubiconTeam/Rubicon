@@ -203,7 +203,7 @@ public partial class RubiconGameInstance : CanvasLayer
 		switch (Metadata.Environment)
 		{
 			case GameEnvironment.CanvasItem:
-				CanvasItemSpace.Camera.Zoom += Vector2.One * 0.045f;
+				CanvasItemSpace.Camera.Zoom += Vector2.One * 0.03f;
 				break;
 			case GameEnvironment.Spatial:
 				SpatialSpace.Camera.Fov -= 2;
