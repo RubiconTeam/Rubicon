@@ -28,6 +28,11 @@ namespace Rubicon.View3D;
     [Export] public string GlobalSuffix;
     
     /// <summary>
+    /// If toggled off, the character will wait for the current dance animation to finish before dancing again. 
+    /// </summary>
+    [Export] public bool ForceDancing = true;
+    
+    /// <summary>
     /// A string array containing the sequence of idle/dance animations to be played.
     /// </summary>
     [Export] public string[] DanceList = ["idle"];
@@ -329,8 +334,11 @@ namespace Rubicon.View3D;
     
     private void TryDance()
     {
+	    bool isCurrentDanceDone = !AnimationPlayer.IsPlaying() || AnimationPlayer.IsPlaying() &&
+		    DanceList.Any(x => x.Contains(AnimationPlayer.CurrentAnimation)) &&
+		    AnimationPlayer.CurrentAnimationPosition >= AnimationPlayer.CurrentAnimationLength;
 	    bool overrideDancing = CurrentSpecialParameters != null && CurrentSpecialParameters.OverrideDance;
-	    if (!FreezeDance && !overrideDancing && (!Singing || (Singing && !FreezeSinging && SingTimer >= Conductor.StepValue * 0.001f * SingDuration)))
+	    if ((ForceDancing || !ForceDancing && isCurrentDanceDone) && !FreezeDance && !overrideDancing && (!Singing || (Singing && !FreezeSinging && SingTimer >= Conductor.StepValue * 0.001f * SingDuration)))
 		    Dance();
     }
 

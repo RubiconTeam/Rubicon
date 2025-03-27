@@ -29,6 +29,11 @@ namespace Rubicon.View2D;
     /// Gets added to the end of EVERY animation that plays after this is set. Overridden by  <see cref="SpecialAnimation.CustomSuffix"/> when using <see cref="PlayAnim"/>.
     /// </summary>
     [Export] public string GlobalSuffix;
+
+    /// <summary>
+    /// If toggled off, the character will wait for the current dance animation to finish before dancing again. 
+    /// </summary>
+    [Export] public bool ForceDancing = true;
     
     /// <summary>
     /// A string array containing the sequence of idle/dance animations to be played.
@@ -333,8 +338,11 @@ namespace Rubicon.View2D;
     
     private void TryDance()
     {
+	    bool isCurrentDanceDone = !AnimationPlayer.IsPlaying() || AnimationPlayer.IsPlaying() &&
+		    DanceList.Any(x => x.Contains(AnimationPlayer.CurrentAnimation)) &&
+		    AnimationPlayer.CurrentAnimationPosition >= AnimationPlayer.CurrentAnimationLength;
 	    bool overrideDancing = CurrentSpecialParameters != null && CurrentSpecialParameters.OverrideDance;
-	    if (!FreezeDance && !overrideDancing && (!Singing || (Singing && !FreezeSinging && SingTimer >= Conductor.StepValue * 0.001f * SingDuration)))
+	    if ((ForceDancing || !ForceDancing && isCurrentDanceDone) && !FreezeDance && !overrideDancing && (!Singing || (Singing && !FreezeSinging && SingTimer >= Conductor.StepValue * 0.001f * SingDuration)))
 		    Dance();
     }
 
