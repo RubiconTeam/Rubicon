@@ -2,6 +2,10 @@ class_name GDDanceComboDisplay extends GDHitMaterialStatDisplay
 
 @export var atlas : SpriteFrames
 @export var spacing : float = 90
+@export var bounce_scale : Vector2 = Vector2.ONE * 1.2
+@export var bounce_duration : float = 0.2
+@export var on_screen_duration : float = 0.8
+@export var fade_duration : float = 1.0
 
 var last_rating : int = 0
 
@@ -66,7 +70,7 @@ func update_stats(_combo : int, _hit : int, _distance : float) -> void:
 	var bar_line : BarLine = try_get_target_barline()
 	for i in split_digits.size():
 		var combo_spr : Control = graphics[i]
-		combo_spr.scale = Vector2.ONE * 1.2
+		combo_spr.scale = bounce_scale
 		
 		if bar_line != null:
 			combo_spr.anchor_top = bar_line.anchor_top
@@ -86,8 +90,8 @@ func update_stats(_combo : int, _hit : int, _distance : float) -> void:
 		graphic.material = get_hit_material(last_rating)
 		
 		var tween : Tween = combo_spr.create_tween()
-		tween.tween_property(combo_spr, "scale", Vector2.ONE, 0.2)
-		tween.tween_property(combo_spr, "modulate", Color.TRANSPARENT, 1.0).set_delay(0.8)
+		tween.tween_property(combo_spr, "scale", Vector2.ONE, bounce_duration)
+		tween.tween_property(combo_spr, "modulate", Color.TRANSPARENT, fade_duration).set_delay(on_screen_duration)
 		tween.play()
 		tweens.push_back(tween)
 	

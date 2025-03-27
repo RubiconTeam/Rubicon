@@ -5,7 +5,7 @@ class_name GDFunkinTimerBar extends GDTimerBar
 func initialize() -> void:
 	super.initialize()
 
-	if RubiconGame.Active or RubiconGame.Metadata.Environment == GameEnvironment.NONE:
+	if not RubiconGame.Active or RubiconGame.Metadata.Environment == GameEnvironment.NONE:
 		if direction == BarDirection.LEFT_TO_RIGHT:
 			left_color = Color.GREEN
 			right_color = Color.RED

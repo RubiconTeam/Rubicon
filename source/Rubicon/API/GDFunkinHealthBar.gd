@@ -45,7 +45,7 @@ func initialize() -> void:
 	beat_syncer.Bumped.connect(bump)
 	add_child(beat_syncer)
 	
-	if RubiconGame.Active and RubiconGame.Metadata.Environment == GameEnvironment.NONE:
+	if not RubiconGame.Active or RubiconGame.Metadata.Environment == GameEnvironment.NONE:
 		if direction == BarDirection.LEFT_TO_RIGHT:
 			left_color = Color.GREEN
 			right_color = Color.RED

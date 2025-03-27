@@ -50,21 +50,36 @@ public partial class CsShaderFunkinTimerBar : CsFunkinTimerBar
         float time = Mathf.Clamp(Length - Conductor.RawTime, 0f, Length);
         TimeLabel.Text = $"({TimeSpan.FromSeconds(time):mm\\:ss})";
         
-        if (_material == null) return;
+        if (_material == null)
+        {
+            _material = Bar.Material as ShaderMaterial;
+            if (_material == null)
+                return;
+        }
         
         _material.SetShaderParameter(ValueProperty, ProgressRatio);
     }
 
     protected override void ChangeLeftColor(Color leftColor)
     {
-        if (_material == null) return;
+        if (_material == null)
+        {
+            _material = Bar.Material as ShaderMaterial;
+            if (_material == null)
+                return;
+        }
         
         _material.SetShaderParameter(LeftShaderProperty, leftColor);
     }
 
     protected override void ChangeRightColor(Color rightColor)
     {
-        if (_material == null) return;
+        if (_material == null)
+        {
+            _material = Bar.Material as ShaderMaterial;
+            if (_material == null)
+                return;
+        }
         
         _material.SetShaderParameter(RightShaderProperty, rightColor);
     }

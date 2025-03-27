@@ -23,18 +23,24 @@ func update_bar() -> void:
 		time_label.text = "(" + time_string + ")"
 	
 	if _material == null:
-		return
+		_material = bar.material
+		if _material == null:
+			return
 		
 	_material.set_shader_parameter(value_property, progress_ratio)
 	
 func change_left_color(left_color : Color) -> void:
 	if _material == null:
-		return
+		_material = bar.material
+		if _material == null:
+			return
 		
 	_material.set_shader_parameter(left_shader_property, left_color)
 
 func change_right_color(right_color : Color) -> void:
 	if _material == null:
-		return
+		_material = bar.material
+		if _material == null:
+			return
 
 	_material.set_shader_parameter(right_shader_property, right_color)

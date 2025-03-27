@@ -14,18 +14,25 @@ func _ready() -> void:
 
 func update_bar() -> void:
 	if _material == null:
-		return
+		_material = bar.material
+		if _material == null:
+			return
 		
-	_material.set_shader_parameter(value_property, progress_ratio)
+	var ratio : float = 1.0 - progress_ratio if direction == BarDirection.RIGHT_TO_LEFT else progress_ratio
+	_material.set_shader_parameter(value_property, ratio)
 	
 func change_left_color(left_color : Color) -> void:
 	if _material == null:
-		return
+		_material = bar.material
+		if _material == null:
+			return
 		
 	_material.set_shader_parameter(left_shader_property, left_color)
 
 func change_right_color(right_color : Color) -> void:
 	if _material == null:
-		return
+		_material = bar.material
+		if _material == null:
+			return
 
 	_material.set_shader_parameter(right_shader_property, right_color)
