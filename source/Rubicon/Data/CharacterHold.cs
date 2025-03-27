@@ -11,7 +11,7 @@ public enum CharacterHold : uint
     None,
     
     /// <summary>
-    /// The character will jitter depending on how fast the animation changes frames.
+    /// The character will jitter similar to how Fantasy Engine does (HoloFunk)
     /// </summary>
     Jitter,
     
