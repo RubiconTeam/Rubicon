@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://bn6mcgas0rdrk"]
 
-[ext_resource type="Script" uid="uid://dq3wpdcym5fl6" path="res://scripts/ui/CsFunkinScorePanel.cs" id="1_lt5bs"]
+[ext_resource type="Script" uid="uid://dq3wpdcym5fl6" path="res://scripts/rubicon/ui/CsFunkinScorePanel.cs" id="1_lt5bs"]
 [ext_resource type="FontFile" uid="uid://bqc4pbm6jidbr" path="res://assets/ui/fonts/vcr.ttf" id="2_vyncc"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ktnhm"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://hf1um15pbhvw"]
 
-[ext_resource type="Script" uid="uid://c3jjgf8ag0ds0" path="res://scripts/ui/CsProgressFunkinHealthBar.cs" id="1_0cxgf"]
+[ext_resource type="Script" uid="uid://c3jjgf8ag0ds0" path="res://scripts/rubicon/ui/CsProgressFunkinHealthBar.cs" id="1_0cxgf"]
 [ext_resource type="SpriteFrames" uid="uid://dd1qyud388qn8" path="res://assets/game/characters/missing/PlaceholderIcon.tres" id="2_8f3ko"]
 [ext_resource type="SpriteFrames" uid="uid://dw06ivs1uhiwa" path="res://assets/game/characters/bf/BfIcon.tres" id="3_vxok1"]
 

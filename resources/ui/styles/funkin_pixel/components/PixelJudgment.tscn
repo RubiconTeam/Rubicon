@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://enva5q07ux6f"]
 
-[ext_resource type="Script" uid="uid://bssfjdvr0ukgd" path="res://scripts/ui/scoring/GDFunkinJudgment.gd" id="1_p0p7g"]
+[ext_resource type="Script" uid="uid://bssfjdvr0ukgd" path="res://scripts/rubicon/ui/scoring/GDFunkinJudgment.gd" id="1_p0p7g"]
 [ext_resource type="SpriteFrames" uid="uid://rdraxcrlb2wp" path="res://assets/ui/styles/funkin_pixel/judgment/judgments.tres" id="2_6eks2"]
 [ext_resource type="Material" uid="uid://bn4b2kj3ajywl" path="res://resources/ui/styles/funkin/materials/Perfect.tres" id="3_suet6"]
 [ext_resource type="Material" uid="uid://b37f4mdn0h8w6" path="res://resources/ui/styles/funkin/materials/Great.tres" id="4_37ydh"]

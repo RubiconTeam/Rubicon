@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://cr7rejdj34dlc"]
 
-[ext_resource type="Script" uid="uid://b77fdgcsk5opi" path="res://scripts/ui/GDShaderFunkinTimerBar.gd" id="1_4c03p"]
+[ext_resource type="Script" uid="uid://b77fdgcsk5opi" path="res://scripts/rubicon/ui/GDShaderFunkinTimerBar.gd" id="1_4c03p"]
 [ext_resource type="Shader" uid="uid://c70o45m6wr8np" path="res://resources/shaders/BarShader.gdshader" id="2_g3khr"]
 [ext_resource type="Texture2D" uid="uid://c44d31rl7ip3r" path="res://assets/ui/styles/funkin/CircleGradient.png" id="3_quoma"]
 [ext_resource type="FontFile" uid="uid://bqc4pbm6jidbr" path="res://assets/ui/fonts/vcr.ttf" id="4_hqsjk"]

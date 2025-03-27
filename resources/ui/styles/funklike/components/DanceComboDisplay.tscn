@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://q5yhhc5khh8u"]
 
-[ext_resource type="Script" uid="uid://hotn4hy5dh1g" path="res://scripts/ui/scoring/GDDanceComboDisplay.gd" id="1_mlt5q"]
+[ext_resource type="Script" uid="uid://hotn4hy5dh1g" path="res://scripts/rubicon/ui/scoring/GDDanceComboDisplay.gd" id="1_mlt5q"]
 [ext_resource type="SpriteFrames" uid="uid://c85tnr6y52kqk" path="res://assets/ui/styles/funkin/combo/combo.tres" id="2_7svyy"]
 [ext_resource type="Material" uid="uid://bn4b2kj3ajywl" path="res://resources/ui/styles/funkin/materials/Perfect.tres" id="3_ft37j"]
 [ext_resource type="Material" uid="uid://b37f4mdn0h8w6" path="res://resources/ui/styles/funkin/materials/Great.tres" id="4_qpkvf"]

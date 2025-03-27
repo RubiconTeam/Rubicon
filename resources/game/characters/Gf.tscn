@@ -6,7 +6,7 @@
 [ext_resource type="SpriteFrames" uid="uid://dwqx625sqpkm5" path="res://assets/game/characters/gf/Icon.tres" id="2_y4mqf"]
 [ext_resource type="Script" uid="uid://bsc6hc1t5s5ry" path="res://source/Rubicon/Data/CharacterIconData.cs" id="3_asm0s"]
 [ext_resource type="Texture2D" uid="uid://bl6au38yy5tk1" path="res://assets/game/characters/gf/GfHair.png" id="3_m12d2"]
-[ext_resource type="Script" uid="uid://desx3mgib42mp" path="res://scripts/objects/synced_sprite_2d.gd" id="6_6p7p4"]
+[ext_resource type="Script" uid="uid://desx3mgib42mp" path="res://scripts/rubicon/objects/synced_sprite_2d.gd" id="6_6p7p4"]
 
 [sub_resource type="Resource" id="Resource_jwyij"]
 script = ExtResource("3_asm0s")

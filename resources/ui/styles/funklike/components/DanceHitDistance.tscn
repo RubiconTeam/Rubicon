@@ -1,6 +1,6 @@
 [gd_scene load_steps=16 format=3 uid="uid://cynf1ud5pgdr3"]
 
-[ext_resource type="Script" uid="uid://d2fmud8cp46x5" path="res://scripts/ui/scoring/GDDanceHitDistance.gd" id="2_lxnkd"]
+[ext_resource type="Script" uid="uid://d2fmud8cp46x5" path="res://scripts/rubicon/ui/scoring/GDDanceHitDistance.gd" id="2_lxnkd"]
 [ext_resource type="LabelSettings" uid="uid://ddap1vrbrtv4f" path="res://resources/ui/styles/funklike/label_settings/Perfect.tres" id="2_ty45l"]
 [ext_resource type="LabelSettings" uid="uid://d0o571yesd4w1" path="res://resources/ui/styles/funklike/label_settings/Great.tres" id="3_gaoso"]
 [ext_resource type="LabelSettings" uid="uid://cbb7qlq4u3h2i" path="res://resources/ui/styles/funklike/label_settings/Good.tres" id="4_lbmnl"]
