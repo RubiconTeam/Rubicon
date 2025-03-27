@@ -26,7 +26,7 @@ func change_left_color(left_color : Color) -> void:
 				TextureProgressBar.FILL_CLOCKWISE_AND_COUNTER_CLOCKWISE:
 					pass
 				_:
-					bar.tint_under = left_color
+					bar.tint_progress = left_color
 		BarDirection.RIGHT_TO_LEFT:
 			match bar.fill_mode:
 				TextureProgressBar.FILL_BILINEAR_LEFT_AND_RIGHT:
@@ -36,7 +36,7 @@ func change_left_color(left_color : Color) -> void:
 				TextureProgressBar.FILL_CLOCKWISE_AND_COUNTER_CLOCKWISE:
 					pass
 				_:
-					bar.tint_progress = left_color
+					bar.tint_under = left_color
 
 func change_right_color(right__color : Color) -> void:
 	match direction:
@@ -49,7 +49,7 @@ func change_right_color(right__color : Color) -> void:
 				TextureProgressBar.FILL_CLOCKWISE_AND_COUNTER_CLOCKWISE:
 					pass
 				_:
-					bar.tint_progress = right_color
+					bar.tint_under = right_color
 		BarDirection.RIGHT_TO_LEFT:
 			match bar.fill_mode:
 				TextureProgressBar.FILL_BILINEAR_LEFT_AND_RIGHT:
@@ -59,7 +59,7 @@ func change_right_color(right__color : Color) -> void:
 				TextureProgressBar.FILL_CLOCKWISE_AND_COUNTER_CLOCKWISE:
 					pass
 				_:
-					bar.tint_under = right_color
+					bar.tint_progress = right_color
 	
 func change_direction(direction : int) -> void:
 	match direction:

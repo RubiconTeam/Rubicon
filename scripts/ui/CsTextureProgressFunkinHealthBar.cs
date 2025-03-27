@@ -56,7 +56,7 @@ namespace Rubicon.Extras.UI;
                         break;
                     default:
                     {
-                        Bar.TintUnder = leftColor;
+                        Bar.TintProgress = leftColor;
                         break;
                     }
                 }
@@ -72,7 +72,7 @@ namespace Rubicon.Extras.UI;
                         break;
                     default:
                     {
-                        Bar.TintProgress = leftColor;
+                        Bar.TintUnder = leftColor;
                         break;
                     }
                 }
@@ -95,7 +95,7 @@ namespace Rubicon.Extras.UI;
                         break;
                     default:
                     {
-                        Bar.TintProgress = rightColor;
+                        Bar.TintUnder = rightColor;
                         break;
                     }
                 }
@@ -111,7 +111,7 @@ namespace Rubicon.Extras.UI;
                         break;
                     default:
                     {
-                        Bar.TintUnder = rightColor;
+                        Bar.TintProgress = rightColor;
                         break;
                     }
                 }
