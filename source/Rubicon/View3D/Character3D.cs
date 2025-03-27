@@ -155,6 +155,7 @@ namespace Rubicon.View3D;
     
     private int _lastStep = -int.MaxValue;
     private Dictionary<string, bool> _directionsHolding = new();
+    private string _lastDirection = String.Empty;
 
     public override void _Ready()
     {
@@ -226,21 +227,45 @@ namespace Rubicon.View3D;
     {
 	    if (CurrentSpecialParameters != null && CurrentSpecialParameters.OverrideSing)
 		    return;
-	    
+
+	    direction = direction.ToUpper();
+	    bool wasHolding = _directionsHolding.ContainsKey(direction) && _directionsHolding[direction];
 	    _directionsHolding[direction] = holding;
-	    bool shouldBeHolding = _directionsHolding.Values.Contains(true);
+	    bool shouldBeHolding = _directionsHolding.ContainsValue(true);
 	    
-	    string animName = $"sing{direction.ToUpper()}" + (Missed ? "miss" : "");
 	    SingTimer = 0f;
 	    Singing = true;
 	    Holding = shouldBeHolding;
 	    Missed = miss && !shouldBeHolding;
+
+	    if (FlipAnimations)
+		    direction = direction == "LEFT" ? "RIGHT" : direction == "RIGHT" ? "LEFT" : direction;
+
+	    bool isHoldEnding = wasHolding && !holding;
+	    if (isHoldEnding)
+	    {
+		    switch (HoldType)
+		    {
+			    case CharacterHold.None:
+				    if (!Missed)
+					    return;
+				    
+				    break;
+			    default:
+				    direction = _lastDirection;
+				    break;
+		    }
+	    }
+	    
+	    string animName = $"sing{direction.ToUpper()}" + (Missed ? "miss" : "");
 	    
 	    string prefix = customPrefix ?? GlobalPrefix;
 	    string suffix = customSuffix ?? GlobalSuffix;
 	    
 	    AnimationPlayer.Play(prefix + animName + suffix);
 	    AnimationPlayer.Seek(0f, true);
+	    
+	    _lastDirection = direction;
     }
     
     public void PlaySpecialAnimation(SpecialAnimation anim)
