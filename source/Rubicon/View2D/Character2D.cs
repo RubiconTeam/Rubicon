@@ -156,7 +156,6 @@ namespace Rubicon.View2D;
     
     private int _lastStep = -int.MaxValue;
     private Dictionary<string, bool> _directionsHolding = new();
-    private string _lastDirection = String.Empty;
 
     public override void _Ready()
     {
@@ -232,25 +231,13 @@ namespace Rubicon.View2D;
 	    Singing = true;
 	    Holding = shouldBeHolding;
 	    Missed = miss && !shouldBeHolding;
+	    
+	    bool isHoldEnding = wasHolding && !holding;
+	    if (isHoldEnding && !Missed)
+		    return;
 
 	    if (FlipAnimations)
 		    direction = direction == "LEFT" ? "RIGHT" : direction == "RIGHT" ? "LEFT" : direction;
-
-	    bool isHoldEnding = wasHolding && !holding;
-	    if (isHoldEnding)
-	    {
-		    switch (HoldType)
-		    {
-			    case CharacterHold.None:
-				    if (!Missed)
-					    return;
-				    
-				    break;
-			    default:
-				    direction = _lastDirection;
-				    break;
-		    }
-	    }
 	    
 	    string animName = $"sing{direction.ToUpper()}" + (Missed ? "miss" : "");
 	    
@@ -259,8 +246,6 @@ namespace Rubicon.View2D;
 	    
 	    AnimationPlayer.Play(prefix + animName + suffix);
 	    AnimationPlayer.Seek(0f, true);
-	    
-	    _lastDirection = direction;
     }
 
     public void PlaySpecialAnimation(SpecialAnimation anim)
@@ -338,9 +323,8 @@ namespace Rubicon.View2D;
     
     private void TryDance()
     {
-	    bool isCurrentDanceDone = !AnimationPlayer.IsPlaying() || AnimationPlayer.IsPlaying() &&
-		    DanceList.Any(x => x.Contains(AnimationPlayer.CurrentAnimation)) &&
-		    AnimationPlayer.CurrentAnimationPosition >= AnimationPlayer.CurrentAnimationLength;
+	    bool isCurrentAnimDance = AnimationPlayer.IsPlaying() && DanceList.Any(x => x.Contains(AnimationPlayer.CurrentAnimation));
+	    bool isCurrentDanceDone = !isCurrentAnimDance || AnimationPlayer.CurrentAnimationPosition >= AnimationPlayer.CurrentAnimationLength;
 	    bool overrideDancing = CurrentSpecialParameters != null && CurrentSpecialParameters.OverrideDance;
 	    if ((ForceDancing || !ForceDancing && isCurrentDanceDone) && !FreezeDance && !overrideDancing && (!Singing || (Singing && !FreezeSinging && SingTimer >= Conductor.StepValue * 0.001f * SingDuration)))
 		    Dance();
