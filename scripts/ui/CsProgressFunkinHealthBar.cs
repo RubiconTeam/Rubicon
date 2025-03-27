@@ -1,4 +1,5 @@
 using Rubicon.API;
+using Rubicon.Core.Data;
 
 namespace Rubicon.Extras.UI;
 
@@ -12,15 +13,21 @@ namespace Rubicon.Extras.UI;
     /// </summary>
     [Export] public ProgressBar Bar;
 
+    private StyleBox _fillStyle;
+    private StyleBox _underStyle;
+    
     private StyleBox _leftFill;
     private StyleBox _rightFill;
 
     public override void _Ready()
     {
+        _fillStyle = Bar.GetThemeStylebox("fill").Duplicate() as StyleBox;
+        _underStyle = Bar.GetThemeStylebox("background").Duplicate() as StyleBox;
+        
+        Bar.AddThemeStyleboxOverride("fill", _fillStyle);
+        Bar.AddThemeStyleboxOverride("background", _underStyle);
+        
         base._Ready();
-
-        _leftFill = Bar.GetThemeStylebox("theme_override_styles/fill");
-        _rightFill = Bar.GetThemeStylebox("theme_override_styles/background");
     }
 
     public override void OptionsUpdated() { }
@@ -48,5 +55,25 @@ namespace Rubicon.Extras.UI;
             line.Color = rightColor;
         else if (_rightFill is StyleBoxTexture texture)
             texture.ModulateColor = rightColor;
+    }
+
+    protected override void ChangeDirection(BarDirection direction)
+    {
+        switch (direction)
+        {
+            case BarDirection.LeftToRight:
+                Bar.FillMode = (int)ProgressBar.FillModeEnum.BeginToEnd;
+                _leftFill = _fillStyle;
+                _rightFill = _underStyle;
+                break;
+            case BarDirection.RightToLeft:
+                Bar.FillMode = (int)ProgressBar.FillModeEnum.EndToBegin;
+                _leftFill = _underStyle;
+                _rightFill = _fillStyle;
+                break;
+        }
+        
+        ChangeLeftColor(LeftColor);
+        ChangeRightColor(RightColor);
     }
 }

@@ -1,11 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://b2mqpp6yyxnso"]
+[gd_scene load_steps=7 format=3 uid="uid://dufksylsmg3kh"]
 
 [ext_resource type="Script" uid="uid://dy380qfn6dw5y" path="res://addons/Rubicon.Core/source/UI/GameHud.cs" id="1_qoavp"]
+[ext_resource type="PackedScene" uid="uid://enva5q07ux6f" path="res://resources/ui/styles/funkin_pixel/components/PixelJudgment.tscn" id="2_2ctvy"]
+[ext_resource type="PackedScene" uid="uid://bic4dinndchwv" path="res://resources/ui/styles/funkin_pixel/components/PixelCombo.tscn" id="2_6v1v4"]
 [ext_resource type="PackedScene" uid="uid://bn6mcgas0rdrk" path="res://resources/ui/styles/funkin/components/ScorePanel.tscn" id="4_ecd6n"]
 [ext_resource type="PackedScene" uid="uid://hf1um15pbhvw" path="res://resources/ui/styles/funkin/components/HealthBar.tscn" id="5_jch8e"]
 [ext_resource type="PackedScene" uid="uid://cr7rejdj34dlc" path="res://resources/ui/styles/funkin/components/TimerBar.tscn" id="6_he7cf"]
 
-[node name="GameHud" type="Control" node_paths=PackedStringArray("ScorePanel", "TimerBar")]
+[node name="GameHud" type="Control" node_paths=PackedStringArray("HealthBar", "ScorePanel", "TimerBar", "Judgment", "Combo")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -13,8 +15,17 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_qoavp")
+HealthBar = NodePath("ScoreContainer/HealthBar")
 ScorePanel = NodePath("ScoreContainer/ScorePanel")
 TimerBar = NodePath("TimerBar")
+Judgment = NodePath("Judgment")
+Combo = NodePath("ComboDisplay")
+
+[node name="Judgment" parent="." instance=ExtResource("2_2ctvy")]
+layout_mode = 1
+
+[node name="ComboDisplay" parent="." instance=ExtResource("2_6v1v4")]
+layout_mode = 1
 
 [node name="ScoreContainer" type="Control" parent="."]
 layout_mode = 1

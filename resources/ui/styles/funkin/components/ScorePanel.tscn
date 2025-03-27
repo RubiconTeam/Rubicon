@@ -1,0 +1,37 @@
+[gd_scene load_steps=4 format=3 uid="uid://bn6mcgas0rdrk"]
+
+[ext_resource type="Script" uid="uid://dq3wpdcym5fl6" path="res://scripts/ui/CsFunkinScorePanel.cs" id="1_lt5bs"]
+[ext_resource type="FontFile" uid="uid://bqc4pbm6jidbr" path="res://assets/ui/fonts/vcr.ttf" id="2_vyncc"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ktnhm"]
+font = ExtResource("2_vyncc")
+font_size = 24
+outline_size = 12
+outline_color = Color(0, 0, 0, 1)
+
+[node name="ScorePanel" type="Control" node_paths=PackedStringArray("TextLabel")]
+layout_mode = 3
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = 43.0
+offset_bottom = 65.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_lt5bs")
+TextLabel = NodePath("Text")
+
+[node name="Text" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -11.0
+offset_bottom = 11.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Score: 1000000 / Accuracy: 100% / Misses: 0 / Rank: P (Perfect)"
+label_settings = SubResource("LabelSettings_ktnhm")
+horizontal_alignment = 1

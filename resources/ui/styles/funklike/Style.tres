@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bdhctmpgm4j2v" path="res://resources/ui/styles/funklike/BarLineHud.tscn" id="1_s1732"]
 [ext_resource type="Script" uid="uid://dbn85h7ahlsdp" path="res://addons/Rubicon.Core/source/UI/UiStyle.cs" id="2_kxovl"]
-[ext_resource type="PackedScene" uid="uid://dex2pkrkegi6a" path="res://resources/ui/styles/funklike/GameHud.tscn" id="5_6d6pu"]
+[ext_resource type="PackedScene" uid="uid://b2mqpp6yyxnso" path="res://resources/ui/styles/funklike/GameHud.tscn" id="5_6d6pu"]
 
 [resource]
 script = ExtResource("2_kxovl")

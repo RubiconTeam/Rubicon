@@ -5,12 +5,20 @@ class_name GDProgressFunkinTimerBar extends GDFunkinTimerBar
 @export var bar : ProgressBar ## The [ProgressBar] associated with this health bar.
 @export var time_label : Label ## The visual text for the time remaining.
 
+var _fill_style : StyleBox
+var _under_style : StyleBox
+
 var _left_fill : StyleBox
 var _right_fill : StyleBox
 
 func _ready() -> void:
-	_left_fill = bar.get_theme_stylebox("theme_override_styles/fill")
-	_right_fill = bar.get_theme_stylebox("theme_override_styles/background")
+	_fill_style = bar.get_theme_stylebox("fill").duplicate()
+	_under_style = bar.get_theme_stylebox("background").duplicate()
+
+	bar.add_theme_stylebox_override("fill", _fill_style)
+	bar.add_theme_stylebox_override("background", _under_style)
+
+	super()
 
 func update_bar() -> void:
 	bar.ratio = progress_ratio
@@ -38,3 +46,17 @@ func change_right_color(right_color : Color) -> void:
 		(_right_fill as StyleBoxLine).color = right_color
 	elif _right_fill is StyleBoxTexture:
 		(_right_fill as StyleBoxTexture).modulate_color = right_color
+
+func change_direction(direction : int) -> void:
+	match direction:
+		BarDirection.LEFT_TO_RIGHT:
+			bar.fill_mode = ProgressBar.FILL_BEGIN_TO_END
+			_left_fill = _fill_style
+			_right_fill = _under_style
+		BarDirection.RIGHT_TO_LEFT:
+			bar.fill_mode = ProgressBar.FILL_END_TO_BEGIN
+			_left_fill = _under_style
+			_right_fill = _fill_style
+
+	change_left_color(left_color)
+	change_right_color(right_color)		

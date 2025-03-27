@@ -41,11 +41,11 @@ func initialize() -> void:
 	beat_syncer = BeatSyncer.new()
 	beat_syncer.Type = _time_type
 	beat_syncer.Value = _bounce_value
-	beat_syncer.Name = "Bumper"
+	beat_syncer.name = "Bumper"
 	beat_syncer.Bumped.connect(bump)
 	add_child(beat_syncer)
 	
-	if RubiconGame.Active or RubiconGame.Metadata.Environment == GameEnvironment.NONE:
+	if RubiconGame.Active and RubiconGame.Metadata.Environment == GameEnvironment.NONE:
 		if direction == BarDirection.LEFT_TO_RIGHT:
 			left_color = Color.GREEN
 			right_color = Color.RED
@@ -54,7 +54,7 @@ func initialize() -> void:
 			right_color = Color.GREEN
 			
 		return
-	
+		
 	initialize_characters(play_field.Metadata)	
 
 func _process(_delta: float) -> void:
@@ -124,41 +124,44 @@ func set_right_character(character : Node) -> void:
 
 	right_icon.sprite_frames = data.Icon
 	right_color = data.Color
-	right_icon.offset = data.Offset
+	right_icon.offset = data.Offset * Vector2(-1, 1)
 	right_icon.scale = data.Scale
 	right_icon.texture_filter = data.Filter as CanvasItem.TextureFilter
 	
 func initialize_characters(song_meta : SongMeta) -> void:
 	if not RubiconGame.Active:
 		return
+	
+	if RubiconGame.CanvasItemSpace != null:
+		var space : CanvasItemSpace = RubiconGame.CanvasItemSpace
+		var player_group_name : StringName = play_field.TargetBarLine
+		var player : Character2D = space.GetCharacterGroup(player_group_name).Characters.front()
 		
-	match song_meta.Environment:
-		GameEnvironment.CANVAS_ITEM:
-			var space : CanvasItemSpace = RubiconGame.CanvasItemSpace
-			var player_group_name : StringName = play_field.TargetBarLine
-			var player : Character2D = space.GetCharacterGroup(player_group_name).Characters.front()
-			
-			var opponent_name : StringName = play_field.BarLines.filter(func(b:BarLine)->bool:return b.name != player_group_name).front().name
-			var opponent : Character2D = space.GetCharacterGroup(opponent_name).Characters.front()
-			
-			if direction == BarDirection.LEFT_TO_RIGHT:
-				set_left_character(player)
-				set_right_character(player)
-			elif direction == BarDirection.RIGHT_TO_LEFT:
-				set_left_character(opponent)
-				set_right_character(player)
-			
-		GameEnvironment.SPATIAL:
-			var space : SpatialSpace = RubiconGame.SpatialSpace
-			var player_group_name : StringName = play_field.TargetBarLine
-			var player : Character3D = space.GetCharacterGroup(player_group_name).Characters.front()
+		var opponent_name : StringName = play_field.BarLines.filter(func(b:BarLine)->bool:return b.name != player_group_name).front().name
+		var opponent : Character2D = space.GetCharacterGroup(opponent_name).Characters.front()
+		
+		if direction == BarDirection.LEFT_TO_RIGHT:
+			set_left_character(player)
+			set_right_character(opponent)
+		elif direction == BarDirection.RIGHT_TO_LEFT:
+			set_left_character(opponent)
+			set_right_character(player)
+		
+		return
+	
+	if RubiconGame.SpatialSpace	!= null:
+		var space : SpatialSpace = RubiconGame.SpatialSpace
+		var player_group_name : StringName = play_field.TargetBarLine
+		var player : Character3D = space.GetCharacterGroup(player_group_name).Characters.front()
 
-			var opponent_name : StringName = play_field.BarLines.filter(func(b:BarLine)->bool:return b.name != player_group_name).front().name
-			var opponent : Character3D = space.GetCharacterGroup(opponent_name).Characters.front()
+		var opponent_name : StringName = play_field.BarLines.filter(func(b:BarLine)->bool:return b.name != player_group_name).front().name
+		var opponent : Character3D = space.GetCharacterGroup(opponent_name).Characters.front()
 
-			if direction == BarDirection.LEFT_TO_RIGHT:
-				set_left_character(player)
-				set_right_character(player)
-			elif direction == BarDirection.RIGHT_TO_LEFT:
-				set_left_character(opponent)
-				set_right_character(player)
+		if direction == BarDirection.LEFT_TO_RIGHT:
+			set_left_character(player)
+			set_right_character(opponent)
+		elif direction == BarDirection.RIGHT_TO_LEFT:
+			set_left_character(opponent)
+			set_right_character(player)
+			
+		return	

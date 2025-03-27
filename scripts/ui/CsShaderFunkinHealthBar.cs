@@ -1,4 +1,5 @@
 using Rubicon.API;
+using Rubicon.Core.Data;
 
 namespace Rubicon.Extras.UI;
 
@@ -58,4 +59,6 @@ public partial class CsShaderFunkinHealthBar : CsFunkinHealthBar
         
         _material.SetShaderParameter(RightShaderProperty, rightColor);
     }
+
+    protected override void ChangeDirection(BarDirection direction) { }
 }

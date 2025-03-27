@@ -1,0 +1,76 @@
+[gd_scene load_steps=7 format=3 uid="uid://hf1um15pbhvw"]
+
+[ext_resource type="Script" uid="uid://c3jjgf8ag0ds0" path="res://scripts/ui/CsProgressFunkinHealthBar.cs" id="1_0cxgf"]
+[ext_resource type="SpriteFrames" uid="uid://dd1qyud388qn8" path="res://assets/game/characters/missing/PlaceholderIcon.tres" id="2_8f3ko"]
+[ext_resource type="SpriteFrames" uid="uid://dw06ivs1uhiwa" path="res://assets/game/characters/bf/BfIcon.tres" id="3_vxok1"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y4rl5"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0p4vi"]
+
+[sub_resource type="Curve2D" id="Curve2D_ri17c"]
+_data = {
+"points": PackedVector2Array(-893.423, 0.850183, 0, 0, 0, 9, 0, 0, 0, 0, 884, 9)
+}
+point_count = 2
+
+[node name="HealthBar" type="ColorRect" node_paths=PackedStringArray("Bar", "LeftIcon", "RightIcon", "IconContainer")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -450.0
+offset_top = -15.0
+offset_right = 450.0
+offset_bottom = 15.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+script = ExtResource("1_0cxgf")
+Bar = NodePath("ProgressBar")
+LeftIcon = NodePath("ProgressBar/IconPath/IconContainer/LeftIcon")
+RightIcon = NodePath("ProgressBar/IconPath/IconContainer/RightIcon")
+IconContainer = NodePath("ProgressBar/IconPath/IconContainer")
+BounceTime = 0.25
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -442.0
+offset_top = -9.0
+offset_right = 442.0
+offset_bottom = 9.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_y4rl5")
+theme_override_styles/fill = SubResource("StyleBoxFlat_0p4vi")
+max_value = 1.0
+value = 0.5
+show_percentage = false
+
+[node name="IconPath" type="Path2D" parent="ProgressBar"]
+curve = SubResource("Curve2D_ri17c")
+
+[node name="IconContainer" type="PathFollow2D" parent="ProgressBar/IconPath"]
+position = Vector2(442, 9)
+progress = 442.0
+
+[node name="LeftIcon" type="AnimatedSprite2D" parent="ProgressBar/IconPath/IconContainer"]
+position = Vector2(-8, 9)
+scale = Vector2(1.5, 1.5)
+sprite_frames = ExtResource("2_8f3ko")
+animation = &"neutral"
+offset = Vector2(-75, 0)
+
+[node name="RightIcon" type="AnimatedSprite2D" parent="ProgressBar/IconPath/IconContainer"]
+position = Vector2(-8, 9)
+scale = Vector2(1.5, 1.5)
+sprite_frames = ExtResource("3_vxok1")
+animation = &"neutral"
+offset = Vector2(75, 0)
+flip_h = true

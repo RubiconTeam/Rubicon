@@ -1,5 +1,6 @@
 using Rubicon.API;
 using Rubicon.Core;
+using Rubicon.Core.Data;
 
 namespace Rubicon.Extras.UI;
 
@@ -67,4 +68,6 @@ public partial class CsShaderFunkinTimerBar : CsFunkinTimerBar
         
         _material.SetShaderParameter(RightShaderProperty, rightColor);
     }
+    
+    protected override void ChangeDirection(BarDirection direction) { }
 }

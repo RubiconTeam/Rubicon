@@ -49,33 +49,36 @@ func initialize_characters(song_meta : SongMeta) -> void:
 	if not RubiconGame.Active:
 		return
 
-	match song_meta.Environment:
-		GameEnvironment.CANVAS_ITEM:
-			var space : CanvasItemSpace = RubiconGame.CanvasItemSpace
-			var player_group_name : StringName = play_field.TargetBarLine
-			var player : Character2D = space.GetCharacterGroup(player_group_name).Characters.front()
+	if RubiconGame.CanvasItemSpace != null:
+		var space : CanvasItemSpace = RubiconGame.CanvasItemSpace
+		var player_group_name : StringName = play_field.TargetBarLine
+		var player : Character2D = space.GetCharacterGroup(player_group_name).Characters.front()
 
-			var opponent_name : StringName = play_field.BarLines.filter(func(b:BarLine)->bool:return b.name != player_group_name).front().name
-			var opponent : Character2D = space.GetCharacterGroup(opponent_name).Characters.front()
+		var opponent_name : StringName = play_field.BarLines.filter(func(b:BarLine)->bool:return b.name != player_group_name).front().name
+		var opponent : Character2D = space.GetCharacterGroup(opponent_name).Characters.front()
 
-			if direction == BarDirection.LEFT_TO_RIGHT:
-				set_left_character(player)
-				set_right_character(player)
-			elif direction == BarDirection.RIGHT_TO_LEFT:
-				set_left_character(opponent)
-				set_right_character(player)
+		if direction == BarDirection.LEFT_TO_RIGHT:
+			set_left_character(player)
+			set_right_character(opponent)
+		elif direction == BarDirection.RIGHT_TO_LEFT:
+			set_left_character(opponent)
+			set_right_character(player)
 
-		GameEnvironment.SPATIAL:
-			var space : SpatialSpace = RubiconGame.SpatialSpace
-			var player_group_name : StringName = play_field.TargetBarLine
-			var player : Character3D = space.GetCharacterGroup(player_group_name).Characters.front()
+		return
 
-			var opponent_name : StringName = play_field.BarLines.filter(func(b:BarLine)->bool:return b.name != player_group_name).front().name
-			var opponent : Character3D = space.GetCharacterGroup(opponent_name).Characters.front()
+	if RubiconGame.SpatialSpace	!= null:
+		var space : SpatialSpace = RubiconGame.SpatialSpace
+		var player_group_name : StringName = play_field.TargetBarLine
+		var player : Character3D = space.GetCharacterGroup(player_group_name).Characters.front()
 
-			if direction == BarDirection.LEFT_TO_RIGHT:
-				set_left_character(player)
-				set_right_character(player)
-			elif direction == BarDirection.RIGHT_TO_LEFT:
-				set_left_character(opponent)
-				set_right_character(player)
+		var opponent_name : StringName = play_field.BarLines.filter(func(b:BarLine)->bool:return b.name != player_group_name).front().name
+		var opponent : Character3D = space.GetCharacterGroup(opponent_name).Characters.front()
+
+		if direction == BarDirection.LEFT_TO_RIGHT:
+			set_left_character(player)
+			set_right_character(opponent)
+		elif direction == BarDirection.RIGHT_TO_LEFT:
+			set_left_character(opponent)
+			set_right_character(player)
+
+		return	

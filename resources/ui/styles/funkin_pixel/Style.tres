@@ -6,4 +6,3 @@
 [resource]
 script = ExtResource("11_52lf5")
 MainHud = ExtResource("10_d0iss")
-BarLineElements = []
