@@ -37,6 +37,11 @@ namespace Rubicon.View3D;
     [Export] public bool ForceDancing = true;
     
     /// <summary>
+    /// If toggled, does not reset the animation player's position back to 0.
+    /// </summary>
+    [Export] public bool KeepAnimationProgress = false;
+    
+    /// <summary>
     /// A string array containing the sequence of idle/dance animations to be played.
     /// </summary>
     [Export] public string[] DanceList = ["idle"];
@@ -217,8 +222,12 @@ namespace Rubicon.View3D;
 	    string suffix = customSuffix ?? GlobalSuffix;
 
 	    Singing = false;
-	    AnimationPlayer.Play(prefix + DanceList[DanceIndex] + suffix);
-	    AnimationPlayer.Seek(0f, true);
+	    string animName = prefix + DanceList[DanceIndex] + suffix;
+	    if (AnimationPlayer.HasAnimation(animName))
+			AnimationPlayer.Play(animName);
+	    
+	    if (!KeepAnimationProgress)
+		    AnimationPlayer.Seek(0f, true);
 	    
 	    DanceIndex = (DanceIndex + 1) % DanceList.Length;
     }
@@ -252,21 +261,30 @@ namespace Rubicon.View3D;
 
 	    if (FlipAnimations)
 		    direction = direction == "LEFT" ? "RIGHT" : direction == "RIGHT" ? "LEFT" : direction;
-	    
-	    string animName = $"sing{direction.ToUpper()}" + (Missed ? "miss" : "");
+
+	    string animName = $"sing{direction.ToUpper()}";
 	    
 	    string prefix = customPrefix ?? GlobalPrefix;
 	    string suffix = customSuffix ?? GlobalSuffix;
 	    
-	    AnimationPlayer.Play(prefix + animName + suffix);
-	    AnimationPlayer.Seek(0f, true);
+	    string finalName = prefix + animName + suffix;
+	    if (Missed && AnimationPlayer.HasAnimation(prefix + animName + "miss" + suffix))
+		    finalName = prefix + animName + "miss" + suffix;
+		    
+	    if (AnimationPlayer.HasAnimation(finalName))
+			AnimationPlayer.Play(finalName);
+	    
+	    if (!KeepAnimationProgress)
+		    AnimationPlayer.Seek(0f, true);
     }
     
     public void PlaySpecialAnimation(SpecialAnimation anim)
     {
 	    CurrentSpecialParameters = anim;
 	    
-	    AnimationPlayer.Play(anim.Name);
+	    if (AnimationPlayer.HasAnimation(anim.Name))
+			AnimationPlayer.Play(anim.Name);
+	    
 	    AnimationPlayer.Seek(anim.StartTime, true);
     }
 
