@@ -1,9 +1,13 @@
 using System.Collections.Generic;
+using System.Text;
 using PukiTools.GodotSharp.Screens;
 using Rubicon.Core;
 using Rubicon.Core.Chart;
 using Rubicon.Core.Events;
 using Rubicon.Core.Meta;
+using Rubicon.Core.Rulesets;
+using Rubicon.View2D;
+using Rubicon.View3D;
 
 namespace Rubicon.Game;
 
@@ -188,5 +192,95 @@ namespace Rubicon.Game;
 			return;
 		
 		RubiconGame.Setup(this);
+	}
+
+	public override string GetDebugInfo()
+	{
+		if (!RubiconGame.Active)
+			return "RubiconGame is not active yet!";
+
+		SongMeta songMeta = RubiconGame.Metadata;
+		RubiChart chart = RubiconGame.Chart;
+		LoadContext context = RubiconGame.Context;
+		PlayField playField = RubiconGame.PlayField;
+		ScoreTracker scoreTracker = playField.ScoreTracker;
+		
+		StringBuilder debugInfo = new StringBuilder();
+		
+		// Conductor
+		debugInfo.AppendLine($"BPM: {Conductor.Bpm} | Chart Time: {Conductor.Time} | Audio Time: {Conductor.RawTime}")
+			.AppendLine($"Step: {Conductor.CurrentStep} | Beat: {Conductor.CurrentBeat} | Measure: {Conductor.CurrentMeasure}");
+
+		debugInfo.AppendLine("BPM List:");
+		foreach (BpmInfo bpm in Conductor.BpmList)
+			debugInfo.AppendLine($"[Time: {bpm.Time} | Exact Time (ms): {bpm.MsTime} | BPM: {bpm.Bpm} | Time Signature: {bpm.TimeSignatureNumerator}/{bpm.TimeSignatureDenominator}]");
+		
+		// Scores
+		debugInfo.AppendLine();
+		debugInfo.AppendLine($"Score: {scoreTracker.Score} | Accuracy: {scoreTracker.Accuracy}% | Rank: {scoreTracker.Rank.ToString()} | Clear: {scoreTracker.Clear.ToString()}");
+		debugInfo.AppendLine($"Perfects: {scoreTracker.PerfectHits} | Greats: {scoreTracker.GreatHits} | Goods: {scoreTracker.GoodHits} | Okays: {scoreTracker.OkayHits} | Bads: {scoreTracker.BadHits} | Misses: {scoreTracker.Misses} [Streak: {scoreTracker.MissStreak}]");
+		debugInfo.AppendLine($"Combo: {scoreTracker.Combo} | Highest Combo: {scoreTracker.HighestCombo} | Max Combo: {scoreTracker.MaxCombo}");
+		debugInfo.AppendLine($"Note Count: {scoreTracker.NoteCount} | Taps/Starts: {scoreTracker.NotesHit} | Tails: {scoreTracker.TailsHit}");
+		
+		// Song Meta
+		debugInfo.AppendLine();
+		debugInfo.AppendLine($"Song Name: {songMeta.Name} by {songMeta.Artist} [{context.Name}] / Ruleset: {context.RuleSet} / Difficulty: {context.Difficulty}");
+		debugInfo.AppendLine($"Environment: {songMeta.Environment.ToString()} / Stage: {songMeta.Stage}");
+		debugInfo.AppendLine($"Note Skin: {songMeta.NoteSkin} / UI Style: {songMeta.UiStyle}");
+		debugInfo.AppendLine($"Charter: {chart.Charter} / Difficulty: {chart.Difficulty} / Speed: {chart.ScrollSpeed}");
+		
+		// Bar Lines
+		debugInfo.AppendLine();
+		
+		debugInfo.Append("Bar Lines: [");
+		for (int i = 0; i < playField.BarLines.Length; i++)
+			debugInfo.Append(playField.BarLines[i].Name + (i < playField.BarLines.Length - 1 ? ", " : ""));
+
+		debugInfo.AppendLine("]");
+		
+		debugInfo.Append("Target Bar Line: ");
+		debugInfo.AppendLine(playField.TargetBarLine);
+		
+		if (songMeta.Environment == GameEnvironment.None)
+			return debugInfo.ToString();
+
+		debugInfo.AppendLine();
+		debugInfo.AppendLine("Characters:");
+		switch (songMeta.Environment)
+		{
+			case GameEnvironment.CanvasItem:
+				CanvasItemSpace canvasSpace = RubiconGame.CanvasItemSpace;
+				for (int i = 0; i < playField.BarLines.Length; i++)
+				{
+					string barLine = playField.BarLines[i].Name;
+					CharacterGroup2D group = canvasSpace.GetCharacterGroup(barLine);
+					if (group == null)
+						continue;
+					
+					debugInfo.Append($"[{barLine}] => [");
+					for (int j = 0; j < group.Characters.Count; j++)
+						debugInfo.Append(group.Characters[j].Name + (i < group.Characters.Count - 1 ? ", " : ""));
+					debugInfo.AppendLine("]");
+				}
+				break;
+			case GameEnvironment.Spatial:
+				SpatialSpace spatialSpace = RubiconGame.SpatialSpace;
+				for (int i = 0; i < playField.BarLines.Length; i++)
+				{
+					string barLine = playField.BarLines[i].Name;
+					CharacterGroup3D group = spatialSpace.GetCharacterGroup(barLine);
+					if (group == null)
+						continue;
+					
+					debugInfo.Append($"[{barLine}] => [");
+					for (int j = 0; j < group.Characters.Count; j++)
+						debugInfo.Append(group.Characters[j].Name + (i < group.Characters.Count - 1 ? ", " : ""));
+					debugInfo.AppendLine("]");
+				}
+				break;
+		}
+
+		debugInfo.Remove(debugInfo.Length - 1, 1);
+		return debugInfo.ToString();
 	}
 }

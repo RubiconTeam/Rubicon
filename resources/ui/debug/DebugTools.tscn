@@ -1,0 +1,103 @@
+[gd_scene load_steps=3 format=3 uid="uid://dwi8utcpb73yx"]
+
+[ext_resource type="Theme" uid="uid://c0a1bh2c7dw5r" path="res://resources/ui/debug/debug_theme.tres" id="1_jihop"]
+[ext_resource type="Script" uid="uid://qskrrkn68tc8" path="res://source/Rubicon/DebugToolsInstance.cs" id="1_spwws"]
+
+[node name="DebugInfo" type="CanvasLayer"]
+layer = 128
+
+[node name="DebugInfo" type="VBoxContainer" parent="." node_paths=PackedStringArray("FpsLabel", "EverythingContainer", "GameVersion", "RubiconVersion", "GodotVersion", "DebugOnlyContainer", "RamLabel", "VRamLabel", "AllObjects", "NodeObjects", "ResourceObjects", "ScreenContainer", "CurrentScreen", "ScreenInfo")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 10.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+theme = ExtResource("1_jihop")
+script = ExtResource("1_spwws")
+FpsLabel = NodePath("FPS")
+EverythingContainer = NodePath("Everything")
+GameVersion = NodePath("Everything/Static/Project")
+RubiconVersion = NodePath("Everything/Static/Rubicon")
+GodotVersion = NodePath("Everything/Static/Godot")
+DebugOnlyContainer = NodePath("Everything/DebugOnly")
+RamLabel = NodePath("Everything/DebugOnly/RAMInfo/RAM")
+VRamLabel = NodePath("Everything/DebugOnly/RAMInfo/VRAM")
+AllObjects = NodePath("Everything/DebugOnly/Objects/InstantiatedObjects")
+NodeObjects = NodePath("Everything/DebugOnly/Objects/NodeCount")
+ResourceObjects = NodePath("Everything/DebugOnly/Objects/ResourceCount")
+ScreenContainer = NodePath("Everything/DebugOnly/Screen")
+CurrentScreen = NodePath("Everything/DebugOnly/Screen/ScreenPath")
+ScreenInfo = NodePath("Everything/DebugOnly/Screen/ScreenDebug")
+
+[node name="FPS" type="Label" parent="DebugInfo"]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "60 FPS"
+
+[node name="Everything" type="VBoxContainer" parent="DebugInfo"]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="Static" type="HBoxContainer" parent="DebugInfo/Everything"]
+layout_mode = 2
+
+[node name="Project" type="Label" parent="DebugInfo/Everything/Static"]
+layout_mode = 2
+text = "Project Name [Status]"
+
+[node name="Rubicon" type="Label" parent="DebugInfo/Everything/Static"]
+layout_mode = 2
+text = "Rubicon Engine Pre-Release"
+
+[node name="Godot" type="Label" parent="DebugInfo/Everything/Static"]
+layout_mode = 2
+text = "Godot Engine 4.4 [stable]"
+
+[node name="DebugOnly" type="VBoxContainer" parent="DebugInfo/Everything"]
+layout_mode = 2
+
+[node name="RAMInfo" type="HBoxContainer" parent="DebugInfo/Everything/DebugOnly"]
+layout_mode = 2
+
+[node name="RAM" type="Label" parent="DebugInfo/Everything/DebugOnly/RAMInfo"]
+layout_mode = 2
+text = "RAM: 0 MB / 0 MB"
+
+[node name="VRAM" type="Label" parent="DebugInfo/Everything/DebugOnly/RAMInfo"]
+layout_mode = 2
+text = "VRAM: 0 MB / 0 MB"
+
+[node name="Objects" type="HBoxContainer" parent="DebugInfo/Everything/DebugOnly"]
+layout_mode = 2
+
+[node name="InstantiatedObjects" type="Label" parent="DebugInfo/Everything/DebugOnly/Objects"]
+layout_mode = 2
+text = "Instantiated Object Count: 0"
+
+[node name="ResourceCount" type="Label" parent="DebugInfo/Everything/DebugOnly/Objects"]
+layout_mode = 2
+text = "Resource Count: 0"
+
+[node name="NodeCount" type="Label" parent="DebugInfo/Everything/DebugOnly/Objects"]
+layout_mode = 2
+text = "Node Count: 0 (Orphaned: 0)"
+
+[node name="Screen" type="VBoxContainer" parent="DebugInfo/Everything/DebugOnly"]
+layout_mode = 2
+
+[node name="ScreenPath" type="Label" parent="DebugInfo/Everything/DebugOnly/Screen"]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Current Screen: res://path/to/current/screen.tscn"
+
+[node name="ScreenDebug" type="Label" parent="DebugInfo/Everything/DebugOnly/Screen"]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "No info to display."

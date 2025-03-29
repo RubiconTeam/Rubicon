@@ -44,21 +44,14 @@ public static class RubiconUtility
 		return node.GetChildren(includeInternal).Where(x => x is T).Cast<T>().ToArray();
 	}
 
-	public static string[] GetFilesAt(string directory, bool recursive = false)
+	public static string ToMemoryFormat(this ulong mem)
 	{
-		if (!recursive)
-			return DirAccess.GetFilesAt(directory);
-
-		List<string> files = DirAccess.GetFilesAt(directory).ToList();
-		string[] directories = DirAccess.GetDirectoriesAt(directory);
-		for (int i = 0; i < directories.Length; i++)
+		return mem switch
 		{
-			string curDirectory = directories[i];
-			string[] curDirFiles = GetFilesAt(curDirectory);
-			for (int j = 0; j < curDirFiles.Length; j++)
-				files.Add(curDirectory + curDirFiles[i]);
-		}
-		
-		return files.ToArray();
+			>= 0x40000000 => (float)Math.Round(mem / 1024f / 1024f / 1024f, 2) + " GB",
+			>= 0x100000 => (float)Math.Round(mem / 1024f / 1024f, 2) + " MB",
+			>= 0x400 => (float)Math.Round(mem / 1024f, 2) + " KB",
+			_ => mem + " B"
+		};
 	}
 }

@@ -37,6 +37,7 @@ StoryMode="*res://source/Rubicon/Story/StoryModeInstance.cs"
 RubiconGame="*res://source/Rubicon/Game/RubiconGameInstance.cs"
 AudioManager="*res://addons/PukiTools.GodotSharp/Audio/AudioManagerInstance.cs"
 RubiconCore="*res://addons/Rubicon.Core/source/RubiconCoreInstance.cs"
+DebugTools="*res://resources/ui/debug/DebugTools.tscn"
 
 [display]
 

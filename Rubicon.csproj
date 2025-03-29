@@ -30,6 +30,8 @@
 		<Compile Remove="addons\PukiTools.GodotSharp\UserSettingsData.cs" />
 	</ItemGroup>
 	<ItemGroup>
+	  <Content Include="addons\PukiTools.GodotSharp\Screens\GDLoadingScreen.gd" />
+	  <Content Include="addons\PukiTools.GodotSharp\Screens\GDScreen.gd" />
 	  <Content Include="addons\Rubicon.Core\source\API\GDCustomBar.gd" />
 	  <Content Include="addons\Rubicon.Core\source\API\GDHealthBar.gd" />
 	  <Content Include="addons\Rubicon.Core\source\API\GDHudElement.gd" />

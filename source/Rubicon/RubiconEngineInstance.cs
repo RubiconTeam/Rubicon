@@ -32,7 +32,7 @@ public partial class RubiconEngineInstance : Node
 	/// <summary>
 	/// The current version of Rubicon being used.
 	/// </summary>
-	public static readonly VersionInfo Version = new(0, 2, 0, 0, "-alpha");
+	public static readonly VersionInfo Version = new(1, 0, 0, 0, "-prerelease");
 	
 	/// <summary>
 	/// The minimum aspect ratio the viewport can scale down to.
