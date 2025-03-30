@@ -1,8 +1,9 @@
+using PukiTools.GodotSharp;
 using PukiTools.GodotSharp.Audio;
 
 namespace Rubicon.Menus;
 
-[GlobalClass] public partial class LandingMenu : Menu
+[GlobalClass] public partial class LandingMenu : CsMenuScreen
 {
     [Export] public Control Background;
 
@@ -22,6 +23,7 @@ namespace Rubicon.Menus;
     {
         base._Ready();
 
+        InitialFocus?.GrabFocus();
         _currentlyFocusedIndex = Array.IndexOf(Focusable, InitialFocus);
     }
 

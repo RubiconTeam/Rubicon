@@ -30,6 +30,8 @@
 		<Compile Remove="addons\PukiTools.GodotSharp\UserSettingsData.cs" />
 	</ItemGroup>
 	<ItemGroup>
+	  <Content Include="addons\PukiTools.GodotSharp\Menus\GDMenuScreen.gd" />
+	  <Content Include="addons\PukiTools.GodotSharp\Menus\GDMenu.gd" />
 	  <Content Include="addons\PukiTools.GodotSharp\Screens\GDLoadingScreen.gd" />
 	  <Content Include="addons\PukiTools.GodotSharp\Screens\GDScreen.gd" />
 	  <Content Include="addons\Rubicon.Core\source\API\GDCustomBar.gd" />
@@ -45,6 +47,7 @@
 	  <Content Include="addons\Rubicon.Core\source\Data\Judgment.gd" />
 	  <Content Include="addons\Rubicon.Core\source\Data\ScoreRank.gd" />
 	  <Content Include="addons\Rubicon.Core\source\Meta\GameEnvironment.gd" />
+	  <Content Include="scripts\rubicon\menu\RubiconPauseMenu.gd" />
 	  <Content Include="scripts\rubicon\ui\GDFunkinScorePanel.gd" />
 	  <Content Include="scripts\rubicon\ui\GDProgressFunkinHealthBar.gd" />
 	  <Content Include="scripts\rubicon\ui\GDProgressFunkinTimerBar.gd" />
@@ -60,6 +63,7 @@
 	  <Content Include="scripts\rubicon\ui\scoring\GDHitMaterialStatDisplay.gd" />
 	  <Content Include="source\Rubicon\API\GDFunkinHealthBar.gd" />
 	  <Content Include="source\Rubicon\API\GDFunkinTimerBar.gd" />
+	  <Content Include="source\Rubicon\API\GdPauseMenu.gd" />
 	  <Content Include="source\Rubicon\API\GDSongScript.gd" />
 	  <Content Include="source\Rubicon\Data\TimeValue.gd" />
 	</ItemGroup>

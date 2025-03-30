@@ -174,6 +174,12 @@ public partial class RubiconGameInstance : CanvasLayer
 		PlayField.Music.PitchScale = SPEED;
 		Vocals?.SetPitchScale(SPEED);
 		Conductor.Speed = SPEED;*/
+
+		if (PlayField.UiStyle is RubiconUiStyle rbcStyle)
+		{
+			AddChild(rbcStyle.PauseMenu.Instantiate());
+			GD.Print("ADD THIN???");
+		}
 		
 		// TODO: Countdown
 		PlayField.Start();
@@ -268,15 +274,6 @@ public partial class RubiconGameInstance : CanvasLayer
 
 		if (!Active || @event.IsEcho())
 			return;
-		
-		// Temporary
-		if (@event.IsActionPressed("game_pause"))
-		{
-			if (!Paused)
-				Pause();
-			else
-				Resume();
-		}
 
 		// Freeze singing
 		bool isAction = false;
@@ -318,6 +315,7 @@ public partial class RubiconGameInstance : CanvasLayer
 		
 		PlayField.Pause();
 		Vocals?.Stop();
+		GetTree().Paused = true;
 	}
 
 	/// <summary>
@@ -329,6 +327,7 @@ public partial class RubiconGameInstance : CanvasLayer
 		
 		PlayField.Resume();
 		Vocals?.Play(Conductor.RawTime);
+		GetTree().Paused = false;
 	}
 
 	/// <summary>

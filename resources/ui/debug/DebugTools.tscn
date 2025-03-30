@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://qskrrkn68tc8" path="res://source/Rubicon/DebugToolsInstance.cs" id="1_spwws"]
 
 [node name="DebugInfo" type="CanvasLayer"]
+process_mode = 3
 layer = 128
 
 [node name="DebugInfo" type="VBoxContainer" parent="." node_paths=PackedStringArray("FpsLabel", "EverythingContainer", "GameVersion", "RubiconVersion", "GodotVersion", "DebugOnlyContainer", "RamLabel", "VRamLabel", "AllObjects", "NodeObjects", "ResourceObjects", "ScreenContainer", "CurrentScreen", "ScreenInfo")]

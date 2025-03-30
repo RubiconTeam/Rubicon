@@ -1,8 +1,9 @@
+using PukiTools.GodotSharp;
 using Rubicon.Data;
 
 namespace Rubicon.Menus.FreePlay;
 
-public partial class FreePlayMenu : SubMenu
+public partial class FreePlayMenu : CsMenu
 {
     [Export] public WeekDatabase Database;
 
@@ -17,6 +18,6 @@ public partial class FreePlayMenu : SubMenu
     {
         base._Ready();
         
-        
+        InitialFocus?.GrabFocus();
     }
 }
