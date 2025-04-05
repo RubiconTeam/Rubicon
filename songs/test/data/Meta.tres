@@ -1,12 +1,13 @@
-[gd_resource type="Resource" script_class="SongMeta" load_steps=13 format=3 uid="uid://5fiv3wet0boj"]
+[gd_resource type="Resource" script_class="SongMeta" load_steps=15 format=3 uid="uid://5fiv3wet0boj"]
 
 [ext_resource type="Script" uid="uid://crgqugtqe2m3y" path="res://addons/Rubicon.Core/source/Chart/BpmInfo.cs" id="1_ycdkm"]
 [ext_resource type="Script" uid="uid://clg1lhiqfj0nk" path="res://addons/Rubicon.Core/source/Meta/CharacterMeta.cs" id="2_0eumu"]
 [ext_resource type="Script" uid="uid://b87l817pyjjsp" path="res://addons/Rubicon.Core/source/Meta/SongMeta.cs" id="3_ejhfw"]
-[ext_resource type="Resource" uid="uid://c040hnx6a42fh" path="res://songs/test/data/Mania-Normal.rbc" id="3_ihpik"]
+[ext_resource type="Resource" uid="uid://dq7teeqpg1a3s" path="res://songs/test/data/Mania-Stray.rbc" id="3_gdb3v"]
 [ext_resource type="AudioStream" uid="uid://dpn1k0iwt43dk" path="res://songs/test/Inst.ogg" id="3_t8k4v"]
 [ext_resource type="Script" uid="uid://13r6ekkfj72o" path="res://addons/Rubicon.Core/source/Meta/SongDifficulty.cs" id="4_arryy"]
 [ext_resource type="AudioStream" uid="uid://bw5jtofolwx3o" path="res://songs/test/Vocals.ogg" id="6_gdb3v"]
+[ext_resource type="Resource" uid="uid://bbpouhx0tv3ib" path="res://songs/test/data/Mania-Snapped.rbc" id="SNAPPED"]
 
 [sub_resource type="Resource" id="Resource_kw1yv"]
 script = ExtResource("1_ycdkm")
@@ -35,11 +36,19 @@ BarLine = &"Speaker"
 
 [sub_resource type="Resource" id="Resource_uy2iq"]
 script = ExtResource("4_arryy")
-Name = "Normal"
-Chart = ExtResource("3_ihpik")
+Name = "Stray"
+Chart = ExtResource("3_gdb3v")
 RuleSet = "Mania"
 Color = Color(0.576471, 0.439216, 0.858824, 1)
 metadata/_custom_type_script = ExtResource("4_arryy")
+
+[sub_resource type="Resource" id="Resource_gdb3v"]
+script = ExtResource("4_arryy")
+Name = "Snapped"
+Chart = ExtResource("SNAPPED")
+RuleSet = "Mania"
+Color = Color(0.576471, 0.439216, 0.858824, 1)
+metadata/_custom_type_script = "uid://13r6ekkfj72o"
 
 [resource]
 script = ExtResource("3_ejhfw")
@@ -47,7 +56,7 @@ Name = "Test"
 Artist = "Hideo Kojima"
 Instrumental = ExtResource("3_t8k4v")
 Vocals = ExtResource("6_gdb3v")
-Difficulties = [SubResource("Resource_uy2iq")]
+Difficulties = [SubResource("Resource_uy2iq"), SubResource("Resource_gdb3v")]
 BpmInfo = [SubResource("Resource_kw1yv")]
 UiStyle = "funkin"
 NoteSkin = "funkin"
