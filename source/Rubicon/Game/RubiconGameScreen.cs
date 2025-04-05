@@ -62,18 +62,14 @@ namespace Rubicon.Game;
 			
 			// Chart
 			RubiChart chart = meta.GetDifficultyByName(context.Difficulty, context.RuleSet).Chart;
-			List<string> noteTypes = new List<string>();
+			string[] noteTypes = chart.GetAllNoteTypes();
 			RubiconGame.Chart = chart;
-			for (int i = 0; i < chart.Charts.Length; i++)
-				for (int n = 0; n < chart.Charts[i].Notes.Length; n++)
-					if (chart.Charts[i].Notes[n].Type != "Normal" && !noteTypes.Contains(chart.Charts[i].Notes[n].Type))
-						noteTypes.Add(chart.Charts[i].Notes[n].Type);
 			
-			for (int i = 0; i < noteTypes.Count; i++)
+			for (int i = 0; i < noteTypes.Length; i++)
 				if (RubiconCore.NoteTypePaths.ContainsKey(noteTypes[i]))
 					ResourcesToLoad.AddPath(RubiconCore.NoteTypePaths[noteTypes[i]]);
 			
-			for (int i = 0; i < noteTypes.Count; i++)
+			for (int i = 0; i < noteTypes.Length; i++)
 			{	
 				string noteTypePath = $"res://resources/game/notetypes/{noteTypes[i]}";
 				if (ResourceLoader.Exists(noteTypePath + ".tscn") || ResourceLoader.Exists(noteTypePath + ".scn"))

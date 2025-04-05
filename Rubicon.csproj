@@ -34,6 +34,18 @@
 	  <Content Include="addons\PukiTools.GodotSharp\Menus\GDMenu.gd" />
 	  <Content Include="addons\PukiTools.GodotSharp\Screens\GDLoadingScreen.gd" />
 	  <Content Include="addons\PukiTools.GodotSharp\Screens\GDScreen.gd" />
+	  <Content Include="addons\rubichart_converter\converters\codename_importer.gd" />
+	  <Content Include="addons\rubichart_converter\converters\rubichart_1_1_importer.gd" />
+	  <Content Include="addons\rubichart_converter\converters\vslice_importer.gd" />
+	  <Content Include="addons\rubichart_converter\converters\week7_importer.gd" />
+	  <Content Include="addons\rubichart_converter\importer.gd" />
+	  <Content Include="addons\rubichart_converter\plugin.gd" />
+	  <Content Include="addons\rubichart_converter\plugin_scene.gd" />
+	  <Content Include="addons\rubichart_converter\utility.gd" />
+	  <Content Include="addons\Rubicon.Core\importer\loaders\rbc_2.0.gd" />
+	  <Content Include="addons\Rubicon.Core\importer\rubichart_res_loader.gd" />
+	  <Content Include="addons\Rubicon.Core\importer\rubichart_res_saver.gd" />
+	  <Content Include="addons\Rubicon.Core\importer\savers\rbc.gd" />
 	  <Content Include="addons\Rubicon.Core\source\API\GDCustomBar.gd" />
 	  <Content Include="addons\Rubicon.Core\source\API\GDHealthBar.gd" />
 	  <Content Include="addons\Rubicon.Core\source\API\GDHudElement.gd" />
@@ -41,6 +53,7 @@
 	  <Content Include="addons\Rubicon.Core\source\API\GDSongEvent.gd" />
 	  <Content Include="addons\Rubicon.Core\source\API\GDStatDisplay.gd" />
 	  <Content Include="addons\Rubicon.Core\source\API\GDTimerBar.gd" />
+	  <Content Include="addons\Rubicon.Core\source\Chart\RubiChartConstants.gd" />
 	  <Content Include="addons\Rubicon.Core\source\Data\BarDirection.gd" />
 	  <Content Include="addons\Rubicon.Core\source\Data\ClearRank.gd" />
 	  <Content Include="addons\Rubicon.Core\source\Data\Hit.gd" />
