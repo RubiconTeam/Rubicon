@@ -157,9 +157,9 @@ public partial class RubiconGameInstance : CanvasLayer
 		PrintUtility.Print("RubiconGame", "PlayField loaded successfully.", true);
 		
 		BarLine targetBarLine = PlayField.BarLines[PlayField.TargetIndex];
-		_actionNames = new string[targetBarLine.Managers.Length];
+		_actionNames = new string[targetBarLine.Controllers.Length];
 		for (int i = 0; i < _actionNames.Length; i++)
-			_actionNames[i] = targetBarLine.Managers[i].Action;
+			_actionNames[i] = targetBarLine.Controllers[i].Action;
 		
 		BounceBeatSyncer = new BeatSyncer();
 		BounceBeatSyncer.Name = "UI Bumper";
