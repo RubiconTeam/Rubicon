@@ -42,6 +42,7 @@
 	  <Content Include="addons\rubichart_converter\plugin.gd" />
 	  <Content Include="addons\rubichart_converter\plugin_scene.gd" />
 	  <Content Include="addons\rubichart_converter\utility.gd" />
+	  <Content Include="addons\Rubicon.Core.Rulesets.Mania\source\GDManiaSkinModule.gd" />
 	  <Content Include="addons\Rubicon.Core\importer\loaders\rbc_2.0.gd" />
 	  <Content Include="addons\Rubicon.Core\importer\rubichart_res_loader.gd" />
 	  <Content Include="addons\Rubicon.Core\importer\rubichart_res_saver.gd" />
