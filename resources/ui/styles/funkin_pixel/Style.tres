@@ -1,8 +1,8 @@
-[gd_resource type="Resource" script_class="RubiconUiStyle" load_steps=4 format=3 uid="uid://c64f7b48famai"]
+[gd_resource type="Resource" script_class="UiStyle" load_steps=4 format=3 uid="uid://c64f7b48famai"]
 
 [ext_resource type="PackedScene" uid="uid://dufksylsmg3kh" path="res://resources/ui/styles/funkin_pixel/GameHud.tscn" id="1_tck34"]
 [ext_resource type="PackedScene" uid="uid://cd3iyrsx18g3k" path="res://resources/ui/styles/funkin/PauseMenu.tscn" id="2_ffgwf"]
-[ext_resource type="Script" uid="uid://d3ep2q4vrf24a" path="res://source/Rubicon/RubiconUiStyle.cs" id="3_ymu8i"]
+[ext_resource type="Script" uid="uid://dbn85h7ahlsdp" path="res://addons/Rubicon.Core/source/UI/UiStyle.cs" id="3_ymu8i"]
 
 [resource]
 script = ExtResource("3_ymu8i")

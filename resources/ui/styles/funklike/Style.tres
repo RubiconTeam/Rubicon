@@ -1,12 +1,12 @@
-[gd_resource type="Resource" script_class="RubiconUiStyle" load_steps=5 format=3 uid="uid://chxyngbhdngs7"]
+[gd_resource type="Resource" script_class="UiStyle" load_steps=5 format=3 uid="uid://chxyngbhdngs7"]
 
 [ext_resource type="PackedScene" uid="uid://bdhctmpgm4j2v" path="res://resources/ui/styles/funklike/BarLineHud.tscn" id="1_s1732"]
 [ext_resource type="PackedScene" uid="uid://cd3iyrsx18g3k" path="res://resources/ui/styles/funkin/PauseMenu.tscn" id="3_rak8a"]
-[ext_resource type="Script" uid="uid://d3ep2q4vrf24a" path="res://source/Rubicon/RubiconUiStyle.cs" id="3_s1732"]
+[ext_resource type="Script" uid="uid://dbn85h7ahlsdp" path="res://addons/Rubicon.Core/source/UI/UiStyle.cs" id="3_s1732"]
 [ext_resource type="PackedScene" uid="uid://b2mqpp6yyxnso" path="res://resources/ui/styles/funklike/GameHud.tscn" id="5_6d6pu"]
 
 [resource]
 script = ExtResource("3_s1732")
-PauseMenu = ExtResource("3_rak8a")
 MainHud = ExtResource("5_6d6pu")
 BarLineHud = ExtResource("1_s1732")
+PauseMenu = ExtResource("3_rak8a")

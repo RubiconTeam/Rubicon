@@ -175,11 +175,9 @@ public partial class RubiconGameInstance : CanvasLayer
 		Vocals?.SetPitchScale(SPEED);
 		Conductor.Speed = SPEED;*/
 
-		if (PlayField.UiStyle is RubiconUiStyle rbcStyle)
-		{
-			AddChild(rbcStyle.PauseMenu.Instantiate());
-			GD.Print("ADD THIN???");
-		}
+		PackedScene pauseMenu = PlayField.UiStyle.PauseMenu;
+		if (pauseMenu != null && pauseMenu.CanInstantiate())
+			AddChild(pauseMenu.Instantiate());
 		
 		// TODO: Countdown
 		PlayField.Start();
