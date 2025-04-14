@@ -1,8 +1,18 @@
-[gd_scene load_steps=11 format=3 uid="uid://u70rbkwujkeh"]
+[gd_scene load_steps=14 format=3 uid="uid://u70rbkwujkeh"]
 
 [ext_resource type="Script" uid="uid://qnxbqw5ionsl" path="res://source/Rubicon/View3D/Character3D.cs" id="1_e00ic"]
+[ext_resource type="SpriteFrames" uid="uid://dw06ivs1uhiwa" path="res://assets/game/characters/bf/BfIcon.tres" id="2_ln68d"]
 [ext_resource type="SpriteFrames" uid="uid://bf1b5h0jdi2y4" path="res://assets/game/characters/bf/boyfriend.tres" id="2_lqofb"]
 [ext_resource type="Script" uid="uid://d0uun7ht6o4rh" path="res://scripts/rubicon/objects/synced_sprite_3d.gd" id="3_iiixn"]
+[ext_resource type="Script" uid="uid://bsc6hc1t5s5ry" path="res://source/Rubicon/Data/CharacterIconData.cs" id="3_lm2c2"]
+
+[sub_resource type="Resource" id="Resource_fuiqg"]
+script = ExtResource("3_lm2c2")
+Icon = ExtResource("2_ln68d")
+Offset = Vector2(-60, -15)
+Color = Color(0.192, 0.69, 0.82, 1)
+Scale = Vector2(1.5, 1.5)
+Filter = 2
 
 [sub_resource type="Resource" id="Resource_c5vmy"]
 metadata/__load_path__ = "res://source/Rubicon/View3D/SyncedSprite3D.cs"
@@ -283,6 +293,7 @@ _data = {
 
 [node name="Bf3d" type="Node3D" node_paths=PackedStringArray("VisualObject", "AnimationPlayer", "_cameraPoint")]
 script = ExtResource("1_e00ic")
+Icon = SubResource("Resource_fuiqg")
 FacingZAxis = true
 DanceTime = 2.0
 HoldType = 2

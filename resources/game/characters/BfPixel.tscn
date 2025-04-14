@@ -9,7 +9,7 @@
 [sub_resource type="Resource" id="Resource_e8p3a"]
 script = ExtResource("2_34v78")
 Icon = ExtResource("2_4dxf5")
-Offset = Vector2(-12, -3)
+Offset = Vector2(-12, -6)
 Color = Color(0.482353, 0.839216, 0.964706, 1)
 Scale = Vector2(7.032, 7.032)
 Filter = 1

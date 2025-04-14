@@ -11,7 +11,7 @@
 [sub_resource type="Resource" id="Resource_jwyij"]
 script = ExtResource("3_asm0s")
 Icon = ExtResource("2_y4mqf")
-Offset = Vector2(0, 10)
+Offset = Vector2(-45, -15)
 Color = Color(0.662745, 0.0392157, 0.329412, 1)
 Scale = Vector2(1.5, 1.5)
 Filter = 2
@@ -421,6 +421,7 @@ tracks/7/keys = {
 
 [sub_resource type="Animation" id="Animation_jwyij"]
 resource_name = "singLEFT"
+step = 0.0416667
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -734,6 +735,8 @@ script = ExtResource("1_m12d2")
 Icon = SubResource("Resource_jwyij")
 DanceList = PackedStringArray("danceLeft", "danceRight")
 DanceTime = 1.0
+HoldType = 1
+RepeatLoopPoint = 0.083
 Sprite = NodePath("Speaker")
 AnimationPlayer = NodePath("AnimationPlayer")
 CameraPoint = NodePath("CameraPoint")
