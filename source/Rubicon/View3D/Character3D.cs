@@ -86,6 +86,11 @@ namespace Rubicon.View3D;
     /// Determines how holding is handled animation-wise.
     /// </summary>
     [Export] public CharacterHold HoldType = CharacterHold.Freeze;
+    
+    /// <summary>
+    /// The interval on the AnimationPlayer when the animation will loop, if <see cref="HoldType"/> is set to <see cref="CharacterHold.Repeat"/>.
+    /// </summary>
+    [Export] public double RepeatLoopPoint = 0.125;
 
     /// <summary>
     /// How long the singing animation should last in steps before idling back.
@@ -313,7 +318,7 @@ namespace Rubicon.View3D;
 		    case CharacterHold.None:
 			    SingTimer = 0;
 			    break;
-		    case CharacterHold.StepJitter:
+		    case CharacterHold.StepRepeat:
 			    int curStep = Mathf.FloorToInt(Conductor.CurrentStep);
 			    if (_lastStep != curStep)
 			    {
@@ -323,13 +328,12 @@ namespace Rubicon.View3D;
 			    
 			    _lastStep = curStep;
 			    break;
-		    case CharacterHold.Jitter:
-			    double normalizedTime =
-				    AnimationPlayer.CurrentAnimationPosition / AnimationPlayer.CurrentAnimationLength;
-			    if (normalizedTime < 0.125)
+		    case CharacterHold.Repeat:
+			    double currentTime = AnimationPlayer.CurrentAnimationPosition;
+			    if (currentTime < RepeatLoopPoint)
 				    break;
 			    
-			    AnimationPlayer.Seek(0f);
+			    AnimationPlayer.Seek(currentTime % RepeatLoopPoint);
 			    SingTimer = 0;
 			    break;
 		    case CharacterHold.Freeze:

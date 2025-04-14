@@ -11,14 +11,14 @@ public enum CharacterHold : uint
     None,
     
     /// <summary>
-    /// The character will jitter similar to how Fantasy Engine does (HoloFunk)
+    /// The character will repeat on a set interval.
     /// </summary>
-    Jitter,
+    Repeat,
     
     /// <summary>
-    /// The character will jitter every step, similar to every other Funkin' engine.
+    /// The character will repeat their animation every step, similar to every other Funkin' engine.
     /// </summary>
-    StepJitter,
+    StepRepeat,
     
     /// <summary>
     /// The character will freeze in place until the hold note is completed.

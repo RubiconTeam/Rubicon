@@ -79,6 +79,7 @@
 	  <Content Include="source\Rubicon\API\GDFunkinTimerBar.gd" />
 	  <Content Include="source\Rubicon\API\GdPauseMenu.gd" />
 	  <Content Include="source\Rubicon\API\GDSongScript.gd" />
+	  <Content Include="source\Rubicon\Data\CharacterHold.gd" />
 	  <Content Include="source\Rubicon\Data\TimeValue.gd" />
 	</ItemGroup>
 </Project>
