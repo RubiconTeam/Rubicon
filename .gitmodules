@@ -1,0 +1,3 @@
+[submodule "sprite_importer"]
+	path = addons/sprite_importer
+	url = https://github.com/legole0/sprite_importer
